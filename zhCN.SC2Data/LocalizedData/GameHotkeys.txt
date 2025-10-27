@@ -1,0 +1,12 @@
+﻿ANgl/Hotkey=V
+ANlg/Hotkey=B
+Asud/Hotkey=B
+CmdBuildHuman/Hotkey=Q
+CmdBuildNightElf/Hotkey=Q
+Efur/Hotkey=Q
+Ekee/Hotkey=Q
+Emoo/Hotkey=Q
+Ewar/Hotkey=Q
+Nbrn/Hotkey=Q
+eshd/Hotkey=W
+nwat/Hotkey=W

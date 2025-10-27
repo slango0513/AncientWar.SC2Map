@@ -1,0 +1,142 @@
+﻿AEfk/Ubertip=典狱官对周围的敌人发射扇面刀簇进行伤害，每把尖刀造成<d ref="Effect,AEfk1Damage,Amount"/>点的伤害。
+AHfa/Ubertip=增加<d ref="Behavior,AHfa1,Modification.DamageDealtUnscaled[Ranged]"/>点的火焰伤害。
+AHwe/Ubertip=召唤出一个具有<d ref="Unit,hwat,LifeStart"/>生命值的水元素来帮大魔法师进行战斗。攻击力为<d ref="Effect,hwat1,Amount"/>点。<n/>持续<d ref="Behavior,BHwe,Duration"/>秒。<n/><n/><c val="ffcc00">能攻击地面和空中单位。</c>
+ANba/Ubertip=增加<d ref="Behavior,ANba1,Modification.DamageDealtUnscaled[Ranged]"/>点的攻击力。被黑暗箭射死的单位会变成具有<d ref="Unit,ndr1,LifeStart"/>点生命值的骷髅兵。
+ANgl/Tip=购买木材
+ANgl/Ubertip=用<d ref="Abil,ANgl,Cost[0].Resource[Terrazine]"/>黄金交换<d ref="-Abil,ANgl,Cost[0].Resource[Custom]"/>木材。
+ANlg/Tip=购买黄金
+ANlg/Ubertip=用<d ref="Abil,ANlg,Cost[0].Resource[Custom]"/>木材交换<d ref="-Abil,ANlg,Cost[0].Resource[Terrazine]"/>黄金。
+Aadm/Ubertip=对召唤单位造成<d ref="Effect,HurtEnemySummoned300,Amount"/>点的伤害。
+Abil/Name/ANgl=购买木材
+Abil/Name/ANlg=购买黄金
+Abil/Name/Adef1=防御
+Abil/Name/Asud=出售单位
+Adef/Ubertip=激活以减少所有类型的远程攻击<d ref="-Behavior,Adef,DamageResponse.ModifyAmount"/>点伤害。如果防御状态被激活，移动速度会变成<d ref="Behavior,Adef,Modification.MoveSpeedMultiplier*100"/>%的常规速度。
+Aegr/Ubertip=减少来自所有类型的远程攻击的伤害到原来的<d ref="Behavior,Aegr,DamageResponse.ModifyFraction*100"/>%，并减少来自技能的伤害到原来的<d ref="Behavior,AegrSpellReduction,DamageResponse.ModifyFraction*100"/>%。
+Aenw/Ubertip=从地下伸出缠绕的根须将目标内固定住<d ref="Effect,AEer1Dur,Duration"/>秒，并对其造成每秒<d ref="Effect,BEerDPS1,Amount"/>点的伤害。
+Afae/Ubertip=减少目标单位<d ref="-Behavior,Bfae,Modification.LifeArmorBonus"/>点护甲值，持续<d ref="Behavior,Bfae,Duration"/>秒。
+Ahea/Ubertip=治疗一个友方的非机械受伤单位，恢复其<d ref="Effect,AheaHeal,RechargeVitalRate"/>的生命值。
+Ainf/Ubertip=增加目标友方单位<d ref="Behavior,Binf,Modification.DamageDealtScaled[Melee]"/>点基础攻击力。<n/>持续<d ref="Behavior,Binf,Duration"/>秒。
+Anh2/Ubertip=治疗一个友方的非机械受伤单位，恢复其<d ref="Effect,Anh2Heal,RechargeVitalRate"/>的生命值。
+Ara2/Ubertip=增加周围友方单位<d ref="Behavior,Broa,Modification.DamageDealtFraction[Melee]*100"/>%的攻击力。<n/>持续<d ref="Behavior,Broa,Duration"/>秒。
+Arej/Ubertip=在<d ref="Behavior,Brej,Duration"/>秒内恢复目标友方单位<d ref="Effect,BrejHealTick,RechargeVitalRate*Behavior,Brej,Duration"/>点的生命值。
+Aspo/Ubertip=迟缓毒药攻击能造成每秒<d ref="Effect,BssdDPS,Amount"/>点的伤害，并在<d ref="Behavior,Bspo,Duration"/>秒内减慢敌人<d ref="1-Behavior,Bspo,Modification.MoveSpeedMultiplier*100"/>%的移动速度和<d ref="1-Behavior,Bspo,Modification.AttackSpeedMultiplier*100"/>%的攻击速度。
+Assk/Ubertip=降低所有施加在山岭巨人身上的伤害<d ref="1-Behavior,Assk,DamageResponse.ModifyFraction*100"/>%。
+Asud/Ubertip=允许出卖单位，返还<d ref="-Effect,Asud,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
+Behavior/Name/Building=建筑
+Behavior/Name/Preparing=准备中
+Bfae/Buffubertip=该单位受到了精灵之火的作用，因此其护甲被削弱了。
+Binf/Buffubertip=该单位拥有心灵之火，所以其攻击力都得到了加强。
+Building/Name=建筑
+Button/Name/MultiShot=多重射击
+Defending/Name=防御中
+Defense/Name=防御
+DocInfo/DescLong=古代战争 - 魔兽争霸III Mod (GA)。
+DocInfo/DescShort=任意
+DocInfo/Name=古代战争 - 魔兽争霸III Mod (GA)
+Effect/Name/Asud=出售单位
+Effect/Name/DefendIssueOrder=防御发布指令
+Effect/Name/DefendSet=防御集合
+Effect/Name/DefendStopIssueOrder=停止防御发布指令
+Effect/Name/Defending=防御中
+Efur/Name=法里奥
+Efur/Tip=法里奥
+Ekee/Name=丛林守护者
+Ekee/Tip=丛林守护者
+Emoo/Name=月之女祭司
+Emoo/Tip=月之女祭司
+Ewar/Tip=典狱官
+Hamg/Name=大法师
+Hamg/Tip=大法师
+Hlgr/Name=甲胄骑兵
+Hlgr/Tip=甲胄骑兵
+MapInfo/Player00/Name=中立
+MapInfo/Player01/Name=玩家1
+MapInfo/Player02/Name=玩家2
+MapInfo/Player03/Name=玩家3
+MapInfo/Player04/Name=玩家4
+MapInfo/Player05/Name=玩家5
+MapInfo/Player06/Name=玩家6
+MapInfo/Player07/Name=玩家7
+MapInfo/Player08/Name=玩家8
+MapInfo/Player09/Name=玩家9
+MapInfo/Player10/Name=玩家10
+MapInfo/Player11/Name=玩家11
+MapInfo/Player12/Name=玩家12
+MapInfo/Player13/Name=敌对
+MapInfo/Player14/Name=玩家14
+MapInfo/Player15/Name=敌对
+MorphTo/Name=升级为
+MultiShot/Tip=多重射击
+MultiShot/Ubertip=能一次攻击多个目标。
+Nbrn/Name=黑暗游侠
+Nbrn/Tip=黑暗游侠
+Param/Value/05267893=
+Param/Value/171BD6C0=在本场比赛获得胜利。
+Param/Value/1F61923B=
+Param/Value/216860A7= iCLivingUnit=
+Param/Value/2177079E=奖励回合开始。
+Param/Value/40026B7B=奖励回合pointReserv[
+Param/Value/400D6EF3= s=
+Param/Value/508D1D51=剩余
+Param/Value/55DB5BD8=回合奖励
+Param/Value/55F724F7=玩家
+Param/Value/5AAD0B64=奖励
+Param/Value/61D13CE0=,
+Param/Value/6250BEB1=在整场比赛获得胜利！游戏将在15秒后退出。
+Param/Value/62D1EB4C=
+Param/Value/781AF07E=剩余时间
+Param/Value/82C803CB=,
+Param/Value/91DF5681=剩余时间
+Param/Value/9F45A887=玩家
+Param/Value/A53AE254=回合。
+Param/Value/A99D8C2B=现在由电脑接管。
+Param/Value/B399A25B=玩家
+Param/Value/BE944676=为
+Param/Value/C16F7527=剩余时间
+Param/Value/D52897FF=战斗奖励
+Param/Value/E32365A7=回合开始，总共
+Param/Value/E53E578E=]=
+Param/Value/E702DCDD= iCUnit=
+Param/Value/F7E66B93=]=
+Param/Value/FEE6645E=奖励回合pointReserv[
+Param/Value/FF778FD4=第
+Pause/Name=Pause
+Preparing/Name=准备中
+Upgrade/Name/Final=决赛
+Upgrade/Name/Pause=回合结束
+Variant001/ModeDesc=决赛前为单循环赛，决赛采用单败淘汰制。
+Variant001/ModeName=淘汰制
+earc/Tip=弓箭手
+ebal/Tip=投刃车
+edcm/Tip=利爪德鲁伊
+edoc/Tip=利爪德鲁伊
+edot/Name=猛禽德鲁伊
+edot/Tip=猛禽德鲁伊
+edry/Name=树妖
+edry/Tip=树妖
+emtg/Tip=山岭巨人
+esen/Name=女猎手
+esen/Tip=女猎手
+eshd/Name=高级弓箭手
+eshd/Tip=高级弓箭手
+eshd/Ubertip=高级弓箭手。<n/><n/><c val="ffcc00">能攻击地面和空中单位。</c>
+hfoo/Tip=步兵
+hhes/Tip=剑士
+hkni/Tip=骑士
+hmpr/Tip=牧师
+hmtm/Tip=迫击炮小队
+hrif/Tip=火枪手
+hrtt/Tip=攻城机车
+hsor/Tip=女巫
+hspt/Tip=破法者
+nbld/Name=枪骑兵
+nbld/Tip=枪骑兵
+nbld1/Tip=枪骑兵
+nchp/Tip=教会牧师
+nhea/Name=高等精灵弓箭手
+nhea/Tip=高等精灵弓箭手
+nhym/Name=水占师
+nhym/Tip=水占师
+nwat/Name=哨兵
+nwat/Ubertip=哨兵。

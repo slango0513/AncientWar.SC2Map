@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CValidatorCombine id="BrejTargetFilters">
+        <Type value="And"/>
+        <CombineArray value="NoRejuvenation"/>
+    </CValidatorCombine>
+    <CValidatorLocationEnumArea id="EnemiesNearby2" parent="EnemiesNearby">
+        <AreaArray index="0" Compare="GE" Count="1" Radius="2"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorUnitCompareBehaviorCount id="NoDefending">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="Defending"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoRejuvenation">
+        <ResultFailed value="Error,Errors/Alreadybeinghealed"/>
+        <Behavior value="Brej"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="RejuvenationAutoCastTargetFilter">
+        <CombineArray value="NotFullLife"/>
+        <CombineArray value="NotNegativeLifeRegen"/>
+        <CombineArray value="NotHidden"/>
+        <CombineArray value="NotHallucinationTarget"/>
+        <Type value="And"/>
+    </CValidatorCombine>
+</Catalog>

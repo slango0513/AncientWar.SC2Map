@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CEffectApplyBehavior id="AEer1Dur">
+        <Duration value="6"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="AEfk1Damage">
+        <Amount value="50"/>
+    </CEffectDamage>
+    <CEffectCreateHealer id="AheaHeal">
+        <RechargeVitalRate value="35"/>
+    </CEffectCreateHealer>
+    <CEffectCreateHealer id="Anh2Heal">
+        <RechargeVitalRate value="15"/>
+    </CEffectCreateHealer>
+    <CEffectDamage id="BEerDPS1">
+        <Amount value="25"/>
+    </CEffectDamage>
+    <CEffectCreateHealer id="BrejHealTick">
+        <RechargeVitalRate value="50"/>
+    </CEffectCreateHealer>
+    <CEffectDamage id="BssdDPS">
+        <Amount value="25"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Defending">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectIssueOrder id="DefendIssueOrder">
+        <WhichUnit Value="Caster"/>
+        <Abil value="Adef"/>
+        <ValidatorArray value="NoDefending"/>
+    </CEffectIssueOrder>
+    <CEffectIssueOrder id="DefendStopIssueOrder">
+        <WhichUnit Value="Caster"/>
+        <Abil value="Adef"/>
+        <AbilCmdIndex value="1"/>
+    </CEffectIssueOrder>
+    <CEffectSet id="DefendSet">
+        <EffectArray value="DefendIssueOrder"/>
+        <EffectArray value="Defending"/>
+    </CEffectSet>
+    <CEffectDamage id="Emoo1">
+        <Amount value="96"/>
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="Emoo1E">
+        <ExcludeArray Value="Target" History="Damage"/>
+        <SearchFilters value="Visible;player,allies,neutral,Missile,dead,Hidden,invulnerable,Passive"/>
+        <AreaArray MaxCount="2" Radius="4" Effect="Emoo1LM"/>
+        <ImpactLocation Value="CasterUnit"/>
+    </CEffectEnumArea>
+    <CEffectSet id="Emoo1S">
+        <EffectArray value="Emoo1LM"/>
+        <EffectArray value="Emoo1E"/>
+    </CEffectSet>
+    <CEffectDamage id="Kill">
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectDamage id="Nbrn1">
+        <Amount value="48"/>
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="ebal1">
+        <Amount value="48"/>
+        <AreaArray index="0" Radius="0.5" Fraction="1"/>
+        <AreaArray index="1" Radius="1.5" Fraction="0.5"/>
+        <AreaArray index="2" removed="1"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Random value="0"/>
+        <SearchFilters value="-;player,allies,air,tree,Missile,item,ward,ethereal,dead,invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="edcm1">
+        <Amount value="96"/>
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="edoc1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="96"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="edot1">
+        <Amount value="12"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="edry1">
+        <Amount value="12"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="emtg1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="96"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="eshd1">
+        <Amount value="48"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hfoo1">
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hhes1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hkni1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="96"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hmil1">
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hmpr1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="12"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hmtm1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+        <AreaArray index="0" Radius="1.5" Fraction="1"/>
+        <AreaArray index="1" Radius="2.5" Fraction="0.6667"/>
+        <AreaArray index="2" Radius="3.5" Fraction="0.3332"/>
+        <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="hrif1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hrtt1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="96"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hsor1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="12"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hspt1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="12"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="hwat1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="48"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nbld1">
+        <Amount value="96"/>
+        <Random value="96"/>
+    </CEffectDamage>
+    <CEffectDamage id="nchp1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="12"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="ndr11">
+        <Amount value="12"/>
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nhym1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="96"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nmgd1">
+        <Amount value="384"/>
+        <AreaArray Radius="0.3906" Fraction="1"/>
+        <AreaArray Radius="0.7812" Fraction="0.75"/>
+        <AreaArray Radius="1.1718" Fraction="0.5"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectCreateUnit id="nmgr">
+        <SpawnUnit value="nmgr"/>
+        <CreateFlags index="Placement" value="0"/>
+        <WhichLocation Value="OriginUnit"/>
+    </CEffectCreateUnit>
+    <CEffectDamage id="earc1">
+        <Amount value="48"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="esen1">
+        <Amount value="96"/>
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nban1">
+        <Amount value="24"/>
+        <AttributeFactor index="divine" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nhea1">
+        <Amount value="12"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectCreateUnit id="nmgd">
+        <SpawnUnit value="nmgd"/>
+        <CreateFlags index="Placement" value="0"/>
+        <WhichLocation Value="OriginUnit"/>
+    </CEffectCreateUnit>
+    <CEffectDamage id="nmgr1">
+        <Amount value="768"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectCreateUnit id="nmgw">
+        <SpawnUnit value="nmgw"/>
+        <SpawnCount value="2"/>
+        <CreateFlags index="Placement" value="0"/>
+        <WhichLocation Value="OriginUnit"/>
+    </CEffectCreateUnit>
+    <CEffectDamage id="nmgw1">
+        <Amount value="192"/>
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nwat1">
+        <Amount value="12"/>
+        <AttributeFactor index="divine" value="0"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="Asud">
+        <ModifyFlags index="Salvage" value="1"/>
+        <SalvageFactor>
+            <Resource index="Minerals" value="-0.75"/>
+            <Resource index="Vespene" value="-0.75"/>
+            <Resource index="Terrazine" value="-0.75"/>
+            <Resource index="Custom" value="-0.75"/>
+        </SalvageFactor>
+    </CEffectModifyUnit>
+</Catalog>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Regions>
+    <region id="1">
+        <name value="Battlefield"/>
+        <invisible/>
+        <shape type="circle">
+            <center value="128,128"/>
+            <radius value="70"/>
+        </shape>
+    </region>
+    <region id="2">
+        <name value="BuildingRegion1"/>
+        <shape type="rect">
+            <quad value="65,27,79,53"/>
+        </shape>
+    </region>
+    <region id="3">
+        <name value="BuildingRegion2"/>
+        <shape type="rect">
+            <quad value="81.0002,27.0002,95.0002,53.0002"/>
+        </shape>
+    </region>
+    <region id="4">
+        <name value="BuildingRegion3"/>
+        <shape type="rect">
+            <quad value="97.0002,27,111.0002,53"/>
+        </shape>
+    </region>
+    <region id="5">
+        <name value="BuildingRegion4"/>
+        <shape type="rect">
+            <quad value="113,27,127,53"/>
+        </shape>
+    </region>
+    <region id="6">
+        <name value="BuildingRegion5"/>
+        <shape type="rect">
+            <quad value="129.0002,27,143.0002,53"/>
+        </shape>
+    </region>
+    <region id="7">
+        <name value="BuildingRegion6"/>
+        <shape type="rect">
+            <quad value="145.0002,27,159.0002,53"/>
+        </shape>
+    </region>
+    <region id="8">
+        <name value="BuildingRegion7"/>
+        <shape type="rect">
+            <quad value="161.0002,27.0002,175.0002,53.0002"/>
+        </shape>
+    </region>
+    <region id="9">
+        <name value="BuildingRegion8"/>
+        <shape type="rect">
+            <quad value="177.0002,27.0002,191.0002,53.0002"/>
+        </shape>
+    </region>
+    <region id="10">
+        <name value="BuildingRegion9"/>
+        <shape type="rect">
+            <quad value="65.0002,203.0002,79.0002,229.0002"/>
+        </shape>
+    </region>
+    <region id="11">
+        <name value="BuildingRegion10"/>
+        <shape type="rect">
+            <quad value="81.0002,203,95.0002,229"/>
+        </shape>
+    </region>
+    <region id="12">
+        <name value="BuildingRegion11"/>
+        <shape type="rect">
+            <quad value="97.0002,203,111.0002,229"/>
+        </shape>
+    </region>
+    <region id="13">
+        <name value="BuildingRegion12"/>
+        <shape type="rect">
+            <quad value="113.0002,203,127.0002,229"/>
+        </shape>
+    </region>
+    <region id="14">
+        <name value="BuildingRegion13"/>
+        <shape type="rect">
+            <quad value="129.0002,203,143.0002,229"/>
+        </shape>
+    </region>
+    <region id="15">
+        <name value="BuildingRegion14"/>
+        <shape type="rect">
+            <quad value="145.0002,203,159.0002,229"/>
+        </shape>
+    </region>
+    <region id="16">
+        <name value="BuildingRegion15"/>
+        <shape type="rect">
+            <quad value="161,203,175,229"/>
+        </shape>
+    </region>
+    <region id="17">
+        <name value="BuildingRegion16"/>
+        <shape type="rect">
+            <quad value="177.0002,203.0002,191.0002,229.0002"/>
+        </shape>
+    </region>
+</Regions>

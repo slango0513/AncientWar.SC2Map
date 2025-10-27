@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CRequirement id="Asud">
+        <NodeArray index="Show" Link="AndCountBehaviorBuildingCompleteOnlyAtUnitCountUpgradePauseCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="HasBuilding">
+        <NodeArray index="Show" Link="CountBehaviorBuildingCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="HasNoBuilding">
+        <NodeArray index="Show" Link="EqCountBehaviorBuildingCompleteOnlyAtUnit0"/>
+    </CRequirement>
+    <CRequirement id="Final">
+        <NodeArray index="Use" Link="CountUpgradeFinalCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="Pause">
+        <NodeArray index="Use" Link="CountUpgradePauseCompleteOnly"/>
+    </CRequirement>
+</Catalog>

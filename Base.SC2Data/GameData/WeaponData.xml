@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <!--HeroMoonPriestess-->
+    <CWeaponLegacy id="Emoo1">
+        <MinScanRange value="18"/>
+        <Range value="3"/>
+        <Period value="3"/>
+        <Effect value="Emoo1S"/>
+    </CWeaponLegacy>
+    <!--Hero Banshee Ranger-->
+    <CWeaponLegacy id="Nbrn1">
+        <MinScanRange value="18"/>
+        <Range value="9"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--Archer-->
+    <CWeaponLegacy id="earc1">
+        <MinScanRange value="18"/>
+        <Range value="8"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--Glaive Thrower-->
+    <CWeaponLegacy id="ebal1">
+        <MinScanRange value="18"/>
+        <Range value="10"/>
+        <Period value="6"/>
+    </CWeaponLegacy>
+    <!--DruidoftheClawMorph-->
+    <CWeaponLegacy id="edcm1">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--DruidoftheClaw-->
+    <CWeaponLegacy id="edoc1">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--DruidoftheTalon-->
+    <CWeaponLegacy id="edot1">
+        <MinScanRange value="18"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--Dryad-->
+    <CWeaponLegacy id="edry1">
+        <MinScanRange value="18"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--Mountain Giant-->
+    <CWeaponLegacy id="emtg1">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="emtg2">
+        <MinScanRange value="18"/>
+    </CWeaponLegacy>
+    <!--Huntress-->
+    <CWeaponLegacy id="esen1">
+        <MinScanRange value="18"/>
+        <Range value="2"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--Shandris-->
+    <CWeaponLegacy id="eshd1">
+        <MinScanRange value="18"/>
+        <Range value="14"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--Footman-->
+    <CWeaponLegacy id="hfoo1">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--high elven swordsman-->
+    <CWeaponLegacy id="hhes1">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--Knight-->
+    <CWeaponLegacy id="hkni1">
+        <MinScanRange value="18"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--Militia-->
+    <CWeaponLegacy id="hmil1">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--Priest-->
+    <CWeaponLegacy id="hmpr1">
+        <MinScanRange value="18"/>
+        <Period value="1.5"/>
+        <Range value="5"/>
+    </CWeaponLegacy>
+    <!--MortarTeam-->
+    <CWeaponLegacy id="hmtm1">
+        <MinScanRange value="18"/>
+        <Period value="6"/>
+    </CWeaponLegacy>
+    <!--Rifleman-->
+    <CWeaponLegacy id="hrif1">
+        <MinScanRange value="18"/>
+        <Range value="8"/>
+    </CWeaponLegacy>
+    <!--siege engine upgraded-->
+    <CWeaponLegacy id="hrtt1">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--Sorceress-->
+    <CWeaponLegacy id="hsor1">
+        <MinScanRange value="18"/>
+        <Period value="1.5"/>
+        <Range value="6"/>
+    </CWeaponLegacy>
+    <!--Spell Breaker-->
+    <CWeaponLegacy id="hspt1">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--WaterElemental-->
+    <CWeaponLegacy id="hwat1">
+        <MinScanRange value="18"/>
+        <Range value="2"/>
+    </CWeaponLegacy>
+    <!--bandit-->
+    <CWeaponLegacy id="nban1">
+        <MinScanRange value="18"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--bandit lord-->
+    <CWeaponLegacy id="nbld1">
+        <MinScanRange value="18"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--chaplain-->
+    <CWeaponLegacy id="nchp1">
+        <MinScanRange value="18"/>
+        <Range value="5"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--DarkMinion1-->
+    <CWeaponLegacy id="ndr11">
+        <MinScanRange value="18"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--high elven archer-->
+    <CWeaponLegacy id="nhea1">
+        <MinScanRange value="18"/>
+        <Range value="7"/>
+    </CWeaponLegacy>
+    <!--hydromancer-->
+    <CWeaponLegacy id="nhym1">
+        <MinScanRange value="18"/>
+        <Period value="1.5"/>
+        <Range value="4"/>
+    </CWeaponLegacy>
+    <!--magnataur destroyer-->
+    <CWeaponLegacy id="nmgd1">
+        <MinScanRange value="18"/>
+    </CWeaponLegacy>
+    <!--magnataur reaver-->
+    <CWeaponLegacy id="nmgr1">
+        <MinScanRange value="18"/>
+    </CWeaponLegacy>
+    <!--magnataur warrior-->
+    <CWeaponLegacy id="nmgw1">
+        <MinScanRange value="18"/>
+    </CWeaponLegacy>
+    <!--Watcher-->
+    <CWeaponLegacy id="nwat1">
+        <MinScanRange value="18"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+</Catalog>

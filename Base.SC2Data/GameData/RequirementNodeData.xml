@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CRequirementAnd id="AndCountBehaviorBuildingCompleteOnlyAtUnitCountUpgradePauseCompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountBehaviorBuildingCompleteOnlyAtUnit"/>
+        <OperandArray value="CountUpgradePauseCompleteOnly"/>
+    </CRequirementAnd>
+    <CRequirementCountBehavior id="CountBehaviorBuildingCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Building" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountUpgrade id="CountUpgradeFinalCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Final" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradePauseCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Pause" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementEq id="EqCountBehaviorBuildingCompleteOnlyAtUnit0">
+        <OperandArray index="0" value="CountBehaviorBuildingCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+</Catalog>

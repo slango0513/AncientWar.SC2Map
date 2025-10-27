@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CUpgrade id="Final" parent="War3_Upgrade">
+        <Name value="Upgrade/Name/Final"/>
+    </CUpgrade>
+    <CUpgrade id="Pause" parent="War3_Upgrade">
+        <Name value="Upgrade/Name/Pause"/>
+    </CUpgrade>
+</Catalog>

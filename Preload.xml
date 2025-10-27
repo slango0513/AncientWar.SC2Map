@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Preload>
+<Actor id="SYSTEM_ActorConfig"/>
+<Behavior id="Building"/>
+<Behavior id="Preparing"/>
+<Effect id="Kill"/>
+<Race id="Human"/>
+<Race id="NightElf"/>
+<Race id="Orc"/>
+<Race id="Undead"/>
+<Terrain id="BelShirEx2"/>
+<Unit id="hpea"/>
+<Unit id="ewsp"/>
+<Unit id="nmgw"/>
+</Preload>

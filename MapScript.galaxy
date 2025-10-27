@@ -1,0 +1,1535 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   ???????????? - ????????????III Mod (GA)
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+include "LibGAwX"
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+    libGAwX_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Global Variables
+//--------------------------------------------------------------------------------------------------
+fixed gv_fixedTime;
+int[17] gv_intG;
+int gv_intColumn;
+int gv_intRow;
+int gv_intCountPlayer;
+int gv_intCountPlayerActive;
+int gv_intCountRound;
+int gv_intCountBonusRound;
+int gv_intCountFinalRound;
+int gv_intCountGroup;
+int[17] gv_intPlayer;
+int[17] gv_intPlayerActive;
+int[17] gv_intGroupPlayer;
+int[9] gv_intRandomGroup;
+int[17] gv_intRandomRound;
+int[17][17] gv_intScheduleAllPlayAll;
+int[17][17] gv_intPlayerFinal;
+int gv_board;
+int[17] gv_intRowBoardOfPlayer;
+unit[17] gv_unitWorker;
+revealer[17] gv_visRevealer;
+playergroup gv_playergroupAI;
+int[17] gv_intSL;
+int[17] gv_intCountUnit;
+string[17][2049] gv_typeUnit;
+int[17] gv_intCountLivingUnit;
+int gv_intRound;
+int gv_intBonusRound;
+int gv_intFinalRound;
+point[17] gv_pointReserve;
+playergroup gv_playergroupBonusDone;
+bool gv_boolKilling;
+int[17] gv_intS;
+int gv_intSMax;
+playergroup gv_playergroupWon;
+playergroup gv_playergroupLose;
+
+void InitGlobals () {
+    int init_i;
+
+    gv_board = c_boardNone;
+    for (init_i = 0; init_i <= 16; init_i += 1) {
+        gv_visRevealer[init_i] = VisRevealerLastCreated();
+    }
+    gv_playergroupAI = PlayerGroupEmpty();
+    gv_playergroupBonusDone = PlayerGroupEmpty();
+    gv_playergroupWon = PlayerGroupEmpty();
+    gv_playergroupLose = PlayerGroupEmpty();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Global Function Declarations
+//--------------------------------------------------------------------------------------------------
+point gf_PlayerBattlefieldLocation (int lp_p);
+point gf_PlayerReserveLocation (int lp_p);
+point gf_PlayerBonusLocation (int lp_p);
+point gf_PlayerBonusMobLocation (int lp_p);
+point gf_PlayerBonusReserveLocation (int lp_p);
+point gf_PlayerFinalLocation (int lp_p);
+point gf_PlayerFinalReserveLocation (int lp_p);
+point gf_PlayerBuildingLocation (int lp_p);
+region gf_PlayerBuildingRegion (int lp_p);
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_InitMap;
+trigger gt_InitPlayer;
+trigger gt_InitRandomGroup;
+trigger gt_InitRandomRound;
+trigger gt_InitScheduleAllPlayAll;
+trigger gt_InitPlayerFinal;
+trigger gt_InitBoard;
+trigger gt_InitWorker;
+trigger gt_Waiting;
+trigger gt_AI;
+trigger gt_InitUnit;
+trigger gt_Position;
+trigger gt_Reserve;
+trigger gt_Build;
+trigger gt_Idle;
+trigger gt_PlayerLeft;
+
+//--------------------------------------------------------------------------------------------------
+// Global Functions
+//--------------------------------------------------------------------------------------------------
+point gf_PlayerBattlefieldLocation (int lp_p) {
+    // Implementation
+    return PointFromName(("BattlefieldLocation" + IntToString(lp_p)));
+}
+
+point gf_PlayerReserveLocation (int lp_p) {
+    // Implementation
+    return PointFromName(("ReserveLocation" + IntToString(lp_p)));
+}
+
+point gf_PlayerBonusLocation (int lp_p) {
+    // Variable Declarations
+    int lv_p;
+
+    // Variable Initialization
+
+    // Implementation
+    if ((lp_p <= 8)) {
+        lv_p = lp_p;
+    }
+    else {
+        lv_p = (lp_p - 8);
+    }
+    return PointFromName(("BattlefieldLocation" + IntToString(((lv_p * 2) - 1))));
+}
+
+point gf_PlayerBonusMobLocation (int lp_p) {
+    // Variable Declarations
+    int lv_p;
+
+    // Variable Initialization
+
+    // Implementation
+    if ((lp_p <= 8)) {
+        lv_p = lp_p;
+    }
+    else {
+        lv_p = (lp_p - 8);
+    }
+    return PointFromName(("BattlefieldLocation" + IntToString((lv_p * 2))));
+}
+
+point gf_PlayerBonusReserveLocation (int lp_p) {
+    // Variable Declarations
+    int lv_p;
+
+    // Variable Initialization
+
+    // Implementation
+    if ((lp_p <= 8)) {
+        lv_p = lp_p;
+    }
+    else {
+        lv_p = (lp_p - 8);
+    }
+    return PointFromName(("ReserveLocation" + IntToString(((lv_p * 2) - 1))));
+}
+
+point gf_PlayerFinalLocation (int lp_p) {
+    // Implementation
+    return PointFromName(("FinalLocation" + IntToString(lp_p)));
+}
+
+point gf_PlayerFinalReserveLocation (int lp_p) {
+    // Implementation
+    return PointFromName(("FinalReserveLocation" + IntToString(lp_p)));
+}
+
+point gf_PlayerBuildingLocation (int lp_p) {
+    // Implementation
+    return PointFromName(("BuildingLocation" + IntToString(lp_p)));
+}
+
+region gf_PlayerBuildingRegion (int lp_p) {
+    // Implementation
+    return RegionFromName(("BuildingRegion" + IntToString(lp_p)));
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitMap
+//--------------------------------------------------------------------------------------------------
+bool gt_InitMap_Func (bool testConds, bool runActions) {
+    playergroup auto4750D82E_g;
+    int auto4750D82E_p;
+    int auto8D94123B_ae;
+    int auto8D94123B_ai;
+
+    // Variable Declarations
+    int lv_p;
+    playergroup lv_pg;
+    string lv_race;
+    string lv_raceAtt;
+    int lv_r;
+
+    // Variable Initialization
+    lv_pg = PlayerGroupActive();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(libGAwX_gt_AegrElunesGraceRegister, false);
+    TriggerEnable(libGAwX_gt_AdefDefendInitRegister, false);
+    auto4750D82E_g = lv_pg; 
+    auto4750D82E_p = 1;
+    for ( ; auto4750D82E_p <= PlayerGroupCount(auto4750D82E_g) ; auto4750D82E_p += BoolToInt(lv_p == PlayerGroupPlayer(auto4750D82E_g, auto4750D82E_p)) ) {
+        lv_p = PlayerGroupPlayer(auto4750D82E_g, auto4750D82E_p);
+        lv_raceAtt = GameAttributePlayerValue("[bnet:War3 Extra (GA)/0.0/60618,file:Mods\\WarCraft\\WarCraftDataAbil.SC2Mod]1", lv_p);
+        lv_race = libGAwX_gf_GenerateRaceFromRaceAttribute(lv_raceAtt);
+        libGAwX_gf_SetPlayerUIRace(lv_p, lv_race);
+        PlayerOptionOverride(lv_p, "displayunitstatus", "All");
+        PlayerOptionOverride(lv_p, "simplecommandcard", "0");
+        PlayerOptionOverride(lv_p, "selectuncontrolable", "1");
+        CameraPan(lv_p, RegionGetCenter(RegionFromId(1)), 0.0, -1, 10.0, false);
+    }
+    libNtve_gf_SetPlayerGroupAlliance(PlayerGroupActive(), libNtve_ge_AllianceSetting_Enemy);
+    gv_intColumn = 6;
+    gv_intRow = 8;
+    gv_fixedTime = 45.0;
+    auto8D94123B_ae = 16;
+    auto8D94123B_ai = 1;
+    lv_r = 1;
+    for ( ; ( (auto8D94123B_ai >= 0 && lv_r <= auto8D94123B_ae) || (auto8D94123B_ai <= 0 && lv_r >= auto8D94123B_ae) ) ; lv_r += auto8D94123B_ai ) {
+        gv_intG[lv_r] = 225;
+    }
+    gv_intG[1] = 75;
+    gv_intG[2] = 150;
+    gv_intG[3] = 150;
+    Wait(2.0, c_timeGame);
+    TriggerExecute(gt_InitPlayer, true, false);
+    TriggerExecute(gt_InitRandomGroup, true, false);
+    TriggerExecute(gt_InitRandomRound, true, false);
+    TriggerExecute(gt_InitScheduleAllPlayAll, true, false);
+    TriggerExecute(gt_InitPlayerFinal, true, false);
+    TriggerExecute(gt_InitBoard, true, false);
+    TriggerExecute(gt_InitWorker, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitMap_Init () {
+    gt_InitMap = TriggerCreate("gt_InitMap_Func");
+    TriggerAddEventMapInit(gt_InitMap);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitPlayer
+//--------------------------------------------------------------------------------------------------
+bool gt_InitPlayer_Func (bool testConds, bool runActions) {
+    int auto75BFDED3_ae;
+    int auto75BFDED3_ai;
+    int auto9F03706F_ae;
+    int auto9F03706F_ai;
+    int autoF06DE5CA_ae;
+    int autoF06DE5CA_ai;
+    int autoDFFE072E_val;
+
+    // Variable Declarations
+    int lv_p;
+    int lv_pActv;
+    int lv_g;
+    int lv_r;
+    bool lv_bRpt;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerGroupLoopBegin(PlayerGroupActive());
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        lv_p += 1;
+        gv_intPlayerActive[lv_p] = PlayerGroupLoopCurrent();
+        gv_intPlayer[lv_p] = PlayerGroupLoopCurrent();
+    }
+    PlayerGroupLoopEnd();
+    gv_intCountPlayerActive = lv_p;
+    if ((ModI(gv_intCountPlayerActive, 2) != 0)) {
+        while (true) {
+            lv_bRpt = false;
+            lv_r = RandomInt(1, (gv_intCountPlayerActive + 1));
+            auto75BFDED3_ae = gv_intCountPlayerActive;
+            auto75BFDED3_ai = 1;
+            lv_pActv = 1;
+            for ( ; ( (auto75BFDED3_ai >= 0 && lv_pActv <= auto75BFDED3_ae) || (auto75BFDED3_ai <= 0 && lv_pActv >= auto75BFDED3_ae) ) ; lv_pActv += auto75BFDED3_ai ) {
+                if ((lv_r == gv_intPlayerActive[lv_pActv])) {
+                    lv_bRpt = true;
+                }
+
+            }
+            if ((lv_bRpt == false)) {
+                lv_p += 1;
+                gv_intPlayer[lv_p] = lv_r;
+                break;
+            }
+
+        }
+    }
+
+    gv_intCountPlayer = lv_p;
+    gv_intCountRound = (gv_intCountPlayer - 1);
+    if ((gv_intCountPlayer <= 8)) {
+        gv_intCountBonusRound = 1;
+    }
+    else {
+        gv_intCountBonusRound = 2;
+    }
+    gv_intCountFinalRound = (gv_intCountPlayer - 1);
+    auto9F03706F_ae = gv_intCountPlayer;
+    auto9F03706F_ai = 1;
+    lv_p = 1;
+    for ( ; ( (auto9F03706F_ai >= 0 && lv_p <= auto9F03706F_ae) || (auto9F03706F_ai <= 0 && lv_p >= auto9F03706F_ae) ) ; lv_p += auto9F03706F_ai ) {
+        if ((ModI(lv_p, 2) == 1)) {
+            lv_g += 1;
+        }
+
+        gv_intGroupPlayer[lv_p] = lv_g;
+    }
+    gv_intCountGroup = lv_g;
+    autoF06DE5CA_ae = gv_intCountPlayer;
+    autoF06DE5CA_ai = 1;
+    lv_p = 1;
+    for ( ; ( (autoF06DE5CA_ai >= 0 && lv_p <= autoF06DE5CA_ae) || (autoF06DE5CA_ai <= 0 && lv_p >= autoF06DE5CA_ae) ) ; lv_p += autoF06DE5CA_ai ) {
+        if ((PlayerType(gv_intPlayer[lv_p]) != c_playerTypeUser)) {
+            PlayerGroupAdd(gv_playergroupAI, gv_intPlayer[lv_p]);
+        }
+
+        if ((PlayerRace(gv_intPlayer[lv_p]) == "")) {
+            lv_r = RandomInt(1, 4);
+            autoDFFE072E_val = lv_r;
+            if (autoDFFE072E_val == 1) {
+                PlayerSetRace(gv_intPlayer[lv_p], "NightElf");
+            }
+            else if (autoDFFE072E_val == 2) {
+                PlayerSetRace(gv_intPlayer[lv_p], "Human");
+            }
+            else if (autoDFFE072E_val == 3) {
+                PlayerSetRace(gv_intPlayer[lv_p], "Orc");
+            }
+            else if (autoDFFE072E_val == 4) {
+                PlayerSetRace(gv_intPlayer[lv_p], "Undead");
+            }
+            else {
+            }
+        }
+
+    }
+    TriggerDebugOutput(1, (
+    StringToText("active") + StringToText(": ") + 
+    IntToText(gv_intPlayerActive[1]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayerActive[2]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayerActive[3]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayerActive[4]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayerActive[5]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayerActive[6]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayerActive[7]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayerActive[8]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayerActive[9]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayerActive[10]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayerActive[11]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayerActive[12]) + 
+    StringToText(", ")
+    ), true);
+    TriggerDebugOutput(1, (
+    StringToText("all") + StringToText(": ") + 
+    IntToText(gv_intPlayer[1]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayer[2]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayer[3]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayer[4]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayer[5]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayer[6]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayer[7]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayer[8]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayer[9]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayer[10]) + 
+    StringToText(", ") + 
+    IntToText(gv_intPlayer[11]) + 
+    StringToText("vs") + 
+    IntToText(gv_intPlayer[12]) + 
+    StringToText(", ")
+    ), true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitPlayer_Init () {
+    gt_InitPlayer = TriggerCreate("gt_InitPlayer_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitRandomGroup
+//--------------------------------------------------------------------------------------------------
+bool gt_InitRandomGroup_Func (bool testConds, bool runActions) {
+    int autoAC820CBF_ae;
+    int autoAC820CBF_ai;
+    int auto5349154A_ae;
+    int auto5349154A_ai;
+
+    // Variable Declarations
+    int lv_g;
+    bool lv_bRpt;
+    int lv_rG;
+    int[17] lv_r;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoAC820CBF_ae = gv_intCountGroup;
+    autoAC820CBF_ai = 1;
+    lv_rG = 1;
+    for ( ; ( (autoAC820CBF_ai >= 0 && lv_rG <= autoAC820CBF_ae) || (autoAC820CBF_ai <= 0 && lv_rG >= autoAC820CBF_ae) ) ; lv_rG += autoAC820CBF_ai ) {
+        while (true) {
+            lv_r[lv_rG] = RandomInt(1, gv_intCountGroup);
+            lv_bRpt = false;
+            auto5349154A_ae = gv_intCountGroup;
+            auto5349154A_ai = 1;
+            lv_g = 1;
+            for ( ; ( (auto5349154A_ai >= 0 && lv_g <= auto5349154A_ae) || (auto5349154A_ai <= 0 && lv_g >= auto5349154A_ae) ) ; lv_g += auto5349154A_ai ) {
+                if ((lv_r[lv_rG] == gv_intRandomGroup[lv_g])) {
+                    lv_bRpt = true;
+                }
+
+            }
+            if ((lv_bRpt == false)) {
+                gv_intRandomGroup[lv_rG] = lv_r[lv_rG];
+                break;
+            }
+
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitRandomGroup_Init () {
+    gt_InitRandomGroup = TriggerCreate("gt_InitRandomGroup_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitRandomRound
+//--------------------------------------------------------------------------------------------------
+bool gt_InitRandomRound_Func (bool testConds, bool runActions) {
+    int autoE98BE96F_ae;
+    int autoE98BE96F_ai;
+    int autoDDEFDCF5_ae;
+    int autoDDEFDCF5_ai;
+
+    // Variable Declarations
+    int lv_rnd;
+    bool lv_bRpt;
+    int lv_rRnd;
+    int[17] lv_r;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoE98BE96F_ae = gv_intCountRound;
+    autoE98BE96F_ai = 1;
+    lv_rRnd = 1;
+    for ( ; ( (autoE98BE96F_ai >= 0 && lv_rRnd <= autoE98BE96F_ae) || (autoE98BE96F_ai <= 0 && lv_rRnd >= autoE98BE96F_ae) ) ; lv_rRnd += autoE98BE96F_ai ) {
+        while (true) {
+            lv_r[lv_rRnd] = RandomInt(1, gv_intCountRound);
+            lv_bRpt = false;
+            autoDDEFDCF5_ae = gv_intCountRound;
+            autoDDEFDCF5_ai = 1;
+            lv_rnd = 1;
+            for ( ; ( (autoDDEFDCF5_ai >= 0 && lv_rnd <= autoDDEFDCF5_ae) || (autoDDEFDCF5_ai <= 0 && lv_rnd >= autoDDEFDCF5_ae) ) ; lv_rnd += autoDDEFDCF5_ai ) {
+                if ((lv_r[lv_rRnd] == gv_intRandomRound[lv_rnd])) {
+                    lv_bRpt = true;
+                }
+
+            }
+            if ((lv_bRpt == false)) {
+                gv_intRandomRound[lv_rRnd] = lv_r[lv_rRnd];
+                break;
+            }
+
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitRandomRound_Init () {
+    gt_InitRandomRound = TriggerCreate("gt_InitRandomRound_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitScheduleAllPlayAll
+//--------------------------------------------------------------------------------------------------
+bool gt_InitScheduleAllPlayAll_Func (bool testConds, bool runActions) {
+    int auto1AF7E124_ae;
+    int auto1AF7E124_ai;
+    int auto0ECE6286_ae;
+    int auto0ECE6286_ai;
+    int autoC1D9CE56_ae;
+    int autoC1D9CE56_ai;
+    int auto82C1DDEA_ae;
+    int auto82C1DDEA_ai;
+    int autoBBF26BB0_ae;
+    int autoBBF26BB0_ai;
+
+    // Variable Declarations
+    int lv_rnd;
+    int lv_p;
+    int lv_iCcl;
+    int lv_g;
+    int[17] lv_pOpp;
+    int lv_opp;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_iCcl = 1;
+    auto1AF7E124_ae = gv_intCountRound;
+    auto1AF7E124_ai = 1;
+    lv_rnd = 1;
+    for ( ; ( (auto1AF7E124_ai >= 0 && lv_rnd <= auto1AF7E124_ae) || (auto1AF7E124_ai <= 0 && lv_rnd >= auto1AF7E124_ae) ) ; lv_rnd += auto1AF7E124_ai ) {
+        auto0ECE6286_ae = (gv_intCountPlayer / 2);
+        auto0ECE6286_ai = 1;
+        lv_p = 1;
+        for ( ; ( (auto0ECE6286_ai >= 0 && lv_p <= auto0ECE6286_ae) || (auto0ECE6286_ai <= 0 && lv_p >= auto0ECE6286_ae) ) ; lv_p += auto0ECE6286_ai ) {
+            if ((lv_p == 1)) {
+                lv_pOpp[lv_p] = 1;
+            }
+            else {
+                if (lv_iCcl >= gv_intCountPlayer) {
+                    lv_iCcl = 2;
+                }
+                else {
+                    lv_iCcl = lv_iCcl + 1;
+                }
+                lv_pOpp[lv_p] = lv_iCcl;
+            }
+        }
+        autoC1D9CE56_ae = ((gv_intCountPlayer / 2) + 1);
+        autoC1D9CE56_ai = -1;
+        lv_p = gv_intCountPlayer;
+        for ( ; ( (autoC1D9CE56_ai >= 0 && lv_p <= autoC1D9CE56_ae) || (autoC1D9CE56_ai <= 0 && lv_p >= autoC1D9CE56_ae) ) ; lv_p += autoC1D9CE56_ai ) {
+            if (lv_iCcl >= gv_intCountPlayer) {
+                lv_iCcl = 2;
+            }
+            else {
+                lv_iCcl = lv_iCcl + 1;
+            }
+            lv_pOpp[lv_p] = lv_iCcl;
+        }
+        lv_g = 0;
+        auto82C1DDEA_ae = gv_intCountPlayer;
+        auto82C1DDEA_ai = 1;
+        lv_p = 1;
+        for ( ; ( (auto82C1DDEA_ai >= 0 && lv_p <= auto82C1DDEA_ae) || (auto82C1DDEA_ai <= 0 && lv_p >= auto82C1DDEA_ae) ) ; lv_p += auto82C1DDEA_ai ) {
+            if ((ModI(lv_p, 2) == 1)) {
+                lv_g += 1;
+                if (gv_intRandomGroup[lv_g] >= gv_intCountGroup) {
+                    gv_intRandomGroup[lv_g] = 1;
+                }
+                else {
+                    gv_intRandomGroup[lv_g] = gv_intRandomGroup[lv_g] + 1;
+                }
+                gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRandomRound[lv_rnd]] = gv_intPlayer[lv_pOpp[gv_intRandomGroup[lv_g]]];
+            }
+            else {
+                gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRandomRound[lv_rnd]] = gv_intPlayer[lv_pOpp[(gv_intRandomGroup[lv_g] + (gv_intCountPlayer / 2))]];
+            }
+        }
+        lv_iCcl -= 1;
+    }
+    autoBBF26BB0_ae = (gv_intCountRound + 1);
+    autoBBF26BB0_ai = 1;
+    lv_rnd = 1;
+    for ( ; ( (autoBBF26BB0_ai >= 0 && lv_rnd <= autoBBF26BB0_ae) || (autoBBF26BB0_ai <= 0 && lv_rnd >= autoBBF26BB0_ae) ) ; lv_rnd += autoBBF26BB0_ai ) {
+        TriggerDebugOutput(1, (
+        StringToText("round") + IntToText(lv_rnd) + StringToText(": ") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[1]][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[2]][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[3]][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[4]][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[5]][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[6]][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[7]][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[8]][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[9]][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[10]][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[11]][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intScheduleAllPlayAll[gv_intPlayer[12]][lv_rnd]) + 
+        StringToText(", ")
+        ), true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitScheduleAllPlayAll_Init () {
+    gt_InitScheduleAllPlayAll = TriggerCreate("gt_InitScheduleAllPlayAll_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitPlayerFinal
+//--------------------------------------------------------------------------------------------------
+bool gt_InitPlayerFinal_Func (bool testConds, bool runActions) {
+    int autoDF2F30F0_ae;
+    int autoDF2F30F0_ai;
+    int autoB0BE6974_ae;
+    int autoB0BE6974_ai;
+    int auto13AF30FD_ae;
+    int auto13AF30FD_ai;
+    int autoCE25D07F_ae;
+    int autoCE25D07F_ai;
+    int auto66CE743C_ae;
+    int auto66CE743C_ai;
+
+    // Variable Declarations
+    int lv_p;
+    bool lv_bRpt;
+    int lv_rPlyr;
+    int[17] lv_r;
+    int lv_rF;
+    int lv_rnd;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoDF2F30F0_ae = gv_intCountFinalRound;
+    autoDF2F30F0_ai = 1;
+    lv_rF = 1;
+    for ( ; ( (autoDF2F30F0_ai >= 0 && lv_rF <= autoDF2F30F0_ae) || (autoDF2F30F0_ai <= 0 && lv_rF >= autoDF2F30F0_ae) ) ; lv_rF += autoDF2F30F0_ai ) {
+        autoB0BE6974_ae = gv_intCountPlayer;
+        autoB0BE6974_ai = 1;
+        lv_rPlyr = 1;
+        for ( ; ( (autoB0BE6974_ai >= 0 && lv_rPlyr <= autoB0BE6974_ae) || (autoB0BE6974_ai <= 0 && lv_rPlyr >= autoB0BE6974_ae) ) ; lv_rPlyr += autoB0BE6974_ai ) {
+            while (true) {
+                lv_r[lv_rPlyr] = RandomInt(1, gv_intCountPlayer);
+                lv_bRpt = false;
+                auto13AF30FD_ae = gv_intCountPlayer;
+                auto13AF30FD_ai = 1;
+                lv_p = 1;
+                for ( ; ( (auto13AF30FD_ai >= 0 && lv_p <= auto13AF30FD_ae) || (auto13AF30FD_ai <= 0 && lv_p >= auto13AF30FD_ae) ) ; lv_p += auto13AF30FD_ai ) {
+                    if ((lv_r[lv_rPlyr] == gv_intPlayerFinal[lv_p][lv_rF])) {
+                        lv_bRpt = true;
+                    }
+
+                }
+                if ((lv_bRpt == false)) {
+                    gv_intPlayerFinal[lv_rPlyr][lv_rF] = lv_r[lv_rPlyr];
+                    break;
+                }
+
+            }
+        }
+        autoCE25D07F_ae = gv_intCountPlayer;
+        autoCE25D07F_ai = 1;
+        lv_p = 1;
+        for ( ; ( (autoCE25D07F_ai >= 0 && lv_p <= autoCE25D07F_ae) || (autoCE25D07F_ai <= 0 && lv_p >= autoCE25D07F_ae) ) ; lv_p += autoCE25D07F_ai ) {
+            gv_intPlayerFinal[lv_p][lv_rF] = gv_intPlayer[gv_intPlayerFinal[lv_p][lv_rF]];
+        }
+    }
+    auto66CE743C_ae = (gv_intCountFinalRound + 1);
+    auto66CE743C_ai = 1;
+    lv_rnd = 1;
+    for ( ; ( (auto66CE743C_ai >= 0 && lv_rnd <= auto66CE743C_ae) || (auto66CE743C_ai <= 0 && lv_rnd >= auto66CE743C_ae) ) ; lv_rnd += auto66CE743C_ai ) {
+        TriggerDebugOutput(1, (
+        StringToText("finalround") + IntToText(lv_rnd) + StringToText(": ") + 
+        IntToText(gv_intPlayerFinal[1][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intPlayerFinal[2][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intPlayerFinal[3][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intPlayerFinal[4][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intPlayerFinal[5][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intPlayerFinal[6][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intPlayerFinal[7][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intPlayerFinal[8][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intPlayerFinal[9][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intPlayerFinal[10][lv_rnd]) + 
+        StringToText(", ") + 
+        IntToText(gv_intPlayerFinal[11][lv_rnd]) + 
+        StringToText("vs") + 
+        IntToText(gv_intPlayerFinal[12][lv_rnd]) + 
+        StringToText(", ")
+        ), true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitPlayerFinal_Init () {
+    gt_InitPlayerFinal = TriggerCreate("gt_InitPlayerFinal_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitBoard
+//--------------------------------------------------------------------------------------------------
+bool gt_InitBoard_Func (bool testConds, bool runActions) {
+    int autoEB6298CD_ae;
+    int autoEB6298CD_ai;
+
+    // Variable Declarations
+    int lv_p;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    BoardCreate(3, gv_intCountPlayer, StringExternal("Param/Value/5AAD0B64"), Color(100.00, 100.00, 100.00));
+    gv_board = BoardLastCreated();
+    BoardItemSetText(gv_board, 1, c_boardRowHeader, StringExternal("Param/Value/55F724F7"));
+    BoardItemSetFontSize(gv_board, 1, c_boardRowHeader, 20);
+    BoardItemSetText(gv_board, 2, c_boardRowHeader, StringExternal("Param/Value/55DB5BD8"));
+    BoardItemSetFontSize(gv_board, 2, c_boardRowHeader, 20);
+    BoardItemSetText(gv_board, 3, c_boardRowHeader, StringExternal("Param/Value/D52897FF"));
+    BoardItemSetFontSize(gv_board, 3, c_boardRowHeader, 20);
+    autoEB6298CD_ae = gv_intCountPlayer;
+    autoEB6298CD_ai = 1;
+    lv_p = 1;
+    for ( ; ( (autoEB6298CD_ai >= 0 && lv_p <= autoEB6298CD_ae) || (autoEB6298CD_ai <= 0 && lv_p >= autoEB6298CD_ae) ) ; lv_p += autoEB6298CD_ai ) {
+        gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]] = lv_p;
+        BoardItemSetText(gv_board, 1, lv_p, PlayerName(gv_intPlayer[lv_p]));
+        BoardItemSetFontSize(gv_board, 1, lv_p, 20);
+        BoardItemSetTextColor(gv_board, 1, lv_p, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_intPlayer[lv_p], false)));
+        BoardItemSetFontSize(gv_board, 2, lv_p, 16);
+        BoardItemSetProgressColor(gv_board, 2, lv_p, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_intPlayer[lv_p], false)), 1);
+        BoardItemSetText(gv_board, 2, lv_p, IntToText(0));
+        BoardItemSetProgressValue(gv_board, 2, lv_p, 0.0);
+        BoardItemSetProgressRange(gv_board, 2, lv_p, 0.0, 0.0);
+        BoardItemSetProgressShow(gv_board, 2, lv_p, true);
+        BoardItemSetFontSize(gv_board, 3, lv_p, 16);
+        BoardItemSetProgressColor(gv_board, 3, lv_p, libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_intPlayer[lv_p], false)), 1);
+        BoardItemSetText(gv_board, 3, lv_p, IntToText(0));
+        BoardItemSetProgressValue(gv_board, 3, lv_p, 0.0);
+        BoardItemSetProgressRange(gv_board, 3, lv_p, 0.0, 0.0);
+        BoardItemSetProgressShow(gv_board, 3, lv_p, true);
+        if ((PlayerType(lv_p) == c_playerTypeUser) && (PlayerType(lv_p) == c_playerTypeComputer)) {
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitBoard_Init () {
+    gt_InitBoard = TriggerCreate("gt_InitBoard_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitWorker
+//--------------------------------------------------------------------------------------------------
+bool gt_InitWorker_Func (bool testConds, bool runActions) {
+    int autoA4D3345D_ae;
+    int autoA4D3345D_ai;
+
+    // Variable Declarations
+    int lv_p;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    VisEnable(c_visTypeMask, true);
+    VisEnable(c_visTypeFog, true);
+    autoA4D3345D_ae = gv_intCountPlayer;
+    autoA4D3345D_ai = 1;
+    lv_p = 1;
+    for ( ; ( (autoA4D3345D_ai >= 0 && lv_p <= autoA4D3345D_ae) || (autoA4D3345D_ai <= 0 && lv_p >= autoA4D3345D_ae) ) ; lv_p += autoA4D3345D_ai ) {
+        libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Pause", 1);
+        VisRevealerCreate(gv_intPlayer[lv_p], gf_PlayerBuildingRegion(gv_intPlayer[lv_p]));
+        VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]], true);
+        gv_visRevealer[gv_intPlayer[lv_p]] = VisRevealerLastCreated();
+        MeleeInitUnitsForPlayer(gv_intPlayer[lv_p], PlayerRace(gv_intPlayer[lv_p]), gf_PlayerBuildingLocation(gv_intPlayer[lv_p]));
+        libNtve_gf_CreateUnitsAtPoint2(1, "ewsp", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerBuildingLocation(gv_intPlayer[lv_p]));
+        gv_unitWorker[gv_intPlayer[lv_p]] = UnitLastCreated();
+        libNtve_gf_CreateUnitsAtPoint2(1, "hpea", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerBuildingLocation(gv_intPlayer[lv_p]));
+        PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperAdd, 75);
+        CameraPan(gv_intPlayer[lv_p], gf_PlayerBuildingLocation(gv_intPlayer[lv_p]), 1.0, -1, 10.0, false);
+    }
+    TimerStart(TimerCreate(), 60.0, false, c_timeGame);
+    TimerWindowCreate(TimerLastStarted(), StringExternal("Param/Value/C16F7527"), true, false);
+    Wait(60.0, c_timeGame);
+    TimerWindowDestroy(TimerWindowLastCreated());
+    VisEnable(c_visTypeMask, false);
+    VisEnable(c_visTypeFog, false);
+    TriggerExecute(gt_AI, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitWorker_Init () {
+    gt_InitWorker = TriggerCreate("gt_InitWorker_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Waiting
+//--------------------------------------------------------------------------------------------------
+bool gt_Waiting_Func (bool testConds, bool runActions) {
+    int auto3A4EFC67_ae;
+    int auto3A4EFC67_ai;
+
+    // Variable Declarations
+    int lv_p;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    VisEnable(c_visTypeMask, true);
+    VisEnable(c_visTypeFog, true);
+    TriggerEnable(gt_Reserve, false);
+    auto3A4EFC67_ae = gv_intCountPlayer;
+    auto3A4EFC67_ai = 1;
+    lv_p = 1;
+    for ( ; ( (auto3A4EFC67_ai >= 0 && lv_p <= auto3A4EFC67_ae) || (auto3A4EFC67_ai <= 0 && lv_p >= auto3A4EFC67_ae) ) ; lv_p += auto3A4EFC67_ai ) {
+        libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Pause", 1);
+        if ((gv_intBonusRound == gv_intCountBonusRound)) {
+            libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Final", 1);
+        }
+
+        VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]], true);
+        PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperAdd, gv_intG[gv_intRound]);
+        PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom, c_playerPropOperAdd, gv_intSL[gv_intPlayer[lv_p]]);
+        CameraPan(gv_intPlayer[lv_p], gf_PlayerBuildingLocation(gv_intPlayer[lv_p]), 1.0, -1, 10.0, false);
+    }
+    if ((gv_intBonusRound == gv_intCountBonusRound)) {
+        TimerStart(TimerCreate(), 90.0, false, c_timeGame);
+        TimerWindowCreate(TimerLastStarted(), StringExternal("Param/Value/781AF07E"), true, false);
+        Wait(90.0, c_timeGame);
+    }
+    else {
+        TimerStart(TimerCreate(), gv_fixedTime, false, c_timeGame);
+        TimerWindowCreate(TimerLastStarted(), StringExternal("Param/Value/91DF5681"), true, false);
+        Wait(gv_fixedTime, c_timeGame);
+    }
+    TimerWindowDestroy(TimerWindowLastCreated());
+    VisEnable(c_visTypeMask, false);
+    VisEnable(c_visTypeFog, false);
+    TriggerExecute(gt_AI, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Waiting_Init () {
+    gt_Waiting = TriggerCreate("gt_Waiting_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: AI
+//--------------------------------------------------------------------------------------------------
+bool gt_AI_Func (bool testConds, bool runActions) {
+    int auto47BE8C45_ae;
+    int auto47BE8C45_ai;
+    int autoB86FCDA7_ae;
+    int autoB86FCDA7_ai;
+
+    // Variable Declarations
+    int lv_p;
+    int lv_r;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto47BE8C45_ae = gv_intCountPlayer;
+    auto47BE8C45_ai = 1;
+    lv_p = 1;
+    for ( ; ( (auto47BE8C45_ai >= 0 && lv_p <= auto47BE8C45_ae) || (auto47BE8C45_ai <= 0 && lv_p >= auto47BE8C45_ae) ) ; lv_p += auto47BE8C45_ai ) {
+        if ((PlayerGroupHasPlayer(gv_playergroupAI, gv_intPlayer[lv_p]) == true)) {
+            PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperSetTo, FixedToInt((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine) * 1.2)));
+            PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom, c_playerPropOperSetTo, FixedToInt((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom) * 1.2)));
+            while (true) {
+                if ((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom) >= CatalogFieldValueGetAsInt(c_gameCatalogAbil, "ANlg", "Cost[" + IntToString(0) + "].Resource[" + IntToString(3) + "]", gv_intPlayer[lv_p]))) {
+                    UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], Order(AbilityCommand("ANlg", 0)), c_orderQueueReplace);
+                }
+                else {
+                    break;
+                }
+            }
+            while (true) {
+                if ((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine) >= 20)) {
+                    lv_r = RandomInt(0, 29);
+                    UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AEbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p]))), c_orderQueueReplace);
+                }
+                else {
+                    break;
+                }
+            }
+        }
+
+    }
+    autoB86FCDA7_ae = gv_intCountPlayer;
+    autoB86FCDA7_ai = 1;
+    lv_p = 1;
+    for ( ; ( (autoB86FCDA7_ai >= 0 && lv_p <= autoB86FCDA7_ae) || (autoB86FCDA7_ai <= 0 && lv_p >= autoB86FCDA7_ae) ) ; lv_p += autoB86FCDA7_ai ) {
+        libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Pause", 0);
+        if ((gv_intBonusRound == gv_intCountBonusRound)) {
+            libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Final", 0);
+        }
+
+        VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]], false);
+    }
+    TriggerExecute(gt_InitUnit, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AI_Init () {
+    gt_AI = TriggerCreate("gt_AI_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: InitUnit
+//--------------------------------------------------------------------------------------------------
+bool gt_InitUnit_Func (bool testConds, bool runActions) {
+    int autoD8349A32_ae;
+    int autoD8349A32_ai;
+    int auto0A6D230F_ae;
+    int auto0A6D230F_ai;
+    int auto8A4320CE_ae;
+    int auto8A4320CE_ai;
+    int autoA3F0526C_ae;
+    int autoA3F0526C_ai;
+    int auto2E8E3C83_ae;
+    int auto2E8E3C83_ai;
+
+    // Variable Declarations
+    int lv_p;
+    int lv_u;
+    int lv_i;
+    int lv_s;
+    int lv_sMax;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_intSMax = 0;
+    autoD8349A32_ae = gv_intCountPlayer;
+    autoD8349A32_ai = 1;
+    lv_p = 1;
+    for ( ; ( (autoD8349A32_ai >= 0 && lv_p <= autoD8349A32_ae) || (autoD8349A32_ai <= 0 && lv_p >= autoD8349A32_ae) ) ; lv_p += autoD8349A32_ai ) {
+        gv_intS[gv_intPlayer[lv_p]] = 0;
+        BoardItemSetText(gv_board, 3, lv_p, IntToText(0));
+        BoardItemSetProgressValue(gv_board, 3, lv_p, 0.0);
+        BoardItemSetProgressRange(gv_board, 3, lv_p, 0.0, 0.0);
+        auto0A6D230F_ae = gv_intCountUnit[gv_intPlayer[lv_p]];
+        auto0A6D230F_ai = 1;
+        lv_u = 1;
+        for ( ; ( (auto0A6D230F_ai >= 0 && lv_u <= auto0A6D230F_ae) || (auto0A6D230F_ai <= 0 && lv_u >= auto0A6D230F_ae) ) ; lv_u += auto0A6D230F_ai ) {
+            gv_typeUnit[gv_intPlayer[lv_p]][lv_u] = null;
+        }
+        gv_intCountUnit[gv_intPlayer[lv_p]] = 0;
+        gv_intCountLivingUnit[gv_intPlayer[lv_p]] = 0;
+    }
+    lv_sMax = 0;
+    auto8A4320CE_ae = gv_intCountPlayer;
+    auto8A4320CE_ai = 1;
+    lv_p = 1;
+    for ( ; ( (auto8A4320CE_ai >= 0 && lv_p <= auto8A4320CE_ae) || (auto8A4320CE_ai <= 0 && lv_p >= auto8A4320CE_ae) ) ; lv_p += auto8A4320CE_ai ) {
+        lv_s = 0;
+        UnitGroupLoopBegin(UnitGroup(null, gv_intPlayer[lv_p], gf_PlayerBuildingRegion(gv_intPlayer[lv_p]), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+            autoA3F0526C_ae = CatalogFieldValueCount(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "TechTreeProducedUnitArray", gv_intPlayer[lv_p]);
+            autoA3F0526C_ai = 1;
+            lv_i = 1;
+            for ( ; ( (autoA3F0526C_ai >= 0 && lv_i <= autoA3F0526C_ae) || (autoA3F0526C_ai <= 0 && lv_i >= autoA3F0526C_ae) ) ; lv_i += autoA3F0526C_ai ) {
+                gv_intCountUnit[gv_intPlayer[lv_p]] += 1;
+                gv_intCountLivingUnit[gv_intPlayer[lv_p]] += 1;
+                gv_typeUnit[gv_intPlayer[lv_p]][gv_intCountUnit[gv_intPlayer[lv_p]]] = UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "TechTreeProducedUnitArray[" + IntToString((lv_i + -1)) + "]", gv_intPlayer[lv_p]));
+                lv_s += CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "TechTreeProducedUnitArray[" + IntToString((lv_i + -1)) + "]", gv_intPlayer[lv_p])), "KillResource[" + IntToString(3) + "]", gv_intPlayer[lv_p]);
+            }
+        }
+        UnitGroupLoopEnd();
+        gv_intSL[gv_intPlayer[lv_p]] = lv_s;
+        BoardItemSetProgressValue(gv_board, 2, gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]], lv_s);
+        BoardItemSetText(gv_board, 2, gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]], IntToText(lv_s));
+        if ((lv_s > lv_sMax)) {
+            lv_sMax = lv_s;
+        }
+
+    }
+    auto2E8E3C83_ae = gv_intCountPlayer;
+    auto2E8E3C83_ai = 1;
+    lv_p = 1;
+    for ( ; ( (auto2E8E3C83_ai >= 0 && lv_p <= auto2E8E3C83_ae) || (auto2E8E3C83_ai <= 0 && lv_p >= auto2E8E3C83_ae) ) ; lv_p += auto2E8E3C83_ai ) {
+        BoardItemSetProgressRange(gv_board, 2, gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]], 0.0, lv_sMax);
+    }
+    TriggerExecute(gt_Position, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InitUnit_Init () {
+    gt_InitUnit = TriggerCreate("gt_InitUnit_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Position
+//--------------------------------------------------------------------------------------------------
+bool gt_Position_Func (bool testConds, bool runActions) {
+    int autoC8C5DC5C_ae;
+    int autoC8C5DC5C_ai;
+    int auto20195369_ae;
+    int auto20195369_ai;
+    int auto4D275698_ae;
+    int auto4D275698_ai;
+    int autoCF61D4F3_ae;
+    int autoCF61D4F3_ai;
+
+    // Variable Declarations
+    int lv_p;
+    int lv_c;
+    int lv_r;
+    int lv_i;
+    int lv_g;
+    int lv_pB;
+    int lv_pF;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, 0, 0), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitRemove(UnitGroupLoopCurrent());
+    }
+    UnitGroupLoopEnd();
+    lv_pF = 0;
+    gv_intRound += 1;
+    if ((gv_intRound <= gv_intCountRound)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, (StringExternal("Param/Value/FF778FD4") + IntToText(gv_intRound) + StringExternal("Param/Value/E32365A7") + IntToText(gv_intCountRound) + StringExternal("Param/Value/A53AE254")));
+    }
+    else {
+        gv_intBonusRound += 1;
+        if ((gv_intBonusRound <= gv_intCountBonusRound)) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, (StringExternal("Param/Value/2177079E")));
+        }
+        else {
+            gv_intFinalRound += 1;
+            if ((gv_intFinalRound <= gv_intCountFinalRound)) {
+            }
+
+        }
+    }
+    if (((gv_intCountPlayer - PlayerGroupCount(gv_playergroupWon) - PlayerGroupCount(gv_playergroupLose)) <= 1)) {
+        PlayerGroupClear(gv_playergroupWon);
+    }
+
+    autoC8C5DC5C_ae = gv_intCountPlayer;
+    autoC8C5DC5C_ai = 1;
+    lv_p = 1;
+    for ( ; ( (autoC8C5DC5C_ai >= 0 && lv_p <= autoC8C5DC5C_ae) || (autoC8C5DC5C_ai <= 0 && lv_p >= autoC8C5DC5C_ae) ) ; lv_p += autoC8C5DC5C_ai ) {
+        if ((gv_intRound <= gv_intCountRound)) {
+        }
+        else {
+            if ((gv_intBonusRound <= gv_intCountBonusRound)) {
+                if ((PlayerGroupHasPlayer(gv_playergroupBonusDone, gv_intPlayer[lv_p]) == false) && (lv_pB <= 8)) {
+                    lv_pB += 1;
+                }
+
+            }
+            else {
+                if ((gv_intFinalRound <= gv_intCountFinalRound)) {
+                    if ((PlayerGroupHasPlayer(gv_playergroupLose, gv_intPlayerFinal[lv_p][gv_intFinalRound]) == false) && (PlayerGroupHasPlayer(gv_playergroupWon, gv_intPlayerFinal[lv_p][gv_intFinalRound]) == false) && (lv_pF <= 2)) {
+                        lv_pF += 1;
+                    }
+
+                }
+
+            }
+        }
+        lv_i = 0;
+        auto20195369_ae = gv_intRow;
+        auto20195369_ai = 1;
+        lv_r = 1;
+        for ( ; ( (auto20195369_ai >= 0 && lv_r <= auto20195369_ae) || (auto20195369_ai <= 0 && lv_r >= auto20195369_ae) ) ; lv_r += auto20195369_ai ) {
+            auto4D275698_ae = gv_intColumn;
+            auto4D275698_ai = 1;
+            lv_c = 1;
+            for ( ; ( (auto4D275698_ai >= 0 && lv_c <= auto4D275698_ae) || (auto4D275698_ai <= 0 && lv_c >= auto4D275698_ae) ) ; lv_c += auto4D275698_ai ) {
+                lv_i += 1;
+                if ((gv_intRound <= gv_intCountRound)) {
+                    if ((lv_i <= gv_intCountUnit[gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRound]])) {
+                        libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_typeUnit[gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRound]][lv_i], c_unitCreateIgnorePlacement, gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRound], PointWithOffsetPolar(PointWithOffsetPolar(gf_PlayerBattlefieldLocation(lv_p), (lv_r + -1), (PointGetFacing(gf_PlayerBattlefieldLocation(lv_p)) + 180.0)), (lv_c + -1), (PointGetFacing(gf_PlayerBattlefieldLocation(lv_p)) + -90.0)));
+                        UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerBattlefieldLocation(lv_p)), 0.0);
+                        UnitBehaviorAddPlayer(UnitLastCreated(), "Preparing", UnitGetOwner(UnitLastCreated()), 1);
+                    }
+
+                }
+                else {
+                    if ((gv_intBonusRound <= gv_intCountBonusRound)) {
+                        if ((lv_i <= gv_intCountUnit[gv_intPlayer[lv_p]]) && (PlayerGroupHasPlayer(gv_playergroupBonusDone, gv_intPlayer[lv_p]) == false) && (lv_pB <= 8)) {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_typeUnit[gv_intPlayer[lv_p]][lv_i], c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], PointWithOffsetPolar(PointWithOffsetPolar(gf_PlayerBonusLocation(lv_pB), (lv_r + -1), (PointGetFacing(gf_PlayerBonusLocation(lv_pB)) + 180.0)), (lv_c + -1), (PointGetFacing(gf_PlayerBonusLocation(lv_pB)) + -90.0)));
+                            UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerBonusLocation(lv_pB)), 0.0);
+                            UnitBehaviorAddPlayer(UnitLastCreated(), "Preparing", UnitGetOwner(UnitLastCreated()), 1);
+                        }
+
+                    }
+                    else {
+                        if ((gv_intFinalRound <= gv_intCountFinalRound)) {
+                            if ((lv_i <= gv_intCountUnit[gv_intPlayerFinal[lv_p][gv_intFinalRound]]) && (PlayerGroupHasPlayer(gv_playergroupLose, gv_intPlayerFinal[lv_p][gv_intFinalRound]) == false) && (PlayerGroupHasPlayer(gv_playergroupWon, gv_intPlayerFinal[lv_p][gv_intFinalRound]) == false) && (lv_pF <= 2)) {
+                                libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_typeUnit[gv_intPlayerFinal[lv_p][gv_intFinalRound]][lv_i], c_unitCreateIgnorePlacement, gv_intPlayerFinal[lv_p][gv_intFinalRound], PointWithOffsetPolar(PointWithOffsetPolar(gf_PlayerFinalLocation(lv_pF), (lv_r + -1), (PointGetFacing(gf_PlayerFinalLocation(lv_pF)) + 180.0)), (lv_c + -1), (PointGetFacing(gf_PlayerFinalLocation(lv_pF)) + -90.0)));
+                                UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerFinalLocation(lv_pF)), 0.0);
+                                UnitBehaviorAddPlayer(UnitLastCreated(), "Preparing", UnitGetOwner(UnitLastCreated()), 1);
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+        if ((gv_intRound <= gv_intCountRound)) {
+            gv_pointReserve[gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRound]] = gf_PlayerReserveLocation(lv_p);
+            CameraPan(gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRound], gf_PlayerBattlefieldLocation(lv_p), 1.0, -1, 10.0, false);
+        }
+        else {
+            if ((gv_intBonusRound <= gv_intCountBonusRound)) {
+                if ((PlayerGroupHasPlayer(gv_playergroupBonusDone, gv_intPlayer[lv_p]) == false) && (lv_pB <= 8)) {
+                    gv_pointReserve[gv_intPlayer[lv_p]] = gf_PlayerBonusReserveLocation(lv_pB);
+                    libNtve_gf_CreateUnitsWithDefaultFacing(1, "nmgw", c_unitCreateIgnorePlacement, 15, gf_PlayerBonusMobLocation(lv_p));
+                    UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerBonusMobLocation(lv_p)), 0.0);
+                    CameraPan(gv_intPlayer[lv_p], gf_PlayerBonusLocation(lv_pB), 1.0, -1, 10.0, false);
+                }
+
+            }
+            else {
+                if ((gv_intFinalRound <= gv_intCountFinalRound)) {
+                    gv_pointReserve[gv_intPlayerFinal[lv_p][gv_intFinalRound]] = gf_PlayerFinalReserveLocation(lv_pF);
+                    CameraPan(gv_intPlayerFinal[lv_p][gv_intFinalRound], RegionGetCenter(RegionFromId(1)), 1.0, -1, 10.0, false);
+                }
+
+            }
+        }
+    }
+    Wait(2.0, c_timeGame);
+    autoCF61D4F3_ae = gv_intCountPlayer;
+    autoCF61D4F3_ai = 1;
+    lv_p = 1;
+    for ( ; ( (autoCF61D4F3_ai >= 0 && lv_p <= autoCF61D4F3_ae) || (autoCF61D4F3_ai <= 0 && lv_p >= autoCF61D4F3_ae) ) ; lv_p += autoCF61D4F3_ai ) {
+        if ((UnitGroupCount(UnitGroup(null, gv_intPlayer[lv_p], RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
+            gv_intCountLivingUnit[gv_intPlayer[lv_p]] = 0;
+        }
+
+    }
+    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitBehaviorRemove(UnitGroupLoopCurrent(), "Preparing", 1);
+        UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
+        libNtve_gf_MakeUnitUncommandable(UnitGroupLoopCurrent(), true);
+    }
+    UnitGroupLoopEnd();
+    TriggerEnable(gt_Reserve, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Position_Init () {
+    gt_Position = TriggerCreate("gt_Position_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Reserve
+//--------------------------------------------------------------------------------------------------
+bool gt_Reserve_Func (bool testConds, bool runActions) {
+    int auto33A120BB_ae;
+    int auto33A120BB_ai;
+    int auto3D1BE2E6_ae;
+    int auto3D1BE2E6_ai;
+    int auto1D1DAF8F_ae;
+    int auto1D1DAF8F_ai;
+    int autoA5DAEA43_ae;
+    int autoA5DAEA43_ai;
+
+    // Variable Declarations
+    int lv_i;
+    int lv_p;
+    int lv_pL;
+    int lv_pWn;
+    int lv_pLs;
+
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeSummoned) == false))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((libNtve_gf_KillingPlayer() != 15)) {
+        gv_intS[libNtve_gf_KillingPlayer()] += CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "KillResource[" + IntToString(3) + "]", EventPlayer());
+        BoardItemSetText(gv_board, 3, gv_intRowBoardOfPlayer[libNtve_gf_KillingPlayer()], IntToText(gv_intS[libNtve_gf_KillingPlayer()]));
+        BoardItemSetProgressValue(gv_board, 3, gv_intRowBoardOfPlayer[libNtve_gf_KillingPlayer()], gv_intS[libNtve_gf_KillingPlayer()]);
+        if ((gv_intS[libNtve_gf_KillingPlayer()] > gv_intSMax)) {
+            gv_intSMax = gv_intS[libNtve_gf_KillingPlayer()];
+        }
+
+        auto33A120BB_ae = gv_intCountPlayer;
+        auto33A120BB_ai = 1;
+        lv_p = 1;
+        for ( ; ( (auto33A120BB_ai >= 0 && lv_p <= auto33A120BB_ae) || (auto33A120BB_ai <= 0 && lv_p >= auto33A120BB_ae) ) ; lv_p += auto33A120BB_ai ) {
+            BoardItemSetProgressRange(gv_board, 3, lv_p, 0.0, gv_intSMax);
+        }
+    }
+
+    if ((EventPlayer() != 15)) {
+        gv_intCountLivingUnit[EventPlayer()] -= 1;
+        lv_i = ((gv_intCountUnit[EventPlayer()] - gv_intCountLivingUnit[EventPlayer()]) + (gv_intColumn * gv_intRow));
+        if ((lv_i <= gv_intCountUnit[EventPlayer()])) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_typeUnit[EventPlayer()][lv_i], c_unitCreateIgnorePlacement, EventPlayer(), gv_pointReserve[EventPlayer()]);
+            UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerReserveLocation(EventPlayer())), 0.0);
+            UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
+            libNtve_gf_MakeUnitUncommandable(UnitLastCreated(), true);
+        }
+
+    }
+
+    if ((gv_intRound <= gv_intCountRound)) {
+        if ((gv_boolKilling == false)) {
+            autoA5DAEA43_ae = gv_intCountPlayer;
+            autoA5DAEA43_ai = 1;
+            lv_p = 1;
+            for ( ; ( (autoA5DAEA43_ai >= 0 && lv_p <= autoA5DAEA43_ae) || (autoA5DAEA43_ai <= 0 && lv_p >= autoA5DAEA43_ae) ) ; lv_p += autoA5DAEA43_ai ) {
+                if ((gv_intCountLivingUnit[gv_intPlayer[lv_p]] != 0)) {
+                    lv_pL += 1;
+                    lv_pWn = gv_intPlayer[lv_p];
+                }
+
+            }
+            if ((lv_pL == 1)) {
+                gv_boolKilling = true;
+                Wait(2.0, c_timeGame);
+                while (true) {
+                    if ((gv_intCountLivingUnit[lv_pWn] != 0)) {
+                        UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+                        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                            PlayerModifyPropertyInt(lv_pWn, c_playerPropCustom, c_playerPropOperAdd, CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "KillResource[" + IntToString(3) + "]", lv_pWn));
+                            PlayerCreateEffectUnit(lv_pWn, "Kill", UnitGroupLoopCurrent());
+                            Wait(0.0625, c_timeGame);
+                        }
+                        UnitGroupLoopEnd();
+                    }
+                    else {
+                        break;
+                    }
+                }
+                Wait(2.0, c_timeGame);
+                gv_boolKilling = false;
+                TriggerExecute(gt_Waiting, true, false);
+            }
+
+        }
+
+    }
+    else {
+        if ((gv_intBonusRound <= gv_intCountBonusRound)) {
+            auto1D1DAF8F_ae = gv_intCountPlayer;
+            auto1D1DAF8F_ai = 1;
+            lv_p = 1;
+            for ( ; ( (auto1D1DAF8F_ai >= 0 && lv_p <= auto1D1DAF8F_ae) || (auto1D1DAF8F_ai <= 0 && lv_p >= auto1D1DAF8F_ae) ) ; lv_p += auto1D1DAF8F_ai ) {
+                if ((gv_intCountLivingUnit[gv_intPlayer[lv_p]] != 0)) {
+                    lv_pL += 1;
+                }
+
+            }
+            if ((gv_intCountLivingUnit[EventPlayer()] == 0)) {
+                PlayerGroupAdd(gv_playergroupBonusDone, EventPlayer());
+            }
+
+            if ((lv_pL == 0)) {
+                Wait(2.0, c_timeGame);
+                UnitGroupLoopBegin(UnitGroup(null, 15, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+                for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                    UnitRemove(UnitGroupLoopCurrent());
+                }
+                UnitGroupLoopEnd();
+                Wait(2.0, c_timeGame);
+                if ((gv_intBonusRound == gv_intCountBonusRound)) {
+                    TriggerExecute(gt_Waiting, true, false);
+                }
+                else {
+                    TriggerExecute(gt_InitUnit, true, false);
+                }
+            }
+
+        }
+        else {
+            if ((gv_intFinalRound <= gv_intCountFinalRound)) {
+                auto3D1BE2E6_ae = gv_intCountPlayer;
+                auto3D1BE2E6_ai = 1;
+                lv_p = 1;
+                for ( ; ( (auto3D1BE2E6_ai >= 0 && lv_p <= auto3D1BE2E6_ae) || (auto3D1BE2E6_ai <= 0 && lv_p >= auto3D1BE2E6_ae) ) ; lv_p += auto3D1BE2E6_ai ) {
+                    if ((gv_intCountLivingUnit[gv_intPlayer[lv_p]] != 0)) {
+                        lv_pL += 1;
+                        lv_pWn = gv_intPlayer[lv_p];
+                    }
+
+                }
+                if ((lv_pL == 1)) {
+                    if ((gv_intFinalRound == gv_intCountFinalRound)) {
+                        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lv_pWn), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_pWn, false))) + StringExternal("Param/Value/6250BEB1")));
+                        Wait(15.0, c_timeGame);
+                        PlayerGroupLoopBegin(PlayerGroupActive());
+                        for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+                            if ((PlayerGroupLoopCurrent() == lv_pWn)) {
+                                GameOver(PlayerGroupLoopCurrent(), c_gameOverVictory, true, true);
+                            }
+                            else {
+                                GameOver(PlayerGroupLoopCurrent(), c_gameOverDefeat, true, true);
+                            }
+                        }
+                        PlayerGroupLoopEnd();
+                    }
+                    else {
+                        lv_pLs = EventPlayer();
+                        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lv_pWn), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_pWn, false))) + StringExternal("Param/Value/171BD6C0")));
+                        PlayerGroupAdd(gv_playergroupWon, lv_pWn);
+                        PlayerGroupAdd(gv_playergroupLose, lv_pLs);
+                        BoardItemSetTextColor(gv_board, 1, gv_intRowBoardOfPlayer[lv_pLs], Color(100.00, 100.00, 100.00));
+                        BoardItemSetTextColor(gv_board, 2, gv_intRowBoardOfPlayer[lv_pLs], Color(0.00, 0.00, 0.00));
+                        BoardItemSetProgressColor(gv_board, 2, gv_intRowBoardOfPlayer[lv_pLs], Color(100.00, 100.00, 100.00), 1);
+                        BoardItemSetTextColor(gv_board, 3, gv_intRowBoardOfPlayer[lv_pLs], Color(0.00, 0.00, 0.00));
+                        BoardItemSetProgressColor(gv_board, 3, gv_intRowBoardOfPlayer[lv_pLs], Color(100.00, 100.00, 100.00), 1);
+                        Wait(2.0, c_timeGame);
+                        UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+                        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                            UnitRemove(UnitGroupLoopCurrent());
+                        }
+                        UnitGroupLoopEnd();
+                        Wait(2.0, c_timeGame);
+                        TriggerExecute(gt_InitUnit, true, false);
+                    }
+                }
+
+            }
+
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Reserve_Init () {
+    gt_Reserve = TriggerCreate("gt_Reserve_Func");
+    TriggerEnable(gt_Reserve, false);
+    TriggerAddEventUnitDied(gt_Reserve, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Build
+//--------------------------------------------------------------------------------------------------
+bool gt_Build_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((AbilityClass(EventUnitCreatedAbil()) == c_classIdCAbilBuild)) {
+        UnitBehaviorAddPlayer(EventUnitCreatedUnit(), "Building", UnitGetOwner(EventUnitCreatedUnit()), 1);
+        UnitSetFacing(EventUnitCreatedUnit(), 270.0, 0.0);
+    }
+    else if ((UnitTypeTestAttribute(UnitGetType(EventUnitCreatedUnit()), c_unitAttributeSummoned) == true)) {
+        UnitIssueOrder(EventUnitCreatedUnit(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
+        libNtve_gf_MakeUnitUncommandable(EventUnitCreatedUnit(), true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Build_Init () {
+    gt_Build = TriggerCreate("gt_Build_Func");
+    TriggerAddEventUnitCreated(gt_Build, null, null, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Idle
+//--------------------------------------------------------------------------------------------------
+bool gt_Idle_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((libNtve_gf_UnitInRegion(EventUnit(), RegionFromId(1)) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitIssueOrder(EventUnit(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Idle_Init () {
+    gt_Idle = TriggerCreate("gt_Idle_Func");
+    TriggerAddEventUnitBecomesIdle(gt_Idle, null, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: PlayerLeft
+//--------------------------------------------------------------------------------------------------
+bool gt_PlayerLeft_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerGroupAdd(gv_playergroupAI, EventPlayer());
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(EventPlayer()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventPlayer(), false))) + StringExternal("Param/Value/A99D8C2B")));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_PlayerLeft_Init () {
+    gt_PlayerLeft = TriggerCreate("gt_PlayerLeft_Func");
+    TriggerAddEventPlayerLeft(gt_PlayerLeft, c_playerAny, c_gameResultUndecided);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_InitMap_Init();
+    gt_InitPlayer_Init();
+    gt_InitRandomGroup_Init();
+    gt_InitRandomRound_Init();
+    gt_InitScheduleAllPlayAll_Init();
+    gt_InitPlayerFinal_Init();
+    gt_InitBoard_Init();
+    gt_InitWorker_Init();
+    gt_Waiting_Init();
+    gt_AI_Init();
+    gt_InitUnit_Init();
+    gt_Position_Init();
+    gt_Reserve_Init();
+    gt_Build_Init();
+    gt_Idle_Init();
+    gt_PlayerLeft_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitGlobals();
+    InitTriggers();
+}

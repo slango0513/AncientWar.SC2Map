@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CButton id="ANgl">
+        <TooltipFlags index="ShowResources" value="0"/>
+    </CButton>
+    <CButton id="ANlg">
+        <TooltipFlags index="ShowResources" value="0"/>
+    </CButton>
+    <!--archmage-->
+    <CButton id="Hamg"/>
+    <CButton id="MultiShot" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnflare.dds"/>
+    <!--archer-->
+    <CButton id="earc"/>
+    <!--glaivethrower-->
+    <CButton id="ebal"/>
+    <!--druidoftheclawmorphed-->
+    <CButton id="edcm"/>
+    <!--druidoftheclaw-->
+    <CButton id="edoc"/>
+    <!--druidofthetalon-->
+    <CButton id="edot"/>
+    <!--dryad-->
+    <CButton id="edry"/>
+    <!--huntress-->
+    <CButton id="esen"/>
+    <!--knight-->
+    <CButton id="hkni"/>
+    <!--priest-->
+    <CButton id="hmpr"/>
+    <!--mortarteam-->
+    <CButton id="hmtm"/>
+    <!--rifleman-->
+    <CButton id="hrif"/>
+    <!--rocketengine-->
+    <CButton id="hrtt"/>
+    <!--sorceress-->
+    <CButton id="hsor"/>
+    <!--spellbreaker-->
+    <CButton id="hspt"/>
+    <!--banditlord-->
+    <CButton id="nbld"/>
+    <!--chaplain-->
+    <CButton id="nchp" art="Assets\Textures\BTN\Renee_war3_btnelfvillager.dds">
+        <Icon value="Assets\Textures\BTN\Renee_war3_btnelfvillager.dds"/>
+        <AlertIcon value="Assets\Textures\BTN\Renee_war3_btnelfvillager.dds"/>
+    </CButton>
+    <!--highelvenarcher-->
+    <CButton id="nhea"/>
+    <!--hydromancer-->
+    <CButton id="nhym"/>
+    <!--watcher-->
+    <CButton id="nwat" art="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds">
+        <Icon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
+        <AlertIcon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
+    </CButton>
+</Catalog>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CBehaviorBuff id="AHfa1">
+        <Modification>
+            <DamageDealtUnscaled index="Melee" value="48"/>
+            <DamageDealtUnscaled index="Ranged" value="48"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ANba1">
+        <Modification>
+            <DamageDealtUnscaled index="Melee" value="48"/>
+            <DamageDealtUnscaled index="Ranged" value="48"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Adef">
+        <Requirements value=""/>
+        <DamageResponse ModifyAmount="-5" ModifyFraction="1"/>
+        <Modification MoveSpeedMultiplier="0.5"/>
+    </CBehaviorBuff>
+    <!--Elune's Grace-->
+    <CBehaviorBuff id="Aegr">
+        <DamageResponse ModifyFraction="0.65"/>
+    </CBehaviorBuff>
+    <!--Impaling Bolt-->
+    <CBehaviorBuff id="Aimp">
+        <Requirements value=""/>
+    </CBehaviorBuff>
+    <!--Moon Glaive-->
+    <CBehaviorBuff id="Amgl">
+        <Requirements value=""/>
+    </CBehaviorBuff>
+    <!--Resistant Skin-->
+    <CBehaviorBuff id="Arsk">
+        <Requirements value=""/>
+    </CBehaviorBuff>
+    <!--Hardened Skin-->
+    <CBehaviorBuff id="Assk">
+        <Requirements value=""/>
+        <DamageResponse ClampMinimum="-524288" ModifyAmount="0" ModifyFraction="0.75"/>
+    </CBehaviorBuff>
+    <!--FaerieFire-->
+    <CBehaviorBuff id="Bfae">
+        <Duration value="30"/>
+        <DurationOverride index="0" Duration="20">
+            <ValidatorArray index="0" value="Hero"/>
+        </DurationOverride>
+        <Modification LifeArmorBonus="-5"/>
+    </CBehaviorBuff>
+    <!--InnerFire-->
+    <CBehaviorBuff id="Binf">
+        <Modification LifeArmorBonus="0">
+            <DamageDealtScaled index="Melee" value="12"/>
+            <DamageDealtScaled index="Ranged" value="12"/>
+            <DamageDealtFraction index="Melee" value="0"/>
+            <DamageDealtFraction index="Ranged" value="0"/>
+        </Modification>
+    </CBehaviorBuff>
+    <!--Rejuvination-->
+    <CBehaviorBuff id="Brej"/>
+    <!--Roar-->
+    <CBehaviorBuff id="Broa">
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Modification>
+            <DamageDealtFraction index="Melee" value="0.1"/>
+            <DamageDealtFraction index="Ranged" value="0.1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <!--SlowPoison-->
+    <CBehaviorBuff id="Bspo">
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Modification MoveSpeedMultiplier="0.6" AttackSpeedMultiplier="0.8"/>
+    </CBehaviorBuff>
+    <!--SlowPoisonStackDoT-->
+    <CBehaviorBuff id="Bssd">
+        <MaxStackCount value="65535"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Building" parent="War3_Buff">
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+            <AbilClassDisableArray index="CAbil" value="1"/>
+            <AbilClassDisableArray index="CAbilProgress" value="1"/>
+            <AbilClassDisableArray index="CAbilEffect" value="1"/>
+            <AbilClassDisableArray index="CAbilQueueable" value="1"/>
+            <AbilClassDisableArray index="CAbilRedirect" value="1"/>
+            <AbilClassDisableArray index="CAbilArmMagazine" value="1"/>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+            <AbilClassDisableArray index="CAbilAugment" value="1"/>
+            <AbilClassDisableArray index="CAbilBattery" value="1"/>
+            <AbilClassDisableArray index="CAbilBeacon" value="1"/>
+            <AbilClassDisableArray index="CAbilBehavior" value="1"/>
+            <AbilClassDisableArray index="CAbilBuild" value="1"/>
+            <AbilClassDisableArray index="CAbilBuildable" value="1"/>
+            <AbilClassDisableArray index="CAbilEffectInstant" value="1"/>
+            <AbilClassDisableArray index="CAbilEffectTarget" value="1"/>
+            <AbilClassDisableArray index="CAbilHarvest" value="1"/>
+            <AbilClassDisableArray index="CAbilInteract" value="1"/>
+            <AbilClassDisableArray index="CAbilInventory" value="1"/>
+            <AbilClassDisableArray index="CAbilLearn" value="1"/>
+            <AbilClassDisableArray index="CAbilMerge" value="1"/>
+            <AbilClassDisableArray index="CAbilMergeable" value="1"/>
+            <AbilClassDisableArray index="CAbilMorphPlacement" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
+            <AbilClassDisableArray index="CAbilPawn" value="1"/>
+            <AbilClassDisableArray index="CAbilQueue" value="1"/>
+            <AbilClassDisableArray index="CAbilRally" value="1"/>
+            <AbilClassDisableArray index="CAbilRedirectInstant" value="1"/>
+            <AbilClassDisableArray index="CAbilRedirectTarget" value="1"/>
+            <AbilClassDisableArray index="CAbilResearch" value="1"/>
+            <AbilClassDisableArray index="CAbilRevive" value="1"/>
+            <AbilClassDisableArray index="CAbilSpecialize" value="1"/>
+            <AbilClassDisableArray index="CAbilStop" value="1"/>
+            <AbilClassDisableArray index="CAbilTrain" value="1"/>
+            <AbilClassDisableArray index="CAbilTransport" value="1"/>
+            <AbilClassDisableArray index="CAbilWarpable" value="1"/>
+            <AbilClassDisableArray index="CAbilWarpTrain" value="1"/>
+            <AbilLinkEnableArray value="Asud"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Defend" parent="War3_Buff">
+        <Name value="Defense/Name"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <DamageResponse Chance="1" Handled="DefendSet">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Splash" value="0"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Defending" parent="War3_Buff">
+        <Duration value="6.25"/>
+        <ExpireEffect value="DefendStopIssueOrder"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Preparing" parent="War3_Buff">
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+            <AbilClassDisableArray index="CAbil" value="1"/>
+            <AbilClassDisableArray index="CAbilProgress" value="1"/>
+            <AbilClassDisableArray index="CAbilEffect" value="1"/>
+            <AbilClassDisableArray index="CAbilQueueable" value="1"/>
+            <AbilClassDisableArray index="CAbilRedirect" value="1"/>
+            <AbilClassDisableArray index="CAbilArmMagazine" value="1"/>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+            <AbilClassDisableArray index="CAbilAugment" value="1"/>
+            <AbilClassDisableArray index="CAbilBattery" value="1"/>
+            <AbilClassDisableArray index="CAbilBeacon" value="1"/>
+            <AbilClassDisableArray index="CAbilBehavior" value="1"/>
+            <AbilClassDisableArray index="CAbilBuild" value="1"/>
+            <AbilClassDisableArray index="CAbilBuildable" value="1"/>
+            <AbilClassDisableArray index="CAbilEffectInstant" value="1"/>
+            <AbilClassDisableArray index="CAbilEffectTarget" value="1"/>
+            <AbilClassDisableArray index="CAbilHarvest" value="1"/>
+            <AbilClassDisableArray index="CAbilInteract" value="1"/>
+            <AbilClassDisableArray index="CAbilLearn" value="1"/>
+            <AbilClassDisableArray index="CAbilMerge" value="1"/>
+            <AbilClassDisableArray index="CAbilMergeable" value="1"/>
+            <AbilClassDisableArray index="CAbilMorph" value="1"/>
+            <AbilClassDisableArray index="CAbilMorphPlacement" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
+            <AbilClassDisableArray index="CAbilPawn" value="1"/>
+            <AbilClassDisableArray index="CAbilQueue" value="1"/>
+            <AbilClassDisableArray index="CAbilRally" value="1"/>
+            <AbilClassDisableArray index="CAbilRedirectInstant" value="1"/>
+            <AbilClassDisableArray index="CAbilRedirectTarget" value="1"/>
+            <AbilClassDisableArray index="CAbilResearch" value="1"/>
+            <AbilClassDisableArray index="CAbilRevive" value="1"/>
+            <AbilClassDisableArray index="CAbilSpecialize" value="1"/>
+            <AbilClassDisableArray index="CAbilStop" value="1"/>
+            <AbilClassDisableArray index="CAbilTrain" value="1"/>
+            <AbilClassDisableArray index="CAbilTransport" value="1"/>
+            <AbilClassDisableArray index="CAbilWarpable" value="1"/>
+            <AbilClassDisableArray index="CAbilWarpTrain" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="nmgw" parent="War3_Buff">
+        <DamageResponse Chance="1" Fatal="1" Handled="nmgr"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="nmgd" parent="War3_Buff">
+        <DamageResponse Chance="1" Fatal="1" Handled="nmgw"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="nmgr" parent="War3_Buff">
+        <DamageResponse Chance="1" Fatal="1" Handled="nmgd"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+</Catalog>
