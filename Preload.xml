@@ -5,13 +5,9 @@
 <Behavior id="Building"/>
 <Behavior id="Preparing"/>
 <Effect id="Kill"/>
-<Effect id="AspsMissile"/>
-<Effect id="AspsBuffMissile"/>
 <Effect id="AOclSecondaryTriggerDamage"/>
 <Effect id="AOclSecondaryLightningDummy"/>
 <Effect id="AOhwSecondaryLightningDummy"/>
-<Effect id="RemoveAStealableBuffTrigger"/>
-<Effect id="RemoveAStealableDebuffTrigger"/>
 <Race id="Human"/>
 <Race id="NightElf"/>
 <Race id="Orc"/>

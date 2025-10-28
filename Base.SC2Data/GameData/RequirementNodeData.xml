@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
     <CRequirementConst id="73">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Value value="73"/>
     </CRequirementConst>
     <CRequirementAnd id="AndCountBehaviorBuildingCompleteOnlyAtUnitCountUpgradePauseCompleteOnly">
@@ -10,16 +11,6 @@
     <CRequirementCountBehavior id="CountBehaviorBuildingCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Building" State="CompleteOnlyAtUnit"/>
-    </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehavior_StealableBuffCompleteOnlyAtUnit">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <Count Link="_StealableBuff" State="CompleteOnlyAtUnit"/>
-    </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehavior_StealableDebuffCompleteOnlyAtUnit">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <Count Link="_StealableDebuff" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountUnit id="CountUnitnscaCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -66,6 +57,7 @@
         <OperandArray index="1" value="2"/>
     </CRequirementEq>
     <CRequirementLT id="LTSumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly73">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="SumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly"/>
         <OperandArray index="1" value="73"/>
     </CRequirementLT>

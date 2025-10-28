@@ -16,7 +16,7 @@
         <MotionPhases index="0">
             <Driver value="Guidance"/>
             <Acceleration value="3200"/>
-            <MaxSpeed value="9.375"/>
+            <MaxSpeed value="11.7187"/>
             <ClearanceAcceleration value="75"/>
             <ActorTracking value="Actual"/>
             <Outro value="0,-0.1"/>

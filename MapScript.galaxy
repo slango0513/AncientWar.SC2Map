@@ -143,19 +143,11 @@ point gf_PlayerFinalReserveLocation (int lp_p, int lp_phalanx);
 point gf_PlayerWorkerLocation (int lp_p);
 region gf_PlayerBuildingRegion (int lp_p, int lp_phalanx);
 bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u);
-void gf_RemoveAStealableBuffPositive (unit lp_unit);
-void gf_RemoveAStealableDebuff (unit lp_unit);
-void gf_TransferAStealableBuff (unit lp_from, unit lp_to);
-void gf_TransferAStealableDebuff (unit lp_from, unit lp_to);
-bool gf_BehaviorIsStealable (string lp_buff);
 void gf_UnitInventoryCreate (unit lp_u, unit lp_item);
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
-trigger gt_AspsSpellSteal;
-trigger gt_AspsSpellStealBuffImpact;
-trigger gt_AspsSpellStealDebuffImpact;
 trigger gt_AOhwImpact;
 trigger gt_moonMoonstoneChangeTOD;
 trigger gt_moonMoonstoneRestoreTOD;
@@ -299,74 +291,6 @@ bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u) {
     return lv_b;
 }
 
-void gf_RemoveAStealableBuffPositive (unit lp_unit) {
-    // Implementation
-    UnitCreateEffectUnit(lp_unit, "RemoveAStealableBuffTrigger", lp_unit);
-}
-
-void gf_RemoveAStealableDebuff (unit lp_unit) {
-    // Implementation
-    UnitCreateEffectUnit(lp_unit, "RemoveAStealableDebuffTrigger", lp_unit);
-}
-
-void gf_TransferAStealableBuff (unit lp_from, unit lp_to) {
-    int autoCBAE1994_ae;
-    int autoCBAE1994_ai;
-
-    // Variable Declarations
-    int lv_i;
-    int lv_c;
-    string lv_buff;
-
-    // Variable Initialization
-    lv_c = UnitBehaviorCountAll(lp_from);
-
-    // Implementation
-    autoCBAE1994_ae = lv_c;
-    autoCBAE1994_ai = 1;
-    lv_i = 1;
-    for ( ; ( (autoCBAE1994_ai >= 0 && lv_i <= autoCBAE1994_ae) || (autoCBAE1994_ai <= 0 && lv_i >= autoCBAE1994_ae) ) ; lv_i += autoCBAE1994_ai ) {
-        lv_buff = UnitBehaviorGet(lp_from, lv_i);
-        if ((gf_BehaviorIsStealable(lv_buff) == true) && (libGAwX_gf_BehaviorIsPositive(lv_buff) == true)) {
-            UnitBehaviorTransfer(lp_from, lp_to, lv_buff, 1);
-            break;
-        }
-
-    }
-}
-
-void gf_TransferAStealableDebuff (unit lp_from, unit lp_to) {
-    int autoAD4EBC51_ae;
-    int autoAD4EBC51_ai;
-
-    // Variable Declarations
-    int lv_i;
-    int lv_c;
-    string lv_buff;
-
-    // Variable Initialization
-    lv_c = UnitBehaviorCountAll(lp_from);
-
-    // Implementation
-    autoAD4EBC51_ae = lv_c;
-    autoAD4EBC51_ai = 1;
-    lv_i = 1;
-    for ( ; ( (autoAD4EBC51_ai >= 0 && lv_i <= autoAD4EBC51_ae) || (autoAD4EBC51_ai <= 0 && lv_i >= autoAD4EBC51_ae) ) ; lv_i += autoAD4EBC51_ai ) {
-        lv_buff = UnitBehaviorGet(lp_from, lv_i);
-        TriggerDebugOutput(1, StringToText((lv_buff)), true);
-        if ((gf_BehaviorIsStealable(lv_buff) == true) && (libGAwX_gf_BehaviorIsNegative(lv_buff) == true)) {
-            UnitBehaviorTransfer(lp_from, lp_to, lv_buff, 1);
-            break;
-        }
-
-    }
-}
-
-bool gf_BehaviorIsStealable (string lp_buff) {
-    // Implementation
-    return UnitBehaviorHasFlag(lp_buff, c_unitBehaviorFlagRestorable);
-}
-
 void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
     // Variable Declarations
     order lv_dropOrder;
@@ -390,102 +314,6 @@ void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
     OrderSetTargetItem(lv_dropOrder, lv_newItem);
     UnitIssueOrder(libGAwX_gv_god, OrderTargetingUnit(AbilityCommand("TodGodInventory", 2), lv_newItem), c_orderQueueReplace);
     UnitIssueOrder(libGAwX_gv_god, lv_dropOrder, c_orderQueueAddToEnd);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Asps - Spell Steal
-//--------------------------------------------------------------------------------------------------
-bool gt_AspsSpellSteal_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_caster;
-    int lv_casterPlayer;
-    unit lv_target;
-    bool lv_buff;
-    unitgroup lv_transferTargetGroup;
-    unit lv_transferTarget;
-    fixed lv_radius;
-
-    // Variable Initialization
-    lv_caster = EventUnit();
-    lv_casterPlayer = UnitGetOwner(lv_caster);
-    lv_target = EventUnitTargetUnit();
-    lv_buff = libNtve_gf_PlayerIsEnemy(lv_casterPlayer, UnitGetOwner(lv_target), libNtve_ge_PlayerRelation_Enemy);
-    lv_transferTargetGroup = UnitGroupEmpty();
-    lv_radius = 9.0;
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((lv_buff == true)) {
-        lv_transferTargetGroup = UnitGroupSearch(null, lv_casterPlayer, UnitGetPosition(lv_caster), lv_radius, UnitFilter(0, 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterRawResource) | (1 << c_targetFilterHarvestableResource) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterSummoned - 32)) | (1 << (c_targetFilterUnstoppable - 32))), 1);
-        lv_transferTarget = UnitGroupUnit(lv_transferTargetGroup, RandomInt(1, UnitGroupCount(lv_transferTargetGroup, c_unitCountAlive)));
-        if ((lv_transferTarget == null)) {
-            gf_RemoveAStealableBuffPositive(lv_target);
-        }
-        else {
-            UnitCreateEffectUnit(lv_target, "AspsBuffMissile", lv_transferTarget);
-        }
-    }
-    else {
-        lv_transferTargetGroup = UnitGroupSearch(null, lv_casterPlayer, UnitGetPosition(lv_caster), lv_radius, UnitFilter(0, 0, (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterRawResource) | (1 << c_targetFilterHarvestableResource) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterSummoned - 32)) | (1 << (c_targetFilterUnstoppable - 32))), 1);
-        lv_transferTarget = UnitGroupUnit(lv_transferTargetGroup, RandomInt(1, UnitGroupCount(lv_transferTargetGroup, c_unitCountAlive)));
-        if ((lv_transferTarget == null)) {
-            gf_RemoveAStealableDebuff(lv_target);
-        }
-        else {
-            UnitCreateEffectUnit(lv_target, "AspsMissile", lv_transferTarget);
-        }
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_AspsSpellSteal_Init () {
-    gt_AspsSpellSteal = TriggerCreate("gt_AspsSpellSteal_Func");
-    TriggerAddEventUnitAbility(gt_AspsSpellSteal, null, AbilityCommand("Asps", 0), c_abilEffectStageCast, false);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Asps - Spell Steal - Buff Impact
-//--------------------------------------------------------------------------------------------------
-bool gt_AspsSpellStealBuffImpact_Func (bool testConds, bool runActions) {
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gf_TransferAStealableBuff(EventPlayerEffectUsedUnit(c_effectUnitCaster), EventPlayerEffectUsedUnit(c_effectUnitTarget));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_AspsSpellStealBuffImpact_Init () {
-    gt_AspsSpellStealBuffImpact = TriggerCreate("gt_AspsSpellStealBuffImpact_Func");
-    TriggerAddEventPlayerEffectUsed(gt_AspsSpellStealBuffImpact, c_playerAny, "AspsBuffImpact");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Asps - Spell Steal - Debuff Impact
-//--------------------------------------------------------------------------------------------------
-bool gt_AspsSpellStealDebuffImpact_Func (bool testConds, bool runActions) {
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libGAwX_gf_TransferAPurgableDebuff(EventPlayerEffectUsedUnit(c_effectUnitCaster), EventPlayerEffectUsedUnit(c_effectUnitTarget));
-    TextExpressionSetToken("Param/Expression/19E4D5C2", "A", UnitTypeGetName(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitCaster))));
-    TextExpressionSetToken("Param/Expression/19E4D5C2", "B", UnitTypeGetName(UnitGetType(EventPlayerEffectUsedUnit(c_effectUnitTarget))));
-    TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/19E4D5C2"), true);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_AspsSpellStealDebuffImpact_Init () {
-    gt_AspsSpellStealDebuffImpact = TriggerCreate("gt_AspsSpellStealDebuffImpact_Func");
-    TriggerAddEventPlayerEffectUsed(gt_AspsSpellStealDebuffImpact, c_playerAny, "AspsMissileDamage");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -971,7 +799,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_boolTestMode = true;
+    gv_boolTestMode = false;
     TriggerEnable(libGAwX_gt_AegrElunesGraceRegister, false);
     TriggerEnable(libGAwX_gt_AdefDefendInitRegister, false);
     TriggerEnable(libGAwX_gt_AsplMarker, false);
@@ -981,9 +809,6 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     TriggerEnable(libGAwX_gt_AwarTargetCheck, false);
     TriggerEnable(libGAwX_gt_moonMoonstoneChangeTOD, false);
     TriggerEnable(libGAwX_gt_AOhwImpact, false);
-    TriggerEnable(libGAwX_gt_AspsSpellSteal, false);
-    TriggerEnable(libGAwX_gt_AspsSpellStealBuffImpact, false);
-    TriggerEnable(libGAwX_gt_AspsSpellStealDebuffImpact, false);
     BankLoad("AncientWar", 1);
     gv_bank[1] = BankLastCreated();
     BankLoad("AncientWar", 2);
@@ -3281,9 +3106,6 @@ void gt_PlayerLeft_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
-    gt_AspsSpellSteal_Init();
-    gt_AspsSpellStealBuffImpact_Init();
-    gt_AspsSpellStealDebuffImpact_Init();
     gt_AOhwImpact_Init();
     gt_moonMoonstoneChangeTOD_Init();
     gt_moonMoonstoneRestoreTOD_Init();

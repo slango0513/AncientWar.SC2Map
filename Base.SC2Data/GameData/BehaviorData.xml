@@ -312,11 +312,6 @@
         <Duration value="3"/>
         <DurationOverride index="0" Duration="3"/>
     </CBehaviorBuff>
-    <!--Doom-->
-    <CBehaviorBuff id="BNdo">
-        <BehaviorCategories index="Restorable" value="1"/>
-        <TechAliasArray value="_StealableDebuff"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="BNht1">
         <MaxStackCount value="2"/>
         <MaxStackCountPerCaster value="1"/>
@@ -333,9 +328,7 @@
         <Modification>
             <DeathResponse Chance="1" Effect="AUin"/>
         </Modification>
-        <BehaviorCategories index="Dispelable" value="0"/>
-        <BehaviorCategories index="User1" value="1"/>
-        <TechAliasArray index="1" value="_StealableDebuff"/>
+        <TechAliasArray index="1" removed="1"/>
     </CBehaviorBuff>
     <!--Stun-->
     <CBehaviorBuff id="BSTN">
