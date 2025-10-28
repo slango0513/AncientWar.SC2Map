@@ -794,6 +794,8 @@ void gt_AsplRegister_Init () {
 bool gt_InitMap_Func (bool testConds, bool runActions) {
     playergroup auto4750D82E_g;
     int auto4750D82E_p;
+    int autoF6CC160A_ae;
+    int autoF6CC160A_ai;
     int auto8D94123B_ae;
     int auto8D94123B_ai;
 
@@ -874,16 +876,30 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     gv_textPhalanx[3] = StringExternal("Param/Value/7A840C97");
     gv_fixedTime = 40.0;
     gv_fixedTimeLastRound = 120.0;
-    auto8D94123B_ae = 16;
-    auto8D94123B_ai = 1;
-    lv_r = 1;
-    for ( ; ( (auto8D94123B_ai >= 0 && lv_r <= auto8D94123B_ae) || (auto8D94123B_ai <= 0 && lv_r >= auto8D94123B_ae) ) ; lv_r += auto8D94123B_ai ) {
-        gv_intG[lv_r] = 225;
+    if ((gv_gameMode == "0002")) {
+        auto8D94123B_ae = 16;
+        auto8D94123B_ai = 1;
+        lv_r = 1;
+        for ( ; ( (auto8D94123B_ai >= 0 && lv_r <= auto8D94123B_ae) || (auto8D94123B_ai <= 0 && lv_r >= auto8D94123B_ae) ) ; lv_r += auto8D94123B_ai ) {
+            gv_intG[lv_r] = 270;
+        }
+        gv_intG[1] = 90;
+        gv_intG[2] = 90;
+        gv_intG[3] = 180;
+        gv_intG[4] = 180;
     }
-    gv_intG[1] = 75;
-    gv_intG[2] = 75;
-    gv_intG[3] = 150;
-    gv_intG[4] = 150;
+    else {
+        autoF6CC160A_ae = 16;
+        autoF6CC160A_ai = 1;
+        lv_r = 1;
+        for ( ; ( (autoF6CC160A_ai >= 0 && lv_r <= autoF6CC160A_ae) || (autoF6CC160A_ai <= 0 && lv_r >= autoF6CC160A_ae) ) ; lv_r += autoF6CC160A_ai ) {
+            gv_intG[lv_r] = 225;
+        }
+        gv_intG[1] = 75;
+        gv_intG[2] = 75;
+        gv_intG[3] = 150;
+        gv_intG[4] = 150;
+    }
     Wait(2.0, c_timeGame);
     TriggerExecute(gt_InitPlayer, true, false);
     TriggerExecute(gt_InitRandomGroup, true, false);
@@ -3152,7 +3168,7 @@ bool gt_Attack_Func (bool testConds, bool runActions) {
     abilcmd lv_abilCmd;
 
     // Variable Initialization
-    lv_unfilter = UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem) | (1 << c_targetFilterCloaked), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)));
+    lv_unfilter = UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem) | (1 << c_targetFilterCloaked), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterBenign - 32)));
     lv_abilCmd = AbilityCommand("Aatk", 0);
 
     // Actions

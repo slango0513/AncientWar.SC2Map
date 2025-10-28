@@ -422,10 +422,24 @@
         <Range value="6"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
+    <!--infernal automaton-->
+    <CWeaponLegacy id="nina1">
+        <MinScanRange value="3"/>
+        <Range value="3"/>
+        <Period value="3"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+    </CWeaponLegacy>
     <!--Infernal-->
     <CWeaponLegacy id="ninf1">
         <MinScanRange value="0.7812"/>
         <Period value="3"/>
+    </CWeaponLegacy>
+    <!--infernal machine-->
+    <CWeaponLegacy id="ninm1">
+        <MinScanRange value="3"/>
+        <Range value="3"/>
+        <Period value="3"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <!--ice troll shadow priest-->
     <CWeaponLegacy id="nitp1" atkType="MAGIC">

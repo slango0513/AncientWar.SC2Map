@@ -2490,8 +2490,8 @@
         <Race value="Undead"/>
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="650"/>
-        <LifeMax value="650"/>
+        <LifeStart value="700"/>
+        <LifeMax value="700"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -2866,11 +2866,11 @@
         <TechTreeProducedUnitArray value="Hgam1"/>
     </CUnit>
     <!--infernal automaton-->
-    <CUnit id="nina">
+    <CUnit id="nina" defType="FORT">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
         <LifeArmor value="0"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
@@ -2886,16 +2886,18 @@
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
         <Food value="0"/>
-        <CostResource index="gold" value="15"/>
+        <CostResource index="gold" value="30"/>
         <CostResource index="lumber" value="0"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="5"/>
+        <KillResource index="Custom" value="15"/>
         <AbilArray Link="Inventory2"/>
         <AbilArray Link="Asud"/>
-        <BehaviorArray index="4" removed="1"/>
+        <AbilArray Link="UpgradeToninm"/>
+        <BehaviorArray index="4" Link="InfernalArmor"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="ANin" Type="AbilCmd" AbilCmd="ANin,255" Row="2" Column="3"/>
+            <LayoutButtons index="5" Face="ninm" Type="AbilCmd" AbilCmd="UpgradeToninm,Execute" Row="0" Column="0"/>
             <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="InfernalArmor" Type="Passive" Row="2" Column="0"/>
         </CardLayouts>
         <Radius value="0.5"/>
         <SeparationRadius value="0.5"/>
@@ -2903,8 +2905,12 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <!--AttackTargetPriority value="2"/-->
         <SubgroupPriority value="0"/>
-        <TechTreeProducedUnitArray value="ninm"/>
         <TechTreeProducedUnitArray value="nina"/>
+        <Race value="Undead"/>
+        <Attributes index="large" value="0"/>
+        <Attributes index="fort" value="1"/>
+        <LifeArmorName value="ARMOR_FORT"/>
+        <LifeArmorTip value="ARMORTIP_FORT"/>
     </CUnit>
     <!--Infernal-->
     <CUnit id="ninf">
@@ -2942,11 +2948,11 @@
         <Race value="Undead"/>
     </CUnit>
     <!--infernal machine-->
-    <CUnit id="ninm">
+    <CUnit id="ninm" defType="FORT">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
         <LifeArmor value="0"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
@@ -2962,15 +2968,16 @@
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
         <Food value="0"/>
-        <CostResource index="gold" value="15"/>
+        <CostResource index="gold" value="90"/>
         <CostResource index="lumber" value="0"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="5"/>
-        <AbilArray Link="Inventory2"/>
+        <KillResource index="Custom" value="15"/>
+        <AbilArray index="4" Link="Inventory2"/>
         <AbilArray Link="Asud"/>
-        <BehaviorArray index="4" removed="1"/>
+        <BehaviorArray index="4" Link="InfernalArmor"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="ACbc" Type="AbilCmd" AbilCmd="ACbc,255" Row="2" Column="0"/>
+            <LayoutButtons index="5" Face="InfernalCanon" Type="Passive" AbilCmd="" Row="2" Column="1"/>
+            <LayoutButtons Face="InfernalArmor" Type="Passive" Row="2" Column="0"/>
             <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <Radius value="0.5"/>
@@ -2979,7 +2986,14 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <!--AttackTargetPriority value="2"/-->
         <SubgroupPriority value="0"/>
+        <TechTreeProducedUnitArray value="nina"/>
+        <TechTreeProducedUnitArray value="nina"/>
         <TechTreeProducedUnitArray value="ninm"/>
+        <Race value="Undead"/>
+        <Attributes index="large" value="0"/>
+        <Attributes index="fort" value="1"/>
+        <LifeArmorName value="ARMOR_FORT"/>
+        <LifeArmorTip value="ARMORTIP_FORT"/>
     </CUnit>
     <!--ice troll priest-->
     <CUnit id="nitp" defType="NONE">
@@ -3068,7 +3082,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="0"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="656"/>
+        <KillResource index="Custom" value="820"/>
         <AbilArray index="4" removed="1"/>
         <AbilArray index="5" removed="1"/>
         <BehaviorArray index="3" Link="PowerfulUnit"/>
@@ -3091,7 +3105,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="0"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="640"/>
+        <KillResource index="Custom" value="800"/>
         <BehaviorArray index="3" Link="PowerfulUnit"/>
         <BehaviorArray index="4" Link="Fury"/>
         <BehaviorArray index="5" removed="1"/>
@@ -3129,7 +3143,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="0"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="288"/>
+        <KillResource index="Custom" value="360"/>
         <BehaviorArray index="3" Link="PowerfulUnit"/>
         <BehaviorArray index="4" Link="Fury"/>
         <!--ReviveDelay value="2.67"/-->
@@ -3250,8 +3264,8 @@
         <Race value="Undead"/>
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="650"/>
-        <LifeMax value="650"/>
+        <LifeStart value="700"/>
+        <LifeMax value="700"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -4580,7 +4594,7 @@
             <LayoutButtons index="7" Face="ugho" Type="AbilCmd" AbilCmd="AUbu,Build1" Row="0" Column="0"/>
             <LayoutButtons index="8" Face="uobs" Type="AbilCmd" AbilCmd="AUbu,Build5" Row="2" Column="0"/>
             <LayoutButtons index="9" Face="ndrv" Type="AbilCmd" AbilCmd="AUbu,Build14" Row="0" Column="1"/>
-            <LayoutButtons index="10" removed="1"/>
+            <LayoutButtons index="10" Face="nina" Type="AbilCmd" AbilCmd="AUbu,Build22" Row="0" Column="3"/>
             <LayoutButtons index="11" removed="1"/>
         </CardLayouts>
         <DeathTime value="15"/>

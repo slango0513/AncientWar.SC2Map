@@ -271,7 +271,7 @@
     <!--Liquid Fire Dur=3 HeroDur=3 Buff=Bliq-->
     <CBehaviorBuff id="Aliq">
         <Requirements value=""/>
-        <DamageResponse TargetFilters="-;Player,Ally,Air,Hover,HarvestableResource,Destructible,Item,Buried,Dead"/>
+        <DamageResponse TargetFilters="-;player,allies,air,wall,tree,debris,item,ward,dead"/>
     </CBehaviorBuff>
     <!--Moon Glaive-->
     <CBehaviorBuff id="Amgl">
@@ -621,6 +621,14 @@
         </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="InfernalArmor" parent="War3_Passive">
+        <Name value="InfernoArmor/Name"/>
+        <Requirements value="InfernalArmor"/>
+        <DamageResponse Chance="1" ModifyFraction="0.75">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Melee" value="0"/>
+        </DamageResponse>
+    </CBehaviorBuff>
     <CBehaviorBuff id="MirrorArmour" parent="War3_Passive">
         <Requirements value="MirrorArmour"/>
         <DamageResponse Chance="1" ModifyFraction="0.5">
@@ -635,7 +643,7 @@
             <Chance value="1"/>
             <Handled value="MortalStrikeSet"/>
             <Location value="Attacker"/>
-            <TargetFilters value="-;Player,Ally"/>
+            <TargetFilters value="-;player,allies"/>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
@@ -833,7 +841,6 @@
     <CBehaviorBuff id="Buhf">
         <PeriodicEffect value=""/>
         <Modification AttackSpeedMultiplier="2"/>
-        <DamageResponse Chance="1" ModifyFraction="1.25"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ChargingKnight" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnanimalwartraining.dds"/>

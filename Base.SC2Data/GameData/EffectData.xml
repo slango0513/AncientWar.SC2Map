@@ -24,9 +24,12 @@
     <CEffectEnumArea id="ANabSearch">
         <AreaArray index="0" Radius="3" Effect="BNabAreaSet"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="ANhx1Dur">
+        <Duration value="10"/>
+    </CEffectApplyBehavior>
     <!--Rokhan - Hex Buff=BOhx-->
     <CEffectApplyBehavior id="ANhx1HeroDur">
-        <Duration value="3"/>
+        <Duration value="2"/>
     </CEffectApplyBehavior>
     <CEffectModifyUnit id="AoarHealTick">
         <VitalArray index="Life" Change="35" ChangeFraction="0"/>
@@ -47,6 +50,8 @@
     <!--Warden - Fan of Knives-->
     <CEffectEnumArea id="AEfk1Search">
         <MaxCount value="6"/>
+        <SearchFilters value="Visible;player,allies,neutral,air,mechanical,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable,immunity"/>
+        <AreaArray index="0" Radius="3" Effect="AEfkMissile"/>
     </CEffectEnumArea>
     <!--Demon Hunter - Mana Burn-->
     <CEffectSet id="AEmb1">
@@ -511,9 +516,26 @@
         <Amount value="24"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectDamage id="nina1">
+        <Amount value="24"/>
+        <Random value="0"/>
+        <AreaArray index="0" removed="1"/>
+        <AreaArray index="1" removed="1"/>
+        <AreaArray index="2" removed="1"/>
+        <SearchFilters value="-;-"/>
+    </CEffectDamage>
     <CEffectDamage id="ninf1">
         <Amount value="192"/>
         <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="ninm1">
+        <VitalFractionMax index="Life" value="0.02"/>
+        <Random value="0"/>
+        <AreaArray index="0" removed="1"/>
+        <AreaArray index="1" removed="1"/>
+        <AreaArray index="2" removed="1"/>
+        <SearchFilters value="-;-"/>
+        <Amount value="24"/>
     </CEffectDamage>
     <CEffectCreateUnit id="nsca" parent="War3_SummonUnit">
         <EditorCategories value="Race:Undead"/>
@@ -531,7 +553,7 @@
         <Marker>
             <MatchFlags index="Id" value="1"/>
         </Marker>
-        <PeriodCount value="9"/>
+        <PeriodCount value="6"/>
         <PeriodicEffectArray value="AHhbE"/>
         <PeriodicPeriodArray value="0.0625"/>
     </CEffectCreatePersistent>
@@ -791,6 +813,7 @@
     </CEffectModifyUnit>
     <CEffectSet id="ANhx1">
         <ValidatorArray value="NonPowerfulUnit"/>
+        <ValidatorArray value="NoDebuffImmunity"/>
     </CEffectSet>
     <CEffectApplyBehavior id="ANsi1Dur">
         <Duration value="15"/>

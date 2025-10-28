@@ -618,6 +618,7 @@
         <AutoCastValidatorArray value="NoBOhx"/>
         <AutoCastValidatorArray value="NonPowerfulUnit"/>
         <AutoCastValidatorArray value="hasEnergy"/>
+        <AutoCastValidatorArray value="NoDebuffImmunity"/>
     </CAbilEffectTarget>
     <!--Farseer - Spirit Wolf Buff=BOsf-->
     <CAbilEffectInstant id="AOsf">
@@ -752,6 +753,12 @@
         </InfoArray>
         <InfoArray index="Build21" Unit="Nman1">
             <Button DefaultButtonFace="Nman" Requirements="Pause"/>
+        </InfoArray>
+        <InfoArray index="Build22" Unit="nina">
+            <Button DefaultButtonFace="nina" Requirements="Pause"/>
+        </InfoArray>
+        <InfoArray index="Build23" Unit="ninm">
+            <Button DefaultButtonFace="ninm" Requirements="Pause"/>
         </InfoArray>
         <Range value="500"/>
     </CAbilBuild>
@@ -1313,6 +1320,10 @@
             <Vital index="Energy" value="0"/>
             <Cooldown Location="Unit" TimeUse="30"/>
         </Cost>
+        <AutoCastValidatorArray index="0" removed="1"/>
+        <UninterruptibleArray index="Wait" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
     </CAbilEffectInstant>
     <!--Slow Dur=60 HeroDur=10 Buff=Bslo-->
     <CAbilEffectTarget id="Aslo">
@@ -2273,6 +2284,34 @@
     <CAbilMorph id="UpgradeTohhes" parent="War3_Upgrade" toUnit="hhes">
         <CmdButtonArray index="Execute" Requirements="Pause"/>
         <InfoArray index="0" Score="1" Unit="hhes">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeToninm" parent="War3_Upgrade" toUnit="ninm">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="ninm">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeTonina" parent="War3_Upgrade" toUnit="nina">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="nina">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
