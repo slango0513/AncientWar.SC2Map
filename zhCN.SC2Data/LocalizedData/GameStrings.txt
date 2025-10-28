@@ -422,8 +422,12 @@ DocInfo/PatchNote265=牛头人类单位获得新技能抗性皮肤。
 DocInfo/PatchNote266=提高科多兽类单位的射程。
 DocInfo/PatchNote267=降低兽人步兵类单位的伤害。
 DocInfo/PatchNote268=掠夺(狼骑兵与混乱兽人狼骑兵)的几率提高到100%。
-DocInfo/PatchNote269=兽人：
-DocInfo/PatchNote270=易伤(浸毒长矛)的最大叠加数量降低到6层。
+DocInfo/PatchNote269=修复占据对有抗性皮肤的单位无效的漏洞。
+DocInfo/PatchNote270=人类：
+DocInfo/PatchNote271=提高狮鹫骑士的生命值，降低护甲。
+DocInfo/PatchNote272=兽人：
+DocInfo/PatchNote273=易伤(浸毒长矛)的最大叠加数量降低到6层。
+DocInfo/PatchNote274=火油与浸毒长矛现在对拥有负面效果防护的单位无效。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AHhbE=AHhbE

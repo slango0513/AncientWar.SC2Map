@@ -1315,6 +1315,8 @@
             <BehaviorLinkDisableArray value="Bfrz"/>
             <BehaviorLinkDisableArray value="BHbn"/>
             <BehaviorLinkDisableArray value="Bpsd"/>
+            <BehaviorLinkDisableArray value="Bliq"/>
+            <BehaviorLinkDisableArray value="Bpoi"/>
         </Modification>
         <InfoFlags index="Hidden" value="0"/>
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>

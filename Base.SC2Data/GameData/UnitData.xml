@@ -1138,8 +1138,8 @@
     <CUnit id="hgry">
         <Food value="0"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="2200"/>
-        <LifeMax value="2200"/>
+        <LifeStart value="2400"/>
+        <LifeMax value="2400"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -1166,7 +1166,7 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
         <TechTreeProducedUnitArray value="hgry"/>
-        <LifeArmor value="15"/>
+        <LifeArmor value="10"/>
         <BehaviorArray Link="PowerfulUnit"/>
         <AttackTargetPriority value="21"/>
     </CUnit>

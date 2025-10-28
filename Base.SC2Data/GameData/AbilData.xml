@@ -1064,13 +1064,12 @@
         <AutoCastValidatorArray value="EnemiesNearby9"/>
         <AutoCastValidatorArray value="TargetLifeGT1"/>
         <AutoCastValidatorArray value="NoDebuffImmunity"/>
-        <AutoCastValidatorArray value="NonHero"/>
         <AutoCastValidatorArray value="NonPowerfulUnit"/>
         <UninterruptibleArray index="Approach" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
         <CmdButtonArray index="Execute" Requirements=""/>
-        <TargetFilters index="0" value="-;player,allies,air,mechanical,wall,tree,debris,item,structure,ward,dead,invulnerable,summoned,immunity,hero"/>
+        <TargetFilters index="0" value="-;player,allies,air,mechanical,wall,tree,debris,item,structure,ward,dead,invulnerable,summoned,immunity"/>
     </CAbilEffectTarget>
     <!--Phase Shift Dur=1.5 HeroDur=1.5 Buff=Bpsh-->
     <CAbilEffectInstant id="Apsh">
