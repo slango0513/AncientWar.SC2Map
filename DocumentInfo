@@ -15,7 +15,7 @@
             <Value>Screenshot2.jpg</Value>
         </File>
         <CaptionId>
-            <Value>3</Value>
+            <Value>1</Value>
             <Value>2</Value>
         </CaptionId>
         <Flags>
@@ -34,6 +34,7 @@
             <Value>0.13</Value>
             <Value>0.14</Value>
             <Value>0.15</Value>
+            <Value>0.16</Value>
         </Version>
         <Date>
             <Value>7/13/2016</Value>
@@ -45,6 +46,7 @@
             <Value>7/24/2016</Value>
             <Value>7/24/2016</Value>
             <Value>7/25/2016</Value>
+            <Value>7/27/2016</Value>
         </Date>
         <Notes>
             <Value>1,2</Value>
@@ -56,6 +58,7 @@
             <Value>19,20,21,22</Value>
             <Value>23,24,25,26,27</Value>
             <Value>28,29,30,31,32,33,34</Value>
+            <Value>35,36,37,38,39,40,41,42</Value>
         </Notes>
     </PatchNote>
 </DocInfo>

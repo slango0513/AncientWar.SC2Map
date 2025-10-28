@@ -13,10 +13,15 @@
     <CButton id="DebuffImmunity" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>
     <!--archmage-->
     <CButton id="Hamg"/>
+    <CButton id="Hex" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhex.dds"/>
     <CButton id="HonorShield" parent="War3_Button" art="Assets\Textures\war3_btnbarkskin.dds"/>
     <CButton id="ImpaleAttack" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimpale.dds"/>
     <CButton id="LifePeriod" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstoneform.dds"/>
     <CButton id="MultiShot" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstrengthofthemoon.dds"/>
+    <CButton id="PillageGrunt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
+    <CButton id="PillageChaosGrunt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
+    <CButton id="PillageRaider" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
+    <CButton id="PillageChaosRaider" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="ShockWave" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnshockwave.dds"/>
     <CButton id="ItemLevel" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btn3m1.dds">
         <Name value="UpdateItemLevel1/Tip"/>
@@ -82,12 +87,16 @@
         <Icon value="Assets\Textures\BTN\Renee_war3_btnelfvillager.dds"/>
         <AlertIcon value="Assets\Textures\BTN\Renee_war3_btnelfvillager.dds"/>
     </CButton>
+    <!--chaoswolfrider-->
+    <CButton id="nchr"/>
     <!--revenantofthedepths-->
     <CButton id="ndrv"/>
     <!--highelvenarcher-->
     <CButton id="nhea"/>
     <!--hydromancer-->
     <CButton id="nhym"/>
+    <!--icetrollshadowpriest-->
+    <CButton id="nitp"/>
     <!--deathrevenant-->
     <CButton id="nrvd"/>
     <!--nightelfassassin-->
@@ -97,6 +106,24 @@
         <Icon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
         <AlertIcon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
     </CButton>
+    <!--demolisher-->
+    <CButton id="ocat"/>
+    <!--witchdoctor-->
+    <CButton id="odoc"/>
+    <!--grunt-->
+    <CButton id="ogru"/>
+    <!--headhunter-->
+    <CButton id="ohun"/>
+    <!--kotobeast-->
+    <CButton id="okod"/>
+    <!--wolfrider-->
+    <CButton id="orai"/>
+    <!--spiritwalker-->
+    <CButton id="ospw"/>
+    <!--tauren-->
+    <CButton id="otau"/>
+    <!--berserker-->
+    <CButton id="otbk"/>
     <!--Claws of Attack +3-->
     <CButton id="rat3"/>
     <!--Claws of Attack +6-->

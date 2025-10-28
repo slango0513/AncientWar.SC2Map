@@ -22,11 +22,17 @@
     <CValidatorLocationEnumArea id="EnemiesNearby9" parent="EnemiesNearby6">
         <AreaArray index="0" Compare="GE" Count="1" Radius="9"/>
     </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="EnemiesNearby7.5" parent="EnemiesNearby6">
+        <AreaArray index="0" Compare="GE" Count="1" Radius="7.5"/>
+    </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="GroundEnemiesNearby15" parent="GroundEnemiesNearby">
         <AreaArray index="0" Compare="GE" Count="1" Radius="1.5"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="GroundEnemiesNearby9" parent="GroundEnemiesNearby">
         <AreaArray index="0" Compare="GE" Count="1" Radius="9"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="GroundEnemiesNearby18" parent="GroundEnemiesNearby">
+        <AreaArray index="0" Compare="GE" Count="1" Radius="18"/>
     </CValidatorLocationEnumArea>
     <CValidatorUnitCompareVeterancyLevel id="LevelableHero">
         <Compare value="GE"/>
@@ -39,9 +45,18 @@
     <CValidatorUnitCompareBehaviorCount id="NoAntiMagicShell">
         <Behavior value="Bam2"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoEnsnare">
+        <Behavior value="Bens"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoLightningShield">
+        <Behavior value="Blsh"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoManaFlareChannelling">
         <WhichUnit Value="Caster"/>
         <Behavior value="ManaFlareChannelling"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoStasisTrapWard">
+        <Behavior value="Bsta"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoWeb">
         <WhichUnit Value="Caster"/>

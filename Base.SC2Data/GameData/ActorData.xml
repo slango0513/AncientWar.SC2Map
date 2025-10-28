@@ -262,6 +262,40 @@
         <SoundArray index="Highlight" value="Nbrn1_Highlight"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
+    <!--shadowhunter-->
+    <CActorUnit id="Oshd" defType="NONE">
+        <On index="0" Terms="UnitBirth.Oshd1" Send="Create SoundEmitter Oshd1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Oshd1"/>
+        <On index="2" Terms="UnitRevive.Oshd1"/>
+        <On index="3" Terms="UnitRevive.Oshd1"/>
+        <On index="4" Terms="UnitConstruction.Oshd1.Start"/>
+        <On index="5" Terms="UnitConstruction.Oshd1.Finish"/>
+        <On index="67" Terms="UnitRevive.Oshd1; !ScopeContains Oshd"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Oshd1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Oshd1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Oshd1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Oshd1"/>
+        <On index="85" removed="1"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--taurenchieftain-->
+    <CActorUnit id="Otch" unitName="Otch1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Otch1" Send="Create SoundEmitter Otch1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Otch1"/>
+        <On index="2" Terms="UnitRevive.Otch1"/>
+        <On index="3" Terms="UnitRevive.Otch1"/>
+        <On index="4" Terms="UnitConstruction.Otch1.Start"/>
+        <On index="5" Terms="UnitConstruction.Otch1.Finish"/>
+        <On index="67" Terms="UnitRevive.Otch1; !ScopeContains Otch"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Otch1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Otch1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Otch1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Otch1"/>
+        <On index="85" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+    </CActorUnit>
     <!--cryptlord-->
     <CActorUnit id="Ucrl" unitName="Ucrl1" defType="MEDIUM">
         <On index="0" Terms="UnitBirth.Ucrl1" Send="Create SoundEmitter Ucrl1_Ambience"/>
@@ -391,10 +425,6 @@
     <CActorUnit id="hsor">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
-    <!--spellbreaker-->
-    <CActorUnit id="hspt">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
-    </CActorUnit>
     <!--bandit-->
     <CActorUnit id="nban">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
@@ -429,9 +459,18 @@
         <SoundArray index="ClickError" value="nbld1_ClickError"/>
         <SoundArray index="Highlight" value="nbld1_Highlight"/>
     </CActorUnit>
+    <!--chaosgrunt-->
+    <CActorUnit id="nchg">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
     <!--chaplain-->
     <CActorUnit id="nchp">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--chaoskotobeast-->
+    <CActorUnit id="nckb" defType="NONE">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
     <!--darkminion1-->
     <CActorUnit id="ndr1">
@@ -457,6 +496,11 @@
     <CActorUnit id="nhym">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <On index="89" removed="1"/>
+    </CActorUnit>
+    <!--icetrollshadowpriest-->
+    <CActorUnit id="nitp" defType="NONE">
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--magnataurdestroyer-->
     <CActorUnit id="nmgd">
@@ -484,8 +528,43 @@
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
     </CActorUnit>
+    <!--demolisher-->
+    <CActorUnit id="ocat">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
+    <!--witchdoctor-->
+    <CActorUnit id="odoc">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--grunt-->
+    <CActorUnit id="ogru">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
+    <!--headhunter-->
+    <CActorUnit id="ohun">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--kotobeast-->
+    <CActorUnit id="okod">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
     <!--peon-->
     <CActorUnit id="opeo">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--wolfrider-->
+    <CActorUnit id="orai" defType="SMALL">
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
+    </CActorUnit>
+    <!--shaman-->
+    <CActorUnit id="oshm">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <CActorUnit id="ospw">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
+    <!--berserker-->
+    <CActorUnit id="otbk">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--abomination-->

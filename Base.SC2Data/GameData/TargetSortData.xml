@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CTargetSortVital id="TSLifeLargestLast"/>
+    <CTargetSortVitalFraction id="TSLifeFractionLargestFirst" parent="TSLifeFraction">
+        <Descending value="1"/>
+    </CTargetSortVitalFraction>
 </Catalog>

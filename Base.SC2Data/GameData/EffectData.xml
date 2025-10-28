@@ -18,8 +18,22 @@
         <VitalArray index="Life" Change="0" ChangeFraction="1"/>
         <VitalArray index="Energy" ChangeFraction="1"/>
     </CEffectModifyUnit>
+    <!--Chieftain - Endurance Aura Buff=BOae-->
+    <CEffectEnumArea id="AOaeSearch">
+        <AreaArray index="0" Radius="9" Effect="BOaeSet"/>
+    </CEffectEnumArea>
     <CEffectDamage id="AOshDamage1">
         <Amount value="50"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="AOws1Dur">
+        <Duration value="5"/>
+    </CEffectApplyBehavior>
+    <!--Chieftain - War Stomp Buff=BPSE-->
+    <CEffectEnumArea id="AOws1Search">
+        <AreaArray index="0" Radius="6" Effect="AOws1SearchImpact"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="AOwsDamage1">
+        <Amount value="75"/>
     </CEffectDamage>
     <!--Death Knight - Animate Dead Buff=BUan-->
     <CEffectEnumArea id="AUanSearch">
@@ -45,6 +59,16 @@
     <CEffectEnumArea id="AUimSearch">
         <AreaArray index="0" Radius="0.375" Effect="AUimSearchImpactSet"/>
     </CEffectEnumArea>
+    <!--Aura - War Drums Buff=Bakb-->
+    <CEffectEnumArea id="AakbSearch">
+        <AreaArray index="0" Radius="9" Effect="Bakb"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="AbofFullDamage">
+        <Amount value="100"/>
+    </CEffectDamage>
+    <CEffectDamage id="AbofHalfDamage">
+        <Amount value="50"/>
+    </CEffectDamage>
     <CEffectDamage id="AflkSphereEffect">
         <AreaArray index="0" Radius="1.5" Bonus="72" Fraction="1"/>
         <AreaArray index="1" Radius="2" Bonus="72" Fraction="0.6667"/>
@@ -52,6 +76,9 @@
     </CEffectDamage>
     <CEffectCreateHealer id="AheaHeal">
         <RechargeVitalRate value="75"/>
+    </CEffectCreateHealer>
+    <CEffectCreateHealer id="Anh1Heal">
+        <RechargeVitalRate value="50"/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="Anh2Heal">
         <RechargeVitalRate value="15"/>
@@ -81,6 +108,10 @@
     <CEffectEnumArea id="AtauSearch">
         <SearchFilters value="ground;player,allies,neutral,wall,tree,Missile,debris,item,structure,ward,dead,Hidden"/>
     </CEffectEnumArea>
+    <CEffectDamage id="AwarAoEDamage">
+        <AreaArray index="0" Radius="3" Bonus="50" Fraction="1"/>
+        <AreaArray index="1" Radius="4.5" Bonus="25" Fraction="1"/>
+    </CEffectDamage>
     <CEffectDamage id="BEerDPS1">
         <Amount value="50"/>
     </CEffectDamage>
@@ -117,6 +148,11 @@
     <CEffectDamage id="BssdDPS">
         <Amount value="10"/>
     </CEffectDamage>
+    <CEffectEnumArea id="BsttSearch">
+        <SearchFilters value="-;player,allies,air,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable,Stunned,immunity"/>
+        <AreaArray index="0" Radius="6" Effect="Bsta"/>
+        <MaxCount value="6"/>
+    </CEffectEnumArea>
     <CEffectDamage id="BuhfDPS">
         <Amount value="0.5"/>
     </CEffectDamage>
@@ -154,6 +190,15 @@
         <Abil value="Adef"/>
         <AbilCmdIndex value="1"/>
     </CEffectIssueOrder>
+    <CEffectDamage id="Oshd1">
+        <AttributeFactor index="small" value="0.25"/>
+        <AttributeFactor index="medium" value="-0.25"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="large" value="1"/>
+        <AttributeFactor index="fortified" value="-0.65"/>
+        <Amount value="12"/>
+        <Random value="0"/>
+    </CEffectDamage>
     <CEffectApplyBehavior id="StoneFormUnExtra"/>
     <CEffectApplyBehavior id="StoneFormExtra"/>
     <CEffectIssueOrder id="StoneFormUnIssueOrder">
@@ -331,8 +376,8 @@
         <ImpactEffect value="hgry1ImpactSet8"/>
     </CEffectLaunchMissile>
     <CEffectEnumArea id="hgry1RectangeSearch">
-        <TargetSorts>
-            <SortArray index="0" value="TSLifeLargestLast"/>
+        <TargetSorts RequestCount="1">
+            <SortArray index="0" value="TSLife"/>
             <SortArray value="TSRandom"/>
         </TargetSorts>
         <AreaArray index="0" Arc="360" Radius="1.5625" Effect="hgry1LM2"/>
@@ -377,7 +422,7 @@
     <CEffectDamage id="hgyr1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="36"/>
+        <Amount value="60"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="hhes1">
@@ -413,7 +458,7 @@
     <CEffectDamage id="hrif1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="36"/>
+        <Amount value="60"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="hrtt1">
@@ -453,11 +498,23 @@
         <Amount value="96"/>
         <Random value="96"/>
     </CEffectDamage>
+    <CEffectDamage id="nchg1">
+        <Amount value="48"/>
+        <Random value="48"/>
+    </CEffectDamage>
     <CEffectDamage id="nchp1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
         <Amount value="12"/>
         <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nchr1">
+        <Amount value="120"/>
+        <Random value="120"/>
+    </CEffectDamage>
+    <CEffectDamage id="nckb1">
+        <Amount value="48"/>
+        <Random value="48"/>
     </CEffectDamage>
     <CEffectDamage id="ndr11">
         <Amount value="24"/>
@@ -477,6 +534,15 @@
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
         <Amount value="96"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nitp1">
+        <AttributeFactor index="small" value="0.25"/>
+        <AttributeFactor index="unarmored" value="0"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="large" value="1"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="24"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="nmgd1">
@@ -557,6 +623,73 @@
             <Resource index="Custom" value="-0.75"/>
         </SalvageFactor>
     </CEffectModifyUnit>
+    <CEffectDamage id="ocat1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="192"/>
+        <Random value="0"/>
+        <AreaArray index="0" Radius="1" Fraction="1"/>
+        <AreaArray index="1" Radius="1.5" Fraction="0.6667"/>
+        <AreaArray index="2" Radius="2" Fraction="0.3332"/>
+        <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="odoc1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="ogru1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="48"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="ohun1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="okod1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="48"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="orai1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="120"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="oshm1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="ospw1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="otau1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="192"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="otbk1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <!--Stasis Trap Dur=150 HeroDur=2.5 Buff=Bstt StunBuff=Bsta-->
+    <CEffectCreateUnit id="otot">
+        <WhichLocation Value="TargetUnit"/>
+        <SpawnOffset value="0,1"/>
+    </CEffectCreateUnit>
     <CEffectDamage id="uabo1">
         <AttributeFactor index="divine" value="0"/>
         <Amount value="144"/>
@@ -593,7 +726,7 @@
     <CEffectDamage id="ugho1">
         <AttributeFactor index="divine" value="0"/>
         <Random value="0"/>
-        <Amount value="36"/>
+        <Amount value="24"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="Ucrl1LM" parent="War3_Missile" weaponid="Ucrl1"/>
     <CEffectDamage id="umtw1">

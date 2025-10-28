@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
     <CBehaviorBuff id="AEev1">
-        <DamageResponse Chance="0.33"/>
+        <DamageResponse Chance="0.67"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AHfa1">
         <Modification>
@@ -100,6 +100,10 @@
     <CBehaviorBuff id="Aap1">
         <Requirements value=""/>
     </CBehaviorBuff>
+    <!--Balls of Fire Dur=2.51 HeroDur=1.01 Buff=Bbof effect=Xbof-->
+    <CBehaviorBuff id="Abof">
+        <Requirements value=""/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="Adef">
         <Requirements value=""/>
         <DamageResponse ModifyAmount="-10" ModifyFraction="1"/>
@@ -148,6 +152,103 @@
     <CBehaviorBuff id="Aroc">
         <Requirements value=""/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="AstaDelay">
+        <Duration value="5"/>
+    </CBehaviorBuff>
+    <!--Pulverize-->
+    <CBehaviorBuff id="Awar">
+        <Requirements value=""/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BOae1">
+        <MaxStackCount value="2"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Modification MoveSpeedMultiplier="1.2" AttackSpeedMultiplier="1.2"/>
+    </CBehaviorBuff>
+    <!--AuraKotoBeast-->
+    <CBehaviorBuff id="Bakb">
+        <MaxStackCount value="4"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Modification>
+            <DamageDealtFraction index="Melee" value="0"/>
+            <DamageDealtFraction index="Ranged" value="0"/>
+            <DamageDealtUnscaled index="Melee" value="24"/>
+        </Modification>
+    </CBehaviorBuff>
+    <!--Bloodlust-->
+    <CBehaviorBuff id="Bblo">
+        <Modification MoveSpeedMultiplier="1.5" AttackSpeedMultiplier="1.2">
+            <VitalDamageLeechArray index="Life">
+                <KindArray index="Melee" value="1"/>
+            </VitalDamageLeechArray>
+        </Modification>
+    </CBehaviorBuff>
+    <!--BerserkerRage-->
+    <CBehaviorBuff id="Bbsk">
+        <Duration value="15"/>
+        <DurationOverride index="0" Duration="15">
+            <ValidatorArray index="0" value="Hero"/>
+        </DurationOverride>
+        <Modification AttackSpeedMultiplier="2"/>
+    </CBehaviorBuff>
+    <!--EnsnareAir-->
+    <CBehaviorBuff id="Bena">
+        <Duration value="15"/>
+    </CBehaviorBuff>
+    <!--EnsnareGround-->
+    <CBehaviorBuff id="Beng">
+        <Duration value="15"/>
+    </CBehaviorBuff>
+    <!--SpiritLink-->
+    <CBehaviorBuff id="Bspl">
+        <Duration value="5.555"/>
+        <DurationOverride index="0" Duration="5.555">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Bsta">
+        <Duration value="15"/>
+        <DurationOverride index="0" Duration="5">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+    </CBehaviorBuff>
+    <!--StasisTrapTrigger-->
+    <CBehaviorBuff id="Bstt">
+        <Duration value="60"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BsttDetonationDelay">
+        <Duration value="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Hex" parent="War3_Passive">
+        <DamageResponse Chance="0.25" Handled="ANhx1" Location="Attacker"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PillageGrunt" parent="War3_Passive">
+        <DamageResponse Chance="0.5" Location="Attacker">
+            <Cost>
+                <Resource index="Custom" value="-2"/>
+            </Cost>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PillageChaosGrunt" parent="War3_Passive">
+        <DamageResponse Chance="0.5" Location="Attacker">
+            <Cost>
+                <Resource index="Custom" value="-4"/>
+            </Cost>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PillageRaider" parent="War3_Passive">
+        <DamageResponse Chance="0.5" Location="Attacker">
+            <Cost>
+                <Resource index="Custom" value="-5"/>
+            </Cost>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PillageChaosRaider" parent="War3_Passive">
+        <DamageResponse Chance="0.5" Location="Attacker">
+            <Cost>
+                <Resource index="Custom" value="-10"/>
+            </Cost>
+        </DamageResponse>
+    </CBehaviorBuff>
     <!--Hardened Skin-->
     <CBehaviorBuff id="Assk">
         <Requirements value=""/>
@@ -171,11 +272,15 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="BHadI">
-        <Modification LifeArmorBonus="2"/>
+        <Modification LifeArmorBonus="4"/>
     </CBehaviorBuff>
     <!--AnimateDead-->
     <CBehaviorBuff id="BUan">
         <BehaviorCategories index="User1" value="1"/>
+        <Duration value="30"/>
+        <DurationOverride index="0" Duration="30">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
     </CBehaviorBuff>
     <!--AntiMagicShell (Matrix)-->
     <CBehaviorBuff id="Bam2">
@@ -347,212 +452,212 @@
             <ExcludeEffectArray index="177" value="ninc1"/>
             <ExcludeEffectArray index="178" value="ninm1"/>
             <ExcludeEffectArray index="179" value="nith1"/>
-            <ExcludeEffectArray index="180" value="nitp1"/>
-            <ExcludeEffectArray index="181" value="nitr1"/>
-            <ExcludeEffectArray index="182" value="nits1"/>
-            <ExcludeEffectArray index="183" value="nitt1"/>
-            <ExcludeEffectArray index="184" value="nitw1"/>
-            <ExcludeEffectArray index="185" value="nkog1"/>
-            <ExcludeEffectArray index="186" value="nlds1"/>
-            <ExcludeEffectArray index="187" value="nltc1"/>
-            <ExcludeEffectArray index="188" value="nltl1"/>
-            <ExcludeEffectArray index="189" value="nmbg1"/>
-            <ExcludeEffectArray index="190" value="nmgd2"/>
-            <ExcludeEffectArray index="191" value="nmgr2"/>
-            <ExcludeEffectArray index="192" value="nmsc1"/>
-            <ExcludeEffectArray index="193" value="nndr1"/>
-            <ExcludeEffectArray index="194" value="nndr2"/>
-            <ExcludeEffectArray index="195" value="nntg1"/>
-            <ExcludeEffectArray index="196" value="nnwl1"/>
-            <ExcludeEffectArray index="197" value="nnwq1"/>
-            <ExcludeEffectArray index="198" value="nnwr1"/>
-            <ExcludeEffectArray index="199" value="Npld2"/>
-            <ExcludeEffectArray index="200" value="Nplh2"/>
-            <ExcludeEffectArray index="201" value="Nfir1"/>
-            <ExcludeEffectArray index="202" value="Nfir2"/>
-            <ExcludeEffectArray index="203" value="nlv11"/>
-            <ExcludeEffectArray index="204" value="nlv21"/>
-            <ExcludeEffectArray index="205" value="nlv31"/>
-            <ExcludeEffectArray index="206" value="nrdr1"/>
-            <ExcludeEffectArray index="207" value="nrdr2"/>
-            <ExcludeEffectArray index="208" value="nrel1"/>
-            <ExcludeEffectArray index="209" value="nrwm1"/>
-            <ExcludeEffectArray index="210" value="nrwm2"/>
-            <ExcludeEffectArray index="211" value="nrzt1"/>
-            <ExcludeEffectArray index="212" value="nsat1"/>
-            <ExcludeEffectArray index="213" value="nsel1"/>
-            <ExcludeEffectArray index="214" value="nska1"/>
-            <ExcludeEffectArray index="215" value="nsca1"/>
-            <ExcludeEffectArray index="216" value="nskf1"/>
-            <ExcludeEffectArray index="217" value="nskm1"/>
-            <ExcludeEffectArray index="218" value="nslf1"/>
-            <ExcludeEffectArray index="219" value="nslh1"/>
-            <ExcludeEffectArray index="220" value="nsll1"/>
-            <ExcludeEffectArray index="221" value="nslr1"/>
-            <ExcludeEffectArray index="222" value="nslv1"/>
-            <ExcludeEffectArray index="223" value="nsnp1"/>
-            <ExcludeEffectArray index="224" value="nsns1"/>
-            <ExcludeEffectArray index="225" value="nsra1"/>
-            <ExcludeEffectArray index="226" value="nsrh1"/>
-            <ExcludeEffectArray index="227" value="nsrn1"/>
-            <ExcludeEffectArray index="228" value="nsrw1"/>
-            <ExcludeEffectArray index="229" value="nssp1"/>
-            <ExcludeEffectArray index="230" value="nsts1"/>
-            <ExcludeEffectArray index="231" value="nstw1"/>
-            <ExcludeEffectArray index="232" value="nthl1"/>
-            <ExcludeEffectArray index="233" value="ntka1"/>
-            <ExcludeEffectArray index="234" value="ntks1"/>
-            <ExcludeEffectArray index="235" value="ntkt1"/>
-            <ExcludeEffectArray index="236" value="ntrh1"/>
-            <ExcludeEffectArray index="237" value="ntrt1"/>
-            <ExcludeEffectArray index="238" value="nvde1"/>
-            <ExcludeEffectArray index="239" value="nvdg1"/>
-            <ExcludeEffectArray index="240" value="nvdl1"/>
-            <ExcludeEffectArray index="241" value="nvdw1"/>
-            <ExcludeEffectArray index="242" value="nwgs1"/>
-            <ExcludeEffectArray index="243" value="nwiz1"/>
-            <ExcludeEffectArray index="244" value="nws11"/>
-            <ExcludeEffectArray index="245" value="nwzd1"/>
-            <ExcludeEffectArray index="246" value="nwzg1"/>
-            <ExcludeEffectArray index="247" value="nwzr1"/>
-            <ExcludeEffectArray index="248" value="Npbm2"/>
-            <ExcludeEffectArray index="249" value="Nalc2"/>
-            <ExcludeEffectArray index="250" value="Nalm2"/>
-            <ExcludeEffectArray index="251" value="Nal22"/>
-            <ExcludeEffectArray index="252" value="Nal32"/>
-            <ExcludeEffectArray index="253" value="Ntin2"/>
-            <ExcludeEffectArray index="254" value="Nrob2"/>
-            <ExcludeEffectArray index="255" value="nqb11"/>
-            <ExcludeEffectArray index="256" value="nrdk1"/>
-            <ExcludeEffectArray index="257" value="nrdk2"/>
-            <ExcludeEffectArray index="258" value="Ecen1"/>
-            <ExcludeEffectArray index="259" value="Ecen2"/>
-            <ExcludeEffectArray index="260" value="Eevi2"/>
-            <ExcludeEffectArray index="261" value="Eevm1"/>
-            <ExcludeEffectArray index="262" value="Eevm2"/>
-            <ExcludeEffectArray index="263" value="Efur1"/>
-            <ExcludeEffectArray index="264" value="Efur2"/>
-            <ExcludeEffectArray index="265" value="Eidm1"/>
-            <ExcludeEffectArray index="266" value="Eidm2"/>
-            <ExcludeEffectArray index="267" value="Eill2"/>
-            <ExcludeEffectArray index="268" value="Eilm1"/>
-            <ExcludeEffectArray index="269" value="Eilm2"/>
-            <ExcludeEffectArray index="270" value="Ekgg1"/>
-            <ExcludeEffectArray index="271" value="Ekgg2"/>
-            <ExcludeEffectArray index="272" value="Emfr1"/>
-            <ExcludeEffectArray index="273" value="Emfr2"/>
-            <ExcludeEffectArray index="274" value="Emns1"/>
-            <ExcludeEffectArray index="275" value="Emns2"/>
-            <ExcludeEffectArray index="276" value="Etyr1"/>
-            <ExcludeEffectArray index="277" value="Etyr2"/>
-            <ExcludeEffectArray index="278" value="Ewrd2"/>
-            <ExcludeEffectArray index="279" value="Hant1"/>
-            <ExcludeEffectArray index="280" value="Hant2"/>
-            <ExcludeEffectArray index="281" value="Hapm2"/>
-            <ExcludeEffectArray index="282" value="Harf2"/>
-            <ExcludeEffectArray index="283" value="Hart2"/>
-            <ExcludeEffectArray index="284" value="Hdgo2"/>
-            <ExcludeEffectArray index="285" value="Hhkl2"/>
-            <ExcludeEffectArray index="286" value="Hjai1"/>
-            <ExcludeEffectArray index="287" value="Hjai2"/>
-            <ExcludeEffectArray index="288" value="Hkal1"/>
-            <ExcludeEffectArray index="289" value="Hkal2"/>
-            <ExcludeEffectArray index="290" value="Hlgr2"/>
-            <ExcludeEffectArray index="291" value="Hmbr2"/>
-            <ExcludeEffectArray index="292" value="Hmgd2"/>
-            <ExcludeEffectArray index="293" value="Hpb12"/>
-            <ExcludeEffectArray index="294" value="Hpb22"/>
-            <ExcludeEffectArray index="295" value="Huth2"/>
-            <ExcludeEffectArray index="296" value="Hvsh1"/>
-            <ExcludeEffectArray index="297" value="Hvsh2"/>
-            <ExcludeEffectArray index="298" value="Hvwd1"/>
-            <ExcludeEffectArray index="299" value="Hvwd2"/>
-            <ExcludeEffectArray index="300" value="Nbbc2"/>
-            <ExcludeEffectArray index="301" value="Nklj2"/>
-            <ExcludeEffectArray index="302" value="Nkjx2"/>
-            <ExcludeEffectArray index="303" value="Nmag2"/>
-            <ExcludeEffectArray index="304" value="Nman2"/>
-            <ExcludeEffectArray index="305" value="Nsjs2"/>
-            <ExcludeEffectArray index="306" value="Ocbh2"/>
-            <ExcludeEffectArray index="307" value="Ocb22"/>
-            <ExcludeEffectArray index="308" value="Odrt1"/>
-            <ExcludeEffectArray index="309" value="Odrt2"/>
-            <ExcludeEffectArray index="310" value="Ogld1"/>
-            <ExcludeEffectArray index="311" value="Ogld2"/>
-            <ExcludeEffectArray index="312" value="Ogrh2"/>
-            <ExcludeEffectArray index="313" value="Opgh2"/>
-            <ExcludeEffectArray index="314" value="Orex2"/>
-            <ExcludeEffectArray index="315" value="Orkn1"/>
-            <ExcludeEffectArray index="316" value="Orkn2"/>
-            <ExcludeEffectArray index="317" value="Osam2"/>
-            <ExcludeEffectArray index="318" value="Otcc2"/>
-            <ExcludeEffectArray index="319" value="Othr1"/>
-            <ExcludeEffectArray index="320" value="Othr2"/>
-            <ExcludeEffectArray index="321" value="Uanb2"/>
-            <ExcludeEffectArray index="322" value="Ubal2"/>
-            <ExcludeEffectArray index="323" value="Uclc1"/>
-            <ExcludeEffectArray index="324" value="Uclc2"/>
-            <ExcludeEffectArray index="325" value="Udth2"/>
-            <ExcludeEffectArray index="326" value="Uear2"/>
-            <ExcludeEffectArray index="327" value="Uktl1"/>
-            <ExcludeEffectArray index="328" value="Uktl2"/>
-            <ExcludeEffectArray index="329" value="Umal2"/>
-            <ExcludeEffectArray index="330" value="Usyl1"/>
-            <ExcludeEffectArray index="331" value="Usyl2"/>
-            <ExcludeEffectArray index="332" value="Utic2"/>
-            <ExcludeEffectArray index="333" value="Uvar2"/>
-            <ExcludeEffectArray index="334" value="Uvng2"/>
-            <ExcludeEffectArray index="335" value="Uwar1"/>
-            <ExcludeEffectArray index="336" value="Uwar2"/>
-            <ExcludeEffectArray index="337" value="Hgam1"/>
-            <ExcludeEffectArray index="338" value="Hgam2"/>
-            <ExcludeEffectArray index="339" value="ensh1"/>
-            <ExcludeEffectArray index="340" value="eshd1"/>
-            <ExcludeEffectArray index="341" value="ncat2"/>
-            <ExcludeEffectArray index="342" value="nbel1"/>
-            <ExcludeEffectArray index="343" value="nchw1"/>
-            <ExcludeEffectArray index="344" value="nckb1"/>
-            <ExcludeEffectArray index="345" value="ndrh1"/>
-            <ExcludeEffectArray index="346" value="ndrm1"/>
-            <ExcludeEffectArray index="347" value="ndrs1"/>
-            <ExcludeEffectArray index="348" value="ndsa1"/>
-            <ExcludeEffectArray index="349" value="nemi1"/>
-            <ExcludeEffectArray index="350" value="ngbl1"/>
-            <ExcludeEffectArray index="351" value="nhea1"/>
-            <ExcludeEffectArray index="352" value="nmdm1"/>
-            <ExcludeEffectArray index="353" value="nmed1"/>
-            <ExcludeEffectArray index="354" value="nmsn1"/>
-            <ExcludeEffectArray index="355" value="nser1"/>
-            <ExcludeEffectArray index="356" value="nssn1"/>
-            <ExcludeEffectArray index="357" value="nthr1"/>
-            <ExcludeEffectArray index="358" value="nw2w1"/>
-            <ExcludeEffectArray index="359" value="odkt1"/>
-            <ExcludeEffectArray index="360" value="ubdd1"/>
-            <ExcludeEffectArray index="361" value="ubdd2"/>
-            <ExcludeEffectArray index="362" value="ubdr1"/>
-            <ExcludeEffectArray index="363" value="ubdr2"/>
-            <ExcludeEffectArray index="364" value="udes1"/>
-            <ExcludeEffectArray index="365" value="uktn1"/>
-            <ExcludeEffectArray index="366" value="uswb1"/>
-            <ExcludeEffectArray index="367" value="nbt12"/>
-            <ExcludeEffectArray index="368" value="nbt22"/>
-            <ExcludeEffectArray index="369" value="ncap2"/>
-            <ExcludeEffectArray index="370" value="ndgt1"/>
-            <ExcludeEffectArray index="371" value="negf1"/>
-            <ExcludeEffectArray index="372" value="negm1"/>
-            <ExcludeEffectArray index="373" value="negt1"/>
-            <ExcludeEffectArray index="374" value="nndk1"/>
-            <ExcludeEffectArray index="375" value="nndk2"/>
-            <ExcludeEffectArray index="376" value="Nngs1"/>
-            <ExcludeEffectArray index="377" value="Nngs2"/>
-            <ExcludeEffectArray index="378" value="ntt11"/>
-            <ExcludeEffectArray index="379" value="ntx21"/>
-            <ExcludeEffectArray index="380" value="ocbw1"/>
-            <ExcludeEffectArray index="381" value="zcso1"/>
-            <ExcludeEffectArray index="382" value="zhyd1"/>
-            <ExcludeEffectArray index="383" value="zjug1"/>
-            <ExcludeEffectArray index="384" value="zmar1"/>
-            <ExcludeEffectArray index="385" value="zsmc1"/>
+            <ExcludeEffectArray index="180" value="nitr1"/>
+            <ExcludeEffectArray index="181" value="nits1"/>
+            <ExcludeEffectArray index="182" value="nitt1"/>
+            <ExcludeEffectArray index="183" value="nitw1"/>
+            <ExcludeEffectArray index="184" value="nkog1"/>
+            <ExcludeEffectArray index="185" value="nlds1"/>
+            <ExcludeEffectArray index="186" value="nltc1"/>
+            <ExcludeEffectArray index="187" value="nltl1"/>
+            <ExcludeEffectArray index="188" value="nmbg1"/>
+            <ExcludeEffectArray index="189" value="nmgd2"/>
+            <ExcludeEffectArray index="190" value="nmgr2"/>
+            <ExcludeEffectArray index="191" value="nmsc1"/>
+            <ExcludeEffectArray index="192" value="nndr1"/>
+            <ExcludeEffectArray index="193" value="nndr2"/>
+            <ExcludeEffectArray index="194" value="nntg1"/>
+            <ExcludeEffectArray index="195" value="nnwl1"/>
+            <ExcludeEffectArray index="196" value="nnwq1"/>
+            <ExcludeEffectArray index="197" value="nnwr1"/>
+            <ExcludeEffectArray index="198" value="Npld2"/>
+            <ExcludeEffectArray index="199" value="Nplh2"/>
+            <ExcludeEffectArray index="200" value="Nfir1"/>
+            <ExcludeEffectArray index="201" value="Nfir2"/>
+            <ExcludeEffectArray index="202" value="nlv11"/>
+            <ExcludeEffectArray index="203" value="nlv21"/>
+            <ExcludeEffectArray index="204" value="nlv31"/>
+            <ExcludeEffectArray index="205" value="nrdr1"/>
+            <ExcludeEffectArray index="206" value="nrdr2"/>
+            <ExcludeEffectArray index="207" value="nrel1"/>
+            <ExcludeEffectArray index="208" value="nrwm1"/>
+            <ExcludeEffectArray index="209" value="nrwm2"/>
+            <ExcludeEffectArray index="210" value="nrzt1"/>
+            <ExcludeEffectArray index="211" value="nsat1"/>
+            <ExcludeEffectArray index="212" value="nsel1"/>
+            <ExcludeEffectArray index="213" value="nska1"/>
+            <ExcludeEffectArray index="214" value="nsca1"/>
+            <ExcludeEffectArray index="215" value="nskf1"/>
+            <ExcludeEffectArray index="216" value="nskm1"/>
+            <ExcludeEffectArray index="217" value="nslf1"/>
+            <ExcludeEffectArray index="218" value="nslh1"/>
+            <ExcludeEffectArray index="219" value="nsll1"/>
+            <ExcludeEffectArray index="220" value="nslr1"/>
+            <ExcludeEffectArray index="221" value="nslv1"/>
+            <ExcludeEffectArray index="222" value="nsnp1"/>
+            <ExcludeEffectArray index="223" value="nsns1"/>
+            <ExcludeEffectArray index="224" value="nsra1"/>
+            <ExcludeEffectArray index="225" value="nsrh1"/>
+            <ExcludeEffectArray index="226" value="nsrn1"/>
+            <ExcludeEffectArray index="227" value="nsrw1"/>
+            <ExcludeEffectArray index="228" value="nssp1"/>
+            <ExcludeEffectArray index="229" value="nsts1"/>
+            <ExcludeEffectArray index="230" value="nstw1"/>
+            <ExcludeEffectArray index="231" value="nthl1"/>
+            <ExcludeEffectArray index="232" value="ntka1"/>
+            <ExcludeEffectArray index="233" value="ntks1"/>
+            <ExcludeEffectArray index="234" value="ntkt1"/>
+            <ExcludeEffectArray index="235" value="ntrh1"/>
+            <ExcludeEffectArray index="236" value="ntrt1"/>
+            <ExcludeEffectArray index="237" value="nvde1"/>
+            <ExcludeEffectArray index="238" value="nvdg1"/>
+            <ExcludeEffectArray index="239" value="nvdl1"/>
+            <ExcludeEffectArray index="240" value="nvdw1"/>
+            <ExcludeEffectArray index="241" value="nwgs1"/>
+            <ExcludeEffectArray index="242" value="nwiz1"/>
+            <ExcludeEffectArray index="243" value="nws11"/>
+            <ExcludeEffectArray index="244" value="nwzd1"/>
+            <ExcludeEffectArray index="245" value="nwzg1"/>
+            <ExcludeEffectArray index="246" value="nwzr1"/>
+            <ExcludeEffectArray index="247" value="Npbm2"/>
+            <ExcludeEffectArray index="248" value="Nalc2"/>
+            <ExcludeEffectArray index="249" value="Nalm2"/>
+            <ExcludeEffectArray index="250" value="Nal22"/>
+            <ExcludeEffectArray index="251" value="Nal32"/>
+            <ExcludeEffectArray index="252" value="Ntin2"/>
+            <ExcludeEffectArray index="253" value="Nrob2"/>
+            <ExcludeEffectArray index="254" value="nqb11"/>
+            <ExcludeEffectArray index="255" value="nrdk1"/>
+            <ExcludeEffectArray index="256" value="nrdk2"/>
+            <ExcludeEffectArray index="257" value="Ecen1"/>
+            <ExcludeEffectArray index="258" value="Ecen2"/>
+            <ExcludeEffectArray index="259" value="Eevi2"/>
+            <ExcludeEffectArray index="260" value="Eevm1"/>
+            <ExcludeEffectArray index="261" value="Eevm2"/>
+            <ExcludeEffectArray index="262" value="Efur1"/>
+            <ExcludeEffectArray index="263" value="Efur2"/>
+            <ExcludeEffectArray index="264" value="Eidm1"/>
+            <ExcludeEffectArray index="265" value="Eidm2"/>
+            <ExcludeEffectArray index="266" value="Eill2"/>
+            <ExcludeEffectArray index="267" value="Eilm1"/>
+            <ExcludeEffectArray index="268" value="Eilm2"/>
+            <ExcludeEffectArray index="269" value="Ekgg1"/>
+            <ExcludeEffectArray index="270" value="Ekgg2"/>
+            <ExcludeEffectArray index="271" value="Emfr1"/>
+            <ExcludeEffectArray index="272" value="Emfr2"/>
+            <ExcludeEffectArray index="273" value="Emns1"/>
+            <ExcludeEffectArray index="274" value="Emns2"/>
+            <ExcludeEffectArray index="275" value="Etyr1"/>
+            <ExcludeEffectArray index="276" value="Etyr2"/>
+            <ExcludeEffectArray index="277" value="Ewrd2"/>
+            <ExcludeEffectArray index="278" value="Hant1"/>
+            <ExcludeEffectArray index="279" value="Hant2"/>
+            <ExcludeEffectArray index="280" value="Hapm2"/>
+            <ExcludeEffectArray index="281" value="Harf2"/>
+            <ExcludeEffectArray index="282" value="Hart2"/>
+            <ExcludeEffectArray index="283" value="Hdgo2"/>
+            <ExcludeEffectArray index="284" value="Hhkl2"/>
+            <ExcludeEffectArray index="285" value="Hjai1"/>
+            <ExcludeEffectArray index="286" value="Hjai2"/>
+            <ExcludeEffectArray index="287" value="Hkal1"/>
+            <ExcludeEffectArray index="288" value="Hkal2"/>
+            <ExcludeEffectArray index="289" value="Hlgr2"/>
+            <ExcludeEffectArray index="290" value="Hmbr2"/>
+            <ExcludeEffectArray index="291" value="Hmgd2"/>
+            <ExcludeEffectArray index="292" value="Hpb12"/>
+            <ExcludeEffectArray index="293" value="Hpb22"/>
+            <ExcludeEffectArray index="294" value="Huth2"/>
+            <ExcludeEffectArray index="295" value="Hvsh1"/>
+            <ExcludeEffectArray index="296" value="Hvsh2"/>
+            <ExcludeEffectArray index="297" value="Hvwd1"/>
+            <ExcludeEffectArray index="298" value="Hvwd2"/>
+            <ExcludeEffectArray index="299" value="Nbbc2"/>
+            <ExcludeEffectArray index="300" value="Nklj2"/>
+            <ExcludeEffectArray index="301" value="Nkjx2"/>
+            <ExcludeEffectArray index="302" value="Nmag2"/>
+            <ExcludeEffectArray index="303" value="Nman2"/>
+            <ExcludeEffectArray index="304" value="Nsjs2"/>
+            <ExcludeEffectArray index="305" value="Ocbh2"/>
+            <ExcludeEffectArray index="306" value="Ocb22"/>
+            <ExcludeEffectArray index="307" value="Odrt1"/>
+            <ExcludeEffectArray index="308" value="Odrt2"/>
+            <ExcludeEffectArray index="309" value="Ogld1"/>
+            <ExcludeEffectArray index="310" value="Ogld2"/>
+            <ExcludeEffectArray index="311" value="Ogrh2"/>
+            <ExcludeEffectArray index="312" value="Opgh2"/>
+            <ExcludeEffectArray index="313" value="Orex2"/>
+            <ExcludeEffectArray index="314" value="Orkn1"/>
+            <ExcludeEffectArray index="315" value="Orkn2"/>
+            <ExcludeEffectArray index="316" value="Osam2"/>
+            <ExcludeEffectArray index="317" value="Otcc2"/>
+            <ExcludeEffectArray index="318" value="Othr1"/>
+            <ExcludeEffectArray index="319" value="Othr2"/>
+            <ExcludeEffectArray index="320" value="Uanb2"/>
+            <ExcludeEffectArray index="321" value="Ubal2"/>
+            <ExcludeEffectArray index="322" value="Uclc1"/>
+            <ExcludeEffectArray index="323" value="Uclc2"/>
+            <ExcludeEffectArray index="324" value="Udth2"/>
+            <ExcludeEffectArray index="325" value="Uear2"/>
+            <ExcludeEffectArray index="326" value="Uktl1"/>
+            <ExcludeEffectArray index="327" value="Uktl2"/>
+            <ExcludeEffectArray index="328" value="Umal2"/>
+            <ExcludeEffectArray index="329" value="Usyl1"/>
+            <ExcludeEffectArray index="330" value="Usyl2"/>
+            <ExcludeEffectArray index="331" value="Utic2"/>
+            <ExcludeEffectArray index="332" value="Uvar2"/>
+            <ExcludeEffectArray index="333" value="Uvng2"/>
+            <ExcludeEffectArray index="334" value="Uwar1"/>
+            <ExcludeEffectArray index="335" value="Uwar2"/>
+            <ExcludeEffectArray index="336" value="Hgam1"/>
+            <ExcludeEffectArray index="337" value="Hgam2"/>
+            <ExcludeEffectArray index="338" value="ensh1"/>
+            <ExcludeEffectArray index="339" value="eshd1"/>
+            <ExcludeEffectArray index="340" value="ncat2"/>
+            <ExcludeEffectArray index="341" value="nbel1"/>
+            <ExcludeEffectArray index="342" value="nchw1"/>
+            <ExcludeEffectArray index="343" value="nckb1"/>
+            <ExcludeEffectArray index="344" value="ndrh1"/>
+            <ExcludeEffectArray index="345" value="ndrm1"/>
+            <ExcludeEffectArray index="346" value="ndrs1"/>
+            <ExcludeEffectArray index="347" value="ndsa1"/>
+            <ExcludeEffectArray index="348" value="nemi1"/>
+            <ExcludeEffectArray index="349" value="ngbl1"/>
+            <ExcludeEffectArray index="350" value="nhea1"/>
+            <ExcludeEffectArray index="351" value="nmdm1"/>
+            <ExcludeEffectArray index="352" value="nmed1"/>
+            <ExcludeEffectArray index="353" value="nmsn1"/>
+            <ExcludeEffectArray index="354" value="nser1"/>
+            <ExcludeEffectArray index="355" value="nssn1"/>
+            <ExcludeEffectArray index="356" value="nthr1"/>
+            <ExcludeEffectArray index="357" value="nw2w1"/>
+            <ExcludeEffectArray index="358" value="odkt1"/>
+            <ExcludeEffectArray index="359" value="ubdd1"/>
+            <ExcludeEffectArray index="360" value="ubdd2"/>
+            <ExcludeEffectArray index="361" value="ubdr1"/>
+            <ExcludeEffectArray index="362" value="ubdr2"/>
+            <ExcludeEffectArray index="363" value="udes1"/>
+            <ExcludeEffectArray index="364" value="uktn1"/>
+            <ExcludeEffectArray index="365" value="uswb1"/>
+            <ExcludeEffectArray index="366" value="nbt12"/>
+            <ExcludeEffectArray index="367" value="nbt22"/>
+            <ExcludeEffectArray index="368" value="ncap2"/>
+            <ExcludeEffectArray index="369" value="ndgt1"/>
+            <ExcludeEffectArray index="370" value="negf1"/>
+            <ExcludeEffectArray index="371" value="negm1"/>
+            <ExcludeEffectArray index="372" value="negt1"/>
+            <ExcludeEffectArray index="373" value="nndk1"/>
+            <ExcludeEffectArray index="374" value="nndk2"/>
+            <ExcludeEffectArray index="375" value="Nngs1"/>
+            <ExcludeEffectArray index="376" value="Nngs2"/>
+            <ExcludeEffectArray index="377" value="ntt11"/>
+            <ExcludeEffectArray index="378" value="ntx21"/>
+            <ExcludeEffectArray index="379" value="ocbw1"/>
+            <ExcludeEffectArray index="380" value="zcso1"/>
+            <ExcludeEffectArray index="381" value="zhyd1"/>
+            <ExcludeEffectArray index="382" value="zjug1"/>
+            <ExcludeEffectArray index="383" value="zmar1"/>
+            <ExcludeEffectArray index="384" value="zsmc1"/>
+            <ExcludeEffectArray index="385" removed="1"/>
             <ExcludeEffectArray index="386" removed="1"/>
             <ExcludeEffectArray index="387" removed="1"/>
         </DamageResponse>
@@ -578,7 +683,7 @@
     </CBehaviorBuff>
     <!--InnerFire-->
     <CBehaviorBuff id="Binf">
-        <Modification LifeArmorBonus="0">
+        <Modification>
             <DamageDealtFraction index="Melee" value="0"/>
             <DamageDealtFraction index="Ranged" value="0"/>
             <DamageDealtUnscaled index="Melee" value="24"/>

@@ -14,6 +14,7 @@ Base.SC2Data\GameData\RequirementNodeData.xml
 Base.SC2Data\GameData\TargetSortData.xml
 Base.SC2Data\GameData\UnitData.xml
 Base.SC2Data\GameData\UpgradeData.xml
+Base.SC2Data\GameData\UserData.xml
 Base.SC2Data\GameData\ValidatorData.xml
 Base.SC2Data\GameData\WeaponData.xml
 ComponentList.SC2Components
