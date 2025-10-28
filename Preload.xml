@@ -4,6 +4,7 @@
 <Asset path="assets\textures\btn\renee_war3_btnmoonkey.dds" Type="Image"/>
 <Asset path="assets\textures\btn\renee_war3_btnsunkey.dds" Type="Image"/>
 <Actor id="SYSTEM_ActorConfig"/>
+<Actor id="Model"/>
 <Behavior id="Building"/>
 <Behavior id="Preparing"/>
 <Effect id="Kill"/>
@@ -14,7 +15,9 @@
 <Race id="NightElf"/>
 <Race id="Orc"/>
 <Race id="Undead"/>
+<Sound id="ReceiveGold"/>
 <Sound id="HornOfCenariusSound" Variations="0"/>
+<Sound id="ItemReward" Variations="0"/>
 <Terrain id="BelShirEx2"/>
 <Unit id="hpea"/>
 <Unit id="opeo"/>
@@ -23,5 +26,6 @@
 <Unit id="nmgw"/>
 <Unit id="oli2"/>
 <Unit id="hrdh"/>
+<Unit id="oosc"/>
 <Weapon id="otau1"/>
 </Preload>

@@ -189,6 +189,16 @@
         <Period value="3"/>
         <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
     </CWeaponLegacy>
+    <!--thrall-->
+    <CWeaponLegacy id="Othr1" atkType="MAGIC">
+        <Name value="DAMAGE_MAGIC"/>
+        <Tip value="DAMAGETIP_MAGIC"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
+        <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
+        <MinScanRange value="6"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
     <!--HeroCryptLord-->
     <CWeaponLegacy id="Ucrl1" atkType="PIERCE">
         <MinScanRange value="8"/>
@@ -582,11 +592,31 @@
         <MinScanRange value="0.7812"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="ora21" parent="normal" atkType="SIEGE">
+        <EditorCategories value="Race:Orc"/>
+        <MinScanRange value="0.7812"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+        <Range value="0.7812"/>
+        <RangeSlop value="1.9531"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.5"/>
+    </CWeaponLegacy>
     <!--Shaman-->
     <CWeaponLegacy id="oshm1">
         <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="3"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ChaosOrcShaman1" parent="missile" atkType="CHAOS">
+        <Effect value="ChaosOrcShaman1LM"/>
+        <EditorCategories value="Race:Orc"/>
+        <MinScanRange value="6"/>
+        <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable"/>
+        <Range value="6"/>
+        <RangeSlop value="1.9531"/>
+        <Period value="3"/>
+        <DamagePoint value="0.43"/>
+        <Backswing value="0.74"/>
     </CWeaponLegacy>
     <!--Spiritwalker-->
     <CWeaponLegacy id="ospw1">
@@ -616,6 +646,16 @@
         <Range value="8"/>
         <Period value="6"/>
         <Effect value="otbr1CP"/>
+    </CWeaponLegacy>
+    <!--orc warchief-->
+    <CWeaponLegacy id="owar1" parent="normal" atkType="CHAOS">
+        <MinScanRange value="0.7812"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+        <Range value="0.7812"/>
+        <RangeSlop value="1.9531"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0.5"/>
+        <Backswing value="0.468"/>
     </CWeaponLegacy>
     <!--Wind Rider-->
     <CWeaponLegacy id="owyv1">

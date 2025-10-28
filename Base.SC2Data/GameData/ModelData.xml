@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="ora2_Portrait" parent="War3_Wolfrider_Portrait">
+        <Model value="Assets\Units\Orc\War3_WolfRider_Portrait\War3_WolfRider_Portrait.m3"/>
+    </CModel>
+    <CModel id="ora2" parent="War3_Wolfrider">
+        <Model value="Assets\Units\Orc\War3_WolfRider\War3_WolfRider.m3"/>
+        <SelectionRadius value="0.533333"/>
+        <ScaleMax value="0.937500,0.937500,0.937500"/>
+        <ScaleMin value="0.937500,0.937500,0.937500"/>
+    </CModel>
     <CModel id="BHtb">
         <ScaleMax value="1.000000,1.000000,1.000000"/>
         <ScaleMin value="1.000000,1.000000,1.000000"/>
+    </CModel>
+    <CModel id="BOeq">
+        <ScaleMax value="0.937500,0.937500,0.937500"/>
+        <ScaleMin value="0.937500,0.937500,0.937500"/>
     </CModel>
     <CModel id="PyroblastMissile" parent="War3_BallsOfFireMissile">
         <ScaleMax value="1.000000,1.000000,1.000000"/>
@@ -30,4 +43,13 @@
         <ScaleMin value="0.900000,0.900000,0.900000"/>
     </CModel>
     <CModel id="Pyroblast" parent="War3_ThunderBoltTarget"/>
+    <CModel id="owar">
+        <ScaleMax value="0.937500,0.937500,0.937500"/>
+        <ScaleMin value="0.937500,0.937500,0.937500"/>
+    </CModel>
+    <CModel id="ChaosOrcShaman_Portrait" parent="War3_ChaosOrcRange"/>
+    <CModel id="ChaosOrcShaman1LM" parent="War3_FarseerMissile"/>
+    <CModel id="ChaosOrcShaman" parent="War3_ChaosOrcRange">
+        <SelectionRadius value="0.383333"/>
+    </CModel>
 </Catalog>

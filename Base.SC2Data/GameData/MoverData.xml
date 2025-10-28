@@ -40,4 +40,14 @@
     </CMoverMissile>
     <CMoverMissile id="Ucrl1LM" parent="missile"/>
     <CMoverMissile id="PyroblastMissile" parent="missile"/>
+    <CMoverMissile id="ChaosOrcShaman1LM" parent="missile">
+        <MotionPhases index="0">
+            <Driver value="Guidance"/>
+            <Acceleration value="3200"/>
+            <MaxSpeed value="9.375"/>
+            <ClearanceAcceleration value="75"/>
+            <Outro value="0,-0.1"/>
+            <YawPitchRoll value="MAX"/>
+        </MotionPhases>
+    </CMoverMissile>
 </Catalog>

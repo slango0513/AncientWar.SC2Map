@@ -36,6 +36,7 @@ ANsi/Ubertip=在<d ref="Effect,ANsi1Dur,Duration"/>秒内阻止一小块区域�
 ANso/Ubertip=让一个单位处于烈焰的包围之中，让其不能施放魔法，并减少其<d ref="-Behavior,BNso,Modification.DamageDealtFraction[Melee]*100"/>%的攻击力，直至死亡。在它死亡后，一个地狱火从天而降，对地面上的敌人造成<d ref="Effect,AUinDamage,Amount"/>点的伤害，并在<d ref="Behavior,BSTN,Duration"/>秒内使其处于昏迷状态。地狱火持续<d ref="Behavior,BNin,Duration"/>秒。
 AOae/Ubertip=增加周围单位<d ref="Behavior,BOae1,Modification.MoveSpeedMultiplier-1*100"/>%的移动速度和<d ref="Behavior,BOae1,Modification.AttackSpeedMultiplier-1*100"/>%的攻击速度。<n/>最多可叠加<d ref="Behavior,BOae1,MaxStackCount"/>层。
 AOcl/Ubertip=向空中单位投掷出一道具有攻击力的闪电，第一个单位造成<d ref="Effect,AOcl1,Amount"/>点的伤害，然后闪电跳跃向周围8个敌方的其他单位。每次跳跃都会减小闪电的攻击力。
+AOeq/Ubertip=使得大地发生颤抖，对有效范围内的敌方单位造成每秒<d ref="Effect,AOeqDamage,Amount"/>点的伤害，并使该范围内的单位减速<d ref="1 - Behavior,BOeq,Modification.MoveSpeedMultiplier * 100"/>%。<n/>持续<d ref="Abil,AOeq,CastOutroTime[0]"/>秒。
 AOhw/Ubertip=召唤出一道能跳跃3次的治疗能量波，对首个目标能恢复<d ref="User,AbilityDataHealingWave,Instances[1].Fixed[0].Fixed"/>点的生命值。每次跳跃都会削弱治疗波的治疗能力。
 AOhx/Ubertip=让一个拥有法力值的单位在<d ref="Effect,ANhx1Dur,Duration"/>秒内变成一只随机的小动物。<n/>妖术不能被使用在强大的单位身上。
 AOws/Ubertip=重击地面，对周围的地面单位造成<d ref="Effect,AOwsDamage1,Amount"/>点的伤害并在<d ref="Effect,AOws1Dur,Duration"/>秒内使其处于昏晕状态。
@@ -65,6 +66,7 @@ Abil/Name/ANlg=购买黄金
 Abil/Name/Adef1=防御
 Abil/Name/Asud=出售单位
 Abil/Name/AsudHuman=出售单位
+Abil/Name/AsudOrc=出售单位
 Abil/Name/Pyroblast=炎爆术
 Abil/Name/ShockWave=震荡波
 Ablo/Ubertip=增加一个友方单位<d ref="Behavior,Bblo,Modification.AttackSpeedMultiplier-1*100"/>%的攻击速度和<d ref="Behavior,Bblo,Modification.MoveSpeedMultiplier-1*100"/>%的移动速度，对敌人的近战攻击还会恢复自己的生命值，恢复量为造成伤害的<d ref="Behavior,Bblo,Modification.VitalDamageLeechArray[Life].KindArray[Melee]*100"/>%。<n/>持续<d ref="Behavior,Bblo,Duration"/>秒。
@@ -73,6 +75,7 @@ Aclf/Ubertip=创造一朵乌云，使范围内的所有单位失去攻击能力�
 AcriPassive/Tip=残废术
 AcriPassive/Ubertip=受到近战攻击时有<d ref="Behavior,Acri,DamageResponse.Chance*100"/>%的几率减慢攻击单位<d ref="1-Behavior,Bcri,Modification.MoveSpeedMultiplier*100"/>%的移动速度和<d ref="1-Behavior,Bcri,Modification.AttackSpeedMultiplier*100"/>%攻击速度，并减弱其<d ref="-Behavior,Bcri,Modification.DamageDealtFraction[Melee]*100"/>%的攻击力。<n/>持续<d ref="Behavior,Bcri,Duration"/>秒。
 Acrs/Ubertip=诅咒敌人的某个单位使其有<d ref="Effect,BcrsMiss33Chance,Chance*100"/>%的概率不能击中自己的目标。<n/>持续<d ref="Behavior,Bcrs,Duration"/>秒。
+Adcn/Ubertip=驱散目标区域敌人身上的所有的魔法效果。<n/><c val="ffcc00">对敌对召唤单位造成250点的伤害。</c>
 Adef/Ubertip=激活以减少所有类型的远程攻击<d ref="1-Behavior,Adef,DamageResponse.ModifyFraction*100"/>%伤害。如果防御状态被激活，移动速度会变成<d ref="Behavior,Adef,Modification.MoveSpeedMultiplier*100"/>%的常规速度。
 Adef/Ubertip2=
 Adef/Ubertip3=
@@ -100,6 +103,7 @@ Apts/Ubertip=在每次攻击的时候都能释放出疾病之云。疾病之云�
 Ara2/Ubertip=增加周围友方单位<d ref="Behavior,Broa,Modification.DamageDealtScaled[Melee]"/>点基础攻击力。<n/>持续<d ref="Behavior,Broa,Duration"/>秒。<n/>最多可叠加<d ref="Behavior,Broa,MaxStackCount"/>层。
 Arai/Ubertip=从一具尸体中召唤出3个骷髅爪牙。
 Arej/Ubertip=在<d ref="Behavior,Brej,Duration"/>秒内恢复目标友方单位<d ref="Effect,BrejHealTick,RechargeVitalRate*Behavior,Brej,Duration"/>点的生命值。<n/>在<d ref="Validator,HasYserasGift,Value"/>层伊瑟拉之赐的影响下，回春术结束或被驱散后，周围的一个友方单位会获得次级回春术，加快其每秒<d ref="Behavior,BIrg,Modification.VitalRegenArray[Life]"/>点的生命值恢复速度和每秒<d ref="Behavior,BIrg,Modification.VitalRegenArray[Energy]"/>点的法力值恢复速度。持续<d ref="Behavior,BIrg,Duration"/>秒。
+Aroa/Ubertip=增加周围友方单位<d ref="Behavior,Broa,Modification.DamageDealtScaled[Melee]"/>点基础攻击力。<n/>持续<d ref="Behavior,Broa,Duration"/>秒。<n/>最多可叠加<d ref="Behavior,Broa,MaxStackCount"/>层。
 Aroc/Ubertip=对周围的敌方地面单位进行强有力的弹幕攻击。
 Arpl/Ubertip=恢复附近友方<d ref="Effect,BrplHeal,RechargeVitalRate"/>点生命值。
 Arpm/Ubertip=恢复附近友方<d ref="Behavior,Brpm,Modification.VitalRegenArray[Energy]"/>点法力值。
@@ -112,6 +116,8 @@ Asta/Ubertip=召唤出一个固定隐形的陷阱来击晕靠近的敌方地面�
 Asud/Ubertip=允许出卖单位，返还<d ref="-Effect,Asud,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
 AsudHuman/Tip=出售单位
 AsudHuman/Ubertip=允许出卖单位，返还<d ref="-Effect,AsudHuman,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
+AsudOrc/Tip=出售单位
+AsudOrc/Ubertip=允许出卖单位，返还<d ref="-Effect,AsudOrc,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
 Attribute002/Name=GameMode
 Attribute002/Value001/Name=标准
 Attribute002/Value002/Name=竞技
@@ -171,6 +177,9 @@ Champion0/TreeOfEternity=奥兰治
 Champion1/Name=暗夜精灵<n/>第一届比赛冠军
 Champion1/Propernames=逍遥一世
 Champion2/Name=Champion2
+ChaosOrcShaman/Name=混乱兽人萨满
+ChaosOrcShaman/Tip=混乱兽人萨满
+ChaosOrcShaman/Ubertip=提供<c val="FFFFFF">4</c>名萨满、<c val="FFFFFF">2</c>名混乱兽人萨满。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,ChaosOrcShaman,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,ChaosOrcShaman,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,ChaosOrcShaman,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,ChaosOrcShaman,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">混乱</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,ChaosOrcShaman1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,ChaosOrcShaman1,Amount"/></c> - <c val="FFFFFF"><d ref="Effect,ChaosOrcShaman1,Amount+Effect,ChaosOrcShaman1,Random"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,ChaosOrcShaman1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">消魔</c>、<c val="FFFFFF">负面效果防护</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 ChargeKnight/Name=冲锋
 ChargeKnight/Tip=冲锋
 ChargeKnight/Ubertip=战斗开始时向敌人冲锋。成功冲散敌军先锋能鼓舞除自身外我方全员士气，<d ref="Behavior,MoraleBoosting,Duration"/>秒内提高<d ref="Behavior,MoraleBoosting,Modification.DamageDealtFraction[Melee]*100" precision="1"/>%攻击力。<n/>最多可叠加<d ref="Behavior,MoraleBoosting,MaxStackCount"/>层。
@@ -625,6 +634,17 @@ DocInfo/PatchNote422=掠夺(狼骑兵和剑圣)的掠夺量增加到5。
 DocInfo/PatchNote423=掠夺(混乱兽人狼骑兵和黑石氏族的剑圣)的掠夺量增加到10。
 DocInfo/PatchNote424=增加狼骑兵的护甲值。
 DocInfo/PatchNote425=
+DocInfo/PatchNote426=人类：
+DocInfo/PatchNote427=获得新种族特长灵活变阵。
+DocInfo/PatchNote428=暗夜精灵：
+DocInfo/PatchNote429=复仇之魂的施法范围缩小。
+DocInfo/PatchNote430=兽人：
+DocInfo/PatchNote431=获得新种族特长装备强化。
+DocInfo/PatchNote432=加入新单位兽人大酋长。
+DocInfo/PatchNote433=加入新单位混乱兽人萨满。
+DocInfo/PatchNote434=加入新单位萨尔。
+DocInfo/PatchNote435=亡灵：
+DocInfo/PatchNote436=拼凑体提供的护甲减少到1。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -644,6 +664,7 @@ Effect/Name/AfrzSphereEffect3=AfrzSphereEffect3
 Effect/Name/Agyd=Agyd
 Effect/Name/Asud=出售单位
 Effect/Name/AsudHuman=出售单位
+Effect/Name/AsudOrc=出售单位
 Effect/Name/BEahMana=BEahMana
 Effect/Name/BEahManaSet=BEahManaSet
 Effect/Name/BEahSet=BEahSet
@@ -883,8 +904,16 @@ Oshd/Tip=暗影猎手
 Oshd/Ubertip=提供<c val="FFFFFF">5</c>名巨魔牧师、<c val="FFFFFF">1</c>位暗影猎手。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Oshd1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Oshd1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Oshd1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Oshd1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Oshd1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Oshd1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Oshd1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">治疗波</c>、<c val="FFFFFF">妖术</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 Otch/Tip=牛头人酋长
 Otch/Ubertip=提供<c val="FFFFFF">2</c>名牛头人、<c val="FFFFFF">1</c>位牛头酋长。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Otch1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Otch1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Otch1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Otch1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,otau1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,otau1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">粉碎</c>、<c val="FFFFFF">抗性皮肤</c>、<c val="FFFFFF">战争践踏</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+Othr/Tip=萨尔
+Othr/Ubertip=提供<c val="FFFFFF">2</c>位先知、<c val="FFFFFF">1</c>位萨尔。<n/><n/>强大的魔法攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Othr1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Othr1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Othr1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Othr1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Othr1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Othr1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Othr1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">野性幽魂</c>、<c val="FFFFFF">地震</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
+Othr1/Name=萨尔
 Param/Expression/0DADB9CB=U=~A~, TU=~E~, I=~B~ (~F~), Cnt=~C~, Slt=~D~
+Param/Expression/1881E837=获得额外的~A~金币！
+Param/Expression/1A43DB62=获得额外的~A~！
+Param/Expression/22B170E2=+~Amount~
+Param/Expression/76408ADB=你获得额外的~A~金币。
 Param/Expression/BCF8CEA7=U=~A~, TU=~E~, I=~B~ (~F~), Cnt=~C~, Slt=~D~
+Param/Expression/F7F40A3F=你获得额外的~A~。
 Param/Value/04BEE6F3=死亡等待
 Param/Value/05267893=
 Param/Value/08D0231A=死亡
@@ -1015,8 +1044,10 @@ ShieldWall/Tip=盾墙
 ShieldWall/Ubertip=减少<d ref="1-Behavior,ShieldWall,DamageResponse.ModifyFraction*100"/>%受到的伤害，持续<d ref="Behavior,ShieldWall,Duration"/>秒。
 ShockWave/Tip=震荡波
 ShockWave/Ubertip=每次攻击有<d ref="Behavior,ShockWave,DamageResponse.Chance*100"/>%几率发出一道向前的能量波，对一条线上的敌方地面单位造成<d ref="Effect,AOshDamage1,Amount"/>点的伤害。
-SpecialtyHuman/Tip=种族特长
-SpecialtyHuman/Ubertip=出售单位返还<d ref="-Effect,AsudHuman,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
+SpecialtyHuman/Tip=灵活变阵
+SpecialtyHuman/Ubertip=出售单位返还<d ref="-Effect,AsudHuman,SalvageFactor.Resource[Terrazine]*100"/>%的资源，出售物品获得的金币增加20%。
+SpecialtyOrc/Tip=装备强化
+SpecialtyOrc/Ubertip=升级后的单位有25%的机率获得一件物品，但出售物品获得的金币减少50%。<n/><n/><c val="FFCC00">几率受物品等级影响，每一级提高25%。</c>
 StarFragment/Tip=星辰碎片
 StarFragment/Ubertip=能在夜间提高<d ref="Behavior,StarFragment,Modification.AttackSpeedMultiplier-1*100"/>%攻击速度。
 SunderArmor/Tip=破甲
@@ -1210,6 +1241,7 @@ okod/Tip=科多兽
 okod/Ubertip=提供<c val="FFFFFF">1</c>只科多兽。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,okod,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,okod,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,okod,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,okod,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,okod1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,okod1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,okod1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">战鼓</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 oli2/Description=攻击能带有闪电伤害。
 oli2/Ubertip=等级：<d ref="Item,oli2,Level"/><n/>能增加<d ref="Behavior,AIll,Modification.DamageDealtScaled[Melee]"/>点基础攻击力，还能驱散魔法和在<d ref="Behavior,BprgPause,Duration"/>秒内减慢敌人的移动速度。<n/><c val="ffcc00">对召唤单位能造成<d ref="Effect,HurtEnemySummoned150,Amount"/>点伤害。
+ora2/Name=狼骑兵
 orai/Tip=狼骑兵
 orai/Ubertip=提供<c val="FFFFFF">1</c>名狼骑兵。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,orai,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,orai,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,orai,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,orai,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">攻城</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,orai1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,orai1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">诱捕</c>、<c val="FFFFFF">掠夺</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 oshm/Ubertip=提供<c val="FFFFFF">2</c>名萨满。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,oshm,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,oshm,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,oshm,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,oshm,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,oshm1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,oshm1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,oshm1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">嗜血</c>、<c val="FFFFFF">净化术</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
@@ -1223,6 +1255,7 @@ otbk/Ubertip=提供<c val="FFFFFF">6</c>名巨魔猎头者、<c val="FFFFFF">3</
 otbr/Tip=巨魔蝠骑士
 otbr/Ubertip=提供<c val="FFFFFF">2</c>名蝠骑士。<n/><n/>支援型远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,otbr,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,otbr,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,otbr,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,otbr,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">攻城</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,otbr1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,otbr1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,otbr1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">多重射击</c>、<c val="FFFFFF">火油</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 oven/Ubertip=等级：<d ref="Item,oven,Level"/><n/>增加<d ref="Behavior,AIpb,Modification.DamageDealtScaled[Melee]"/>点基础攻击力并能在<d ref="Behavior,BIpd,Duration"/>秒内对目标造成每秒<d ref="Effect,BIpdDPS,Amount"/>点伤害的中毒效果。
+owar/Ubertip=提供<c val="FFFFFF">2</c>名狼骑兵、<c val="FFFFFF">1</c>名兽人大酋长。<n/><n/>强大的近战单位，统领重型狼骑兵。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,owar,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,owar,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,owar,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,owar,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">混乱</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,owar1,Amount"/></c> - <c val="FFFFFF"><d ref="Effect,owar1,Amount+Effect,owar1,Random"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,owar1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">虔诚光环</c>、<c val="FFFFFF">负面效果防护</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 owyv/Tip=风骑士
 owyv/Ubertip=提供<c val="FFFFFF">4</c>名蝠骑士、<c val="FFFFFF">2</c>名风骑士。<n/><n/>支援型远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,owyv,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,owyv,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,owyv,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,owyv,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,owyv1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,owyv1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,owyv1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">多重射击</c>、<c val="FFFFFF">浸毒长矛</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c><n/><n/><c val="ffdead">一起来玩球吧！</c>
 penr/Ubertip=等级：<d ref="Item,penr,Level"/><n/>增加<d ref="Behavior,AImb,Modification.VitalMaxArray[Energy]"/>点法力最大值。

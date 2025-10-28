@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <!--kotobeastnorider-->
+    <CActorUnit id="oosc">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <CActorAction id="ora21" parent="War3_AttackSwapable" WeaponSound="MetalMediumSlice"/>
     <CActorModel id="AHabTarget">
         <On Terms="Behavior.YserasGift.On" Send="Create"/>
         <On Terms="Behavior.YserasGift.Off" Send="AnimBracketStop BSD"/>
@@ -28,6 +33,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Emfr1Death" VoiceLink="Emfr1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
@@ -79,6 +86,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Emns1Death" VoiceLink="Emns1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
@@ -112,6 +121,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hdgo1Death" VoiceLink="Hdgo1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <GroupSoundArray index="What" value="Hdgo1_GroupWhat"/>
@@ -144,6 +155,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hhkl1Death" VoiceLink="Hhkl1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <GroupSoundArray index="What" value="Hhkl1_GroupWhat"/>
@@ -176,6 +189,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Huth1Death" VoiceLink="Huth1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
@@ -192,6 +207,27 @@
         <SoundArray index="Click" value="Huth1_Click"/>
         <SoundArray index="ClickError" value="Huth1_ClickError"/>
         <SoundArray index="Highlight" value="Huth1_Highlight"/>
+    </CActorUnit>
+    <!--thrall-->
+    <CActorUnit id="Othr" unitName="Othr1" defType="NONE">
+        <On index="0" Terms="UnitBirth.Othr1" Send="Create SoundEmitter Othr1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Othr1"/>
+        <On index="2" Terms="UnitRevive.Othr1"/>
+        <On index="3" Terms="UnitRevive.Othr1"/>
+        <On index="4" Terms="UnitConstruction.Othr1.Start"/>
+        <On index="5" Terms="UnitConstruction.Othr1.Finish"/>
+        <On index="67" Terms="UnitRevive.Othr1; !ScopeContains Othr"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Othr1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Othr1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Othr1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Othr1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
     <CActorMissile id="PyroblastMissile" parent="War3_Missile" unitName="PyroblastMissile"/>
     <CActorAction id="PyroblastMissileAttack" parent="War3_GenericMissileAttack" effectImpact="PyroblastMissileImpactSet" effectLaunch="PyroblastMissile" missile="PyroblastMissile">
@@ -242,6 +278,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
@@ -269,6 +307,8 @@
         <On index="93" removed="1"/>
         <On index="94" removed="1"/>
         <On index="95" removed="1"/>
+        <On index="96" removed="1"/>
+        <On index="97" removed="1"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
@@ -300,9 +340,11 @@
         <On index="79" Send="ModelSwap Champion1"/>
         <On index="80" Terms="WeaponStart.Champion11.AttackStart"/>
         <On index="81" Terms="WeaponStart.Champion12.AttackStart"/>
-        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
+        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Target="_Snapshot" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
         <On index="86" Terms="Behavior.HeroHasUnspentSkillPoint.Off" Send="SetGroupIcon 2 Assets\Textures\Renee_GroupIconEmpty.dds"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <HighlightTooltip value="Champion1/Propernames"/>
         <HighlightSubTooltip value="Champion1/Name"/>
     </CActorUnit>
@@ -346,6 +388,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Edem1Death" VoiceLink="Edem1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Edem1_GroupWhat"/>
@@ -435,9 +479,11 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hapm1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hapm1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hapm1"/>
-        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
+        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Target="_Snapshot" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
         <On index="86" Terms="Behavior.HeroHasUnspentSkillPoint.Off" Send="SetGroupIcon 2 Assets\Textures\Renee_GroupIconEmpty.dds"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hapm1Death" VoiceLink="Hapm1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
         <GroupSoundArray index="What" value="Hapm1_GroupWhat"/>
@@ -472,6 +518,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Harf1Death" VoiceLink="Harf1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
         <GroupSoundArray index="What" value="Harf1_GroupWhat"/>
@@ -501,9 +549,11 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hart1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hart1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hart1"/>
-        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
+        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Target="_Snapshot" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
         <On index="86" Terms="Behavior.HeroHasUnspentSkillPoint.Off" Send="SetGroupIcon 2 Assets\Textures\Renee_GroupIconEmpty.dds"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <Scale value="1.200000"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
@@ -524,6 +574,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hblm1Death" VoiceLink="Hblm1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Hblm1_GroupWhat"/>
@@ -560,6 +612,8 @@
         <On index="89" removed="1"/>
         <On index="90" removed="1"/>
         <On index="91" removed="1"/>
+        <On index="92" removed="1"/>
+        <On index="93" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Nmag1Death" VoiceLink="Nmag1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
@@ -593,6 +647,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Nman1Death" VoiceLink="Nman1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
@@ -734,6 +790,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hpal1Death" VoiceLink="Hpal1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <GroupSoundArray index="What" value="Hpal1_GroupWhat"/>
@@ -796,6 +854,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Efur1Death" VoiceLink="Efur1DeathVoice"/>
         <GroupSoundArray index="What" value="Efur1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Efur1_GroupYes"/>
@@ -828,6 +888,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ekee1Death" VoiceLink="Ekee1DeathVoice"/>
         <GroupSoundArray index="What" value="Ekee1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Ekee1_GroupYes"/>
@@ -860,6 +922,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
@@ -879,6 +943,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Emoo1Death" VoiceLink="Emoo1DeathVoice"/>
         <GroupSoundArray index="What" value="Emoo1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Emoo1_GroupYes"/>
@@ -911,6 +977,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ewar1Death" VoiceLink="Ewar1DeathVoice"/>
         <GroupSoundArray index="What" value="Ewar1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Ewar1_GroupYes"/>
@@ -943,6 +1011,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hamg1Death" VoiceLink="Hamg1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Hamg1_GroupWhat"/>
@@ -974,6 +1044,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hgam1Death" VoiceLink="Hgam1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Hgam1_GroupWhat"/>
@@ -1006,6 +1078,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hjai1Death" VoiceLink="Hjai1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <GroupSoundArray index="What" value="Hjai1_GroupWhat"/>
@@ -1038,6 +1112,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Hlgr1Death" VoiceLink="Hlgr1DeathVoice"/>
         <GroupSoundArray index="What" value="Hlgr1_GroupWhat"/>
@@ -1073,6 +1149,8 @@
         <On index="88" removed="1"/>
         <On index="89" removed="1"/>
         <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
+        <On index="92" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
     </CActorUnit>
@@ -1092,6 +1170,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hvwd1Death" VoiceLink="Hvwd1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <GroupSoundArray index="What" value="Hvwd1_GroupWhat"/>
@@ -1124,6 +1204,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Nbrn1Death" VoiceLink="Nbrn1DeathVoice"/>
         <GroupSoundArray index="What" value="Nbrn1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Nbrn1_GroupYes"/>
@@ -1156,6 +1238,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
@@ -1175,6 +1259,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
@@ -1194,6 +1280,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
         <Scale value="1.000000"/>
@@ -1214,6 +1302,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ucrl1Death" VoiceLink="Ucrl1DeathVoice"/>
         <GroupSoundArray index="What" value="Ucrl1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Ucrl1_GroupYes"/>
@@ -1246,6 +1336,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Udea1Death" VoiceLink="Udea1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <GroupSoundArray index="What" value="Udea1_GroupWhat"/>
@@ -1278,6 +1370,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Udre1Death" VoiceLink="Udre1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <GroupSoundArray index="What" value="Udre1_GroupWhat"/>
@@ -1310,6 +1404,8 @@
         <On index="85" removed="1"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ulic1Death" VoiceLink="Ulic1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Ulic1_GroupWhat"/>
@@ -1473,6 +1569,8 @@
     <!--battlegolem-->
     <CActorUnit id="narg" defType="LARGE">
         <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
         <Scale value="1.000000"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
@@ -1540,6 +1638,8 @@
     <!--poisonent-->
     <CActorUnit id="nenp" defType="SMALL">
         <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <Scale value="1.000000"/>
         <WalkAnimMoveSpeed value="1.375"/>
@@ -1565,6 +1665,8 @@
     <CActorUnit id="nhym">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
     </CActorUnit>
     <CActorUnit id="nhy2" parent="nhym" unitName="nhy2">
         <On index="0" Terms="UnitBirth.nhy2" Send="Create SoundEmitter nhy2_Ambience"/>
@@ -1597,6 +1699,8 @@
     <!--infernalmachine-->
     <CActorUnit id="ninm" defType="FORT">
         <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-FORT.tga"/>
     </CActorUnit>
@@ -1677,10 +1781,37 @@
     <CActorUnit id="orai" defType="SMALL">
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
     </CActorUnit>
+    <CActorUnit id="ora2" parent="War3_Army" unitSound="Wolfrider" unitName="ora2" defType="LARGE">
+        <On Terms="ActorCreation" Send="SetTintColor 255,224,150"/>
+        <UnitIcon value="Assets\Textures\BTN\Renee_war3_btnRaider.dds"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\BTN\Renee_war3_btnRaider.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\BTN\Renee_war3_btnRaider.dds"/>
+        <BarWidth value="80"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <BarOffset value="60"/>
+        <DeathArray index="Blast" AnimProps="Birth" ModelLink="War3_OrcLargeDeathExplode"/>
+        <WalkAnimMoveSpeed value="2.7343"/>
+    </CActorUnit>
     <!--shaman-->
     <CActorUnit id="oshm">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
+    <CActorAction id="ChaosOrcShaman1" parent="War3_AttackMissileSwapable"/>
+    <CActorUnit id="ChaosOrcShaman" parent="War3_Army" unitSound="Shaman" unitName="ChaosOrcShaman" defType="NONE">
+        <UnitIcon value="Assets\Textures\BTN\Renee_war3_btnShaman.dds"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\BTN\Renee_war3_btnShaman.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\BTN\Renee_war3_btnShaman.dds"/>
+        <BarWidth value="57"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <BarOffset value="60"/>
+        <DeathArray index="Blast" AnimProps="Birth" ModelLink="War3_OrcSmallDeathExplode"/>
+        <WalkAnimMoveSpeed value="2.1093"/>
+    </CActorUnit>
+    <CActorMissile id="ChaosOrcShaman1LM" parent="War3_MissileSwapable" unitName="ChaosOrcShaman1LM"/>
     <CActorUnit id="ospw">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
     </CActorUnit>
@@ -1696,6 +1827,10 @@
     <!--trollbatrider-->
     <CActorUnit id="otbr">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--chaoswarlord-->
+    <CActorUnit id="owar">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
     <!--windrider-->
     <CActorUnit id="owyv">
@@ -1766,12 +1901,16 @@
     <!--kelthuzadghost-->
     <CActorUnit id="uktg" defType="NONE">
         <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
     <!--kelthuzadnecro-->
     <CActorUnit id="uktn" defType="NONE">
         <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
@@ -1799,6 +1938,8 @@
     <!--sylvanusbanshee-->
     <CActorUnit id="uswb" defType="NONE">
         <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>

@@ -35,6 +35,18 @@
     <CEffectSet id="AHhb">
         <ValidatorArray value="IsNothgry"/>
     </CEffectSet>
+    <CEffectDamage id="AOeqDamage">
+        <ValidatorArray index="0" removed="1"/>
+        <Amount value="75"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="AOeqSearch">
+        <SearchFilters value="-;player,allies,air,wall,RawResource,tree,Missile,item,ward,dead,Hidden,invulnerable"/>
+        <AreaArray index="0" Radius="3" Effect="AOeqImpact"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="AdcnSearch">
+        <SearchFilters value="-;player,allies,wall,Missile,debris,item,structure,dead,Hidden"/>
+        <AreaArray index="0" Radius="3" Effect="DispelAllBuffsAndHurtEnemySummoned250"/>
+    </CEffectEnumArea>
     <CEffectDamage id="AfshSphereEffect">
         <AreaArray index="0" Radius="2" Bonus="24" Fraction="1"/>
         <AreaArray index="1" Radius="2.5" Bonus="18" Fraction="1"/>
@@ -53,6 +65,9 @@
         <AreaArray MaxCount="1" Radius="9" Effect="BIrg"/>
         <ValidatorArray value="HasYserasGift"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="BOeq">
+        <Duration value="10"/>
+    </CEffectApplyBehavior>
     <CEffectSet id="CircleOfHolyLightSet">
         <EffectArray value="CircleOfHolyLightHeal"/>
         <ValidatorArray value="AHhbTarget"/>
@@ -231,6 +246,15 @@
     <CEffectEnumArea id="AabrSearch" parent="War3_AuraSearch" aura="Babr">
         <AreaArray index="0" Radius="9" Effect="Babr"/>
     </CEffectEnumArea>
+    <CEffectDamage id="Othr1">
+        <AttributeFactor index="small" value="0.25"/>
+        <AttributeFactor index="medium" value="-0.25"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="large" value="1"/>
+        <AttributeFactor index="fortified" value="-0.65"/>
+        <Amount value="120"/>
+        <Random value="0"/>
+    </CEffectDamage>
     <CEffectEnumArea id="YserasGiftSearch" parent="War3_AuraSearch" aura="YserasGiftBuff">
         <AreaArray index="0" Radius="9" Effect="YserasGiftBuff"/>
     </CEffectEnumArea>
@@ -859,6 +883,11 @@
         <Random value="0"/>
         <AreaArray Radius="0.75" Bonus="10"/>
         <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="owar1" parent="War3_ChaosDamage">
+        <Kind value="Melee"/>
+        <Amount value="120"/>
+        <Random value="120"/>
     </CEffectDamage>
     <CEffectDamage id="owyv1">
         <AttributeFactor index="divine" value="0"/>
@@ -1624,6 +1653,15 @@
             <Resource index="Custom" value="-0.9"/>
         </SalvageFactor>
     </CEffectModifyUnit>
+    <CEffectModifyUnit id="AsudOrc">
+        <ModifyFlags index="Salvage" value="1"/>
+        <SalvageFactor>
+            <Resource index="Minerals" value="-0.8"/>
+            <Resource index="Vespene" value="-0.8"/>
+            <Resource index="Terrazine" value="-0.8"/>
+            <Resource index="Custom" value="-0.8"/>
+        </SalvageFactor>
+    </CEffectModifyUnit>
     <CEffectDamage id="ocat1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
@@ -1663,12 +1701,23 @@
         <Amount value="120"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectDamage id="ora21" parent="War3_SiegeDamage">
+        <Kind value="Melee"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="120"/>
+    </CEffectDamage>
     <CEffectDamage id="oshm1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
         <Amount value="24"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectDamage id="ChaosOrcShaman1" parent="War3_ChaosDamage">
+        <Amount value="24"/>
+        <Random value="24"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="ChaosOrcShaman1LM" parent="War3_Missile" weaponid="ChaosOrcShaman1"/>
     <CEffectDamage id="ospw1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>

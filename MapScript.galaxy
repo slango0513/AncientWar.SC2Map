@@ -154,11 +154,15 @@ point gf_PlayerFinalReserveLocation (int lp_p, int lp_phalanx);
 point gf_PlayerWorkerLocation (int lp_p);
 region gf_PlayerBuildingRegion (int lp_p, int lp_phalanx);
 bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u);
+void gf_GetBonusItem (int lp_p, string lp_itemType);
+void gf_GetBonusGold (int lp_p, int lp_gold);
 void gf_UnitInventoryCreate (unit lp_u, unit lp_item);
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
+trigger gt_GetItem;
+trigger gt_PawnWorkarounds;
 trigger gt_AOhwImpact;
 trigger gt_moonMoonstoneChangeTOD;
 trigger gt_moonMoonstoneRestoreTOD;
@@ -303,6 +307,39 @@ bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u) {
     return lv_b;
 }
 
+void gf_GetBonusItem (int lp_p, string lp_itemType) {
+    // Variable Declarations
+    int lv_costGold;
+
+    // Variable Initialization
+    lv_costGold = CatalogFieldValueGetAsInt(c_gameCatalogUnit, lp_itemType, "CostResource[" + IntToString(2) + "]", lp_p);
+
+    // Implementation
+    if ((lv_costGold >= 200)) {
+        SoundPlayForPlayer(SoundLink("ItemReward", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
+        TextExpressionSetToken("Param/Expression/1A43DB62", "A", UnitTypeGetName(lp_itemType));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lp_p), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lp_p, false))) + TextExpressionAssemble("Param/Expression/1A43DB62")));
+    }
+    else {
+        TextExpressionSetToken("Param/Expression/F7F40A3F", "A", UnitTypeGetName(lp_itemType));
+        UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/F7F40A3F"));
+    }
+}
+
+void gf_GetBonusGold (int lp_p, int lp_gold) {
+    // Implementation
+    if ((lp_gold >= 100)) {
+        SoundPlayForPlayer(SoundLink("ItemReward", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
+        SoundPlayForPlayer(SoundLink("ReceiveGold", -1), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
+        TextExpressionSetToken("Param/Expression/1881E837", "A", IntToText(lp_gold));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lp_p), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lp_p, false))) + TextExpressionAssemble("Param/Expression/1881E837")));
+    }
+    else {
+        TextExpressionSetToken("Param/Expression/76408ADB", "A", IntToText(lp_gold));
+        UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/76408ADB"));
+    }
+}
+
 void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
     // Variable Declarations
     order lv_dropOrder;
@@ -326,6 +363,150 @@ void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
     OrderSetTargetItem(lv_dropOrder, lv_newItem);
     UnitIssueOrder(libGAwX_gv_god, OrderTargetingUnit(AbilityCommand("TodGodInventory", 2), lv_newItem), c_orderQueueReplace);
     UnitIssueOrder(libGAwX_gv_god, lv_dropOrder, c_orderQueueAddToEnd);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: GetItem
+//--------------------------------------------------------------------------------------------------
+bool gt_GetItem_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+    int lv_rate;
+    int lv_itemLevel;
+    int lv_r;
+    bool lv_b;
+    int lv_bonusGold;
+    string lv_bonusItem;
+
+    // Variable Initialization
+    lv_player = UnitGetOwner(EventUnit());
+    lv_rate = RandomInt(1, 100);
+
+    // Conditions
+    if (testConds) {
+        if (!((PlayerRace(lv_player) == "Orc"))) {
+            return false;
+        }
+
+        if (!((AbilityClass(AbilityCommandGetAbility(EventUnitAbility())) == c_classIdCAbilMorph))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((lv_rate <= (25 + (25 * TechTreeUpgradeCount(lv_player, "ItemLevel", c_techCountCompleteOnly))))) {
+        lv_itemLevel = TruncI((CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "CostResource[" + IntToString(2) + "]", lv_player)/25.0));
+        if ((gv_gameMode != "0002")) {
+            while (true) {
+                if ((lv_b == false)) {
+                    lv_r = RandomInt(1, CatalogFieldValueCount(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray", lv_player));
+                    if (((CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", lv_player)), "Level", lv_player) >= (lv_itemLevel + -1)) && (CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", lv_player)), "Level", lv_player) <= (lv_itemLevel + 1)))) {
+                        lv_bonusItem = UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", lv_player));
+                        UnitInventoryCreate(EventUnit(), lv_bonusItem);
+                        gf_GetBonusItem(lv_player, lv_bonusItem);
+                        lv_b = true;
+                    }
+                    else {
+                        lv_b = false;
+                    }
+                }
+                else {
+                    break;
+                }
+            }
+        }
+        else {
+            lv_bonusGold = ((lv_itemLevel+RandomInt(0, 1))*10);
+            PlayerModifyPropertyInt(lv_player, c_playerPropTerrazine, c_playerPropOperAdd, lv_bonusGold);
+            gf_GetBonusGold(lv_player, lv_bonusGold);
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_GetItem_Init () {
+    gt_GetItem = TriggerCreate("gt_GetItem_Func");
+    TriggerAddEventUnitAbility(gt_GetItem, null, null, c_abilMorphStageAbilsEnd, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Pawn (Workarounds)
+//--------------------------------------------------------------------------------------------------
+bool gt_PawnWorkarounds_Func (bool testConds, bool runActions) {
+    string auto9E687DDD_val;
+
+    // Variable Declarations
+    unit lv_u;
+    unit lv_shop;
+    unit lv_item;
+    string lv_itemtype;
+    int lv_cost;
+    point lv_pos;
+    int lv_p;
+    fixed lv_rate;
+    int lv_income;
+    fixed lv_m;
+
+    // Variable Initialization
+    lv_u = EventUnit();
+    lv_shop = EventUnitInventoryItemTargetUnit();
+    lv_item = EventUnitInventoryItem();
+    lv_itemtype = UnitGetType(lv_item);
+    lv_cost = UnitTypeGetCost(lv_itemtype, c_unitCostTerrazine);
+    lv_pos = UnitGetPosition(lv_u);
+    lv_p = UnitGetOwner(lv_u);
+    lv_rate = StringToFixed(CatalogFieldValueGet(c_gameCatalogUnit, (lv_itemtype), "PawnItemReduction", 0));
+
+    // Conditions
+    if (testConds) {
+        if (!((lv_cost != 0))) {
+            return false;
+        }
+
+        if (!((UnitAbilityExists(lv_shop, "War3_Pawn") == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    ActorCreate(ActorScopeFromUnit(lv_u), "Model", "SPN_GDCR", null, null);
+    SoundPlayOnUnit(SoundLink("ReceiveGold", -1), PlayerGroupSingle(lv_p), lv_u, 0.0, 100.0, 0.0);
+    auto9E687DDD_val = PlayerRace(lv_p);
+    if (auto9E687DDD_val == "Human") {
+        lv_m = 1.2;
+    }
+    else if (auto9E687DDD_val == "NightElf") {
+        lv_m = 1.0;
+    }
+    else if (auto9E687DDD_val == "Orc") {
+        lv_m = 0.5;
+    }
+    else if (auto9E687DDD_val == "Undead") {
+        lv_m = 1.0;
+    }
+    else {
+    }
+    lv_income = FixedToInt((lv_cost*lv_rate*lv_m));
+    TextExpressionSetToken("Param/Expression/22B170E2", "Amount", IntToText(lv_income));
+    libGAwX_gf_CreateWC3StyleTextTag(TextExpressionAssemble("Param/Expression/22B170E2"), libGAwX_gv_goldTextColor, PlayerGroupSingle(lv_p), lv_pos, libGAwX_gv_resourceTextVelocity, libGAwX_gv_resourceTextLifetime, libGAwX_gv_resourceTextLifetime);
+    PlayerModifyPropertyInt(lv_p, c_playerPropTerrazine, c_playerPropOperAdd, lv_income);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_PawnWorkarounds_Init () {
+    gt_PawnWorkarounds = TriggerCreate("gt_PawnWorkarounds_Func");
+    TriggerAddEventUnitInventoryChange(gt_PawnWorkarounds, null, c_unitInventoryChangeSells, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -772,6 +953,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     }
 
     gv_boolTestMode = false;
+    TriggerEnable(libGAwX_gt_PawnWorkarounds, false);
     TriggerEnable(libGAwX_gt_AsplSearch, false);
     TriggerEnable(libGAwX_gt_AsplSplit, false);
     TriggerEnable(libGAwX_gt_AOclImpact, false);
@@ -810,7 +992,6 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         lv_raceAtt = GameAttributePlayerValue("[bnet:War3 Extra (GA)/0.0/60618,file:Mods\\WarCraft\\WarCraftDataAbil.SC2Mod]1", lv_p);
         lv_race = libGAwX_gf_GenerateRaceFromRaceAttribute(lv_raceAtt);
         libGAwX_gf_SetPlayerUIRace(lv_p, lv_race);
-        PlayerOptionOverride(lv_p, "displayunitstatus", "All");
         PlayerOptionOverride(lv_p, "simplecommandcard", "0");
         PlayerOptionOverride(lv_p, "selectuncontrolable", "1");
         CameraLockInput(lv_p, true);
@@ -1880,7 +2061,12 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
         }
         UISetButtonHighlighted(PlayerGroupSingle(gv_intPlayer[lv_p]), AbilityCommand("ANlg", 0), true);
         gv_unitWorker[gv_intPlayer[lv_p]] = UnitLastCreated();
-        libNtve_gf_CreateUnitsAtPoint2(1, "hrdh", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+        if ((PlayerRace(gv_intPlayer[lv_p]) == "Orc")) {
+            libNtve_gf_CreateUnitsAtPoint2(1, "oosc", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+        }
+        else {
+            libNtve_gf_CreateUnitsAtPoint2(1, "hrdh", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+        }
         if ((gv_boolTestMode == true)) {
             libNtve_gf_CreateUnitsAtPoint2(1, "ewsp", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
             libNtve_gf_CreateUnitsAtPoint2(1, "hpea", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
@@ -3210,6 +3396,8 @@ void gt_PlayerLeft_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
+    gt_GetItem_Init();
+    gt_PawnWorkarounds_Init();
     gt_AOhwImpact_Init();
     gt_moonMoonstoneChangeTOD_Init();
     gt_moonMoonstoneRestoreTOD_Init();

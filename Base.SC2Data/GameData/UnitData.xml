@@ -473,14 +473,14 @@
         <CostResource index="gold" value="225"/>
         <KillResource index="Custom" value="75"/>
         <AbilArray Link="Inventory3"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="MortalStrike"/>
         <AbilArray Link="DebuffImmunity"/>
         <AbilArray Link="AOwwNbbc1"/>
         <BehaviorArray Link="PillageChaosBlademaster"/>
         <WeaponArray index="0" Link="Nbbc1"/>
         <CardLayouts index="0">
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="MortalStrike" Type="Passive" Row="2" Column="0"/>
             <LayoutButtons Face="AOwwNbbc1" Type="AbilCmd" AbilCmd="AOwwNbbc1,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="PillageChaosBlademaster" Type="Passive" Row="2" Column="2"/>
@@ -509,13 +509,13 @@
         <CostResource index="gold" value="75"/>
         <KillResource index="Custom" value="75"/>
         <AbilArray Link="Inventory3"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="UpgradeToNbbc"/>
         <AbilArray Link="MortalStrike"/>
         <AbilArray Link="AOww"/>
         <CardLayouts index="0">
             <LayoutButtons Face="Nbbc" Type="AbilCmd" AbilCmd="UpgradeToNbbc,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="MortalStrike" Type="Passive" Row="2" Column="0"/>
             <LayoutButtons Face="AOww" Type="AbilCmd" AbilCmd="AOww,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="PillageBlademaster" Type="Passive" Row="2" Column="2"/>
@@ -554,14 +554,16 @@
         <KillXP value="115"/>
         <KillResource index="Custom" value="150"/>
         <AbilArray Link="Inventory2"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="AOsf"/>
         <AbilArray Link="AOcl"/>
+        <AbilArray Link="UpgradeToOthr"/>
         <BehaviorArray Link="PowerfulUnit"/>
         <WeaponArray index="0" Link="Ofar1"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="Othr" Type="AbilCmd" AbilCmd="UpgradeToOthr,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="ACsf" Type="AbilCmd" AbilCmd="AOsf,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="AOcl" Type="AbilCmd" AbilCmd="AOcl,Execute" Row="2" Column="1"/>
         </CardLayouts>
@@ -578,8 +580,50 @@
         <DeathRevealRadius value="0"/>
     </CUnit>
     <!--thrall-->
-    <CUnit id="Othr">
+    <CUnit id="Othr1" parent="War3_Army" defType="NONE">
+        <Description value="Othr/Ubertip"/>
+        <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
+        <Race value="Orc"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="none" value="1"/>
+        <LifeStart value="900"/>
+        <LifeMax value="900"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <EnergyStart value="100"/>
+        <EnergyMax value="100"/>
+        <Mover value="horse"/>
+        <Speed value="3"/>
+        <TurningRate value="399.9023"/>
+        <CostResource index="lumber" value="9000"/>
+        <RepairTime value="55"/>
+        <KillXP value="115"/>
+        <KillResource index="Custom" value="150"/>
+        <AbilArray Link="Inventory2"/>
+        <AbilArray Link="AsudOrc"/>
+        <AbilArray Link="AOsf"/>
+        <AbilArray Link="AOeq"/>
+        <BehaviorArray Link="PowerfulUnit"/>
+        <WeaponArray index="0" Link="Othr1"/>
+        <WeaponArray index="1" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="ACsf" Type="AbilCmd" AbilCmd="AOsf,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="AOeq" Type="AbilCmd" AbilCmd="AOeq,Execute" Row="2" Column="1"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <ScoreMake value="100"/>
+        <ScoreKill value="100"/>
+        <HotkeyCategory value="UI/ORC"/>
+        <TechTreeProducedUnitArray value="Ofar1"/>
+        <TechTreeProducedUnitArray value="Ofar1"/>
+        <TechTreeProducedUnitArray value="Othr1"/>
     </CUnit>
     <CUnit id="Ucrl1LM" parent="War3_Missile"/>
     <!--Evil Sylvanas-->
@@ -2620,11 +2664,11 @@
         <KillResource index="gold" value="0"/>
         <KillResource index="Custom" value="15"/>
         <AbilArray Link="Inventory2"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="DebuffImmunity"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="PillageChaosGrunt" Type="Passive" Behavior="PillageChaosGrunt" Row="2" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="1"/>
         </CardLayouts>
         <PlacementFootprint value="4x4SimpleSolid"/>
@@ -2699,14 +2743,14 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory3"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="Aens"/>
         <AbilArray Link="DebuffImmunity"/>
         <BehaviorArray index="4" Link="PillageChaosRaider"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Aens" Type="AbilCmd" AbilCmd="Aens,Execute" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="PillageChaosRaider" Type="Passive" Behavior="PillageChaosRaider" Row="2" Column="1"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="2"/>
         </CardLayouts>
         <LifeArmor value="10"/>
@@ -2723,7 +2767,7 @@
             <PositiveDamageRatio value="0"/>
         </LifeArmorFormula>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray index="5" Link="Asud"/>
+        <AbilArray index="5" Link="AsudOrc"/>
         <AbilArray Link="AOae"/>
         <AbilArray Link="DebuffImmunity"/>
         <CardLayouts index="0">
@@ -2735,17 +2779,8 @@
                 <Row value="2"/>
                 <Column value="0"/>
             </LayoutButtons>
-            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="1"/>
-        </CardLayouts>
-        <CardLayouts>
-            <LayoutButtons Row="0" Column="0"/>
-            <LayoutButtons Row="0" Column="0"/>
-            <LayoutButtons Row="0" Column="0"/>
-            <LayoutButtons Row="0" Column="0"/>
-            <LayoutButtons Row="0" Column="0"/>
-            <LayoutButtons Row="0" Column="0"/>
-            <LayoutButtons Face="Asud" Row="2" Column="4"/>
         </CardLayouts>
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
@@ -3333,13 +3368,13 @@
         <TechTreeProducedUnitArray value="nitp"/>
         <TechTreeProducedUnitArray value="nitp"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="UpgradeToOshd"/>
         <AbilArray Link="Anh1"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Anh1" Type="AbilCmd" AbilCmd="Anh1,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="Oshd" Type="AbilCmd" AbilCmd="UpgradeToOshd,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <Attributes index="none" value="1"/>
         <Attributes index="large" value="0"/>
@@ -3360,7 +3395,7 @@
         <WeaponArray index="0" Link="Oshd1"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="AOhw" Type="AbilCmd" AbilCmd="AOhw,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons index="7" Face="AOhx" Type="AbilCmd" AbilCmd="AOhx,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="nitp"/>
@@ -3407,6 +3442,8 @@
             <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
         <SubgroupPriority value="0"/>
+        <Radius value="0.6875"/>
+        <SeparationRadius value="0.6875"/>
     </CUnit>
     <!--magnataur reaver-->
     <CUnit id="nmgr">
@@ -3877,12 +3914,12 @@
         <!--AttackTargetPriority value="2"/-->
         <SubgroupPriority value="0"/>
         <AbilArray Link="Inventory2"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <BehaviorArray index="4" Link="PowerfulUnit"/>
         <BehaviorArray Link="Abof"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <Radius value="0.5"/>
         <SeparationRadius value="0.5"/>
@@ -3954,11 +3991,11 @@
         <!--AttackTargetPriority value="7"/-->
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray index="5" Link="Asud"/>
+        <AbilArray index="5" Link="AsudOrc"/>
         <AbilArray index="7" Link="Ahwd"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Asta" Type="AbilCmd" AbilCmd="Asta,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons index="7" Face="Ahwd" Type="AbilCmd" AbilCmd="Ahwd,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="odoc"/>
@@ -3990,12 +4027,12 @@
         <KillResource index="gold" value="0"/>
         <KillResource index="Custom" value="15"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="UpgradeTonchg"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="PillageGrunt" Type="Passive" Behavior="PillageGrunt" Row="2" Column="0"/>
             <LayoutButtons Face="nchg" Type="AbilCmd" AbilCmd="UpgradeTonchg,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <PlacementFootprint value="4x4SimpleSolid"/>
         <!--AttackTargetPriority value="3"/-->
@@ -4028,11 +4065,11 @@
         <!--AttackTargetPriority value="2"/-->
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray index="5" Link="Asud"/>
+        <AbilArray index="5" Link="AsudOrc"/>
         <AbilArray Link="UpgradeTootbk"/>
         <CardLayouts index="0">
             <LayoutButtons Face="otbk" Type="AbilCmd" AbilCmd="UpgradeTootbk,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="ohun"/>
         <TechTreeProducedUnitArray value="ohun"/>
@@ -4085,12 +4122,12 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray index="5" Link="Asud"/>
+        <AbilArray index="5" Link="AsudOrc"/>
         <AbilArray index="6" Link="UpgradeTonckb"/>
         <BehaviorArray index="6" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Aakb" Type="Passive" Behavior="Aakb" Row="2" Column="0"/>
-            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="nckb" Type="AbilCmd" AbilCmd="UpgradeTonckb,Execute" Row="0" Column="0"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="okod"/>
@@ -4100,6 +4137,27 @@
     <!--Orb of Lightning-->
     <CUnit id="oli2">
         <CostResource index="gold" value="120"/>
+    </CUnit>
+    <!--riderless kodo beast-->
+    <CUnit id="oosc">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="0"/>
+        <Collide index="ForceField" value="0"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <AbilArray index="3" Link="War3_Pawn"/>
+        <AbilArray Link="War3_PawnDummyInventory"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="Asid" Type="Passive" AbilCmd="" ShowInGlossary="1" Row="2"/>
+            <LayoutButtons index="1" removed="1"/>
+            <LayoutButtons index="2" removed="1"/>
+            <LayoutButtons index="3" removed="1"/>
+            <LayoutButtons index="4" removed="1"/>
+        </CardLayouts>
     </CUnit>
     <!--Peon-->
     <CUnit id="opeo">
@@ -4143,7 +4201,7 @@
                 <Row value="2"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="6" removed="1"/>
+            <LayoutButtons index="6" Face="SpecialtyOrc" Type="Passive" AbilCmd="" Row="2" Column="0"/>
             <LayoutButtons index="7" removed="1"/>
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
@@ -4195,17 +4253,46 @@
         <LifeArmorName value="ARMOR_SMALL"/>
         <LifeArmorTip value="ARMORTIP_SMALL"/>
         <AbilArray index="4" Link="Inventory3"/>
-        <AbilArray index="5" Link="Asud"/>
+        <AbilArray index="5" Link="AsudOrc"/>
         <AbilArray Link="UpgradeTonchr"/>
+        <AbilArray Link="UpgradeToowar"/>
         <AbilArray Link="Aens"/>
         <BehaviorArray index="4" Link="PillageRaider"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Aens" Type="AbilCmd" AbilCmd="Aens,Execute" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="PillageRaider" Type="Passive" Behavior="PillageRaider" Row="2" Column="1"/>
             <LayoutButtons Face="nchr" Type="AbilCmd" AbilCmd="UpgradeTonchr,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="owar" Type="AbilCmd" AbilCmd="UpgradeToowar,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="orai"/>
+    </CUnit>
+    <CUnit id="ora2" parent="orai" defType="LARGE">
+        <Name value="ora2/Name"/>
+        <Attributes index="small" value="0"/>
+        <Attributes index="large" value="1"/>
+        <LifeArmorName value="ARMOR_LARGE"/>
+        <LifeArmorTip value="ARMORTIP_LARGE"/>
+        <ReviveType value="ora2"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <AbilArray index="6" Link="Aens"/>
+        <AbilArray index="7" removed="1"/>
+        <AbilArray index="8" removed="1"/>
+        <BehaviorArray index="4" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="6">
+                <Face value="Asud"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="Asud,Execute"/>
+                <Behavior value=""/>
+                <Row value="2"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="8" removed="1"/>
+            <LayoutButtons index="9" removed="1"/>
+        </CardLayouts>
     </CUnit>
     <!--Shaman-->
     <CUnit id="oshm">
@@ -4235,17 +4322,40 @@
         <!--AttackTargetPriority value="8"/-->
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray index="5" Link="Asud"/>
+        <AbilArray index="5" Link="AsudOrc"/>
         <AbilArray index="6" Link="Ablo"/>
         <AbilArray index="7" Link="Apg2"/>
+        <AbilArray Link="UpgradeToChaosOrcShaman"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Ablo" Type="AbilCmd" AbilCmd="Ablo,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons index="7" Face="Apg2" Type="AbilCmd" AbilCmd="Apg2,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="ChaosOrcShaman" Type="AbilCmd" AbilCmd="UpgradeToChaosOrcShaman,Execute" Row="0" Column="0"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="oshm"/>
         <TechTreeProducedUnitArray value="oshm"/>
     </CUnit>
+    <CUnit id="ChaosOrcShaman" parent="oshm">
+        <Name value="ChaosOrcShaman/Name"/>
+        <WeaponArray index="0" Link="ChaosOrcShaman1"/>
+        <CostResource index="gold" value="180"/>
+        <TechTreeProducedUnitArray value="oshm"/>
+        <TechTreeProducedUnitArray value="oshm"/>
+        <TechTreeProducedUnitArray value="ChaosOrcShaman"/>
+        <TechTreeProducedUnitArray value="ChaosOrcShaman"/>
+        <ReviveType value="ChaosOrcShaman"/>
+        <Description value="ChaosOrcShaman/Ubertip"/>
+        <AbilArray index="6" Link="Adcn"/>
+        <AbilArray index="7" Link="DebuffImmunity"/>
+        <AbilArray index="8" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="Adcn" Type="AbilCmd" AbilCmd="Adcn,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="7" Face="DebuffImmunity" Type="Passive" AbilCmd="" Row="2" Column="1"/>
+            <LayoutButtons index="8" removed="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="ChaosOrcShaman1LM" parent="War3_Missile"/>
     <!--SpiritwalkerMorph-->
     <CUnit id="ospm">
         <AbilArray index="8" removed="1"/>
@@ -4277,14 +4387,14 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray index="5" Link="Asud"/>
+        <AbilArray index="5" Link="AsudOrc"/>
         <AbilArray index="6" Link="Aspl"/>
         <AbilArray index="7" Link="DebuffImmunity"/>
         <AbilArray index="8" removed="1"/>
         <BehaviorArray index="5" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Aspl" Type="AbilCmd" AbilCmd="Aspl,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons index="7" Face="DebuffImmunity" Type="Passive" AbilCmd="" Row="2" Column="1"/>
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
@@ -4339,11 +4449,11 @@
         <!--AttackTargetPriority value="4"/-->
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory3"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="UpgradeToOtch"/>
         <CardLayouts index="0">
             <LayoutButtons Face="Otch" Type="AbilCmd" AbilCmd="UpgradeToOtch,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="Arsk" Type="Passive" Behavior="Arsk" Row="2" Column="1"/>
         </CardLayouts>
         <Radius value="0.5"/>
@@ -4359,7 +4469,7 @@
         <EnergyMax value="100"/>
         <AbilArray index="6" Link="AOws"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="6" Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
             <LayoutButtons index="7" Face="AOws" Type="AbilCmd" AbilCmd="AOws,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="otau"/>
@@ -4394,11 +4504,11 @@
         <!--AttackTargetPriority value="2"/-->
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray index="5" Link="Asud"/>
+        <AbilArray index="5" Link="AsudOrc"/>
         <AbilArray Link="Absk"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Absk" Type="AbilCmd" AbilCmd="Absk,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="ohun"/>
         <TechTreeProducedUnitArray value="ohun"/>
@@ -4444,12 +4554,12 @@
         <Mover value="foot"/>
         <Height value="0.875"/>
         <AbilArray index="4" Link="Inventory2"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <AbilArray Link="UpgradeToowyv"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="MultiShot" Type="Passive" AbilCmd="Auco,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="owyv" Type="AbilCmd" AbilCmd="UpgradeToowyv,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="otbr"/>
         <TechTreeProducedUnitArray value="otbr"/>
@@ -4479,8 +4589,9 @@
     <CUnit id="owar">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <LifeArmor value="10"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -4488,16 +4599,27 @@
             <PositiveDamageRatio value="0"/>
         </LifeArmorFormula>
         <LifeRegenRate value="0.125"/>
-        <Speed value="2"/>
+        <Speed value="3"/>
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
         <Food value="0"/>
-        <CostResource index="gold" value="45"/>
+        <CostResource index="gold" value="225"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="5"/>
+        <KillResource index="Custom" value="75"/>
+        <AbilArray Link="Inventory3"/>
+        <AbilArray Link="AsudOrc"/>
+        <AbilArray Link="AHad"/>
+        <AbilArray Link="DebuffImmunity"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="AHad" Type="Passive" Row="2" Column="0"/>
+            <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="1"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
+        </CardLayouts>
         <PlacementFootprint value="4x4SimpleSolid"/>
-        <!--AttackTargetPriority value="3"/-->
         <SubgroupPriority value="0"/>
+        <TechTreeProducedUnitArray value="ora2"/>
+        <TechTreeProducedUnitArray value="ora2"/>
+        <TechTreeProducedUnitArray value="owar"/>
     </CUnit>
     <!--Wind Rider-->
     <CUnit id="owyv">
@@ -4530,11 +4652,11 @@
         <Mover value="foot"/>
         <Height value="0.875"/>
         <AbilArray Link="Inventory2"/>
-        <AbilArray Link="Asud"/>
+        <AbilArray Link="AsudOrc"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Aven" Type="Passive" Behavior="Aven" Row="2" Column="1"/>
             <LayoutButtons Face="MultiShot" Type="Passive" Row="2" Column="0"/>
-            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AsudOrc" Type="AbilCmd" AbilCmd="AsudOrc,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="otbr"/>
         <TechTreeProducedUnitArray value="otbr"/>

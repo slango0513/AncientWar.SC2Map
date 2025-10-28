@@ -115,6 +115,10 @@
     <CValidatorLocationEnumArea id="NotFullManaFriendNearBy">
         <AreaArray index="0" Radius="6" Validator="ManaRechargeAutoCastTargetFilter"/>
     </CValidatorLocationEnumArea>
+    <CValidatorCombine id="SummonedEnemyOrEnemyHasPurgableBuff">
+        <CombineArray value="SummonedEnemy"/>
+        <CombineArray value="EnemyHasPurgableBuff"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareVital id="TargetLifeLT500">
         <Compare value="LT"/>
         <Value value="500"/>

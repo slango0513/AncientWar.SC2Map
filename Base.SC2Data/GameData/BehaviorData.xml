@@ -201,6 +201,10 @@
     <CBehaviorBuff id="Afsh">
         <Requirements value=""/>
     </CBehaviorBuff>
+    <!--Earthquake-->
+    <CBehaviorBuff id="BOeq">
+        <Modification MoveSpeedMultiplier="0.5"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="YserasGift" parent="War3_AuraCaster">
         <Requirements value="YserasGift"/>
     </CBehaviorBuff>
@@ -989,7 +993,7 @@
     <CBehaviorBuff id="Patchwork" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnabomination.dds"/>
         <MaxStackCount value="0"/>
-        <Modification WeaponRange="0.0625" LifeArmorBonus="2">
+        <Modification WeaponRange="0.0625" LifeArmorBonus="1">
             <DamageDealtUnscaled index="Melee" value="36"/>
             <VitalMaxArray index="Life" value="600"/>
         </Modification>
@@ -1512,6 +1516,7 @@
             <ExcludeEffectArray index="386" value="zsmc1"/>
             <ExcludeEffectArray index="387" value="PyroblastDamage"/>
             <ExcludeEffectArray value="PyroblastDPS"/>
+            <ExcludeEffectArray value="ChaosOrcShaman1"/>
         </DamageResponse>
         <Duration value="15"/>
         <DurationOverride index="0" Duration="15">
@@ -1631,6 +1636,7 @@
             <AbilClassDisableArray index="CAbilWarpTrain" value="1"/>
             <AbilLinkEnableArray value="Asud"/>
             <AbilLinkEnableArray value="AsudHuman"/>
+            <AbilLinkEnableArray value="AsudOrc"/>
             <BehaviorLinkDisableArray value="Agyd"/>
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
