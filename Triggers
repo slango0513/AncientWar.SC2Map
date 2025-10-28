@@ -4653,7 +4653,7 @@
     </Element>
     <Element Type="Param" Id="707CCCB0">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="00000220"/>
-        <Value>false</Value>
+        <Value>true</Value>
         <ValueType Type="bool"/>
     </Element>
     <Element Type="FunctionCall" Id="C76FC217">
@@ -31498,6 +31498,7 @@
     <Element Type="Trigger" Id="873B2885">
         <InitOff/>
         <Variable Type="Variable" Id="3454B4F0"/>
+        <Variable Type="Variable" Id="235A28CE"/>
         <Event Type="FunctionCall" Id="36158AFE"/>
         <Action Type="FunctionCall" Id="07FEB532"/>
     </Element>
@@ -31509,6 +31510,16 @@
     </Element>
     <Element Type="Param" Id="E430EB10">
         <Preset Type="PresetValue" Library="Ntve" Id="F5E3F3AD"/>
+    </Element>
+    <Element Type="Variable" Id="235A28CE">
+        <VariableType>
+            <Type Value="unitfilter"/>
+        </VariableType>
+        <Value Type="Param" Id="854F0990"/>
+    </Element>
+    <Element Type="Param" Id="854F0990">
+        <Value>-;Air,Missile,Cloaked,Dead,Hidden,Invulnerable</Value>
+        <ValueType Type="unitfilter"/>
     </Element>
     <Element Type="FunctionCall" Id="36158AFE">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="6D565EB4"/>
@@ -31797,8 +31808,7 @@
     </Element>
     <Element Type="Param" Id="8EC98203">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="7B8E998C"/>
-        <Value>-;Air,Missile,Dead,Hidden,Invulnerable</Value>
-        <ValueType Type="unitfilter"/>
+        <Variable Type="Variable" Id="235A28CE"/>
     </Element>
     <Element Type="Param" Id="27812C77">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="90CA0E04"/>
@@ -31852,8 +31862,7 @@
     </Element>
     <Element Type="Param" Id="70EC9343">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="AAAD5AF7"/>
-        <Value>-;Air,Missile,Dead,Hidden,Invulnerable</Value>
-        <ValueType Type="unitfilter"/>
+        <Variable Type="Variable" Id="235A28CE"/>
     </Element>
     <Element Type="Param" Id="35795680">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="20E75344"/>

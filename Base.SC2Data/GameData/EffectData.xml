@@ -64,10 +64,10 @@
         <AreaArray index="0" Radius="9" Effect="Bakb"/>
     </CEffectEnumArea>
     <CEffectDamage id="AbofFullDamage">
-        <Amount value="100"/>
+        <Amount value="50"/>
     </CEffectDamage>
     <CEffectDamage id="AbofHalfDamage">
-        <Amount value="50"/>
+        <Amount value="25"/>
     </CEffectDamage>
     <CEffectDamage id="AflkSphereEffect">
         <AreaArray index="0" Radius="1.5" Bonus="72" Fraction="1"/>

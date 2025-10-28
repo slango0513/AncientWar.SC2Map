@@ -467,7 +467,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_boolTestMode = false;
+    gv_boolTestMode = true;
     TriggerEnable(libGAwX_gt_AegrElunesGraceRegister, false);
     TriggerEnable(libGAwX_gt_AdefDefendInitRegister, false);
     TriggerEnable(libGAwX_gt_AsplMarker, false);
@@ -2525,8 +2525,10 @@ void gt_Build_Init () {
 bool gt_Attack_Func (bool testConds, bool runActions) {
     // Variable Declarations
     region lv_r;
+    unitfilter lv_unfilter;
 
     // Variable Initialization
+    lv_unfilter = UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile) | (1 << c_targetFilterCloaked), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)));
 
     // Actions
     if (!runActions) {
@@ -2537,8 +2539,8 @@ bool gt_Attack_Func (bool testConds, bool runActions) {
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         if ((libNtve_gf_UnitInRegion(UnitGroupLoopCurrent(), RegionFromId(1)) == true)) {
             lv_r = RegionCircle(UnitGetPosition(UnitGroupLoopCurrent()), 35.0);
-            if ((UnitCountAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32))), 0) != 0)) {
-                UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(UnitGroupClosestToPoint(UnitGroupAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32))), 0), UnitGetPosition(UnitGroupLoopCurrent())))), c_orderQueueReplace);
+            if ((UnitCountAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, lv_unfilter, 0) != 0)) {
+                UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(UnitGroupClosestToPoint(UnitGroupAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, lv_unfilter, 0), UnitGetPosition(UnitGroupLoopCurrent())))), c_orderQueueReplace);
             }
             else {
                 UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);

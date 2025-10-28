@@ -2816,6 +2816,12 @@
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
         <SubgroupPriority value="0"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
     </CUnit>
     <!--Orb of Venom-->
     <CUnit id="oven">
@@ -3263,8 +3269,8 @@
         <Food value="0"/>
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="200"/>
-        <LifeMax value="200"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>

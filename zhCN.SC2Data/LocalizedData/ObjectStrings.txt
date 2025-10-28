@@ -89,6 +89,7 @@ Button/EditorSuffix/PillageChaosGrunt=混乱兽人步兵
 Button/EditorSuffix/PillageChaosRaider=混乱兽人狼骑兵
 Button/EditorSuffix/PillageGrunt=兽人步兵
 Button/EditorSuffix/PillageRaider=狼骑兵
+DebuffImmunity/Name=负面效果防护
 Defend/Name=防御
 Defending/Name=防御中
 Defense/Name=防御
@@ -97,6 +98,8 @@ Effect/EditorSuffix/StoneFormUnExtra=Extra
 Effect/EditorSuffix/hgry1RectangeSearch2=(PH, Wait for Rectange Search!)
 Effect/EditorSuffix/hgry1RectangeSearch3=(PH, Wait for Rectange Search!)
 FuryBuff/Name=狂怒增益
+Hex/Name=妖术
+HonorShield/Name=荣誉之盾
 HonorShield2/Name=荣誉之盾
 HonorShieldBuff/Name=荣誉之盾增益
 ManaFlare/Name=魔力之焰
@@ -129,6 +132,7 @@ RequirementNode/Name/EqCountUpgradeItemLevelCompleteOnly2=CountUpgrade(ItemLevel
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter0=CountUpgrade(ItemLevel,QueuedOrBetter) == 0
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter1=CountUpgrade(ItemLevel,QueuedOrBetter) == 1
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter2=CountUpgrade(ItemLevel,QueuedOrBetter) == 2
+ShockWave/Name=震荡波
 TargetSort/Name/TSLifeFractionLargestFirst=TSLifeFractionLargestFirst
 Unit/EditorPrefix/Efur1=猛禽德鲁伊
 Unit/EditorPrefix/Ekee1=树妖

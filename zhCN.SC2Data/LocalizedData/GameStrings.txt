@@ -15,7 +15,7 @@ AOws/Ubertip=重击地面，对周围的地面单位造成<d ref="Effect,AOwsDam
 AUan/Ubertip=复活<d ref="Effect,AUanSearch,MaxCount"/>个阵亡单位，持续时间为<d ref="Behavior,BUan,Duration"/>秒。
 AUcb/Ubertip=从目标尸体中召唤出<d ref="Effect,ucs1,SpawnCount"/>条甲虫来。每条甲虫具有<d ref="Unit,ucs1,LifeMax"/>点生命值和<d ref="Effect,ucs11,Amount"/>点的攻击力。在被杀死之前，甲虫能一直存在。<n/>最多<d ref="Validator,AUcbMarkerLessThan5,Value"/>条甲虫。
 Aadm/Ubertip=对召唤单位造成<d ref="Effect,HurtEnemySummoned300,Amount"/>点的伤害。
-Aakb/Ubertip=能增加周围友方单位<d ref="Behavior,Bakb,Modification.DamageDealtUnscaled[Melee]"/>点近战攻击力。<n/>最多可叠加<d ref="Behavior,Bakb,MaxStackCount"/>层。
+Aakb/Ubertip=能增加周围友方单位<d ref="Behavior,Bakb,Modification.DamageDealtFraction[Melee]*100" precision="1"/>%的攻击力。<n/>最多可叠加<d ref="Behavior,Bakb,MaxStackCount"/>层。
 Aam2/Ubertip=建立一道屏障，使得目标单位能少受<d ref="Behavior,Bam2,DamageResponse.ModifyLimit"/>点的魔法伤害。<n/>持续<d ref="Behavior,Bam2,Duration"/>秒。
 Aapl/Ubertip=用疾病来感染周围的敌人。疾病之云每秒能对敌人造成<d ref="Effect,BaplDPS,Amount"/>点的伤害。<n/>持续<d ref="Behavior,Bapl,Duration"/>秒。
 Abil/Name/ANgl=购买木材
@@ -67,7 +67,6 @@ Behavior/Name/hgry1=狮鹫骑士
 Bfae/Buffubertip=该单位受到了精灵之火的作用，因此其护甲被削弱了。
 Button/Name/ImpaleAttack=穿刺攻击
 Button/Name/MultiShot=多重射击
-DebuffImmunity/Name=负面效果防护
 DebuffImmunity/Tip=负面效果防护
 DebuffImmunity/Ubertip=让该单位对负面效果免疫。
 DocInfo/DescLong=原名《锦标赛》，该版本使用麦德三世的魔兽争霸III Mod。<n/>排兵布阵，建造场地的兵将会按书写顺序出现在战场里。<n/>与每个玩家都打过一次后——即单循环赛制，将进行单败淘汰赛。<n/>部分创意来自魔兽争霸III地图《血液锦标赛》。<n/>玩家交流QQ群：417769011。
@@ -116,6 +115,7 @@ DocInfo/PatchNote039=大法师不再能够攻击空中单位。
 DocInfo/PatchNote040=水占师现在更名为法师，法师类单位射程增加，生命值降低。
 DocInfo/PatchNote041=攻城机车移动速度提高。
 DocInfo/PatchNote042=调整平衡性。
+DocInfo/PatchNote043=修复静止陷阱导致游戏不能继续的严重漏洞。
 Effect/Name/Asud=出售单位
 Effect/Name/DefendIssueOrder=防御发布指令
 Effect/Name/DefendSet=防御集合
@@ -155,7 +155,6 @@ Fury/Name=狂怒
 Hamg/Name=大法师
 Hamg/Tip=大法师
 Hamg/Ubertip=提供<c val="FFFFFF">2</c>名法师、<c val="FFFFFF">1</c>名大法师。<n/><n/>魔法攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hamg1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hamg1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hamg1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hamg1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Hamg1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Hamg1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Hamg1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">召唤水元素</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
-Hex/Name=妖术
 Hex/Tip=妖术
 Hex/Ubertip=每一次攻击有<d ref="Behavior,Hex,DamageResponse.Chance*100"/>%的几率让目标单位在<d ref="Effect,ANhx1Dur,Duration"/>秒内变成一只随机的小动物。
 Hjai/Name=吉安娜
@@ -164,7 +163,6 @@ Hjai/Ubertip=提供<c val="FFFFFF">8</c>名女巫、<c val="FFFFFF">1</c>名吉�
 Hlgr/Name=甲胄骑兵
 Hlgr/Tip=甲胄骑兵
 Hlgr/Ubertip=提供<c val="FFFFFF">2</c>名骑士、<c val="FFFFFF">1</c>名甲胄骑兵。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hlgr1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hlgr1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hlgr1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hlgr1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,hkni1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,hkni1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
-HonorShield/Name=荣誉之盾
 HonorShield/Tip=荣誉之盾
 HonorShield/Ubertip=每次攻击地面单位或受到攻击将会提升<d ref="Behavior,HonorShieldBuff,Modification.DamageDealtUnscaled[Ranged]"/>点攻击及<d ref="Behavior,HonorShieldBuff,Modification.LifeArmorBonus"/>点护甲。
 ImpaleAttack/Tip=穿刺攻击
@@ -293,7 +291,6 @@ PillageGrunt/Tip=掠夺
 PillageGrunt/Ubertip=使得兽人步兵对敌人的攻击有<d ref="Behavior,PillageGrunt,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageGrunt,DamageResponse.Cost.Resource[Custom]"/>点木材。
 PillageRaider/Tip=掠夺
 PillageRaider/Ubertip=使得狼骑兵对敌人的攻击有<d ref="Behavior,PillageRaider,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageRaider,DamageResponse.Cost.Resource[Custom]"/>点木材。
-ShockWave/Name=震荡波
 ShockWave/Tip=震荡波
 ShockWave/Ubertip=每次攻击有<d ref="Behavior,ShockWave,DamageResponse.Chance*100"/>%几率发出一道向前的能量波，对一条线上的敌方地面单位造成<d ref="Effect,AOshDamage1,Amount"/>点的伤害。
 StoneForm/Name=石像形态
@@ -474,7 +471,7 @@ rhth/Description=增加生命值。
 rhth/Ubertip=等级：<d ref="Item,rhth,Level"/><n/>增加<d ref="Behavior,AIl2,Modification.VitalMaxArray[Life]"/>点生命值。
 shdt/Ubertip=等级：<d ref="Item,shdt,Level"/><n/><c val="ff8c00">神器</c><n/>处于烈焰的包围之中，对周围单位造成每秒<d ref="Effect,BEimDPS1,Amount"/>点伤害。同时增加<d ref="Behavior,AId5,Modification.LifeArmorBonus"/>点护甲值，<d ref="Behavior,AIlf,Modification.VitalMaxArray[Life]"/>点生命值，<d ref="Behavior,AImz,Modification.VitalMaxArray[Energy]"/>点法力值。<n/><c val="ffcc00">历史</c><n/><c val="ffdead">当阿尔萨斯在斯坦索姆向自己的子民挥剑的时候，死亡领主们在洛丹伦许多其他城市也做着同样的事。</c>
 shen/Ubertip=等级：<d ref="Item,shen,Level"/><n/>增加<d ref="Behavior,AId2,Modification.LifeArmorBonus"/>点护甲值和<d ref="Behavior,AIlz,Modification.VitalMaxArray[Life]"/>点生命值。
-shhn/Ubertip=等级：<d ref="Item,shhn,Level"/><n/><c val="8b00ff">精良</c><n/>增加周围单位<d ref="Behavior,BOac,Modification.DamageDealtFraction[Melee]*100"/>%的攻击力。同时增加<d ref="Behavior,AId5,Modification.LifeArmorBonus"/>点护甲值。
+shhn/Ubertip=等级：<d ref="Item,shhn,Level"/><n/><c val="8b00ff">精良</c><n/>增加周围单位<d ref="Behavior,BOac,Modification.DamageDealtFraction[Melee]*100" precision="1"/>%的攻击力。同时增加<d ref="Behavior,AId5,Modification.LifeArmorBonus"/>点护甲值。
 sor6/Name=暗影之球
 sor6/Ubertip=等级：<d ref="Item,sor6,Level"/><n/>这个神器被注入了兽人暗影议会的力量，从而能增加你<d ref="Behavior,AIt6,Modification.DamageDealtUnscaled[Melee]"/>点攻击力和<d ref="Behavior,AId1,Modification.LifeArmorBonus"/>点护甲值。
 sor9/Name=暗影之球
