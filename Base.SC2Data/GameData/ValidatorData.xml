@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CValidatorLocationCompareRange id="AHdrMaxRange">
+        <Range value="12"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorUnitCompareField id="IsBlight">
+        <Field value="TechAliasArray"/>
+        <Value value="Blight"/>
+    </CValidatorUnitCompareField>
+    <CValidatorUnitCompareBehaviorCount id="CasterHasBUau1">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="BUau1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterHasBUav1">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="BUav1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBHbn">
+        <Behavior value="BHbn"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="TargetLifeLT500">
+        <Compare value="LT"/>
+        <Value value="500"/>
+    </CValidatorUnitCompareVital>
     <CValidatorLocationEnumArea id="AnimateDeadAutoCastValidator">
         <WhichLocation Value="CasterUnit"/>
         <AreaArray Radius="7.5" Validator="RaiseDeadValidatorDeadCombie"/>
@@ -62,6 +88,9 @@
         <WhichLocation Value="CasterUnit"/>
         <SearchFilters value="-;Neutral,Enemy,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="EnemiesNearby4.5" parent="EnemiesNearby6">
+        <AreaArray index="0" Compare="GE" Count="1" Radius="4.5"/>
+    </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="EnemiesNearby7.5" parent="EnemiesNearby6">
         <AreaArray index="0" Compare="GE" Count="1" Radius="7.5"/>
     </CValidatorLocationEnumArea>
@@ -74,6 +103,10 @@
     <CValidatorLocationEnumArea id="GroundEnemiesNearby12" parent="GroundEnemiesNearby">
         <AreaArray index="0" Compare="GE" Count="1" Radius="12"/>
     </CValidatorLocationEnumArea>
+    <CValidatorUnitCompareBehaviorCount id="HasBcrs">
+        <Compare value="GT"/>
+        <Behavior value="Bcrs"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitType id="IsFleshGolem">
         <Value value="nfgl"/>
     </CValidatorUnitType>
@@ -93,8 +126,18 @@
     <CValidatorUnitCompareBehaviorCount id="NoBNdo">
         <Behavior value="BNdo"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBNso">
+        <Behavior value="BNso"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBUdd">
+        <Behavior value="BUdd"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBclf">
         <Behavior value="Bclf"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNoBuilding">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="Building"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoChargeKnightController">
         <Behavior value="ChargeKnightController"/>
@@ -158,6 +201,10 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NonPowerfulUnit">
         <Behavior value="PowerfulUnit"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize0">
+        <Compare value="GE"/>
+        <Behavior value="Patchwork"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="PatchworkSize">
         <Compare value="GE"/>

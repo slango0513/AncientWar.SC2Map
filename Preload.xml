@@ -7,6 +7,7 @@
 <Effect id="Kill"/>
 <Effect id="AOclSecondaryTriggerDamage"/>
 <Effect id="AOclSecondaryLightningDummy"/>
+<Effect id="AOhwSecondaryLightningDummy"/>
 <Race id="Human"/>
 <Race id="NightElf"/>
 <Race id="Orc"/>

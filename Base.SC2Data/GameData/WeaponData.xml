@@ -31,7 +31,17 @@
         <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="1.5"/>
-        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,dead,invulnerable,immunity"/>
+    </CWeaponLegacy>
+    <!--HeroBloodMage-->
+    <CWeaponLegacy id="Hblm1" atkType="MAGIC">
+        <Name value="DAMAGE_MAGIC"/>
+        <Tip value="DAMAGETIP_MAGIC"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,dead,invulnerable,immunity"/>
+        <MinScanRange value="3"/>
+        <Range value="3"/>
+        <Period value="3"/>
     </CWeaponLegacy>
     <!--Ghostly Archmage-->
     <CWeaponLegacy id="Hgam1" atkType="MAGIC">
@@ -110,6 +120,12 @@
         <MinScanRange value="10"/>
         <Range value="10"/>
         <Period value="6"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="echm2">
+        <MinScanRange value="20"/>
+        <Range value="6"/>
+        <Period value="6"/>
+        <TargetFilters value="Visible;wall,tree,Missile,dead,invulnerable,immunity"/>
     </CWeaponLegacy>
     <!--DruidoftheClawMorph-->
     <CWeaponLegacy id="edcm1">
@@ -319,6 +335,11 @@
         <Range value="6"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
+    <!--Infernal-->
+    <CWeaponLegacy id="ninf1">
+        <MinScanRange value="0.7812"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
     <!--ice troll shadow priest-->
     <CWeaponLegacy id="nitp1" atkType="MAGIC">
         <Name value="DAMAGE_MAGIC"/>
@@ -416,6 +437,11 @@
         <Range value="4"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <!--spiritwolf level 1-->
+    <CWeaponLegacy id="osw11">
+        <MinScanRange value="0.7031"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
     <!--Tauren-->
     <CWeaponLegacy id="otau1">
         <MinScanRange value="0.7812"/>
@@ -462,12 +488,12 @@
     <!--FrostWyrm-->
     <CWeaponLegacy id="ufro1">
         <MinScanRange value="20"/>
-        <Range value="3"/>
+        <Range value="4"/>
         <Period value="6"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ufro2">
         <MinScanRange value="20"/>
-        <Range value="3"/>
+        <Range value="4"/>
         <Period value="6"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ugar2">

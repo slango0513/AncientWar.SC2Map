@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <terrain version="114">
-    <heightMap tileSet="BelShirEx2" uvtiling="24.000000 24.000000 0.000000 0.000000 " dim="257 257 " offset="0.000000 0.000000 0.000000 " scale="1.000000e+000 1.000000e+000 1.000000e+000 ">
+    <heightMap tileSet="BelShirEx2" uvtiling="24.000000 24.000000 0.000000 0.000000 " dim="257 257 " offset="0.000000 0.000000 0.000000 " scale="1.000000e+00 1.000000e+00 1.000000e+00 ">
         <cliffSetList num="1">
             <cliffSet i="0" name="BelShirEx1Cliff0"/>
         </cliffSetList>
-        <vertData quantizeBias="1.001319e+000" quantizeScale="1.525900e-004" standardHeight="8.000000e+000" name="t3HeightMap"/>
+        <vertData quantizeBias="1.001397e+00" quantizeScale="1.525900e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
         <masks name="t3TextureMasks"/>
         <textureSetList num="8">
             <textureSet i="0" name="BelShirEx2"/>
