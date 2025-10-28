@@ -11,6 +11,8 @@
         <AlertIcon value="Assets\Textures\war3_btnchestofgold.dds"/>
     </CButton>
     <CButton id="DebuffImmunity" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>
+    <CButton id="Firebolt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfirebolt.dds"/>
+    <CButton id="Frostbolt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfrostbolt.dds"/>
     <!--archmage-->
     <CButton id="Hamg"/>
     <CButton id="Hex" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhex.dds"/>
@@ -44,6 +46,7 @@
         <AlertTooltip value="UpdateItemLevel3/Ubertip"/>
         <Hotkey value="UpdateItemLevel3/Hotkey"/>
     </CButton>
+    <CButton id="UnholyDominance" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngargoyle.dds"/>
     <!--archer-->
     <CButton id="earc"/>
     <!--glaivethrower-->

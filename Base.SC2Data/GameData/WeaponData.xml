@@ -33,6 +33,15 @@
         <Period value="1.5"/>
         <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
+    <!--Ghostly Archmage-->
+    <CWeaponLegacy id="Hgam1" atkType="MAGIC">
+        <Name value="DAMAGE_MAGIC"/>
+        <Tip value="DAMAGETIP_MAGIC"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
+        <MinScanRange value="20"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
     <!--Hero Banshee Ranger-->
     <CWeaponLegacy id="Nbrn1" atkType="CHAOS">
         <MinScanRange value="20"/>
@@ -267,10 +276,10 @@
     </CWeaponLegacy>
     <!--hydromancer-->
     <CWeaponLegacy id="nhym1">
-        <MinScanRange value="20"/>
-        <Period value="1.5"/>
-        <Range value="6"/>
         <TargetFilters value="Visible;air,wall,tree,Missile,dead,invulnerable,immunity"/>
+        <MinScanRange value="20"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
     </CWeaponLegacy>
     <!--ice troll shadow priest-->
     <CWeaponLegacy id="nitp1" atkType="MAGIC">
@@ -389,6 +398,17 @@
         <MinScanRange value="20"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <!--FrostWyrm-->
+    <CWeaponLegacy id="ufro1">
+        <MinScanRange value="20"/>
+        <Range value="3"/>
+        <Period value="6"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ufro2">
+        <MinScanRange value="20"/>
+        <Range value="3"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
     <!--Gargoyle-->
     <CWeaponLegacy id="ugar1">
         <MinScanRange value="20"/>
@@ -398,6 +418,7 @@
         <MinScanRange value="20"/>
         <Range value="2"/>
         <Period value="3"/>
+        <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <!--Ghoul-->
     <CWeaponLegacy id="ugho1">

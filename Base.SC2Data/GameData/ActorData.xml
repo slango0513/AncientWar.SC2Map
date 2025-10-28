@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorModel id="Aetl">
+        <On Terms="Behavior.FrostWyrmInvulnerable.On" Send="Create"/>
+        <On Terms="Behavior.FrostWyrmInvulnerable.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
     <CActorModel id="Defend" parent="ModelAnimationStyleOneShotUNIT">
         <On Terms="Behavior.Defend.DamageHandled" Send="Create"/>
         <On Terms="AnimDone" Send="Destroy"/>
@@ -171,6 +175,36 @@
         <SoundArray index="Click" value="Hamg1_Click"/>
         <SoundArray index="ClickError" value="Hamg1_ClickError"/>
         <SoundArray index="Highlight" value="Hamg1_Highlight"/>
+    </CActorUnit>
+    <!--ghostlyarchmage-->
+    <CActorUnit id="Hgam" unitName="Hgam1" defType="NONE">
+        <On index="0" Terms="UnitBirth.Hgam1" Send="Create SoundEmitter Hgam1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hgam1"/>
+        <On index="2" Terms="UnitRevive.Hgam1"/>
+        <On index="3" Terms="UnitRevive.Hgam1"/>
+        <On index="4" Terms="UnitConstruction.Hgam1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hgam1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hgam1; !ScopeContains Hgam"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hgam1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hgam1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hgam1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hgam1"/>
+        <On index="85" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Hgam1Death" VoiceLink="Hgam1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <GroupSoundArray index="What" value="Hgam1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Hgam1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Hgam1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Hgam1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+        <SoundArray index="Birth" value="Hgam1_Birth"/>
+        <SoundArray index="Help" value="Hgam1_Help"/>
+        <SoundArray index="Movement" value="Hgam1_Movement"/>
+        <SoundArray index="Turning" value="Hgam1_Turning"/>
+        <SoundArray index="Board" value="Hgam1_Board"/>
+        <SoundArray index="Click" value="Hgam1_Click"/>
+        <SoundArray index="ClickError" value="Hgam1_ClickError"/>
+        <SoundArray index="Highlight" value="Hgam1_Highlight"/>
     </CActorUnit>
     <!--jaina-->
     <CActorUnit id="Hjai" unitName="Hjai1" defType="NONE">
@@ -494,7 +528,7 @@
     </CActorUnit>
     <!--hydromancer-->
     <CActorUnit id="nhym">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <On index="89" removed="1"/>
     </CActorUnit>
     <!--icetrollshadowpriest-->
@@ -591,7 +625,10 @@
     </CActorUnit>
     <!--frostwyrm-->
     <CActorUnit id="ufro">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+        <Scale value="1.250000"/>
+        <On Terms="Behavior.FrostWyrmInvulnerable.On" Send="SetOpacity 0.500000"/>
+        <On Terms="Behavior.FrostWyrmInvulnerable.Off" Send="SetOpacity 1.000000"/>
     </CActorUnit>
     <!--gargoyle-->
     <CActorUnit id="ugar">

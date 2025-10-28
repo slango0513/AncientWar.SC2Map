@@ -467,7 +467,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_boolTestMode = true;
+    gv_boolTestMode = false;
     TriggerEnable(libGAwX_gt_AegrElunesGraceRegister, false);
     TriggerEnable(libGAwX_gt_AdefDefendInitRegister, false);
     TriggerEnable(libGAwX_gt_AsplMarker, false);
@@ -734,6 +734,12 @@ bool gt_SetUnit_Func (bool testConds, bool runActions) {
     int auto09F48E1C_ai;
     int auto359B927A_ae;
     int auto359B927A_ai;
+    int auto7310E746_ae;
+    int auto7310E746_ai;
+    int auto88F680D4_ae;
+    int auto88F680D4_ai;
+    int autoCDB2CDF4_ae;
+    int autoCDB2CDF4_ai;
     int auto9880C258_ae;
     int auto9880C258_ai;
     int auto9B4A1391_ae;
@@ -743,6 +749,7 @@ bool gt_SetUnit_Func (bool testConds, bool runActions) {
 
     // Variable Declarations
     int lv_p;
+    int lv_phalanx;
 
     // Variable Initialization
 
@@ -782,16 +789,34 @@ bool gt_SetUnit_Func (bool testConds, bool runActions) {
         gv_intRound = StringToInt(StringWord(EventChatMessage(false), 2));
         gv_intBonusRound = 0;
         gv_intFinalRound = 0;
+        auto7310E746_ae = gv_intCountPhalanx;
+        auto7310E746_ai = 1;
+        lv_phalanx = 1;
+        for ( ; ( (auto7310E746_ai >= 0 && lv_phalanx <= auto7310E746_ae) || (auto7310E746_ai <= 0 && lv_phalanx >= auto7310E746_ae) ) ; lv_phalanx += auto7310E746_ai ) {
+            gv_intRow[lv_phalanx] = 6;
+        }
     }
     else if (autoCBDAB378_val == "BonusRound") {
         gv_intRound = (gv_intCountRound + 1);
         gv_intBonusRound = StringToInt(StringWord(EventChatMessage(false), 2));
         gv_intFinalRound = 0;
+        auto88F680D4_ae = gv_intCountPhalanx;
+        auto88F680D4_ai = 1;
+        lv_phalanx = 1;
+        for ( ; ( (auto88F680D4_ai >= 0 && lv_phalanx <= auto88F680D4_ae) || (auto88F680D4_ai <= 0 && lv_phalanx >= auto88F680D4_ae) ) ; lv_phalanx += auto88F680D4_ai ) {
+            gv_intRow[lv_phalanx] = 6;
+        }
     }
     else if (autoCBDAB378_val == "FinalRound") {
         gv_intRound = (gv_intCountRound + 1);
         gv_intBonusRound = (gv_intCountBonusRound + 1);
         gv_intFinalRound = StringToInt(StringWord(EventChatMessage(false), 2));
+        autoCDB2CDF4_ae = gv_intCountPhalanx;
+        autoCDB2CDF4_ai = 1;
+        lv_phalanx = 1;
+        for ( ; ( (autoCDB2CDF4_ai >= 0 && lv_phalanx <= autoCDB2CDF4_ae) || (autoCDB2CDF4_ai <= 0 && lv_phalanx >= autoCDB2CDF4_ae) ) ; lv_phalanx += autoCDB2CDF4_ai ) {
+            gv_intRow[lv_phalanx] = 16;
+        }
     }
     else if (autoCBDAB378_val == "I") {
         if ((StringWord(EventChatMessage(false), 2) == "A")) {

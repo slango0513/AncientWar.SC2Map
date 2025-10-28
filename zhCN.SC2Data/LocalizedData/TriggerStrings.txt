@@ -211,6 +211,7 @@ Variable/Name/A50EA596=boolTestMode
 Variable/Name/A5244728=phalanx
 Variable/Name/A560A46E=intCountPlayer
 Variable/Name/A5DDF07A=intCountLivingUnitPlayer
+Variable/Name/A897C6AD=phalanx
 Variable/Name/A8E4B902=r
 Variable/Name/AA28795B=i
 Variable/Name/AA64C1F1=unitWorker

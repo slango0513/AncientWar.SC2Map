@@ -10,6 +10,12 @@
         <Type value="And"/>
         <CombineArray value="NoRejuvenation"/>
     </CValidatorCombine>
+    <CValidatorLocationCompareRange id="DistanceGT3">
+        <WhichLocation Value="CasterUnit"/>
+        <Compare value="GT"/>
+        <Range value="3"/>
+        <Value Value="TargetUnit"/>
+    </CValidatorLocationCompareRange>
     <CValidatorLocationEnumArea id="GroundEnemiesNearby">
         <WhichLocation Value="CasterUnit"/>
         <AreaArray Compare="GE" Count="1" Radius="6"/>
@@ -21,6 +27,16 @@
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="EnemiesNearby9" parent="EnemiesNearby6">
         <AreaArray index="0" Compare="GE" Count="1" Radius="9"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="GargoyleNearby" parent="EnemiesNearby">
+        <AreaArray index="0">
+            <Compare value="GE"/>
+            <Count value="1"/>
+            <Radius value="4.5"/>
+            <Validator value="Isugar"/>
+        </AreaArray>
+        <WhichLocation Value="CasterUnit"/>
+        <SearchFilters value="-;Neutral,Enemy,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="EnemiesNearby7.5" parent="EnemiesNearby6">
         <AreaArray index="0" Compare="GE" Count="1" Radius="7.5"/>
@@ -34,6 +50,9 @@
     <CValidatorLocationEnumArea id="GroundEnemiesNearby18" parent="GroundEnemiesNearby">
         <AreaArray index="0" Compare="GE" Count="1" Radius="18"/>
     </CValidatorLocationEnumArea>
+    <CValidatorUnitType id="Isugar">
+        <Value value="ugar"/>
+    </CValidatorUnitType>
     <CValidatorUnitCompareVeterancyLevel id="LevelableHero">
         <Compare value="GE"/>
         <Value value="0"/>
@@ -55,8 +74,14 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="ManaFlareChannelling"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoSilence">
+        <Behavior value="BNsi"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoStasisTrapWard">
         <Behavior value="Bsta"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoUnholyDominance">
+        <Behavior value="UnholyDominance"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoWeb">
         <WhichUnit Value="Caster"/>
@@ -111,4 +136,7 @@
         <Compare value="GT"/>
         <Value value="25"/>
     </CValidatorUnitCompareVital>
+    <CValidatorCombine id="UnholyDominanceSearchTargetFilters">
+        <CombineArray value="Isugar"/>
+    </CValidatorCombine>
 </Catalog>

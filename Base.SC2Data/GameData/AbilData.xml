@@ -24,6 +24,11 @@
         <BehaviorArray index="1" removed="1"/>
         <BehaviorArray index="2" removed="1"/>
     </CAbilBehavior>
+    <!--Paladin - Devotion Aura Buff=BHad-->
+    <CAbilBehavior id="AHad">
+        <BehaviorArray index="1" removed="1"/>
+        <BehaviorArray index="2" removed="1"/>
+    </CAbilBehavior>
     <CAbilBuild id="AHbu">
         <InfoArray index="Build1" Unit="hmil" Time="0">
             <Button DefaultButtonFace="hmil" Requirements="Pause"/>
@@ -82,6 +87,9 @@
         <InfoArray index="Build19" Unit="hgyr">
             <Button DefaultButtonFace="hgyr" Requirements="Pause"/>
         </InfoArray>
+        <InfoArray index="Build20" Unit="Hgam1">
+            <Button DefaultButtonFace="Hgam" Requirements="Pause"/>
+        </InfoArray>
         <Range value="500"/>
     </CAbilBuild>
     <!--Arch Mage - Water Elemental Buff=BHwe-->
@@ -108,6 +116,29 @@
             <Vital index="Energy" value="0"/>
         </Cost>
     </CAbilAugment>
+    <!--Dark Ranger - Silence Buff=BNsi-->
+    <CAbilEffectTarget id="ANsi">
+        <Effect index="1" removed="1"/>
+        <Effect index="2" removed="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost index="0">
+            <Vital index="Energy" value="25"/>
+            <Cooldown Location="Unit" TimeUse="5"/>
+        </Cost>
+        <Cost index="1" removed="1"/>
+        <Cost index="2" removed="1"/>
+        <Range index="0" value="12"/>
+        <AutoCastRange value="12"/>
+        <AutoCastValidatorArray value="noMarkers"/>
+        <AutoCastValidatorArray value="NoSilence"/>
+        <TargetFilters index="0" value="-;air,wall,tree,Missile,debris,item,structure,ward,dead,invulnerable,immunity"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSLife"/>
+        </TargetSorts>
+        <CursorEffect index="1" removed="1"/>
+        <CursorEffect index="2" removed="1"/>
+    </CAbilEffectTarget>
     <!--Chieftain - Endurance Aura Buff=BOae-->
     <CAbilBehavior id="AOae">
         <BehaviorArray index="1" removed="1"/>
@@ -316,7 +347,7 @@
     <!--Bloodlust Dur=60 HeroDur=60 Buff=Bblo-->
     <CAbilEffectTarget id="Ablo">
         <Cost index="0">
-            <Vital index="Energy" value="20"/>
+            <Vital index="Energy" value="25"/>
         </Cost>
         <TargetSorts RequestCount="1">
             <SortArray index="0" value="TSLifeLargestFirst"/>
@@ -921,6 +952,21 @@
         </InfoArray>
         <Name value="Hamg/Tip"/>
     </CAbilMorph>
+    <CAbilMorph id="UpgradeToHgam" parent="War3_Upgrade" toUnit="Hgam1">
+        <Name value="Hgam/Tip"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Hgam" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hgam1">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
     <CAbilMorph id="UpgradeToOtch" parent="War3_Upgrade" toUnit="Otch1">
         <Name value="Otch/Tip"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Otch" Requirements="Pause"/>
@@ -954,6 +1000,20 @@
     <CAbilMorph id="UpgradeTonrvd" parent="War3_Upgrade" toUnit="nrvd">
         <CmdButtonArray index="Execute" Requirements="Pause"/>
         <InfoArray index="0" Score="1" Unit="nrvd">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeToufro" parent="War3_Upgrade" toUnit="ufro">
+        <CmdButtonArray index="Execute" Requirements="Final"/>
+        <InfoArray index="0" Score="1" Unit="ufro">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>

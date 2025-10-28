@@ -111,10 +111,10 @@
     </CBehaviorBuff>
     <!--Elune's Grace-->
     <CBehaviorBuff id="Aegr">
-        <DamageResponse ModifyFraction="0.4"/>
+        <DamageResponse ModifyFraction="0.5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AegrSpellReduction">
-        <DamageResponse ModifyFraction="0.4"/>
+        <DamageResponse ModifyFraction="0.25"/>
     </CBehaviorBuff>
     <!--Exhume Dur=15=-->
     <CBehaviorBuff id="Aexh">
@@ -123,6 +123,11 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="Aflk">
         <Requirements value=""/>
+    </CBehaviorBuff>
+    <!--Freezing Breath Dur=5 HeroDur=5 Buff=Bfrz-->
+    <CBehaviorBuff id="Afrz">
+        <Requirements value=""/>
+        <DamageResponse Handled="AfrzC"/>
     </CBehaviorBuff>
     <!--Impaling Bolt-->
     <CBehaviorBuff id="Aimp">
@@ -158,6 +163,11 @@
     <!--Pulverize-->
     <CBehaviorBuff id="Awar">
         <Requirements value=""/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BHad1">
+        <MaxStackCount value="2"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Modification LifeArmorBonus="4"/>
     </CBehaviorBuff>
     <!--AuraCommand-->
     <CBehaviorBuff id="BOac">
@@ -789,6 +799,13 @@
             <BehaviorLinkDisableArray value="Bpos"/>
             <BehaviorLinkDisableArray value="Bslo"/>
             <BehaviorLinkDisableArray value="Bfae"/>
+            <BehaviorLinkDisableArray value="Bfro"/>
+            <BehaviorLinkDisableArray value="BNsi"/>
+            <BehaviorLinkDisableArray value="BOhx"/>
+            <BehaviorLinkDisableArray value="Bsta"/>
+            <BehaviorLinkDisableArray value="BOws"/>
+            <BehaviorLinkDisableArray value="BUim"/>
+            <BehaviorLinkDisableArray value="Bfrz"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Defend" parent="War3_Buff">
@@ -914,7 +931,6 @@
         <DisplayDuration index="Self" value="1"/>
         <DisplayDuration index="Ally" value="1"/>
         <RemoveValidatorArray value="NoBuilding"/>
-        <InfoFlags index="Hidden" value="0"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StoneFormUn" parent="War3_Passive">
         <DisplayDuration index="Self" value="1"/>
@@ -925,21 +941,37 @@
             <ValidatorArray value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <ExpireEffect value="StoneFormUnExtra"/>
-        <InfoFlags index="Hidden" value="0"/>
+        <DisableValidatorArray value="NoUnholyDominance"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StoneFormUnExtra" parent="War3_Passive">
-        <InfoFlags index="Hidden" value="0"/>
         <Requirements value="StoneFormUnExtra"/>
         <RemoveValidatorArray value="NoStoneForm"/>
         <Period value="0.25"/>
         <PeriodicEffect value="StoneFormIssueOrder"/>
+        <DisableValidatorArray value="NoUnholyDominance"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StoneFormExtra" parent="War3_Passive">
-        <InfoFlags index="Hidden" value="0"/>
         <Requirements value="StoneFormExtra"/>
         <RemoveValidatorArray value="NoStoneFormUn"/>
         <Period value="0.25"/>
         <PeriodicEffect value="StoneFormUnIssueOrder"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnholyDominanceAura" parent="War3_AuraCaster">
+        <Requirements value="UnholyDominanceAura"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UnholyDominance" parent="War3_AuraBuff">
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngargoyle.dds"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="UnholyDominanceIssueOrder"/>
+        <Modification WeaponRange="4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FrostWyrmInvulnerable" parent="War3_Passive">
+        <Requirements value="FrostWyrmInvulnerable"/>
+        <DisableValidatorArray value="GargoyleNearby"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+        </Modification>
+        <RemoveValidatorArray value="NoBuilding"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="nmgw" parent="War3_Buff">
         <DamageResponse Chance="1" Fatal="1" Handled="nmgr"/>

@@ -10,6 +10,9 @@
     <CEffectDamage id="AEfk1Damage">
         <Amount value="50"/>
     </CEffectDamage>
+    <CEffectEnumArea id="AHadSearch">
+        <AreaArray index="0" Radius="9" Effect="BHadSet"/>
+    </CEffectEnumArea>
     <!--Orb of Fire-->
     <CEffectDamage id="AIfbSphereEffect">
         <AreaArray index="0" Radius="1.5" Bonus="10" Fraction="1"/>
@@ -18,6 +21,16 @@
         <VitalArray index="Life" Change="0" ChangeFraction="1"/>
         <VitalArray index="Energy" ChangeFraction="1"/>
     </CEffectModifyUnit>
+    <CEffectSet id="ANhx1">
+        <ValidatorArray value="NonPowerfulUnit"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="ANsi1Dur">
+        <ValidatorArray value="NonPowerfulUnit"/>
+        <Duration value="10"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="ANsi1Search">
+        <AreaArray index="0" Radius="2" Effect="ANsiBuffSet"/>
+    </CEffectEnumArea>
     <!--Chieftain - Endurance Aura Buff=BOae-->
     <CEffectEnumArea id="AOaeSearch">
         <AreaArray index="0" Radius="9" Effect="BOaeSet"/>
@@ -33,7 +46,7 @@
         <AreaArray index="0" Radius="6" Effect="AOws1SearchImpact"/>
     </CEffectEnumArea>
     <CEffectDamage id="AOwsDamage1">
-        <Amount value="75"/>
+        <Amount value="50"/>
     </CEffectDamage>
     <!--Death Knight - Animate Dead Buff=BUan-->
     <CEffectEnumArea id="AUanSearch">
@@ -44,6 +57,9 @@
             <SortArray value="TSRandom"/>
         </TargetSorts>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="AUfn1Dur">
+        <Duration value="3"/>
+    </CEffectApplyBehavior>
     <!--Crypt Lord - Impale Buff=BUim-->
     <CEffectCreatePersistent id="AUim">
         <PeriodCount value="8"/>
@@ -74,6 +90,48 @@
         <AreaArray index="1" Radius="2" Bonus="72" Fraction="0.6667"/>
         <AreaArray index="2" Radius="2.5" Bonus="72" Fraction="0.3332"/>
     </CEffectDamage>
+    <CEffectCreatePersistent id="AfrzC">
+        <EditorCategories value=""/>
+        <InitialEffect value="Afrz"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="Afrz2"/>
+        <PeriodicEffectArray value="Afrz3"/>
+        <PeriodicOffsetArray value="0,-2,0"/>
+        <PeriodicOffsetArray value="0,-4,0"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <PeriodicPeriodArray value="0.125"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="Afrz">
+        <PeriodicEffectArray value="AfrzSphereEffect"/>
+        <PeriodCount value="2"/>
+        <PeriodicOffsetArray value="0,0,0"/>
+        <PeriodicOffsetArray value="0,-1,0"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <PeriodicPeriodArray value="0.0625"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="Afrz2" parent="Afrz">
+        <Name value="Effect/Name/Afrz2"/>
+        <PeriodicEffectArray index="0" value="AfrzSphereEffect2"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="Afrz3" parent="Afrz">
+        <Name value="Effect/Name/Afrz3"/>
+        <PeriodicEffectArray index="0" value="AfrzSphereEffect3"/>
+    </CEffectCreatePersistent>
+    <!--Freezing Breath Dur=5 HeroDur=5 Buff=Bfrz-->
+    <CEffectEnumArea id="AfrzSphereEffect">
+        <SearchFilters value="-;player,allies,neutral,air,wall,tree,debris,item,ward,dead,Hidden,invulnerable"/>
+        <AreaArray index="0" Radius="1.125" Effect="Bfrz"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="AfrzSphereEffect2" parent="AfrzSphereEffect">
+        <Name value="Effect/Name/AfrzSphereEffect2"/>
+        <AreaArray index="0" Radius="0.75" Effect="Bfrz"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="AfrzSphereEffect3" parent="AfrzSphereEffect">
+        <Name value="Effect/Name/AfrzSphereEffect3"/>
+        <AreaArray index="0" Radius="0.375" Effect="Bfrz"/>
+    </CEffectEnumArea>
     <CEffectCreateHealer id="AheaHeal">
         <RechargeVitalRate value="75"/>
     </CEffectCreateHealer>
@@ -133,6 +191,9 @@
     <CEffectDamage id="BaplDPS">
         <Amount value="10"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="Bfrz">
+        <ValidatorArray value="noMarkers"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="BmflLightning">
         <AreaArray index="0" Radius="0.3593" Fraction="1"/>
     </CEffectDamage>
@@ -179,6 +240,21 @@
         <AttributeFactor index="fortified" value="-0.65"/>
         <Amount value="96"/>
         <Random value="0"/>
+        <AreaArray Radius="0.625" Bonus="24"/>
+        <AreaArray Radius="1.25" Bonus="12"/>
+        <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="Hgam1">
+        <AttributeFactor index="small" value="0.25"/>
+        <AttributeFactor index="medium" value="-0.25"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="large" value="1"/>
+        <AttributeFactor index="fortified" value="-0.65"/>
+        <Amount value="96"/>
+        <Random value="0"/>
+        <AreaArray Radius="0.625" Bonus="12"/>
+        <AreaArray Radius="1.25" Bonus="12"/>
+        <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
     </CEffectDamage>
     <CEffectIssueOrder id="ManaFlareIssueOrder">
         <WhichUnit Value="Caster"/>
@@ -257,6 +333,17 @@
     <CEffectModifyUnit id="ReplenishRefund">
         <VitalArray index="Energy" Change="10"/>
     </CEffectModifyUnit>
+    <CEffectEnumArea id="UnholyDominanceAuraSearch" parent="War3_AuraSearch">
+        <AreaArray index="0" Radius="9" Effect="UnholyDominance"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="UnholyDominance" parent="War3_ApplyBuff">
+        <ValidatorArray index="0" value="UnholyDominanceSearchTargetFilters"/>
+    </CEffectApplyBehavior>
+    <CEffectIssueOrder id="UnholyDominanceIssueOrder">
+        <ValidatorArray value="DistanceGT3"/>
+        <Abil value="Amov"/>
+        <Target Value="CasterPoint"/>
+    </CEffectIssueOrder>
     <CEffectSet id="hgry1Set">
         <EffectArray value="hgry1LM"/>
         <EffectArray value="HonorShieldBuff"/>
@@ -536,6 +623,13 @@
         <Amount value="96"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectLaunchMissile id="nhym1LM">
+        <ImpactEffect value="nhym1S"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="nhym1S">
+        <EffectArray value="nhym1"/>
+        <EffectArray value="Bfro"/>
+    </CEffectSet>
     <CEffectDamage id="nitp1">
         <AttributeFactor index="small" value="0.25"/>
         <AttributeFactor index="unarmored" value="0"/>
@@ -710,6 +804,21 @@
     <CEffectDamage id="ucs11">
         <AttributeFactor index="divine" value="0"/>
         <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="ufro1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="192"/>
+        <Random value="0"/>
+        <AreaArray index="0" Radius="0.625" Fraction="1"/>
+        <AreaArray index="1" Radius="1.25" Fraction="0.6667"/>
+        <AreaArray index="2" Radius="1.875" Fraction="0.3332"/>
+    </CEffectDamage>
+    <CEffectDamage id="ufro2">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="96"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="ugar1">
