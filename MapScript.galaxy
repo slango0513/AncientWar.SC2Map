@@ -26,9 +26,9 @@ const string gv_awarController = "AwarController";
 const int gv_bj_MAX_SKELETONS = 73;
 const fixed gv_aOclDamageReduce = 0.85;
 const fixed gv_aOclDamageDelay = 0.125;
-const fixed gv_asplRadius = 5.0;
-const fixed gv_asplSplitFactor = 0.1;
+const fixed gv_asplRadius = 5.8593;
 const int gv_asplMaxTargets = 4;
+const fixed gv_asplSplitFactor = 0.1;
 const int gv_campionCount = 1;
 
 //--------------------------------------------------------------------------------------------------
@@ -165,9 +165,8 @@ trigger gt_moonMoonstoneRestoreTOD;
 trigger gt_AwarTargetCheck;
 trigger gt_AraiSummonCount;
 trigger gt_AOclImpact;
-trigger gt_AsplMarker;
-trigger gt_AsplSplitTemplate;
-trigger gt_AsplRegister;
+trigger gt_AsplSearch;
+trigger gt_AsplSplit;
 trigger gt_InitMap;
 trigger gt_TestMode;
 trigger gt_GetRadomItem;
@@ -610,15 +609,15 @@ void gt_AOclImpact_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Aspl - Marker
+// Trigger: Aspl - Search
 //--------------------------------------------------------------------------------------------------
-bool gt_AsplMarker_Func (bool testConds, bool runActions) {
-    int autoD068BFBB_ae;
-    int autoD068BFBB_ai;
-    unitgroup auto54E4517A_g;
-    int auto54E4517A_u;
-    unitgroup auto95540292_g;
-    int auto95540292_u;
+bool gt_AsplSearch_Func (bool testConds, bool runActions) {
+    int auto93ABB4D9_ae;
+    int auto93ABB4D9_ai;
+    unitgroup auto23ACADAB_g;
+    int auto23ACADAB_u;
+    unitgroup autoB0817FFD_g;
+    int autoB0817FFD_u;
 
     // Variable Declarations
     unitgroup lv_ug;
@@ -645,14 +644,14 @@ bool gt_AsplMarker_Func (bool testConds, bool runActions) {
 
     UnitBehaviorRemove(lv_target, libGAwX_gv_asplMarkerBuff, c_unitBehaviorCountAll);
     Wait(0.0625, c_timeGame);
-    autoD068BFBB_ae = (libGAwX_gv_asplMaxTargets - 1);
-    autoD068BFBB_ai = 1;
+    auto93ABB4D9_ae = (gv_asplMaxTargets - 1);
+    auto93ABB4D9_ai = 1;
     lv_i = 1;
-    for ( ; ( (autoD068BFBB_ai >= 0 && lv_i <= autoD068BFBB_ae) || (autoD068BFBB_ai <= 0 && lv_i >= autoD068BFBB_ae) ) ; lv_i += autoD068BFBB_ai ) {
+    for ( ; ( (auto93ABB4D9_ai >= 0 && lv_i <= auto93ABB4D9_ae) || (auto93ABB4D9_ai <= 0 && lv_i >= auto93ABB4D9_ae) ) ; lv_i += auto93ABB4D9_ai ) {
         lv_life = 0.0;
         UnitGroupLoopBegin(UnitGroupSearch(null, lv_player, UnitGetPosition(lv_target), gv_asplRadius, gv_asplTargetFilter, 0));
         for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-            if ((UnitHasBehavior(UnitGroupLoopCurrent(), libGAwX_gv_asplMarkerBuff) == false) && (UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent) > lv_life) && (UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent) > 25.0) && (UnitGroupHasUnit(lv_ug, UnitGroupLoopCurrent()) == false) && (UnitGetType(UnitGroupLoopCurrent()) != "ohwd")) {
+            if ((UnitHasBehavior(UnitGroupLoopCurrent(), libGAwX_gv_asplMarkerBuff) == false) && (UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent) > lv_life) && (UnitGroupHasUnit(lv_ug, UnitGroupLoopCurrent()) == false)) {
                 lv_life = UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent);
                 lv_u = UnitGroupLoopCurrent();
             }
@@ -662,14 +661,14 @@ bool gt_AsplMarker_Func (bool testConds, bool runActions) {
         UnitGroupAdd(lv_ug, lv_u);
     }
     UnitGroupAdd(lv_ug, lv_target);
-    auto54E4517A_g = lv_ug;
-    auto54E4517A_u = 1;
-    for ( ; auto54E4517A_u <= UnitGroupCount(auto54E4517A_g, c_unitCountAll) ; auto54E4517A_u += BoolToInt(lv_a == UnitGroupUnit(auto54E4517A_g, auto54E4517A_u)) ) {
-        lv_a = UnitGroupUnit(auto54E4517A_g, auto54E4517A_u);
-        auto95540292_g = lv_ug;
-        auto95540292_u = 1;
-        for ( ; auto95540292_u <= UnitGroupCount(auto95540292_g, c_unitCountAll) ; auto95540292_u += BoolToInt(lv_b == UnitGroupUnit(auto95540292_g, auto95540292_u)) ) {
-            lv_b = UnitGroupUnit(auto95540292_g, auto95540292_u);
+    auto23ACADAB_g = lv_ug;
+    auto23ACADAB_u = 1;
+    for ( ; auto23ACADAB_u <= UnitGroupCount(auto23ACADAB_g, c_unitCountAll) ; auto23ACADAB_u += BoolToInt(lv_a == UnitGroupUnit(auto23ACADAB_g, auto23ACADAB_u)) ) {
+        lv_a = UnitGroupUnit(auto23ACADAB_g, auto23ACADAB_u);
+        autoB0817FFD_g = lv_ug;
+        autoB0817FFD_u = 1;
+        for ( ; autoB0817FFD_u <= UnitGroupCount(autoB0817FFD_g, c_unitCountAll) ; autoB0817FFD_u += BoolToInt(lv_b == UnitGroupUnit(autoB0817FFD_g, autoB0817FFD_u)) ) {
+            lv_b = UnitGroupUnit(autoB0817FFD_g, autoB0817FFD_u);
             UnitCreateEffectUnit(lv_a, libGAwX_gv_asplMarkerEffect, lv_b);
         }
     }
@@ -677,24 +676,23 @@ bool gt_AsplMarker_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_AsplMarker_Init () {
-    gt_AsplMarker = TriggerCreate("gt_AsplMarker_Func");
-    TriggerAddEventPlayerEffectUsed(gt_AsplMarker, c_playerAny, libGAwX_gv_asplNoticeEffect);
+void gt_AsplSearch_Init () {
+    gt_AsplSearch = TriggerCreate("gt_AsplSearch_Func");
+    TriggerAddEventPlayerEffectUsed(gt_AsplSearch, c_playerAny, libGAwX_gv_asplNoticeEffect);
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Aspl - Split Template
+// Trigger: Aspl - Split
 //--------------------------------------------------------------------------------------------------
-bool gt_AsplSplitTemplate_Func (bool testConds, bool runActions) {
-    int auto64FE448A_ae;
-    int auto64FE448A_ai;
+bool gt_AsplSplit_Func (bool testConds, bool runActions) {
+    int auto55E44E0A_ae;
+    int auto55E44E0A_ai;
 
     // Variable Declarations
     unit lv_u;
     int lv_player;
     int lv_stack;
     fixed lv_originalDamage;
-    fixed lv_actuallDamage;
     unit lv_damager;
     fixed lv_mainDamage;
     fixed lv_splitDamage;
@@ -707,38 +705,26 @@ bool gt_AsplSplitTemplate_Func (bool testConds, bool runActions) {
     lv_player = EventPlayer();
     lv_stack = UnitBehaviorCount(lv_u, libGAwX_gv_asplMarkerBuff);
     lv_originalDamage = EventUnitDamageAbsorbed();
-    lv_actuallDamage = EventUnitDamageAmount();
     lv_damager = EventUnitDamageSourceUnit();
     lv_mainDamage = (lv_originalDamage * gv_asplSplitFactor);
     lv_linkedGroup = UnitGroupEmpty();
-
-    // Conditions
-    if (testConds) {
-        if (!((UnitIsAlive(lv_damager) == true))) {
-            return false;
-        }
-
-        if (!((lv_actuallDamage == 0.0))) {
-            return false;
-        }
-
-        if (!((lv_originalDamage != 0.0))) {
-            return false;
-        }
-    }
 
     // Actions
     if (!runActions) {
         return true;
     }
 
+    if ((UnitIsValid(lv_damager) == false)) {
+        lv_damager = lv_u;
+    }
+
     if ((lv_stack > 0)) {
         UnitDamage(lv_damager, libGAwX_gv_asplMainDamageEffect, lv_u, lv_mainDamage);
         lv_splitDamage = ((lv_originalDamage - lv_mainDamage) / lv_stack);
-        auto64FE448A_ae = (lv_stack - 1);
-        auto64FE448A_ai = 1;
+        auto55E44E0A_ae = (lv_stack - 1);
+        auto55E44E0A_ai = 1;
         lv_i = 0;
-        for ( ; ( (auto64FE448A_ai >= 0 && lv_i <= auto64FE448A_ae) || (auto64FE448A_ai <= 0 && lv_i >= auto64FE448A_ae) ) ; lv_i += auto64FE448A_ai ) {
+        for ( ; ( (auto55E44E0A_ai >= 0 && lv_i <= auto55E44E0A_ae) || (auto55E44E0A_ai <= 0 && lv_i >= auto55E44E0A_ae) ) ; lv_i += auto55E44E0A_ai ) {
             lv_splitTarget = UnitBehaviorEffectUnit(lv_u, libGAwX_gv_asplMarkerBuff, c_effectUnitCaster, lv_i);
             if ((UnitIsAlive(lv_splitTarget) == true)) {
                 UnitDamage(lv_damager, libGAwX_gv_asplSplitDamageEffect, lv_splitTarget, lv_splitDamage);
@@ -753,38 +739,9 @@ bool gt_AsplSplitTemplate_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_AsplSplitTemplate_Init () {
-    gt_AsplSplitTemplate = TriggerCreate("gt_AsplSplitTemplate_Func");
-    TriggerEnable(gt_AsplSplitTemplate, false);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Aspl - Register
-//--------------------------------------------------------------------------------------------------
-bool gt_AsplRegister_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    trigger lv_trigger;
-    unit lv_u;
-    int lv_uid;
-
-    // Variable Initialization
-    lv_trigger = TriggerCreate("gt_AsplSplitTemplate_Func");;
-    lv_u = EventUnit();
-    lv_uid = UnitGetTag(lv_u);
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    GAw3_AddEventUnitDamaged(lv_trigger, lv_u, c_unitDamageTypeAny, c_unitDamageEither, null);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_AsplRegister_Init () {
-    gt_AsplRegister = TriggerCreate("gt_AsplRegister_Func");
-    TriggerAddEventUnitBehaviorChange(gt_AsplRegister, null, libGAwX_gv_asplMarkerBuff, c_unitBehaviorChangeActivate);
+void gt_AsplSplit_Init () {
+    gt_AsplSplit = TriggerCreate("gt_AsplSplit_Func");
+    TriggerAddEventUnitDamageAbsorbed(gt_AsplSplit, null, libGAwX_gv_asplMarkerBuff);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -3259,9 +3216,8 @@ void InitTriggers () {
     gt_AwarTargetCheck_Init();
     gt_AraiSummonCount_Init();
     gt_AOclImpact_Init();
-    gt_AsplMarker_Init();
-    gt_AsplSplitTemplate_Init();
-    gt_AsplRegister_Init();
+    gt_AsplSearch_Init();
+    gt_AsplSplit_Init();
     gt_InitMap_Init();
     gt_TestMode_Init();
     gt_GetRadomItem_Init();

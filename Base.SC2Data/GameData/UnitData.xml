@@ -2709,7 +2709,7 @@
             <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="2"/>
         </CardLayouts>
-        <LifeArmor value="5"/>
+        <LifeArmor value="10"/>
         <TechTreeProducedUnitArray value="orai"/>
         <TechTreeProducedUnitArray value="orai"/>
         <TechTreeProducedUnitArray value="nchr"/>
@@ -4171,7 +4171,7 @@
         <DeathRevealRadius value="0"/>
         <LifeStart value="1600"/>
         <LifeMax value="1600"/>
-        <LifeArmor value="5"/>
+        <LifeArmor value="10"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>

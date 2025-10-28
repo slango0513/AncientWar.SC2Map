@@ -614,11 +614,17 @@ DocInfo/PatchNote411=地狱装甲现在会减少远程伤害，并且不再提�
 DocInfo/PatchNote412=虚无打击现在会使目标受到的法术伤害提高。
 DocInfo/PatchNote413=邪恶护甲、食尸鬼狂暴在夜间也能被激活。
 DocInfo/PatchNote414=亡灵种族与灵魂行者重新上线。
-DocInfo/PatchNote415=修复灵魂连接会连接远程单位的漏洞。
-DocInfo/PatchNote416=修复粉碎在特定情况下无效的漏洞。
+DocInfo/PatchNote415=修复粉碎在特定情况下无效的漏洞。
+DocInfo/PatchNote416=修复灵魂连接会连接远程单位的漏洞。
 DocInfo/PatchNote417=为所有种族添加新的背景音乐。
 DocInfo/PatchNote418=人类：
-DocInfo/PatchNote419=迫击炮小队的伤害降低，并且获得新技能碎片攻击。
+DocInfo/PatchNote419=修复灵魂连接造成过多伤害的漏洞。
+DocInfo/PatchNote420=兽人：
+DocInfo/PatchNote421=迫击炮小队的伤害降低，并且获得新技能碎片攻击。
+DocInfo/PatchNote422=掠夺(狼骑兵和剑圣)的掠夺量增加到5。
+DocInfo/PatchNote423=掠夺(混乱兽人狼骑兵和黑石氏族的剑圣)的掠夺量增加到10。
+DocInfo/PatchNote424=增加狼骑兵的护甲值。
+DocInfo/PatchNote425=
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -985,17 +991,17 @@ Patchwork/Tip=拼凑体
 Patchwork/Ubertip=憎恶或者血肉傀儡死亡后，自己的残肢能提供给战斗傀儡再次使用，使其生命值提高<d ref="Behavior,Patchwork,Modification.VitalMaxArray[Life]"/>点，护甲提高<d ref="Behavior,Patchwork,Modification.LifeArmorBonus"/>点，攻击力提高<d ref="Behavior,Patchwork,Modification.DamageDealtUnscaled[Melee]"/>点。
 Pause/Name=Pause
 PillageBlademaster/Tip=掠夺
-PillageBlademaster/Ubertip=使得剑圣对敌人的攻击有<d ref="Behavior,PillageBlademaster,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageBlademaster,DamageResponse.Cost.Resource[Custom]"/>点木材。<n/>对召唤单位无效。
+PillageBlademaster/Ubertip=使得剑圣对敌人的攻击有<d ref="Behavior,PillageBlademaster,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageBlademaster,DamageResponse.Cost.Resource[Custom]"/>点木材。
 PillageChaosBlademaster/Tip=掠夺
-PillageChaosBlademaster/Ubertip=使得黑石氏族的剑圣对敌人的攻击有<d ref="Behavior,PillageChaosBlademaster,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageChaosBlademaster,DamageResponse.Cost.Resource[Custom]"/>点木材。<n/>对召唤单位无效。
+PillageChaosBlademaster/Ubertip=使得黑石氏族的剑圣对敌人的攻击有<d ref="Behavior,PillageChaosBlademaster,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageChaosBlademaster,DamageResponse.Cost.Resource[Custom]"/>点木材。
 PillageChaosGrunt/Tip=掠夺
-PillageChaosGrunt/Ubertip=使得混乱兽人步兵对敌人的攻击有<d ref="Behavior,PillageChaosGrunt,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageChaosGrunt,DamageResponse.Cost.Resource[Custom]"/>点木材。<n/>对召唤单位无效。
+PillageChaosGrunt/Ubertip=使得混乱兽人步兵对敌人的攻击有<d ref="Behavior,PillageChaosGrunt,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageChaosGrunt,DamageResponse.Cost.Resource[Custom]"/>点木材。
 PillageChaosRaider/Tip=掠夺
-PillageChaosRaider/Ubertip=使得混乱兽人狼骑兵对敌人的攻击有<d ref="Behavior,PillageChaosRaider,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageChaosRaider,DamageResponse.Cost.Resource[Custom]"/>点木材。<n/>对召唤单位无效。
+PillageChaosRaider/Ubertip=使得混乱兽人狼骑兵对敌人的攻击有<d ref="Behavior,PillageChaosRaider,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageChaosRaider,DamageResponse.Cost.Resource[Custom]"/>点木材。
 PillageGrunt/Tip=掠夺
-PillageGrunt/Ubertip=使得兽人步兵对敌人的攻击有<d ref="Behavior,PillageGrunt,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageGrunt,DamageResponse.Cost.Resource[Custom]"/>点木材。<n/>对召唤单位无效。
+PillageGrunt/Ubertip=使得兽人步兵对敌人的攻击有<d ref="Behavior,PillageGrunt,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageGrunt,DamageResponse.Cost.Resource[Custom]"/>点木材。
 PillageRaider/Tip=掠夺
-PillageRaider/Ubertip=使得狼骑兵对敌人的攻击有<d ref="Behavior,PillageRaider,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageRaider,DamageResponse.Cost.Resource[Custom]"/>点木材。<n/>对召唤单位无效。
+PillageRaider/Ubertip=使得狼骑兵对敌人的攻击有<d ref="Behavior,PillageRaider,DamageResponse.Chance*100"/>%的几率能掠夺到<d ref="-Behavior,PillageRaider,DamageResponse.Cost.Resource[Custom]"/>点木材。
 Push/Tip=推动
 Push/Ubertip=树人能够推开己方单位。<n/>通过切换己方推挤设置(<h>F8</h>)，决定你的单位是否会自动给被挡住的单位让路。
 Pyroblast/Buffubertip=该单位遭到了炎爆术的攻击，因此不能移动，攻击或者施放魔法，而且会在一定时间内持续地受到伤害。

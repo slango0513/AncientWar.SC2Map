@@ -1066,7 +1066,7 @@
     <CBehaviorBuff id="PillageRaider" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
             <Cost>
-                <Resource index="Custom" value="-4"/>
+                <Resource index="Custom" value="-5"/>
             </Cost>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
@@ -1076,7 +1076,7 @@
     <CBehaviorBuff id="PillageChaosRaider" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
             <Cost>
-                <Resource index="Custom" value="-8"/>
+                <Resource index="Custom" value="-10"/>
             </Cost>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
@@ -1086,7 +1086,7 @@
     <CBehaviorBuff id="PillageBlademaster" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
             <Cost>
-                <Resource index="Custom" value="-4"/>
+                <Resource index="Custom" value="-5"/>
             </Cost>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
@@ -1096,7 +1096,7 @@
     <CBehaviorBuff id="PillageChaosBlademaster" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
             <Cost>
-                <Resource index="Custom" value="-8"/>
+                <Resource index="Custom" value="-10"/>
             </Cost>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
