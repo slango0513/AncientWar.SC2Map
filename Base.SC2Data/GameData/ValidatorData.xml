@@ -48,30 +48,30 @@
         <Behavior value="YserasGiftBuff"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="IsKnight">
-        <CombineArray value="Ishkn2"/>
-        <CombineArray value="IsHlgr1"/>
+        <CombineArray value="Ishkn"/>
+        <CombineArray value="IsHlgr"/>
         <CombineArray value="Ishkni"/>
-        <CombineArray value="Isnbld1"/>
+        <CombineArray value="Isnbld"/>
     </CValidatorCombine>
     <CValidatorCombine id="IsKnight2">
         <CombineArray value="Ishkni"/>
-        <CombineArray value="Isnbld1"/>
+        <CombineArray value="Isnbld"/>
     </CValidatorCombine>
     <CValidatorCombine id="IsKnight1">
-        <CombineArray value="Ishkn2"/>
-        <CombineArray value="IsHlgr1"/>
+        <CombineArray value="Ishkn"/>
+        <CombineArray value="IsHlgr"/>
     </CValidatorCombine>
     <CValidatorUnitType id="Ishkni">
         <Value value="hkni"/>
     </CValidatorUnitType>
-    <CValidatorUnitType id="Isnbld1">
-        <Value value="nbld1"/>
+    <CValidatorUnitType id="Isnbld">
+        <Value value="nbld"/>
     </CValidatorUnitType>
-    <CValidatorUnitType id="Ishkn2">
+    <CValidatorUnitType id="Ishkn">
         <Value value="hkn2"/>
     </CValidatorUnitType>
-    <CValidatorUnitType id="IsHlgr1">
-        <Value value="Hlgr1"/>
+    <CValidatorUnitType id="IsHlgr">
+        <Value value="Hlgr"/>
     </CValidatorUnitType>
     <CValidatorUnitCompareBehaviorCount id="MortalStrikeLT2">
         <Compare value="LT"/>

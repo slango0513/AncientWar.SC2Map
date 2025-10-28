@@ -3,6 +3,8 @@
     <CButton id="BloodTransmission" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnengineeringupgrade.dds"/>
     <CButton id="CircleOfHolyLight" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnholybolt.dds"/>
     <CButton id="CircleOfHolyLightAura" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnholybolt.dds"/>
+    <!--keeperofthegroveghost-->
+    <CButton id="Ekgg"/>
     <!--malfurion-->
     <CButton id="Emfr"/>
     <!--malfurionnostag-->

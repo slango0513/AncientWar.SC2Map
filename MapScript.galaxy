@@ -1517,7 +1517,7 @@ bool gt_UnitRemove_Func (bool testConds, bool runActions) {
 void gt_UnitRemove_Init () {
     gt_UnitRemove = TriggerCreate("gt_UnitRemove_Func");
     TriggerEnable(gt_UnitRemove, false);
-    TriggerAddEventKeyPressed(gt_UnitRemove, c_playerAny, c_keyB, true, c_keyModifierStateRequire, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
+    TriggerAddEventKeyPressed(gt_UnitRemove, c_playerAny, c_keyR, true, c_keyModifierStateRequire, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
 }
 
 //--------------------------------------------------------------------------------------------------

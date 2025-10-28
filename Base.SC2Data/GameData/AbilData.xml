@@ -193,31 +193,31 @@
         <InfoArray index="Build12" Unit="hhes">
             <Button DefaultButtonFace="hhes" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build13" Unit="Hlgr1">
+        <InfoArray index="Build13" Unit="Hlgr">
             <Button DefaultButtonFace="Hlgr" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build14" Unit="nbld1">
+        <InfoArray index="Build14" Unit="nbld">
             <Button DefaultButtonFace="nbld" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build15" Unit="hmpr">
             <Button DefaultButtonFace="hmpr" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build16" Unit="Hamg1">
+        <InfoArray index="Build16" Unit="Hamg">
             <Button DefaultButtonFace="Hamg" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build17" Unit="hgry">
             <Button DefaultButtonFace="hgry" Requirements="Final"/>
         </InfoArray>
-        <InfoArray index="Build18" Unit="Hjai1">
+        <InfoArray index="Build18" Unit="Hjai">
             <Button DefaultButtonFace="Hjai" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build19" Unit="hgyr">
             <Button DefaultButtonFace="hgyr" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build20" Unit="Hgam1">
+        <InfoArray index="Build20" Unit="Hgam">
             <Button DefaultButtonFace="Hgam" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build21" Unit="Hmkg1">
+        <InfoArray index="Build21" Unit="Hmkg">
             <Button DefaultButtonFace="Hmkg" Requirements="Final"/>
         </InfoArray>
         <InfoArray index="Build22" Unit="nws1">
@@ -226,19 +226,19 @@
         <InfoArray index="Build23" Unit="hdhw">
             <Button DefaultButtonFace="hdhw" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build24" Unit="Hblm1">
+        <InfoArray index="Build24" Unit="Hblm">
             <Button DefaultButtonFace="Hblm" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build25" Unit="Harf1">
+        <InfoArray index="Build25" Unit="Harf">
             <Button DefaultButtonFace="Harf" Requirements="Final"/>
         </InfoArray>
-        <InfoArray index="Build26" Unit="Hart1">
+        <InfoArray index="Build26" Unit="Hart">
             <Button DefaultButtonFace="Hart" Requirements="Final"/>
         </InfoArray>
-        <InfoArray index="Build27" Unit="Hapm1">
+        <InfoArray index="Build27" Unit="Hapm">
             <Button DefaultButtonFace="Hapm" Requirements="Final"/>
         </InfoArray>
-        <InfoArray index="Build28" Unit="Hpal1">
+        <InfoArray index="Build28" Unit="Hpal">
             <Button DefaultButtonFace="Hpal" Requirements="Pause"/>
         </InfoArray>
         <Range value="500"/>
@@ -522,8 +522,8 @@
         <InfoArray index="Build9" Unit="odoc" Time="0">
             <Button DefaultButtonFace="odoc" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build10" Unit="" Time="0">
-            <Button DefaultButtonFace="" Requirements=""/>
+        <InfoArray index="Build10" Unit="Othr" Time="0">
+            <Button DefaultButtonFace="Othr" Requirements="Final"/>
         </InfoArray>
         <InfoArray index="Build11" Unit="otau">
             <Button DefaultButtonFace="otau" Requirements="Pause"/>
@@ -543,13 +543,13 @@
         <InfoArray index="Build16" Unit="nckb">
             <Button DefaultButtonFace="nckb" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build17" Unit="Oshd1">
+        <InfoArray index="Build17" Unit="Oshd">
             <Button DefaultButtonFace="Oshd" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build18" Unit="Otch1">
+        <InfoArray index="Build18" Unit="Otch">
             <Button DefaultButtonFace="Otch" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build19" Unit="Ofar1">
+        <InfoArray index="Build19" Unit="Ofar">
             <Button DefaultButtonFace="Ofar" Requirements="Final"/>
         </InfoArray>
         <InfoArray index="Build20" Unit="owyv">
@@ -558,10 +558,10 @@
         <InfoArray index="Build21" Unit="otbr">
             <Button DefaultButtonFace="otbr" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build22" Unit="Obla1">
+        <InfoArray index="Build22" Unit="Obla">
             <Button DefaultButtonFace="Obla" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build23" Unit="Nbbc1">
+        <InfoArray index="Build23" Unit="Nbbc">
             <Button DefaultButtonFace="Nbbc" Requirements="Pause"/>
         </InfoArray>
         <Range value="500"/>
@@ -737,7 +737,7 @@
         <InfoArray index="Build5" Unit="uobs" Time="0">
             <Button DefaultButtonFace="uobs" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build6" Unit="Ucrl1" Time="0">
+        <InfoArray index="Build6" Unit="Ucrl" Time="0">
             <Button DefaultButtonFace="Ucrl" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build7" Unit="unec" Time="0">
@@ -767,22 +767,22 @@
         <InfoArray index="Build15" Unit="nrvd">
             <Button DefaultButtonFace="nrvd" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build16" Unit="Udre1">
+        <InfoArray index="Build16" Unit="Udre">
             <Button DefaultButtonFace="Udre" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build17" Unit="Udea1">
+        <InfoArray index="Build17" Unit="Udea">
             <Button DefaultButtonFace="Udea" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build18" Unit="ubsp">
             <Button DefaultButtonFace="ubsp" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build19" Unit="Ulic1">
+        <InfoArray index="Build19" Unit="Ulic">
             <Button DefaultButtonFace="Ulic" Requirements="Final"/>
         </InfoArray>
-        <InfoArray index="Build20" Unit="Nmag1">
+        <InfoArray index="Build20" Unit="Nmag">
             <Button DefaultButtonFace="Nmag" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build21" Unit="Nman1">
+        <InfoArray index="Build21" Unit="Nman">
             <Button DefaultButtonFace="Nman" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build22" Unit="nina">
@@ -1516,31 +1516,31 @@
         <InfoArray index="Build7" Unit="edot" Time="0">
             <Button DefaultButtonFace="edot" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build8" Unit="Nbrn1" Time="0">
+        <InfoArray index="Build8" Unit="Nbrn" Time="0">
             <Button DefaultButtonFace="Nbrn" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build9" Unit="eshd" Time="0">
             <Button DefaultButtonFace="eshd" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build10" Unit="Emoo1" Time="0">
+        <InfoArray index="Build10" Unit="Emoo" Time="0">
             <Button DefaultButtonFace="Emoo" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build11" Unit="nhea">
             <Button DefaultButtonFace="nhea" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build12" Unit="Ekgg1">
+        <InfoArray index="Build12" Unit="Ekgg">
             <Button DefaultButtonFace="Ekgg" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build13" Unit="Ekee1">
+        <InfoArray index="Build13" Unit="Ekee">
             <Button DefaultButtonFace="Ekee" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build14" Unit="edcm">
             <Button DefaultButtonFace="edcm" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build15" Unit="Efur1">
+        <InfoArray index="Build15" Unit="Efur">
             <Button DefaultButtonFace="Efur" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build16" Unit="Ewar1">
+        <InfoArray index="Build16" Unit="Ewar">
             <Button DefaultButtonFace="Ewar" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build17" Unit="efdr">
@@ -1549,13 +1549,13 @@
         <InfoArray index="Build18" Unit="nwat">
             <Button DefaultButtonFace="nwat" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build19" Unit="Hvwd1">
+        <InfoArray index="Build19" Unit="Hvwd">
             <Button DefaultButtonFace="Hvwd" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build20" Unit="echm">
             <Button DefaultButtonFace="echm" Requirements="Final"/>
         </InfoArray>
-        <InfoArray index="Build21" Unit="Edem1">
+        <InfoArray index="Build21" Unit="Edem">
             <Button DefaultButtonFace="Edem" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build22" Unit="efon">
@@ -1567,10 +1567,10 @@
         <InfoArray index="Build24" Unit="espv">
             <Button DefaultButtonFace="espv" Requirements="Final"/>
         </InfoArray>
-        <InfoArray index="Build25" Unit="Emns1">
+        <InfoArray index="Build25" Unit="Emns">
             <Button DefaultButtonFace="Emns" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build26" Unit="Emfr1">
+        <InfoArray index="Build26" Unit="Emfr">
             <Button DefaultButtonFace="Emfr" Requirements="Pause"/>
         </InfoArray>
         <Range value="500"/>
@@ -1899,10 +1899,9 @@
         <CastOutroTime value="1.67"/>
         <CmdButtonArray index="Execute" Requirements="CircleOfHolyLight"/>
     </CAbilEffectInstant>
-    <CAbilMorph id="UpgradeToEkee" parent="War3_Upgrade" toUnit="Ekee1">
-        <Name value="Ekee/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Ekee" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Ekee1">
+    <CAbilMorph id="UpgradeToEkee" parent="War3_Upgrade" toUnit="Ekee">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Ekee">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -1914,10 +1913,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToEfur" parent="War3_Upgrade" toUnit="Efur1">
-        <Name value="Efur/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Efur" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Efur1">
+    <CAbilMorph id="UpgradeToEfur" parent="War3_Upgrade" toUnit="Efur">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Efur">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -1929,10 +1927,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToEmoo" parent="War3_Upgrade" toUnit="Emoo1">
-        <Name value="Emoo/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Emoo" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Emoo1">
+    <CAbilMorph id="UpgradeToEmoo" parent="War3_Upgrade" toUnit="Emoo">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Emoo">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -1944,10 +1941,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToEwar" parent="War3_Upgrade" toUnit="Ewar1">
-        <Name value="Ewar/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Ewar" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Ewar1">
+    <CAbilMorph id="UpgradeToEwar" parent="War3_Upgrade" toUnit="Ewar">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Ewar">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -1959,10 +1955,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToEdem" parent="War3_Upgrade" toUnit="Edem1">
-        <Name value="Edem/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Edem" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Edem1">
+    <CAbilMorph id="UpgradeToEdem" parent="War3_Upgrade" toUnit="Edem">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Edem">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -1974,10 +1969,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToUdre" parent="War3_Upgrade" toUnit="Udre1">
-        <Name value="Udre/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Udre" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Udre1">
+    <CAbilMorph id="UpgradeToUdre" parent="War3_Upgrade" toUnit="Udre">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Udre">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -1989,10 +1983,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToNmag" parent="War3_Upgrade" toUnit="Nmag1">
-        <Name value="Nmag/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Nmag" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Nmag1">
+    <CAbilMorph id="UpgradeToNmag" parent="War3_Upgrade" toUnit="Nmag">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Nmag">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2004,10 +1997,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToNman" parent="War3_Upgrade" toUnit="Nman1">
-        <Name value="Nman/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Nman" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Nman1">
+    <CAbilMorph id="UpgradeToNman" parent="War3_Upgrade" toUnit="Nman">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Nman">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2019,10 +2011,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToUdea" parent="War3_Upgrade" toUnit="Udea1">
-        <Name value="Udea/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Udea" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Udea1">
+    <CAbilMorph id="UpgradeToUdea" parent="War3_Upgrade" toUnit="Udea">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Udea">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2048,9 +2039,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToHamg" parent="War3_Upgrade" toUnit="Hamg1">
-        <CmdButtonArray index="Execute" DefaultButtonFace="Hamg" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Hamg1">
+    <CAbilMorph id="UpgradeToHamg" parent="War3_Upgrade" toUnit="Hamg">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hamg">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2061,12 +2052,10 @@
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
         </InfoArray>
-        <Name value="Hamg/Tip"/>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToHblm" parent="War3_Upgrade" toUnit="Hblm1">
-        <Name value="Hblm/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Hblm" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Hblm1">
+    <CAbilMorph id="UpgradeToHblm" parent="War3_Upgrade" toUnit="Hblm">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hblm">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2093,10 +2082,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToHuth" parent="War3_Upgrade" toUnit="Huth1">
-        <Name value="Huth/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Huth" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Huth1">
+    <CAbilMorph id="UpgradeToHuth" parent="War3_Upgrade" toUnit="Huth">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Huth">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2108,10 +2096,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToHhkl" parent="War3_Upgrade" toUnit="Hhkl1">
-        <Name value="Hhkl/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Hhkl" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Hhkl1">
+    <CAbilMorph id="UpgradeToHhkl" parent="War3_Upgrade" toUnit="Hhkl">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hhkl">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2138,10 +2125,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToUlic" parent="War3_Upgrade" toUnit="Ulic1">
-        <Name value="Ulic/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Ulic" Requirements="Final"/>
-        <InfoArray index="0" Score="1" Unit="Ulic1">
+    <CAbilMorph id="UpgradeToUlic" parent="War3_Upgrade" toUnit="Ulic">
+        <CmdButtonArray index="Execute" Requirements="Final"/>
+        <InfoArray index="0" Score="1" Unit="Ulic">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2153,10 +2139,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToNbbc" parent="War3_Upgrade" toUnit="Nbbc1">
-        <Name value="Nbbc/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Nbbc" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Nbbc1">
+    <CAbilMorph id="UpgradeToNbbc" parent="War3_Upgrade" toUnit="Nbbc">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Nbbc">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2168,10 +2153,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToHgam" parent="War3_Upgrade" toUnit="Hgam1">
-        <Name value="Hgam/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Hgam" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Hgam1">
+    <CAbilMorph id="UpgradeToHgam" parent="War3_Upgrade" toUnit="Hgam">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hgam">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2183,10 +2167,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToEmns" parent="War3_Upgrade" toUnit="Emns1">
-        <Name value="Emns/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Emns" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Emns1">
+    <CAbilMorph id="UpgradeToEmns" parent="War3_Upgrade" toUnit="Emns">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Emns">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2198,10 +2181,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToEmfr" parent="War3_Upgrade" toUnit="Emfr1">
-        <Name value="Emfr/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Emfr" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Emfr1">
+    <CAbilMorph id="UpgradeToEmfr" parent="War3_Upgrade" toUnit="Emfr">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Emfr">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2213,10 +2195,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToOtch" parent="War3_Upgrade" toUnit="Otch1">
-        <Name value="Otch/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Otch" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Otch1">
+    <CAbilMorph id="UpgradeToOtch" parent="War3_Upgrade" toUnit="Otch">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Otch">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2228,10 +2209,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToOshd" parent="War3_Upgrade" toUnit="Oshd1">
-        <Name value="Oshd/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Oshd" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Oshd1">
+    <CAbilMorph id="UpgradeToOshd" parent="War3_Upgrade" toUnit="Oshd">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Oshd">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2271,25 +2251,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToHjai" parent="War3_Upgrade" toUnit="Hjai1">
-        <CmdButtonArray index="Execute" DefaultButtonFace="Hjai" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Hjai1">
-            <SectionArray index="Abils">
-                <DurationArray index="Delay" value="0"/>
-            </SectionArray>
-            <SectionArray index="Actor">
-                <DurationArray index="Duration" value="0"/>
-            </SectionArray>
-            <SectionArray index="Stats">
-                <DurationArray index="Delay" value="0"/>
-            </SectionArray>
-        </InfoArray>
-        <Name value="Hjai/Tip"/>
-    </CAbilMorph>
-    <CAbilMorph id="UpgradeToUcrl" parent="War3_Upgrade" toUnit="Ucrl1">
-        <Name value="Ucrl/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Ucrl" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Ucrl1">
+    <CAbilMorph id="UpgradeToHjai" parent="War3_Upgrade" toUnit="Hjai">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hjai">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2301,10 +2265,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToOthr" parent="War3_Upgrade" toUnit="Othr1">
-        <Name value="Othr/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Othr" Requirements="Final"/>
-        <InfoArray index="0" Score="1" Unit="Othr1">
+    <CAbilMorph id="UpgradeToUcrl" parent="War3_Upgrade" toUnit="Ucrl">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Ucrl">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2316,9 +2279,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToEkgg" parent="War3_Upgrade" toUnit="Ekgg1">
-        <CmdButtonArray index="Execute" DefaultButtonFace="Ekgg" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Ekgg1">
+    <CAbilMorph id="UpgradeToOthr" parent="War3_Upgrade" toUnit="Othr">
+        <CmdButtonArray index="Execute" Requirements="Final"/>
+        <InfoArray index="0" Score="1" Unit="Othr">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2329,7 +2292,20 @@
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
         </InfoArray>
-        <Name value="Ekgg/Tip"/>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeToEkgg" parent="War3_Upgrade" toUnit="Ekgg">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Ekgg">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
     </CAbilMorph>
     <CAbilMorph id="UpgradeToedcm" parent="War3_Upgrade" toUnit="edcm">
         <InfoArray index="0" Score="1" Unit="edcm">
@@ -2359,10 +2335,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToNbrn" parent="War3_Upgrade" toUnit="Nbrn1">
-        <Name value="Nbrn/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Nbrn" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Nbrn1">
+    <CAbilMorph id="UpgradeToNbrn" parent="War3_Upgrade" toUnit="Nbrn">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Nbrn">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2459,10 +2434,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToHvwd" parent="War3_Upgrade" toUnit="Hvwd1">
-        <Name value="Hvwd/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Hvwd" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Hvwd1">
+    <CAbilMorph id="UpgradeToHvwd" parent="War3_Upgrade" toUnit="Hvwd">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hvwd">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2698,10 +2672,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeToHlgr" parent="War3_Upgrade" toUnit="Hlgr1">
-        <Name value="Hlgr/Tip"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Hlgr" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="Hlgr1">
+    <CAbilMorph id="UpgradeToHlgr" parent="War3_Upgrade" toUnit="Hlgr">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hlgr">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -2713,9 +2686,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="UpgradeTonbld" parent="War3_Upgrade" toUnit="nbld1">
-        <CmdButtonArray index="Execute" DefaultButtonFace="nbld" Requirements="Pause"/>
-        <InfoArray index="0" Score="1" Unit="nbld1">
+    <CAbilMorph id="UpgradeTonbld" parent="War3_Upgrade" toUnit="nbld">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="nbld">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
