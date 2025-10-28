@@ -14,8 +14,9 @@
     <CEffectEnumArea id="ANabSearch">
         <AreaArray index="0" Radius="3" Effect="BNabAreaSet"/>
     </CEffectEnumArea>
-    <CEffectApplyBehavior id="ANhx1Dur">
-        <Duration value="20"/>
+    <!--Rokhan - Hex Buff=BOhx-->
+    <CEffectApplyBehavior id="ANhx1HeroDur">
+        <Duration value="3"/>
     </CEffectApplyBehavior>
     <CEffectModifyUnit id="AoarHealTick">
         <VitalArray index="Life" Change="35" ChangeFraction="0"/>
