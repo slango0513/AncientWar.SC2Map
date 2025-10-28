@@ -219,8 +219,11 @@
         <TechTreeProducedUnitArray value="rlif"/>
     </CUnit>
     <CUnit id="Nbbc1" parent="War3_Army" defType="MEDIUM">
+        <Description value="Nbbc/Ubertip"/>
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
+        <Race value="Orc"/>
+        <PlaneArray index="Ground" value="1"/>
         <Attributes index="medium" value="1"/>
         <LifeStart value="1600"/>
         <LifeMax value="1600"/>
@@ -232,6 +235,7 @@
         </LifeArmorFormula>
         <LifeRegenRate value="0.125"/>
         <EnergyMax value="100"/>
+        <Mover value="foot"/>
         <Speed value="2"/>
         <TurningRate value="599.9414"/>
         <CostResource index="gold" value="225"/>
@@ -241,6 +245,8 @@
         <AbilArray Link="MortalStrike"/>
         <AbilArray Link="DebuffImmunity"/>
         <AbilArray Link="AOwwNbbc1"/>
+        <BehaviorArray Link="PillageChaosBlademaster"/>
+        <WeaponArray index="0" Link="Nbbc1"/>
         <CardLayouts index="0">
             <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="MortalStrike" Type="Passive" Row="2" Column="0"/>
@@ -252,12 +258,6 @@
         <TechTreeProducedUnitArray value="Obla1"/>
         <TechTreeProducedUnitArray value="Obla1"/>
         <TechTreeProducedUnitArray value="Nbbc1"/>
-        <WeaponArray index="0" Link="Nbbc1"/>
-        <Description value="Nbbc/Ubertip"/>
-        <BehaviorArray Link="PillageChaosBlademaster"/>
-        <Race value="Orc"/>
-        <PlaneArray index="Ground" value="1"/>
-        <Mover value="foot"/>
     </CUnit>
     <CUnit id="Obla1" parent="War3_Army" defType="MEDIUM">
         <DeathTime value="15"/>
@@ -3543,8 +3543,8 @@
     <CUnit id="ohwd">
         <Attributes index="summoned" value="1"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="600"/>
-        <LifeMax value="600"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -4470,6 +4470,7 @@
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <KillResource index="Custom" value="150"/>
+        <BehaviorArray Link="PowerfulUnit"/>
     </CUnit>
     <!--destroyer-->
     <CUnit id="ubsp" defType="LARGE">

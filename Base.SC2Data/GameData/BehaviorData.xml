@@ -427,7 +427,7 @@
         <DurationOverride index="0" Duration="10">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
-        <Modification>
+        <Modification MoveSpeedMultiplier="10">
             <StateFlags index="Unstoppable" value="0"/>
         </Modification>
     </CBehaviorBuff>

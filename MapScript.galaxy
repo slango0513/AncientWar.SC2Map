@@ -650,7 +650,7 @@ bool gt_AsplMarker_Func (bool testConds, bool runActions) {
         lv_life = 0.0;
         UnitGroupLoopBegin(UnitGroupSearch(null, lv_player, UnitGetPosition(lv_target), gv_asplRadius, gv_asplTargetFilter, 0));
         for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-            if ((UnitHasBehavior(UnitGroupLoopCurrent(), libGAwX_gv_asplMarkerBuff) == false) && (UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent) > lv_life) && (UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent) > 25.0) && (UnitGroupHasUnit(lv_ug, UnitGroupLoopCurrent()) == false)) {
+            if ((UnitHasBehavior(UnitGroupLoopCurrent(), libGAwX_gv_asplMarkerBuff) == false) && (UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent) > lv_life) && (UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent) > 25.0) && (UnitGroupHasUnit(lv_ug, UnitGroupLoopCurrent()) == false) && (UnitGetType(UnitGroupLoopCurrent()) != "ohwd")) {
                 lv_life = UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent);
                 lv_u = UnitGroupLoopCurrent();
             }
@@ -2125,7 +2125,7 @@ bool gt_ItemBinding_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((lv_targetPlayer != lv_p) && ((lv_iM == c_unitInventoryChangeDrops) || (lv_iM == c_unitInventoryChangeGives))) {
+    if (((lv_targetPlayer != lv_p) || (RegionContainsPoint(RegionFromId(1), UnitGetPosition(lv_targetUnit)) == true)) && ((lv_iM == c_unitInventoryChangeDrops) || (lv_iM == c_unitInventoryChangeGives))) {
         gf_UnitInventoryCreate(lv_unit, lv_item);
     }
     return true;

@@ -17,7 +17,7 @@
     <region id="3">
         <name value="BuildingRegion2,1"/>
         <shape type="rect">
-            <quad value="41.0002,29.0002,47.0002,47.0002"/>
+            <quad value="41.5002,29.0002,47.5002,47.0002"/>
         </shape>
     </region>
     <region id="4">

@@ -11,7 +11,7 @@ AHav/Ubertip=激活该技能能提高山丘之王<d ref="Behavior,BHav,Modificat
 AHbn/Ubertip=使一个非机械单位灵体化，并降低其移动速度<d ref="1-Behavior,BHbn,Modification.MoveSpeedMultiplier*100"/>%，持续<d ref="Effect,AHbn1Dur,Duration"/>秒。灵体化的单位不能攻击，但是他们能够施放魔法，法术对他们也会造成更强效果。<n/>不能被使用在强大的单位身上。
 AHds/Ubertip=在<d ref="Effect,BHds1,Duration"/>秒内使得阿尔萨斯对所有的攻击免疫。
 AHfa/Ubertip=增加<d ref="Behavior,AHfa1,Modification.DamageDealtUnscaled[Ranged]"/>点的火焰伤害。
-AHhb/Ubertip=圣光术能治疗最多<d ref="Effect,AHhbCP,PeriodCount"/>个友方单位<d ref="Effect,AHhbHeal1,RechargeVitalRate"/>点的生命值。
+AHhb/Ubertip=圣光术能治疗最多<d ref="Effect,AHhbCP,PeriodCount"/>个地面友方单位<d ref="Effect,AHhbHeal1,RechargeVitalRate"/>点的生命值。
 AHsu/Tip=出售单位
 AHtb/Ubertip=向目标投掷一巨大的魔法锤，对其造成<d ref="Effect,AHtbDamage1,Amount"/>点伤害并使其<d ref="Behavior,BHtb,Duration"/>秒内处于昏迷状态。
 AHwe/Ubertip=召唤出一个具有<d ref="Unit,hwat,LifeStart"/>生命值的水元素来帮大魔法师进行战斗。攻击力为<d ref="Effect,hwat1,Amount"/>点。<n/>持续<d ref="Behavior,BHwe,Duration"/>秒。
@@ -543,6 +543,15 @@ DocInfo/PatchNote359=人类：
 DocInfo/PatchNote360=狮鹫骑士现在会狂怒。
 DocInfo/PatchNote361=兽人：
 DocInfo/PatchNote362=妖术的持续时间降低到15秒。
+DocInfo/PatchNote363=修复物品能给到场地上己方单位身上的漏洞。
+DocInfo/PatchNote364=修复巫妖能被占据的漏洞。
+DocInfo/PatchNote365=修复黑曜石雕像在特定情况下发呆的漏洞。
+DocInfo/PatchNote366=修复科多兽类单位会被星辰坠落吸引的漏洞。
+DocInfo/PatchNote367=人类：
+DocInfo/PatchNote368=圣光术不再能够治疗空中单位。
+DocInfo/PatchNote369=兽人：
+DocInfo/PatchNote370=剑圣类单位不再受到法力燃烧和吸收法力的影响。
+DocInfo/PatchNote371=致死打击获得的怒气值提高到12.5点。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -744,7 +753,7 @@ MorphTo/Name=升级为
 MortalStrike/Buffubertip=该单位受到的治疗效果降低。
 MortalStrike/Name=致死打击
 MortalStrike/Tip=致死打击
-MortalStrike/Ubertip=降低目标受到的治疗效果<d ref="1-Behavior,MortalStrike,Modification.HealTakenMultiplier*100"/>%。<n/>持续<d ref="Behavior,MortalStrike,Duration"/>秒。<n/>最多可叠加<d ref="Behavior,MortalStrike,MaxStackCount"/>层。<n/>获得<d ref="Effect,MortalStrikeMana,RechargeVitalRate"/>点法力值。
+MortalStrike/Ubertip=降低目标受到的治疗效果<d ref="1-Behavior,MortalStrike,Modification.HealTakenMultiplier*100"/>%。<n/>持续<d ref="Behavior,MortalStrike,Duration"/>秒。<n/>最多可叠加<d ref="Behavior,MortalStrike,MaxStackCount"/>层。<n/>获得<d ref="Effect,MortalStrikeMana,RechargeVitalRate" precision="1"/>点怒气值。
 MultiShot/Tip=多重射击
 MultiShot/Ubertip=能同时攻击多个单位。
 Nbbc/Tip=黑石氏族的剑圣

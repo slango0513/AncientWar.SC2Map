@@ -203,6 +203,12 @@
     <CValidatorUnitType id="Isugar">
         <Value value="ugar"/>
     </CValidatorUnitType>
+    <CValidatorUnitType id="IsNotObla1">
+        <Value value="Obla1"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsNotNbbc1">
+        <Value value="Nbbc1"/>
+    </CValidatorUnitType>
     <CValidatorUnitType id="Ishfoo">
         <Value value="hfoo"/>
     </CValidatorUnitType>

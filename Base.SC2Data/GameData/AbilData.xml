@@ -53,6 +53,8 @@
         <AutoCastValidatorArray value="EnemiesNearby4.5"/>
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="hasEnergy"/>
+        <AutoCastValidatorArray value="IsNotObla1"/>
+        <AutoCastValidatorArray value="IsNotNbbc1"/>
     </CAbilEffectTarget>
     <!--Priestess - Starfall Buff=AEsd effect=XEsf-->
     <CAbilEffectInstant id="AEsf">
@@ -942,6 +944,8 @@
         <AutoCastRange value="18"/>
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="EnemiesNearby15"/>
+        <AutoCastValidatorArray value="IsNotObla1"/>
+        <AutoCastValidatorArray value="IsNotNbbc1"/>
         <UninterruptibleArray index="Approach" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
@@ -1288,6 +1292,9 @@
             <Vital index="Energy" value="0"/>
             <Cooldown Location="Unit" TimeUse="30"/>
         </Cost>
+        <UninterruptibleArray index="Approach" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
     </CAbilEffectInstant>
     <!--Slow Dur=60 HeroDur=10 Buff=Bslo-->
     <CAbilEffectTarget id="Aslo">
