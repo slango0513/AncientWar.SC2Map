@@ -41,6 +41,7 @@
         <AbilArray Link="AsudHuman"/>
         <AbilArray Link="AHtb"/>
         <AbilArray Link="AHav"/>
+        <AbilArray Link="HonorSpear"/>
         <BehaviorArray Link="PowerfulUnit"/>
         <WeaponArray index="0" Link="Hmkg1"/>
         <WeaponArray index="1" Link=""/>
@@ -48,6 +49,7 @@
             <LayoutButtons Face="AsudHuman" Type="AbilCmd" AbilCmd="AsudHuman,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="AHav" Type="AbilCmd" AbilCmd="AHav,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="AHtb" Type="AbilCmd" AbilCmd="AHtb,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="HonorSpear" Type="Passive" Row="2" Column="2"/>
         </CardLayouts>
         <CargoSize value="1"/>
         <PlacementFootprint value="4x4SimpleSolid"/>
@@ -227,7 +229,7 @@
     </CUnit>
     <!--Ancient Janggo of Endurance-->
     <CUnit id="ajen">
-        <CostResource index="gold" value="80"/>
+        <CostResource index="gold" value="120"/>
     </CUnit>
     <!--Ankh of Reincarnation-->
     <CUnit id="ankh">
@@ -243,7 +245,7 @@
     </CUnit>
     <!--Ancestral Staff-->
     <CUnit id="axas">
-        <CostResource index="gold" value="160"/>
+        <CostResource index="gold" value="200"/>
         <Item value="axas2"/>
     </CUnit>
     <!--Heart of Aszune-->
@@ -1316,6 +1318,7 @@
         <LifeArmor value="10"/>
         <SubgroupPriority value="0"/>
         <DeathTime value="15"/>
+        <TechAliasArray value="_Knight"/>
     </CUnit>
     <CUnit id="Hlgr1" parent="hkni" defType="MEDIUM">
         <Name value="Hlgr/Name"/>
@@ -1808,8 +1811,8 @@
     <!--WaterElemental-->
     <CUnit id="hwat">
         <DeathRevealRadius value="0"/>
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -3663,7 +3666,7 @@
     </CUnit>
     <!--Shield of Honor-->
     <CUnit id="shhn">
-        <CostResource index="gold" value="180"/>
+        <CostResource index="gold" value="140"/>
     </CUnit>
     <!--Shamanic Totem-->
     <CUnit id="shtm">
@@ -4657,7 +4660,7 @@
     </CUnit>
     <!--Warsong Battle Drums-->
     <CUnit id="ward">
-        <CostResource index="gold" value="80"/>
+        <CostResource index="gold" value="40"/>
     </CUnit>
     <CUnit id="Champion1" parent="Statue">
         <Height value="2"/>

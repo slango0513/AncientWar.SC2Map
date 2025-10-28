@@ -56,31 +56,31 @@
     <!--continuous Defense Bonus,carry-->
     <!--DefenseBonus (+1)-->
     <CBehaviorBuff id="AId1">
-        <Modification LifeArmorBonus="5"/>
+        <Modification LifeArmorBonus="3"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+2)-->
     <CBehaviorBuff id="AId2">
-        <Modification LifeArmorBonus="9"/>
+        <Modification LifeArmorBonus="7"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+3)-->
     <CBehaviorBuff id="AId3">
-        <Modification LifeArmorBonus="12"/>
+        <Modification LifeArmorBonus="10"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+4)-->
     <CBehaviorBuff id="AId4">
-        <Modification LifeArmorBonus="14"/>
+        <Modification LifeArmorBonus="12"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+5)-->
     <CBehaviorBuff id="AId5">
-        <Modification LifeArmorBonus="15"/>
+        <Modification LifeArmorBonus="13"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+7)-->
     <CBehaviorBuff id="AId7">
-        <Modification LifeArmorBonus="16"/>
+        <Modification LifeArmorBonus="14"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+8)-->
     <CBehaviorBuff id="AId8">
-        <Modification LifeArmorBonus="17"/>
+        <Modification LifeArmorBonus="15"/>
     </CBehaviorBuff>
     <!--Orb of Darkness-->
     <CBehaviorBuff id="AIdf">
@@ -329,6 +329,7 @@
             <DeathResponse Chance="1" Effect="AUin"/>
         </Modification>
         <TechAliasArray index="1" removed="1"/>
+        <BehaviorCategories index="Dispelable" value="0"/>
     </CBehaviorBuff>
     <!--Stun-->
     <CBehaviorBuff id="BSTN">
@@ -410,6 +411,15 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="DebuffImmunityAura" parent="War3_AuraCaster">
         <Requirements value="DebuffImmunityAura"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HonorSpear" parent="War3_AuraCaster">
+        <Requirements value="HonorSpear"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HonorSpearBuff" parent="War3_AuraBuff">
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnarcaniteranged.dds"/>
+        <Modification HealTakenMultiplier="1.5" LifeArmorBonus="10">
+            <RateMultiplierArray index="Cooldown" value="4"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="StarFragment" parent="War3_Passive">
         <Name value="Ault2/Name"/>
@@ -536,9 +546,6 @@
     <!--Curse-->
     <CBehaviorBuff id="Bcrs">
         <Duration value="60"/>
-        <BehaviorCategories index="Dispelable" value="0"/>
-        <TechAliasArray index="0" removed="1"/>
-        <TechAliasArray index="1" removed="1"/>
         <DurationOverride index="0" Duration="12">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
@@ -590,7 +597,9 @@
         <DurationOverride index="0" Duration="2.5">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
-        <Modification MoveSpeedMultiplier="10" WeaponRange="-0.625"/>
+        <Modification MoveSpeedMultiplier="10" WeaponRange="-0.625">
+            <StateFlags index="SuppressCollision" value="1"/>
+        </Modification>
         <Period value="0.0625"/>
         <PeriodicEffect value="ChargeKnightEnumArea"/>
         <DisplayDuration index="Self" value="1"/>
@@ -617,7 +626,7 @@
     <CBehaviorBuff id="ChargeKnightStun" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnanimalwartraining.dds"/>
         <Duration value="1"/>
-        <DurationOverride index="0" Duration="0.2">
+        <DurationOverride index="0" Duration="1">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <Modification>
@@ -1456,8 +1465,8 @@
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="StoneForm" parent="War3_Passive">
-        <Duration value="10"/>
-        <DurationOverride Duration="10">
+        <Duration value="15"/>
+        <DurationOverride Duration="15">
             <ValidatorArray value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <ExpireEffect value="StoneFormExtra"/>
@@ -1469,12 +1478,13 @@
         <DisplayDuration index="Self" value="1"/>
         <DisplayDuration index="Ally" value="1"/>
         <RemoveValidatorArray value="NoBuilding"/>
-        <Duration value="45"/>
-        <DurationOverride Duration="45">
+        <Duration value="30"/>
+        <DurationOverride Duration="30">
             <ValidatorArray value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <ExpireEffect value="StoneFormUnExtra"/>
         <DisableValidatorArray value="NoUnholyDominance"/>
+        <DisableValidatorArray value="NoPerparing"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StoneFormUnExtra" parent="War3_Passive">
         <Requirements value="StoneFormUnExtra"/>

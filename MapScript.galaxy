@@ -1048,15 +1048,15 @@ bool gt_Restart_Func (bool testConds, bool runActions) {
         TriggerExecute(gt_InitUnit, true, false);
     }
     else if (autoBE5BF66A_val == c_keyF6) {
-        TriggerExecute(gt_AI, true, false);
-    }
-    else if (autoBE5BF66A_val == c_keyF7) {
         if ((TriggerIsEnabled(gt_WinLossPeriod) == false)) {
             TriggerEnable(gt_WinLossPeriod, true);
         }
         else {
             TriggerEnable(gt_WinLossPeriod, false);
         }
+    }
+    else if (autoBE5BF66A_val == c_keyF7) {
+        TriggerExecute(gt_AI, true, false);
     }
     else {
     }
@@ -2501,6 +2501,10 @@ bool gt_Position_Func (bool testConds, bool runActions) {
                 if ((PlayerGroupHasPlayer(gv_playergroupBonusDone, gv_intPlayer[lv_p]) == false) && (lv_pB <= 8)) {
                     libNtve_gf_CreateUnitsWithDefaultFacing(1, "nmgw", c_unitCreateIgnorePlacement, 15, gf_PlayerBonusMobLocation(lv_p, 2));
                     UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerBonusMobLocation(lv_p, 1)), 0.0);
+                    if ((gv_boolTestMode == true)) {
+                        UnitBehaviorAddPlayer(UnitLastCreated(), "Preparing", UnitGetOwner(UnitLastCreated()), 1);
+                    }
+
                     CameraPan(gv_intPlayer[lv_p], gf_PlayerBonusLocation(lv_pB, 1), 1.0, -1, 10.0, false);
                 }
 

@@ -147,7 +147,7 @@
     </CEffectEnumArea>
     <CEffectEnumArea id="AclfSearch">
         <SearchFilters value="-;air,wall,tree,Missile,debris,item,ward,dead,Hidden,immunity"/>
-        <AreaArray index="0" Radius="1.25" Effect="Bclf"/>
+        <AreaArray index="0" Radius="1" Effect="Bclf"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="AdisSearch">
         <AreaArray index="0" Radius="2" Effect="DispelAllBuffsAndHurtEnemySummoned200"/>
@@ -236,6 +236,12 @@
         <Amount value="48"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="HonorSpearBuff" parent="War3_ApplyBuff">
+        <ValidatorArray value="IsKnight"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="HonorSpearSearch" parent="War3_AuraSearch" aura="HonorSpearBuff">
+        <AreaArray index="0" Radius="9" Effect="HonorSpearBuff"/>
+    </CEffectEnumArea>
     <CEffectDamage id="HurtEnemySummoned180">
         <Amount value="100"/>
     </CEffectDamage>
@@ -243,7 +249,7 @@
         <Amount value="100"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="Xclf">
-        <PeriodCount value="10"/>
+        <PeriodCount value="15"/>
     </CEffectCreatePersistent>
     <CEffectDamage id="ebal1">
         <AttributeFactor index="divine" value="0"/>
@@ -613,9 +619,10 @@
         <Amount value="25"/>
     </CEffectDamage>
     <CEffectDamage id="AflkSphereEffect">
-        <AreaArray index="0" Radius="1.5" Bonus="72" Fraction="1"/>
-        <AreaArray index="1" Radius="2" Bonus="72" Fraction="0.6667"/>
-        <AreaArray index="2" Radius="2.5" Bonus="72" Fraction="0.3332"/>
+        <AreaArray index="0" Radius="3" Bonus="96" Fraction="1"/>
+        <AreaArray index="1" removed="1"/>
+        <AreaArray index="2" removed="1"/>
+        <ArmorReduction value="0"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="AfrzC">
         <EditorCategories value=""/>
@@ -672,6 +679,7 @@
     <CEffectSet id="Aps2">
         <ValidatorArray value="NonPowerfulUnit"/>
         <ValidatorArray value="NoDebuffImmunity"/>
+        <ValidatorArray value="NoMoraleBoosting"/>
     </CEffectSet>
     <CEffectSet id="Aps2ControlSet">
         <EffectArray index="1" removed="1"/>

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorModel id="AHadTarget">
+        <On Terms="Behavior.HonorSpear.On" Send="Create"/>
+        <On Terms="Behavior.HonorSpear.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorModel id="BHad">
+        <On Terms="Behavior.HonorSpearBuff.On" Send="Create"/>
+        <On Terms="Behavior.HonorSpearBuff.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
     <CActorModel id="DebuffImmunity" parent="War3_Buff">
         <Model value="BNms"/>
         <On Terms="ActorCreation" Send="SetOpacity 0.330000"/>
@@ -18,6 +26,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Edem1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Edem1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Edem1Death" VoiceLink="Edem1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Edem1_GroupWhat"/>
@@ -113,6 +123,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hblm1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hblm1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hblm1Death" VoiceLink="Hblm1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Hblm1_GroupWhat"/>
@@ -147,6 +159,8 @@
         <On index="87" Terms="Behavior.HeroPitLordRun.On" Send="SetWalkAnimMoveSpeed 3.5"/>
         <On index="88" Terms="Behavior.HeroPitLordRun.Off" Send="SetWalkAnimMoveSpeed 1.25"/>
         <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Nmag1Death" VoiceLink="Nmag1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
@@ -178,6 +192,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Nman1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Nman1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Nman1Death" VoiceLink="Nman1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
@@ -317,6 +333,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hpal1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hpal1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hpal1Death" VoiceLink="Hpal1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <GroupSoundArray index="What" value="Hpal1_GroupWhat"/>
@@ -361,6 +379,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Efur1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Efur1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Efur1Death" VoiceLink="Efur1DeathVoice"/>
         <GroupSoundArray index="What" value="Efur1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Efur1_GroupYes"/>
@@ -391,6 +411,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ekee1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ekee1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ekee1Death" VoiceLink="Ekee1DeathVoice"/>
         <GroupSoundArray index="What" value="Ekee1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Ekee1_GroupYes"/>
@@ -421,6 +443,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ekgg1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ekgg1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
@@ -438,6 +462,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Emoo1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Emoo1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Emoo1Death" VoiceLink="Emoo1DeathVoice"/>
         <GroupSoundArray index="What" value="Emoo1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Emoo1_GroupYes"/>
@@ -468,6 +494,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ewar1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ewar1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ewar1Death" VoiceLink="Ewar1DeathVoice"/>
         <GroupSoundArray index="What" value="Ewar1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Ewar1_GroupYes"/>
@@ -498,6 +526,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hamg1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hamg1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hamg1Death" VoiceLink="Hamg1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Hamg1_GroupWhat"/>
@@ -527,6 +557,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hgam1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hgam1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hgam1Death" VoiceLink="Hgam1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Hgam1_GroupWhat"/>
@@ -557,6 +589,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hjai1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hjai1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hjai1Death" VoiceLink="Hjai1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <GroupSoundArray index="What" value="Hjai1_GroupWhat"/>
@@ -587,6 +621,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hlgr1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hlgr1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Hlgr1Death" VoiceLink="Hlgr1DeathVoice"/>
         <GroupSoundArray index="What" value="Hlgr1_GroupWhat"/>
@@ -620,6 +656,8 @@
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
         <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
     </CActorUnit>
@@ -637,6 +675,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hvwd1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hvwd1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hvwd1Death" VoiceLink="Hvwd1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <GroupSoundArray index="What" value="Hvwd1_GroupWhat"/>
@@ -667,6 +707,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Nbrn1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Nbrn1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Nbrn1Death" VoiceLink="Nbrn1DeathVoice"/>
         <GroupSoundArray index="What" value="Nbrn1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Nbrn1_GroupYes"/>
@@ -697,6 +739,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ofar1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ofar1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
@@ -714,6 +758,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Oshd1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Oshd1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
@@ -731,6 +777,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Otch1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Otch1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
         <Scale value="1.000000"/>
@@ -749,6 +797,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ucrl1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ucrl1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ucrl1Death" VoiceLink="Ucrl1DeathVoice"/>
         <GroupSoundArray index="What" value="Ucrl1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Ucrl1_GroupYes"/>
@@ -779,6 +829,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Udea1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Udea1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Udea1Death" VoiceLink="Udea1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <GroupSoundArray index="What" value="Udea1_GroupWhat"/>
@@ -809,6 +861,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Udre1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Udre1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Udre1Death" VoiceLink="Udre1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <GroupSoundArray index="What" value="Udre1_GroupWhat"/>
@@ -839,6 +893,8 @@
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ulic1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ulic1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ulic1Death" VoiceLink="Ulic1DeathVoice"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Ulic1_GroupWhat"/>
@@ -1283,6 +1339,8 @@
         <On index="80" Terms="WeaponStart.Champion11.AttackStart"/>
         <On index="81" Terms="WeaponStart.Champion12.AttackStart"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
         <HighlightTooltip value="Champion1/Propernames"/>
         <StatusBarFlags index="Cargo" value="0"/>
         <StatusBarFlags index="Workers" value="0"/>

@@ -19,6 +19,22 @@
         <Value value="2"/>
         <Behavior value="BUav1"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="IsKnight">
+        <CombineArray value="Ishkni"/>
+        <CombineArray value="Isnbld1"/>
+    </CValidatorCombine>
+    <CValidatorUnitType id="Ishkni">
+        <Value value="hkni"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="Isnbld1">
+        <Value value="nbld1"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="Ishkn2">
+        <Value value="hkn2"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="IsHlgr1">
+        <Value value="Hlgr1"/>
+    </CValidatorUnitType>
     <CValidatorUnitCompareBehaviorCount id="NoBHbn">
         <Behavior value="BHbn"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -27,6 +43,12 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBblo">
         <Behavior value="Bblo"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoMoraleBoosting">
+        <Behavior value="MoraleBoosting"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoPerparing">
+        <Behavior value="Preparing"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareVital id="TargetLifeLT500">
         <Compare value="LT"/>

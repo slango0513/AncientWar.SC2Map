@@ -30,6 +30,7 @@
     <!--mountainking-->
     <CButton id="Hmkg"/>
     <CButton id="HonorShield" parent="War3_Button" art="Assets\Textures\war3_btnbarkskin.dds"/>
+    <CButton id="HonorSpear" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnarcaniteranged.dds"/>
     <!--sylvanuswindrunner-->
     <CButton id="Hvwd"/>
     <CButton id="ImpaleAttack" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimpale.dds"/>

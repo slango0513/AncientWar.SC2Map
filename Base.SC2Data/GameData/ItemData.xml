@@ -2,18 +2,18 @@
 <Catalog>
     <!--Ancient Janggo of Endurance-->
     <CItem id="ajen">
-        <Level value="4"/>
+        <Level value="6"/>
     </CItem>
     <!--Ankh of Reincarnation-->
     <CItem id="ankh"/>
     <!--Ancestral Staff-->
     <CItemAbil id="axas">
-        <Level value="8"/>
+        <Level value="10"/>
     </CItemAbil>
     <CItem id="axas2" parent="War3_Item">
         <Face value="axas"/>
         <Class value="MISCELLANEOUS"/>
-        <Level value="8"/>
+        <Level value="10"/>
         <EquipBehaviorArray value="AIae"/>
         <EquipBehaviorArray value="AIl2"/>
     </CItem>
@@ -160,7 +160,7 @@
     </CItem>
     <!--Shield of Honor-->
     <CItem id="shhn">
-        <Level value="9"/>
+        <Level value="7"/>
         <EquipBehaviorArray index="0" value="AId5"/>
     </CItem>
     <!--Shadow Orb +6-->
@@ -193,6 +193,6 @@
     </CItemAbil>
     <!--Warsong Battle Drums-->
     <CItem id="ward">
-        <Level value="4"/>
+        <Level value="2"/>
     </CItem>
 </Catalog>
