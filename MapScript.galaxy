@@ -127,7 +127,7 @@ void InitGlobals () {
     gv_tip = StringExternal("Param/Value/1D3BBDC1");
     gv_tip2 = StringExternal("Param/Value/793C0C9F");
     gv_tip3 = StringExternal("Param/Value/0C8520BB");
-    gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser1;
+    gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser6;
     gv_playergroupDebug = PlayerGroupEmpty();
     gv_gameMode = GameAttributeGameValue("2");
     gv_gameCatalog = c_gameCatalogUnit;
@@ -844,13 +844,15 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     }
 
     gv_boolTestMode = false;
-    TriggerEnable(libGAwX_gt_AbilClassDefendDamageAbosorbed, false);
+    TriggerEnable(libGAwX_gt_AsplSearch, false);
+    TriggerEnable(libGAwX_gt_AsplSplit, false);
     TriggerEnable(libGAwX_gt_AOclImpact, false);
     TriggerEnable(libGAwX_gt_AraiSummonCount, false);
     TriggerEnable(libGAwX_gt_AwarTargetCheck, false);
     TriggerEnable(libGAwX_gt_moonMoonstoneChangeTOD, false);
     TriggerEnable(libGAwX_gt_AOhwImpact, false);
     TriggerEnable(libGAwX_gt_AvngUniqueSummonBuff, false);
+    TriggerEnable(libGAwX_gt_AbilClassDefendDamageAbosorbed, false);
     BankLoad("AncientWar", 1);
     gv_bank[1] = BankLastCreated();
     BankLoad("AncientWar", 2);
@@ -879,10 +881,6 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         lv_p = PlayerGroupPlayer(auto4750D82E_g, auto4750D82E_p);
         lv_raceAtt = GameAttributePlayerValue("[bnet:War3 Extra (GA)/0.0/60618,file:Mods\\WarCraft\\WarCraftDataAbil.SC2Mod]1", lv_p);
         lv_race = libGAwX_gf_GenerateRaceFromRaceAttribute(lv_raceAtt);
-        if ((lv_race == "Undead")) {
-            lv_race = "Human";
-        }
-
         libGAwX_gf_SetPlayerUIRace(lv_p, lv_race);
         PlayerOptionOverride(lv_p, "displayunitstatus", "All");
         PlayerOptionOverride(lv_p, "simplecommandcard", "0");
@@ -893,7 +891,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     }
     gv_optionCommandable = true;
     gv_playergroupDebug = PlayerGroupEmpty();
-    gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser1;
+    gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser6;
     gv_intCountPhalanx = 3;
     gv_intColumn[1] = 6;
     gv_intRow[1] = 6;

@@ -278,7 +278,7 @@
     <!--Liquid Fire Dur=3 HeroDur=3 Buff=Bliq-->
     <CBehaviorBuff id="Aliq">
         <Requirements value=""/>
-        <DamageResponse TargetFilters="-;Player,Ally,Air,Hover,HarvestableResource,Destructible,Item,Buried,Dead"/>
+        <DamageResponse TargetFilters="-;player,allies,air,wall,tree,debris,item,ward,dead"/>
     </CBehaviorBuff>
     <!--Moon Glaive-->
     <CBehaviorBuff id="Amgl">
@@ -585,7 +585,7 @@
         <MaxStackCount value="0"/>
         <MaxStackCountPerCaster value="1"/>
         <Modification>
-            <VitalRegenArray index="Energy" value="5"/>
+            <VitalRegenArray index="Energy" value="3"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="EtherealArmor" parent="War3_Passive">
@@ -687,7 +687,7 @@
             <Chance value="1"/>
             <Handled value="EtherealStrikeSet"/>
             <Location value="Attacker"/>
-            <TargetFilters value="-;Player,Ally"/>
+            <TargetFilters value="-;player,allies"/>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
@@ -700,7 +700,7 @@
             <Chance value="1"/>
             <Handled value="MortalStrikeSet"/>
             <Location value="Attacker"/>
-            <TargetFilters value="-;Player,Ally"/>
+            <TargetFilters value="-;player,allies"/>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
@@ -1138,7 +1138,7 @@
     </CBehaviorBuff>
     <!--AnimateDead-->
     <CBehaviorBuff id="BUan">
-        <BehaviorCategories index="User1" value="1"/>
+        <BehaviorCategories index="User6" value="1"/>
         <Duration value="30"/>
         <DurationOverride index="0" Duration="30">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>

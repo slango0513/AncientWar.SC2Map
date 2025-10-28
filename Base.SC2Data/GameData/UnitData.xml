@@ -4152,7 +4152,7 @@
             <LayoutButtons index="6" Face="otau" Type="AbilCmd" AbilCmd="AObu,Build11" Row="0" Column="1"/>
             <LayoutButtons index="7" Face="ocat" Type="AbilCmd" AbilCmd="AObu,Build3" Row="1" Column="3"/>
             <LayoutButtons index="8" Face="odoc" Type="AbilCmd" AbilCmd="AObu,Build9" Row="2" Column="2"/>
-            <LayoutButtons index="9" Face="oshw" Type="AbilCmd" AbilCmd="AObu,Build8" Row="2" Column="1"/>
+            <LayoutButtons index="9" Face="oshm" Type="AbilCmd" AbilCmd="AObu,Build8" Row="2" Column="1"/>
             <LayoutButtons index="10" Face="Obla" Type="AbilCmd" AbilCmd="AObu,Build22" Row="0" Column="3"/>
             <LayoutButtons Face="otbr" Type="AbilCmd" AbilCmd="AObu,Build21" Row="1" Column="1"/>
             <LayoutButtons Face="Ofar" Type="AbilCmd" AbilCmd="AObu,Build19" Row="2" Column="3"/>
