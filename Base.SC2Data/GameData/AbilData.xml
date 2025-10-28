@@ -559,7 +559,7 @@
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
             <Vital index="Energy" value="20"/>
-            <Cooldown Location="Unit" TimeUse="15"/>
+            <Cooldown Location="Unit" TimeUse="10"/>
         </Cost>
         <Range index="0" value="7.5"/>
         <AutoCastRange value="7.5"/>
@@ -690,6 +690,7 @@
         </Cost>
         <Range index="0" value="7.5"/>
         <AutoCastRange value="7.5"/>
+        <AutoCastValidatorArray index="0" value="SkeletonsLT37"/>
     </CAbilEffectInstant>
     <!--Rejuvination Dur=12 HeroDur=12 Buff=Brej-->
     <CAbilEffectTarget id="Arej">
@@ -1052,17 +1053,17 @@
     <CAbilResearch id="ItemLevel" parent="War3_Research">
         <Name value="UpdateItemLevel/Tip"/>
         <InfoArray index="Research1" Time="0">
-            <Resource index="Terrazine" value="10"/>
+            <Resource index="Terrazine" value="15"/>
             <Resource index="Custom" value="0"/>
             <Button Requirements="ItemLevel"/>
         </InfoArray>
         <InfoArray index="Research2" Time="0">
-            <Resource index="Terrazine" value="20"/>
+            <Resource index="Terrazine" value="30"/>
             <Resource index="Custom" value="0"/>
             <Button Requirements="ItemLevel2"/>
         </InfoArray>
         <InfoArray index="Research3" Time="0">
-            <Resource index="Terrazine" value="30"/>
+            <Resource index="Terrazine" value="45"/>
             <Resource index="Custom" value="0"/>
             <Button Requirements="ItemLevel3"/>
         </InfoArray>

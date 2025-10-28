@@ -26,4 +26,7 @@
     <CRequirement id="Pause">
         <NodeArray index="Use" Link="CountUpgradePauseCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="SkeletonsLT37">
+        <NodeArray index="Use" Link="LTSumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly37"/>
+    </CRequirement>
 </Catalog>

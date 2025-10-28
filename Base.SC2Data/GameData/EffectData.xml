@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectRemoveBehavior id="AIlx">
+        <ValidatorArray index="0" value="IsNotEnemy"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <BehaviorCategories index="Temporary" value="1"/>
+        <BehaviorAlignment value="Negative"/>
+        <BehaviorLink value="Bdis"/>
+    </CEffectRemoveBehavior>
     <CEffectEnumArea id="AdisSearch">
         <AreaArray index="0" Radius="2" Effect="DispelAllBuffsAndHurtEnemySummoned200"/>
     </CEffectEnumArea>
@@ -8,6 +17,12 @@
         <EffectArray value="uskm"/>
         <EffectArray value="nsca"/>
     </CEffectSet>
+    <CEffectEnumArea id="esen1E1">
+        <SearchFilters value="Visible;player,allies,neutral,air,Missile,dead,Hidden,invulnerable,Passive"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="esen1E2">
+        <SearchFilters value="Visible;player,allies,neutral,air,Missile,dead,Hidden,invulnerable,Passive"/>
+    </CEffectEnumArea>
     <CEffectCreateUnit id="nsca" parent="War3_SummonUnit">
         <EditorCategories value="Race:Undead"/>
         <SpawnEffect value="Brai"/>
@@ -81,7 +96,7 @@
     </CEffectApplyBehavior>
     <CEffectEnumArea id="ChargeKnightEnumArea">
         <SearchFilters value="-;player,allies,neutral,air,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable"/>
-        <AreaArray Radius="0.625" Effect="ChargeKnightInitialSet"/>
+        <AreaArray Radius="0.375" Effect="ChargeKnightInitialSet"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
     <CEffectSet id="ChargeKnightSet">
@@ -234,7 +249,7 @@
     </CEffectApplyBehavior>
     <!--Chieftain - War Stomp Buff=BPSE-->
     <CEffectEnumArea id="AOws1Search">
-        <AreaArray index="0" Radius="6" Effect="AOws1SearchImpact"/>
+        <AreaArray index="0" Radius="4.5" Effect="AOws1SearchImpact"/>
     </CEffectEnumArea>
     <CEffectDamage id="AOwsDamage1">
         <Amount value="50"/>
@@ -429,8 +444,8 @@
         <AttributeFactor index="fortified" value="-0.65"/>
         <Amount value="72"/>
         <Random value="0"/>
-        <AreaArray Radius="0.625" Bonus="24"/>
-        <AreaArray Radius="1.25" Bonus="12"/>
+        <AreaArray Radius="0.625" Bonus="36"/>
+        <AreaArray Radius="1.25" Bonus="24"/>
         <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
         <Alert value="DAMAGE_MAGIC"/>
     </CEffectDamage>
@@ -698,7 +713,7 @@
     <CEffectDamage id="hgyr1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="60"/>
+        <Amount value="72"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="hhes1">

@@ -90,6 +90,16 @@
     <CBehaviorBuff id="AIsx">
         <Modification AttackSpeedMultiplier="1.25"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="AIva" parent="War3_Item">
+        <Requirements value="AIva"/>
+        <Modification>
+            <VitalDamageLeechArray index="Life">
+                <KindArray index="Melee" value="1"/>
+            </VitalDamageLeechArray>
+        </Modification>
+        <MaxStackCount value="1"/>
+        <Tooltip value="AIva/Buffubertip"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="ANba1">
         <Modification>
             <DamageDealtUnscaled index="Melee" value="48"/>
@@ -106,7 +116,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="Adef">
         <Requirements value=""/>
-        <DamageResponse ModifyAmount="-10" ModifyFraction="1"/>
+        <DamageResponse ModifyFraction="0.75"/>
         <Modification MoveSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AdefTheCaptain" parent="War3_Passive">
@@ -122,9 +132,14 @@
     <!--Elune's Grace-->
     <CBehaviorBuff id="Aegr">
         <DamageResponse ModifyFraction="0.5"/>
+        <Tooltip value="Aegr/Buffubertip"/>
+        <InfoFlags index="Hidden" value="0"/>
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnelunesblessing.dds"/>
+        <DisableValidatorArray value="Assk"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AegrSpellReduction">
-        <DamageResponse ModifyFraction="0.25"/>
+        <DamageResponse ModifyFraction="0.5"/>
+        <DisableValidatorArray value="Assk"/>
     </CBehaviorBuff>
     <!--Exhume Dur=15=-->
     <CBehaviorBuff id="Aexh">
@@ -155,13 +170,13 @@
     <!--Regen Life-->
     <CBehaviorBuff id="Arel">
         <Modification>
-            <VitalRegenArray index="Life" value="4"/>
+            <VitalRegenArray index="Life" value="10"/>
         </Modification>
     </CBehaviorBuff>
     <!--Regen Life-->
     <CBehaviorBuff id="Arll">
         <Modification>
-            <VitalRegenArray index="Life" value="2"/>
+            <VitalRegenArray index="Life" value="5"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Aroc">
@@ -213,10 +228,14 @@
             <DamageDealtFraction index="Ranged" value="0.125"/>
         </Modification>
     </CBehaviorBuff>
+    <!--AuraEndurance-->
+    <CBehaviorBuff id="BOae">
+        <Modification MoveSpeedMultiplier="1.25" AttackSpeedMultiplier="1.2"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="BOae1">
         <MaxStackCount value="2"/>
         <MaxStackCountPerCaster value="1"/>
-        <Modification MoveSpeedMultiplier="1.2" AttackSpeedMultiplier="1.2"/>
+        <Modification MoveSpeedMultiplier="1.25" AttackSpeedMultiplier="1.2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="BUau1">
         <MaxStackCount value="2"/>
@@ -254,6 +273,10 @@
                 <KindArray index="Melee" value="1"/>
             </VitalDamageLeechArray>
         </Modification>
+        <Duration value="45"/>
+        <DurationOverride index="0" Duration="45">
+            <ValidatorArray index="0" value="Hero"/>
+        </DurationOverride>
     </CBehaviorBuff>
     <!--BerserkerRage-->
     <CBehaviorBuff id="Bbsk">
@@ -305,6 +328,9 @@
         <Modification AttackSpeedMultiplier="2"/>
         <DamageResponse Chance="1" ModifyFraction="1.25"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="Champion" parent="War3_Passive">
+        <Requirements value="Champion"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="ChargingKnight" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnanimalwartraining.dds"/>
         <Duration value="2"/>
@@ -351,6 +377,15 @@
         <Duration value="0.0625"/>
         <ExpireEffect value="ChargingKnightRemover"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Bdis" parent="War3_Item">
+        <Name value="DispelFriendDeBuffs/Name"/>
+        <Requirements value="Bdis"/>
+        <MaxStackCount value="1"/>
+        <DamageResponse Chance="0.05" Handled="Adis" Location="Attacker">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Splash" value="0"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="Hex" parent="War3_Passive">
         <DamageResponse Chance="0.25" Handled="ANhx1" Location="Attacker"/>
@@ -468,10 +503,10 @@
     </CBehaviorBuff>
     <!--Stone Form Dur=.5 HeroDur= cast=.7-->
     <CBehaviorBuff id="Astn">
-        <Modification>
-            <VitalRegenArray index="Life" value="15"/>
-        </Modification>
         <DamageResponse Chance="1" ModifyAmount="25"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="0"/>
+        </Modification>
     </CBehaviorBuff>
     <!--AuraThorns-->
     <CBehaviorBuff id="BEah">

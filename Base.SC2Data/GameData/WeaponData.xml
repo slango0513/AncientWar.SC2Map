@@ -6,7 +6,7 @@
     </CWeaponLegacy>
     <!--HeroMoonPriestess-->
     <CWeaponLegacy id="Emoo1" atkType="CHAOS">
-        <MinScanRange value="20"/>
+        <MinScanRange value="3"/>
         <Range value="3"/>
         <Period value="3"/>
         <Effect value="Emoo1S"/>
@@ -20,7 +20,7 @@
         <Name value="DAMAGE_NORMAL"/>
         <Tip value="DAMAGETIP_NORMAL"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--HeroArchMage-->
@@ -28,7 +28,7 @@
         <Name value="DAMAGE_MAGIC"/>
         <Tip value="DAMAGETIP_MAGIC"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="1.5"/>
         <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
@@ -38,7 +38,7 @@
         <Name value="DAMAGE_MAGIC"/>
         <Tip value="DAMAGETIP_MAGIC"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="1.5"/>
         <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
@@ -48,7 +48,7 @@
         <Name value="DAMAGE_NORMAL"/>
         <Tip value="DAMAGETIP_NORMAL"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
     <!--HeroPaladin-->
@@ -56,12 +56,12 @@
         <Name value="DAMAGE_NORMAL"/>
         <Tip value="DAMAGETIP_NORMAL"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Hero Banshee Ranger-->
     <CWeaponLegacy id="Nbrn1" atkType="CHAOS">
-        <MinScanRange value="20"/>
+        <MinScanRange value="11"/>
         <Range value="11"/>
         <Period value="3"/>
         <Name value="DAMAGE_CHAOS"/>
@@ -74,7 +74,7 @@
         <Tip value="DAMAGETIP_MAGIC"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
         <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
@@ -83,14 +83,14 @@
         <Name value="DAMAGE_MAGIC"/>
         <Tip value="DAMAGETIP_MAGIC"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="5"/>
         <Range value="5"/>
         <Period value="3"/>
         <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
     </CWeaponLegacy>
     <!--HeroCryptLord-->
     <CWeaponLegacy id="Ucrl1" atkType="PIERCE">
-        <MinScanRange value="20"/>
+        <MinScanRange value="8"/>
         <Range value="8"/>
         <Period value="6"/>
         <Effect value="AUim"/>
@@ -101,35 +101,35 @@
     </CWeaponLegacy>
     <!--Archer-->
     <CWeaponLegacy id="earc1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="10"/>
         <Range value="10"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Glaive Thrower-->
     <CWeaponLegacy id="ebal1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="10"/>
         <Range value="10"/>
         <Period value="6"/>
     </CWeaponLegacy>
     <!--DruidoftheClawMorph-->
     <CWeaponLegacy id="edcm1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--DruidoftheClaw-->
     <CWeaponLegacy id="edoc1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--DruidoftheTalon-->
     <CWeaponLegacy id="edot1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Dryad-->
     <CWeaponLegacy id="edry1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="9"/>
         <Range value="9"/>
         <Period value="3"/>
         <Effect value="edry1S"/>
@@ -139,31 +139,31 @@
         <Name value="DAMAGE_MAGIC"/>
         <Tip value="DAMAGETIP_MAGIC"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="4"/>
         <Range value="4"/>
         <Period value="3"/>
         <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
     </CWeaponLegacy>
     <!--Mountain Giant-->
     <CWeaponLegacy id="emtg1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="1"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Huntress-->
     <CWeaponLegacy id="esen1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="2"/>
         <Range value="2"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Shandris-->
     <CWeaponLegacy id="eshd1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="16"/>
         <Range value="16"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Footman-->
     <CWeaponLegacy id="hfoo1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7031"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--GryphonRider-->
@@ -181,131 +181,131 @@
     <!--Flying Machine-->
     <CWeaponLegacy id="hgyr1">
         <TargetFilters value="Visible;wall,tree,Missile,debris,item,structure,ward,ethereal,dead,invulnerable"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="8"/>
         <Range value="8"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--high elven swordsman-->
     <CWeaponLegacy id="hhes1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7031"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Knight-->
     <CWeaponLegacy id="hkni1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
     <!--Militia-->
     <CWeaponLegacy id="hmil1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7031"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Priest-->
     <CWeaponLegacy id="hmpr1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="5"/>
         <Period value="3"/>
         <Range value="5"/>
     </CWeaponLegacy>
     <!--MortarTeam-->
     <CWeaponLegacy id="hmtm1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="9"/>
         <Period value="3"/>
         <Range value="9"/>
     </CWeaponLegacy>
     <!--Rifleman-->
     <CWeaponLegacy id="hrif1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="8"/>
         <Range value="8"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--siege engine upgraded-->
     <CWeaponLegacy id="hrtt1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="1.5"/>
         <Period value="1.5"/>
         <TargetFilters value="Visible;air,wall,tree,Missile,item,ward,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="hrttBarrage">
         <TargetFilters value="Visible;air,wall,tree,Missile,debris,item,structure,ward,ethereal,dead,invulnerable"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="4"/>
         <Range value="4"/>
         <Period value="1.5"/>
         <Name value="DAMAGE_PIERCE"/>
     </CWeaponLegacy>
     <!--Sorceress-->
     <CWeaponLegacy id="hsor1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Period value="3"/>
         <Range value="6"/>
     </CWeaponLegacy>
     <!--Spell Breaker-->
     <CWeaponLegacy id="hspt1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="2"/>
         <Period value="3"/>
         <Range value="2"/>
     </CWeaponLegacy>
     <!--WaterElemental-->
     <CWeaponLegacy id="hwat1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="2"/>
         <Range value="2"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--bandit-->
     <CWeaponLegacy id="nban1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--bandit lord-->
     <CWeaponLegacy id="nbld1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
     <!--chaos grunt-->
     <CWeaponLegacy id="nchg1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--chaplain-->
     <CWeaponLegacy id="nchp1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="5"/>
         <Range value="5"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--ChaosWolfRider-->
     <CWeaponLegacy id="nchr1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
     <!--ChaosKodoBeast-->
     <CWeaponLegacy id="nckb1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="3"/>
         <Range value="3"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--DarkMinion1-->
     <CWeaponLegacy id="ndr11">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7031"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--revenant of the depths-->
     <CWeaponLegacy id="ndrv1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--flesh golem-->
     <CWeaponLegacy id="nfgl1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
     <!--high elven archer-->
     <CWeaponLegacy id="nhea1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="7"/>
         <Range value="7"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--hydromancer-->
     <CWeaponLegacy id="nhym1">
         <TargetFilters value="Visible;air,wall,tree,Missile,dead,invulnerable,immunity"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
@@ -314,111 +314,111 @@
         <Name value="DAMAGE_MAGIC"/>
         <Tip value="DAMAGETIP_MAGIC"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="5"/>
         <Range value="5"/>
         <Period value="3"/>
         <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
     </CWeaponLegacy>
     <!--magnataur destroyer-->
     <CWeaponLegacy id="nmgd1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
     </CWeaponLegacy>
     <!--magnataur reaver-->
     <CWeaponLegacy id="nmgr1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
     </CWeaponLegacy>
     <!--magnataur warrior-->
     <CWeaponLegacy id="nmgw1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
     </CWeaponLegacy>
     <!--death revenant-->
     <CWeaponLegacy id="nrvd1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="1"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--skeletal archer(summoned)-->
     <CWeaponLegacy id="nsca1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="5"/>
         <Range value="5"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--night elf assassin-->
     <CWeaponLegacy id="nssn1">
         <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
-        <MinScanRange value="20"/>
+        <MinScanRange value="2"/>
         <Range value="2"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Watcher-->
     <CWeaponLegacy id="nwat1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Demolisher-->
     <CWeaponLegacy id="ocat1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="10"/>
         <Range value="10"/>
         <Period value="6"/>
     </CWeaponLegacy>
     <!--WitchDoctor-->
     <CWeaponLegacy id="odoc1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Grunt-->
     <CWeaponLegacy id="ogru1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--HeadHunter-->
     <CWeaponLegacy id="ohun1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="7"/>
         <Range value="7"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--KodoBeast-->
     <CWeaponLegacy id="okod1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="3"/>
         <Range value="3"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Raider-->
     <CWeaponLegacy id="orai1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
     <!--Shaman-->
     <CWeaponLegacy id="oshm1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Spiritwalker-->
     <CWeaponLegacy id="ospw1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="4"/>
         <Range value="4"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Tauren-->
     <CWeaponLegacy id="otau1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Berserker-->
     <CWeaponLegacy id="otbk1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="7"/>
         <Range value="7"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Abomination-->
     <CWeaponLegacy id="uabo1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="1"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Banshee-->
     <CWeaponLegacy id="uban1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="7"/>
         <Range value="7"/>
         <Period value="3"/>
     </CWeaponLegacy>
@@ -434,13 +434,13 @@
     </CWeaponLegacy>
     <!--CryptFiend-->
     <CWeaponLegacy id="ucry1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="8"/>
         <Range value="8"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--carrion beetle level 1-->
     <CWeaponLegacy id="ucs11">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7031"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--FrostWyrm-->
@@ -461,35 +461,35 @@
     </CWeaponLegacy>
     <!--Ghoul-->
     <CWeaponLegacy id="ugho1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7031"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--MeatWagon-->
     <CWeaponLegacy id="umtw1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="9"/>
         <Range value="9"/>
         <Period value="6"/>
     </CWeaponLegacy>
     <!--Necromancer-->
     <CWeaponLegacy id="unec1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="6"/>
         <Range value="6"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Obsidian Statue-->
     <CWeaponLegacy id="uobs1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="5"/>
         <Range value="5"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--SkeletonWarrior-->
     <CWeaponLegacy id="uske1">
-        <MinScanRange value="20"/>
+        <MinScanRange value="0.7031"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Skeletal Mage-->
     <CWeaponLegacy id="uskm1" atkType="MAGIC">
-        <MinScanRange value="20"/>
+        <MinScanRange value="4"/>
         <Range value="4"/>
         <Period value="3"/>
         <Name value="DAMAGE_MAGIC"/>

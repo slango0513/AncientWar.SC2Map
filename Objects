@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PlacedObjects Version="27">
+    <ObjectDoodad Id="126" Position="128,128,9.9982" Scale="1.1552,1.1552,1.1552" Type="Champion"/>
     <ObjectPoint Id="1" Position="46,125,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Battlefield1,1" Color="0,0,0,0"/>
     <ObjectPoint Id="2" Position="125,46,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Battlefield8,1" Color="0,0,0,0"/>
     <ObjectPoint Id="3" Position="131,210,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Battlefield6,1" Color="0,0,0,0"/>

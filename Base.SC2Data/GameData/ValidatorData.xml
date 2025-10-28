@@ -6,6 +6,9 @@
         <Compare value="GE"/>
         <Count value="6"/>
     </CValidatorLocationEnumArea>
+    <CValidatorUnitCompareBehaviorCount id="Assk">
+        <Behavior value="Assk"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="BrejTargetFilters">
         <Type value="And"/>
         <CombineArray value="NoRejuvenation"/>
@@ -220,6 +223,10 @@
         <CombineArray value="NotHallucinationTarget"/>
         <Type value="And"/>
     </CValidatorCombine>
+    <CValidatorPlayerRequirement id="SkeletonsLT37">
+        <Find value="1"/>
+        <Value value="SkeletonsLT37"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitCompareVital id="TargetMoreThan10Mana">
         <Compare value="GE"/>
         <Value value="10"/>

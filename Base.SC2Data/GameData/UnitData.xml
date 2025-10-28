@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CUnit default="1" id="Statue" parent="War3_Unit">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Movable" value="0"/>
+        <FlagArray index="Untooltipable" value="0"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Unstoppable" value="1"/>
+        <Attributes index="summoned" value="1"/>
+        <BehaviorArray index="0" Link="Statue"/>
+        <BehaviorArray Link="Champion"/>
+    </CUnit>
     <CUnit id="Hmkg1" parent="War3_Army" defType="LARGE">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
@@ -95,29 +107,6 @@
         <TechTreeProducedUnitArray value="hmpr"/>
         <TechTreeProducedUnitArray value="hmpr"/>
     </CUnit>
-    <!--sylvanus windrunner-->
-    <CUnit id="Hvwd">
-        <DeathTime value="15"/>
-        <DeathRevealRadius value="0"/>
-        <LifeStart value="25"/>
-        <LifeMax value="25"/>
-        <LifeArmorFormula>
-            <NegativeArmorMultiplier value="-1"/>
-            <NegativeDamageBase value="1"/>
-            <PositiveArmorMultiplier value="1"/>
-            <PositiveDamageRatio value="0"/>
-        </LifeArmorFormula>
-        <LifeRegenRate value="0.125"/>
-        <Speed value="2"/>
-        <SightBonus index="Dawn" value="0"/>
-        <SightBonus index="Dusk" value="0"/>
-        <CostResource index="gold" value="60"/>
-        <CostResource index="lumber" value="0"/>
-        <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="30"/>
-        <PlacementFootprint value="4x4SimpleSolid"/>
-        <SubgroupPriority value="0"/>
-    </CUnit>
     <CUnit id="Item">
         <TechTreeProducedUnitArray value="prvt"/>
         <TechTreeProducedUnitArray value="rhth"/>
@@ -152,6 +141,13 @@
         <TechTreeProducedUnitArray value="shdt"/>
         <TechTreeProducedUnitArray value="frhg"/>
         <TechTreeProducedUnitArray value="srtl"/>
+        <TechTreeProducedUnitArray value="modt"/>
+        <TechTreeProducedUnitArray value="shcw"/>
+        <TechTreeProducedUnitArray value="axas"/>
+        <TechTreeProducedUnitArray value="ajen"/>
+        <TechTreeProducedUnitArray value="esaz"/>
+        <TechTreeProducedUnitArray value="klmm"/>
+        <TechTreeProducedUnitArray value="rlif"/>
     </CUnit>
     <CUnit id="Ofar1" parent="War3_Army" defType="NONE">
         <Description value="Ofar/Ubertip"/>
@@ -228,13 +224,46 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
     </CUnit>
+    <!--Alleria's Flute of Accuracy-->
+    <CUnit id="afac">
+        <CostResource index="gold" value="4001"/>
+    </CUnit>
+    <!--Ancient Janggo of Endurance-->
+    <CUnit id="ajen">
+        <CostResource index="gold" value="80"/>
+    </CUnit>
     <!--Ankh of Reincarnation-->
     <CUnit id="ankh">
         <CostResource index="gold" value="80"/>
     </CUnit>
+    <!--Arcanite Shield-->
+    <CUnit id="arsh">
+        <CostResource index="gold" value="35001"/>
+    </CUnit>
+    <!--Assassin's Blade-->
+    <CUnit id="asbl">
+        <CostResource index="gold" value="20001"/>
+    </CUnit>
+    <!--Ancestral Staff-->
+    <CUnit id="axas">
+        <CostResource index="gold" value="160"/>
+        <Item value="axas2"/>
+    </CUnit>
+    <!--Heart of Aszune-->
+    <CUnit id="azhr">
+        <CostResource index="gold" value="2001"/>
+    </CUnit>
+    <!--Bloodfeather's Heart-->
+    <CUnit id="bfhr">
+        <CostResource index="gold" value="25001"/>
+    </CUnit>
     <!--Bladebane Armor-->
     <CUnit id="blba">
         <CostResource index="gold" value="180"/>
+    </CUnit>
+    <!--Runed Bracers-->
+    <CUnit id="brac">
+        <CostResource index="gold" value="4001"/>
     </CUnit>
     <!--Boots of Speed-->
     <CUnit id="bspd">
@@ -247,6 +276,10 @@
     <!--Horn of Cenarius-->
     <CUnit id="cnhn">
         <CostResource index="gold" value="80"/>
+    </CUnit>
+    <!--Celestial Orb of Souls-->
+    <CUnit id="cosl">
+        <CostResource index="gold" value="100001"/>
     </CUnit>
     <!--Crown of the Deathlord-->
     <CUnit id="crdt">
@@ -318,14 +351,13 @@
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
             <LayoutButtons index="7">
-                <Face value="Asud"/>
-                <Type value="Undefined"/>
-                <AbilCmd value="Asud,Execute"/>
+                <Face value="ANba"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ANbaAugment,Execute"/>
                 <Behavior value=""/>
                 <Row value="2"/>
-                <Column value="4"/>
+                <Column value="1"/>
             </LayoutButtons>
-            <LayoutButtons Face="ANba" Type="AbilCmd" AbilCmd="ANbaAugment,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="earc"/>
         <TechTreeProducedUnitArray value="earc"/>
@@ -735,6 +767,11 @@
         <LifeMax value="2000"/>
         <LifeRegenRate value="0.125"/>
     </CUnit>
+    <!--Essence of Aszune-->
+    <CUnit id="esaz">
+        <CostResource index="gold" value="120"/>
+        <Item value="esaz2"/>
+    </CUnit>
     <!--Huntress-->
     <CUnit id="esen">
         <LifeStart value="1600"/>
@@ -937,9 +974,17 @@
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
     </CUnit>
+    <!--Frostguard-->
+    <CUnit id="frgd">
+        <CostResource index="gold" value="14001"/>
+    </CUnit>
     <!--Firehand Gauntlets-->
     <CUnit id="frhg">
         <CostResource index="gold" value="180"/>
+    </CUnit>
+    <!--Frostwyrm Skull Shield-->
+    <CUnit id="fwss">
+        <CostResource index="gold" value="7501"/>
     </CUnit>
     <!--Gloves of Haste-->
     <CUnit id="gcel">
@@ -962,7 +1007,7 @@
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
         <Food value="0"/>
-        <CostResource index="gold" value="45"/>
+        <CostResource index="gold" value="15"/>
         <KillResource index="gold" value="0"/>
         <KillResource index="Custom" value="5"/>
         <AbilArray index="4" Link="Inventory2"/>
@@ -977,12 +1022,6 @@
             <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
         </CardLayouts>
         <PlacementFootprint value="4x4SimpleSolid"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
         <TechTreeProducedUnitArray value="hfoo"/>
         <TechTreeProducedUnitArray value="hfoo"/>
         <TechTreeProducedUnitArray value="hfoo"/>
@@ -1023,6 +1062,7 @@
         <TechTreeProducedUnitArray value="hgry"/>
         <LifeArmor value="15"/>
         <BehaviorArray Link="PowerfulUnit"/>
+        <AttackTargetPriority value="21"/>
     </CUnit>
     <!--Flying Machine-->
     <CUnit id="hgyr" defType="MEDIUM">
@@ -1031,7 +1071,6 @@
         <PlaneArray index="Ground" value="1"/>
         <PlaneArray index="Air" value="0"/>
         <Collide index="Ground" value="1"/>
-        <Collide index="ForceField" value="1"/>
         <Collide index="Flying" value="0"/>
         <LifeStart value="25"/>
         <LifeMax value="25"/>
@@ -1103,7 +1142,7 @@
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
         <Food value="0"/>
-        <CostResource index="gold" value="120"/>
+        <CostResource index="gold" value="60"/>
         <KillResource index="gold" value="0"/>
         <KillResource index="Custom" value="10"/>
         <AbilArray index="4" Link="Inventory2"/>
@@ -1119,21 +1158,12 @@
             <LayoutButtons Face="ShieldWall" Type="AbilCmd" AbilCmd="ShieldWall,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <PlacementFootprint value="4x4SimpleSolid"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
-        <TechTreeProducedUnitArray value="hmil"/>
         <TechTreeProducedUnitArray value="hfoo"/>
         <TechTreeProducedUnitArray value="hfoo"/>
         <TechTreeProducedUnitArray value="hfoo"/>
         <TechTreeProducedUnitArray value="hfoo"/>
         <TechTreeProducedUnitArray value="hfoo"/>
         <TechTreeProducedUnitArray value="hfoo"/>
-        <TechTreeProducedUnitArray value="hhes"/>
-        <TechTreeProducedUnitArray value="hhes"/>
-        <TechTreeProducedUnitArray value="hhes"/>
         <TechTreeProducedUnitArray value="hhes"/>
         <TechTreeProducedUnitArray value="hhes"/>
         <TechTreeProducedUnitArray value="hhes"/>
@@ -1207,8 +1237,8 @@
     </CUnit>
     <!--Militia-->
     <CUnit id="hmil">
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
         <LifeArmor value="0"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
@@ -1221,17 +1251,26 @@
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
         <Food value="0"/>
-        <CostResource index="gold" value="15"/>
+        <CostResource index="gold" value="45"/>
         <KillResource index="gold" value="0"/>
         <KillResource index="Custom" value="5"/>
         <PlacementFootprint value="4x4SimpleSolid"/>
         <TechTreeProducedUnitArray value="hmil"/>
         <TechTreeProducedUnitArray value="hmil"/>
         <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
+        <TechTreeProducedUnitArray value="hmil"/>
         <DeathRevealRadius value="0"/>
         <AbilArray index="3" Link="Aatk"/>
         <AbilArray index="4" Link="Asud"/>
-        <AbilArray index="5" Link="UpgradeTohfoo"/>
+        <AbilArray index="5" removed="1"/>
         <AbilArray index="6" removed="1"/>
         <AbilArray index="7" removed="1"/>
         <AbilArray index="8" removed="1"/>
@@ -1241,11 +1280,11 @@
         <CardLayouts index="0">
             <LayoutButtons index="4" AbilCmd="Aatk,Execute"/>
             <LayoutButtons index="5">
-                <Face value="hfoo"/>
-                <Type value="AbilCmd"/>
+                <Face value="SupplyNearby"/>
+                <Type value="Passive"/>
                 <AbilCmd value="UpgradeTohfoo,Execute"/>
                 <SubmenuCardId value=""/>
-                <Row value="0"/>
+                <Row value="2"/>
                 <Column value="0"/>
             </LayoutButtons>
             <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
@@ -1255,6 +1294,7 @@
         </CardLayouts>
         <SubgroupPriority value="0"/>
         <DeathTime value="15"/>
+        <Collide index="Ground" value="0"/>
     </CUnit>
     <!--Priest-->
     <CUnit id="hmpr">
@@ -1299,6 +1339,7 @@
         <TechTreeProducedUnitArray value="hmpr"/>
         <SubgroupPriority value="0"/>
         <DeathTime value="15"/>
+        <Collide index="ForceField" value="0"/>
     </CUnit>
     <!--MortarTeam-->
     <CUnit id="hmtm">
@@ -1341,6 +1382,11 @@
         </CardLayouts>
         <SubgroupPriority value="0"/>
         <DeathTime value="15"/>
+        <Collide index="ForceField" value="0"/>
+    </CUnit>
+    <!--Holy Relic-->
+    <CUnit id="horl">
+        <CostResource index="gold" value="9501"/>
     </CUnit>
     <!--Peasant-->
     <CUnit id="hpea">
@@ -1388,7 +1434,7 @@
             <LayoutButtons index="1" Face="nchp" Type="AbilCmd" AbilCmd="AHbu,Build5" Row="2" Column="0"/>
             <LayoutButtons index="2" Face="hkni" Type="AbilCmd" AbilCmd="AHbu,Build3" Row="0" Column="2"/>
             <LayoutButtons index="3" Face="hrtt" Type="AbilCmd" AbilCmd="AHbu,Build7" Row="1" Column="3"/>
-            <LayoutButtons index="4" Face="hspt" Type="AbilCmd" AbilCmd="AHbu,Build6" Row="0" Column="1"/>
+            <LayoutButtons index="4" Face="hspt" Type="AbilCmd" AbilCmd="AHbu,Build6" Row="0" Column="3"/>
             <LayoutButtons index="5" Face="hmtm" Type="AbilCmd" AbilCmd="AHbu,Build8" Row="1" Column="2"/>
             <LayoutButtons index="6" Face="hrif" Type="AbilCmd" AbilCmd="AHbu,Build2" Row="1" Column="1"/>
             <LayoutButtons index="7" Face="hsor" Type="AbilCmd" AbilCmd="AHbu,Build4" Row="2" Column="1"/>
@@ -1396,7 +1442,8 @@
             <LayoutButtons index="9" Face="CmdCancel" Type="CancelSubmenu" AbilCmd="" Row="2" Column="4"/>
             <LayoutButtons index="10" Face="nhym" Type="AbilCmd" AbilCmd="AHbu,Build10" Row="2" Column="2"/>
             <LayoutButtons index="11" Face="hgry" Type="AbilCmd" AbilCmd="AHbu,Build17" Row="2" Column="3"/>
-            <LayoutButtons Face="Hmkg" Type="AbilCmd" AbilCmd="AHbu,Build21" Row="0" Column="3"/>
+            <LayoutButtons Face="hfoo" Type="AbilCmd" AbilCmd="AHbu,Build11" Row="0" Column="1"/>
+            <LayoutButtons Face="Hmkg" Type="AbilCmd" AbilCmd="AHbu,Build21" Row="0" Column="4"/>
         </CardLayouts>
         <Speed value="2"/>
         <DeathTime value="15"/>
@@ -1454,6 +1501,7 @@
         </CardLayouts>
         <SubgroupPriority value="0"/>
         <DeathTime value="15"/>
+        <Collide index="ForceField" value="0"/>
     </CUnit>
     <!--siege engine upgraded-->
     <CUnit id="hrtt">
@@ -1491,6 +1539,7 @@
         <BehaviorArray index="4" Link="LargeToFortified"/>
         <BehaviorArray index="5" Link="PowerfulUnit"/>
         <LifeRegenRate value="0.125"/>
+        <Collide index="ForceField" value="0"/>
     </CUnit>
     <!--Sorceress-->
     <CUnit id="hsor">
@@ -1530,6 +1579,7 @@
         <TechTreeProducedUnitArray value="hsor"/>
         <TechTreeProducedUnitArray value="hsor"/>
         <TechTreeProducedUnitArray value="hsor"/>
+        <Collide index="ForceField" value="0"/>
     </CUnit>
     <CUnit id="Hjai1" parent="hsor">
         <Name value="Hjai/Name"/>
@@ -1624,8 +1674,28 @@
         <SubgroupPriority value="0"/>
         <LifeArmor value="5"/>
     </CUnit>
+    <!--Keg of Ale-->
+    <CUnit id="kgal">
+        <CostResource index="gold" value="8501"/>
+    </CUnit>
+    <!--Killmaim-->
+    <CUnit id="klmm">
+        <CostResource index="gold" value="180"/>
+    </CUnit>
+    <!--Khadgar's Pipe of Insight-->
+    <CUnit id="kpin">
+        <CostResource index="gold" value="5001"/>
+    </CUnit>
+    <!--Legion Doom-Horn-->
+    <CUnit id="lgdh">
+        <CostResource index="gold" value="5001"/>
+    </CUnit>
     <!--Lion Horn of Stormwind-->
     <CUnit id="lhst">
+        <CostResource index="gold" value="80"/>
+    </CUnit>
+    <!--mask of death-->
+    <CUnit id="modt">
         <CostResource index="gold" value="80"/>
     </CUnit>
     <!--bandit-->
@@ -1750,13 +1820,14 @@
         </CardLayouts>
         <SubgroupPriority value="0"/>
         <DeathTime value="15"/>
+        <Collide index="ForceField" value="0"/>
     </CUnit>
     <!--ChaosWolfRider-->
     <CUnit id="nchr">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="2000"/>
-        <LifeMax value="2000"/>
+        <LifeStart value="1600"/>
+        <LifeMax value="1600"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -2053,6 +2124,7 @@
         <SubgroupPriority value="0"/>
         <DeathTime value="15"/>
         <LifeRegenRate value="0.125"/>
+        <Collide index="ForceField" value="0"/>
     </CUnit>
     <!--hydromancer-->
     <CUnit id="nhym">
@@ -2091,6 +2163,7 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
         <TechTreeProducedUnitArray value="nhym"/>
+        <Collide index="ForceField" value="0"/>
     </CUnit>
     <CUnit id="Hamg1" parent="nhym">
         <Name value="Hamg/Name"/>
@@ -2543,7 +2616,7 @@
     </CUnit>
     <!--Orb of Corruption-->
     <CUnit id="ocor">
-        <CostResource index="gold" value="100"/>
+        <CostResource index="gold" value="120"/>
     </CUnit>
     <!--Orb of Darkness-->
     <CUnit id="odef">
@@ -2618,7 +2691,7 @@
     </CUnit>
     <!--Orb of Fire-->
     <CUnit id="ofir">
-        <CostResource index="gold" value="100"/>
+        <CostResource index="gold" value="120"/>
     </CUnit>
     <!--Grunt-->
     <CUnit id="ogru">
@@ -2729,7 +2802,7 @@
     </CUnit>
     <!--Orb of Lightning-->
     <CUnit id="oli2">
-        <CostResource index="gold" value="100"/>
+        <CostResource index="gold" value="120"/>
     </CUnit>
     <!--Peon-->
     <CUnit id="opeo">
@@ -2797,8 +2870,8 @@
     <CUnit id="orai" defType="SMALL">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="2000"/>
-        <LifeMax value="2000"/>
+        <LifeStart value="1600"/>
+        <LifeMax value="1600"/>
         <LifeArmor value="5"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
@@ -2924,8 +2997,8 @@
     <CUnit id="otau">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="1600"/>
-        <LifeMax value="1600"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
         <LifeArmor value="10"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
@@ -2972,8 +3045,8 @@
         <TechTreeProducedUnitArray value="otau"/>
         <TechTreeProducedUnitArray value="Otch1"/>
         <CostResource index="gold" value="225"/>
-        <LifeStart value="2000"/>
-        <LifeMax value="2000"/>
+        <LifeStart value="2400"/>
+        <LifeMax value="2400"/>
     </CUnit>
     <!--Berserker-->
     <CUnit id="otbk">
@@ -3059,7 +3132,7 @@
     </CUnit>
     <!--Orb of Venom-->
     <CUnit id="oven">
-        <CostResource index="gold" value="100"/>
+        <CostResource index="gold" value="120"/>
     </CUnit>
     <!--orc warchief-->
     <CUnit id="owar">
@@ -3166,6 +3239,26 @@
     <CUnit id="rhth">
         <CostResource index="gold" value="80"/>
     </CUnit>
+    <!--Ring of regeneration-->
+    <CUnit id="rlif">
+        <CostResource index="gold" value="20"/>
+    </CUnit>
+    <!--Sobi Mask-->
+    <CUnit id="rwiz">
+        <CostResource index="gold" value="4001"/>
+    </CUnit>
+    <!--Scourge Bone Chimes-->
+    <CUnit id="sbch">
+        <CostResource index="gold" value="80"/>
+    </CUnit>
+    <!--Searinox's Heart-->
+    <CUnit id="sehr">
+        <CostResource index="gold" value="2001"/>
+    </CUnit>
+    <!--Shaman Claws-->
+    <CUnit id="shcw">
+        <CostResource index="gold" value="120"/>
+    </CUnit>
     <!--Shield of the Deathlord-->
     <CUnit id="shdt">
         <CostResource index="gold" value="200"/>
@@ -3177,6 +3270,10 @@
     <!--Shield of Honor-->
     <CUnit id="shhn">
         <CostResource index="gold" value="180"/>
+    </CUnit>
+    <!--Shamanic Totem-->
+    <CUnit id="shtm">
+        <CostResource index="gold" value="6001"/>
     </CUnit>
     <!--Shadow Orb +6-->
     <CUnit id="sor6">
@@ -3190,9 +3287,21 @@
     <CUnit id="sora">
         <CostResource index="gold" value="160"/>
     </CUnit>
+    <!--Searing Blade-->
+    <CUnit id="srbd">
+        <CostResource index="gold" value="160"/>
+    </CUnit>
     <!--Serathil-->
     <CUnit id="srtl">
         <CostResource index="gold" value="180"/>
+    </CUnit>
+    <!--Sturdy War Axe-->
+    <CUnit id="stwa">
+        <CostResource index="gold" value="6001"/>
+    </CUnit>
+    <!--Tome of Sacrifices-->
+    <CUnit id="tmsc">
+        <CostResource index="gold" value="12501"/>
     </CUnit>
     <!--Abomination-->
     <CUnit id="uabo">
@@ -3517,6 +3626,7 @@
         <BehaviorArray index="7" Link="PowerfulUnit"/>
         <BehaviorArray Link="UnholyDominanceAura"/>
         <BehaviorArray Link="FrostWyrmInvulnerable"/>
+        <AttackTargetPriority value="21"/>
     </CUnit>
     <!--Gargoyle-->
     <CUnit id="ugar">
@@ -3558,6 +3668,7 @@
         <BehaviorArray Link="StoneFormUn"/>
         <WeaponArray index="0" Link="ubsp1"/>
         <Mover value="foot"/>
+        <AttackTargetPriority value="21"/>
     </CUnit>
     <!--Ghoul-->
     <CUnit id="ugho">
@@ -3961,5 +4072,8 @@
     <!--Warsong Battle Drums-->
     <CUnit id="ward">
         <CostResource index="gold" value="80"/>
+    </CUnit>
+    <CUnit id="Champion1" parent="Statue">
+        <Height value="2"/>
     </CUnit>
 </Catalog>

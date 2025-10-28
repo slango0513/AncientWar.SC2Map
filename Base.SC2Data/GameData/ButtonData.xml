@@ -55,6 +55,7 @@
         <AlertTooltip value="UpdateItemLevel3/Ubertip"/>
         <Hotkey value="UpdateItemLevel3/Hotkey"/>
     </CButton>
+    <CButton id="SupplyNearby" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btncalltoarms.dds"/>
     <CButton id="UnholyDominance" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngargoyle.dds"/>
     <!--archer-->
     <CButton id="earc"/>

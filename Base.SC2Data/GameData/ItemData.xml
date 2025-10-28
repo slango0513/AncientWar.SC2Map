@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <!--Ancient Janggo of Endurance-->
+    <CItem id="ajen">
+        <Level value="4"/>
+    </CItem>
     <!--Ankh of Reincarnation-->
     <CItem id="ankh"/>
+    <!--Ancestral Staff-->
+    <CItemAbil id="axas">
+        <Level value="8"/>
+    </CItemAbil>
+    <CItem id="axas2" parent="War3_Item">
+        <Face value="axas"/>
+        <Class value="MISCELLANEOUS"/>
+        <Level value="8"/>
+        <EquipBehaviorArray value="AIae"/>
+        <EquipBehaviorArray value="AIl2"/>
+    </CItem>
     <!--Bladebane Armor-->
     <CItem id="blba">
         <Level value="9"/>
@@ -32,31 +47,51 @@
         <EquipBehaviorArray index="0" value="AIbm"/>
         <Abil value=""/>
     </CItemAbil>
+    <!--Essence of Aszune-->
+    <CItemAbil id="esaz">
+        <Level value="6"/>
+    </CItemAbil>
+    <CItem id="esaz2" parent="War3_Item">
+        <Face value="esaz"/>
+        <Class value="MISCELLANEOUS"/>
+        <Level value="6"/>
+        <EquipBehaviorArray value="Aegr"/>
+        <EquipBehaviorArray value="AegrSpellReduction"/>
+    </CItem>
     <!--Firehand Gauntlets-->
     <CItem id="frhg">
         <Level value="9"/>
     </CItem>
     <!--Gloves of Haste-->
     <CItem id="gcel"/>
+    <!--Killmaim-->
+    <CItem id="klmm">
+        <Level value="9"/>
+        <EquipBehaviorArray index="0" value="AItf"/>
+    </CItem>
     <!--Lion Horn of Stormwind-->
     <CItem id="lhst"/>
+    <!--mask of death-->
+    <CItem id="modt">
+        <Level value="4"/>
+    </CItem>
     <!--Orb of Corruption-->
     <CItem id="ocor">
-        <Level value="5"/>
+        <Level value="6"/>
     </CItem>
     <!--Orb of Darkness-->
     <CItem id="odef"/>
     <!--Orb of Fire-->
     <CItem id="ofir">
-        <Level value="5"/>
+        <Level value="6"/>
     </CItem>
     <!--Orb of Lightning-->
     <CItem id="oli2">
-        <Level value="5"/>
+        <Level value="6"/>
     </CItem>
     <!--Orb of Venom-->
     <CItem id="oven">
-        <Level value="5"/>
+        <Level value="6"/>
     </CItem>
     <!--Pendant of Energy-->
     <CItem id="penr">
@@ -102,6 +137,18 @@
     <CItem id="rhth">
         <Level value="4"/>
     </CItem>
+    <!--Ring of regeneration-->
+    <CItem id="rlif">
+        <Level value="1"/>
+    </CItem>
+    <!--Scourge Bone Chimes-->
+    <CItem id="sbch"/>
+    <!--Shaman Claws-->
+    <CItem id="shcw">
+        <Level value="6"/>
+        <EquipBehaviorArray index="0" value="Bdis"/>
+        <EquipBehaviorArray value="AItc"/>
+    </CItem>
     <!--Shield of the Deathlord-->
     <CItem id="shdt">
         <Level value="10"/>
@@ -128,6 +175,12 @@
     <CItem id="sora">
         <Level value="8"/>
         <EquipBehaviorArray index="0" value="AItc"/>
+    </CItem>
+    <!--Searing Blade-->
+    <CItem id="srbd">
+        <Level value="8"/>
+        <EquipBehaviorArray index="0" value="AIfb"/>
+        <EquipBehaviorArray index="1" value="AIsx"/>
     </CItem>
     <!--Serathil-->
     <CItem id="srtl">

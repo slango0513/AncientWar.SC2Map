@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorModel id="AHhbTarget">
+        <On Terms="Effect.AIlx; At Target" Send="Create"/>
+    </CActorModel>
     <CActorModel id="Broa">
         <On Terms="Behavior.MoraleBoosting.On" Send="Create"/>
         <On Terms="Behavior.MoraleBoosting.Off" Send="AnimBracketStop BSD"/>
@@ -8,6 +11,12 @@
         <On Terms="Behavior.ChargingKnight.On" Send="Create"/>
         <On Terms="Behavior.ChargingKnight.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
+    <CActorDoodad id="Champion" parent="War3_Doodad">
+        <On Terms="ActorCreation" Send="SetOpacity 0.750000"/>
+        <On Terms="ActorCreation" Send="SetHeight 2.000000"/>
+        <Model value="Npbm"/>
+        <Scale value="0.781300"/>
+    </CActorDoodad>
     <CActorModel id="PatchworkSize">
         <On Terms="Behavior.PatchworkSize.On" Send="Create"/>
         <On Terms="Behavior.PatchworkSize.Off" Send="AnimBracketStop BSD"/>
@@ -107,6 +116,8 @@
     <CActorModel id="Aetl">
         <On Terms="Behavior.FrostWyrmInvulnerable.On" Send="Create"/>
         <On Terms="Behavior.FrostWyrmInvulnerable.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.Champion.On" Send="Create"/>
+        <On Terms="Behavior.Champion.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
     <CActorModel id="Bdef">
         <On Terms="Behavior.ShieldWall.On" Send="Create"/>
@@ -966,5 +977,26 @@
         <On index="89" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+    </CActorUnit>
+    <CActorUnit id="Champion1" parent="Npbm" unitName="Champion1">
+        <On index="0" Terms="UnitBirth.Champion1" Send="Create SoundEmitter Champion1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Champion1"/>
+        <On index="2" Terms="UnitRevive.Champion1"/>
+        <On index="3" Terms="UnitRevive.Champion1"/>
+        <On index="4" Terms="UnitConstruction.Champion1.Start"/>
+        <On index="5" Terms="UnitConstruction.Champion1.Finish"/>
+        <On index="67" Terms="UnitRevive.Champion1; !ScopeContains Champion1"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Champion1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Champion1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Champion1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Champion1"/>
+        <On index="79" Send="ModelSwap Champion1"/>
+        <On index="80" Terms="WeaponStart.Champion11.AttackStart"/>
+        <On index="81" Terms="WeaponStart.Champion12.AttackStart"/>
+        <On index="85" removed="1"/>
+        <HighlightTooltip value="Champion1/Propernames"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Workers" value="0"/>
+        <StatusBarFlags index="Custom" value="0"/>
     </CActorUnit>
 </Catalog>
