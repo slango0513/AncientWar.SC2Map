@@ -243,6 +243,9 @@
             <Cost>
                 <Resource index="Custom" value="-2"/>
             </Cost>
+            <Kind index="Spell" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosGrunt" parent="War3_Passive">
@@ -250,6 +253,9 @@
             <Cost>
                 <Resource index="Custom" value="-4"/>
             </Cost>
+            <Kind index="Spell" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageRaider" parent="War3_Passive">
@@ -257,6 +263,9 @@
             <Cost>
                 <Resource index="Custom" value="-5"/>
             </Cost>
+            <Kind index="Spell" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosRaider" parent="War3_Passive">
@@ -264,6 +273,9 @@
             <Cost>
                 <Resource index="Custom" value="-10"/>
             </Cost>
+            <Kind index="Spell" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
     <!--Hardened Skin-->

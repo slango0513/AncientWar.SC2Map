@@ -2767,8 +2767,6 @@
         </CardLayouts>
         <TechTreeProducedUnitArray value="otau"/>
         <TechTreeProducedUnitArray value="Otch1"/>
-        <LifeStart value="2000"/>
-        <LifeMax value="2000"/>
         <CostResource index="gold" value="225"/>
     </CUnit>
     <!--Berserker-->
