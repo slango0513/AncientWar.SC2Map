@@ -1169,8 +1169,8 @@
             <Vital index="Energy" value="0"/>
             <Cooldown Location="Unit" TimeUse="5"/>
         </Cost>
-        <Range index="0" value="7.5"/>
-        <AutoCastRange value="7.5"/>
+        <Range index="0" value="9"/>
+        <AutoCastRange value="9"/>
         <AutoCastValidatorArray value="noMarkers"/>
         <UninterruptibleArray index="Approach" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
@@ -1203,6 +1203,9 @@
     </CAbilMorph>
     <CAbilEffectInstant id="Asud">
         <CmdButtonArray index="Execute" DefaultButtonFace="Asud" Requirements="Asud"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="AsudHuman">
+        <CmdButtonArray index="Execute" DefaultButtonFace="AsudHuman" Requirements="Asud"/>
     </CAbilEffectInstant>
     <CAbilBuild id="AEbu">
         <InfoArray index="Build1" Unit="earc" Time="0">
@@ -1290,7 +1293,7 @@
         <CmdButtonArray index="Execute" Requirements=""/>
         <Flags index="AutoCastOn" value="1"/>
         <Cost>
-            <Vital index="Energy" value="10"/>
+            <Vital index="Energy" value="5"/>
         </Cost>
     </CAbilAugment>
     <!--NE Abil-->

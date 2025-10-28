@@ -170,8 +170,8 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="ANba1">
         <Modification>
-            <DamageDealtUnscaled index="Melee" value="48"/>
-            <DamageDealtUnscaled index="Ranged" value="48"/>
+            <DamageDealtUnscaled index="Melee" value="96"/>
+            <DamageDealtUnscaled index="Ranged" value="96"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Aabr" parent="War3_AuraCaster">
@@ -307,6 +307,16 @@
         <Modification HealTakenMultiplier="2"/>
         <DamageResponse ModifyFraction="2"/>
     </CBehaviorBuff>
+    <!--BlackArrow-->
+    <CBehaviorBuff id="BNba">
+        <Duration value="3"/>
+        <DurationOverride index="0" Duration="3"/>
+    </CBehaviorBuff>
+    <!--Doom-->
+    <CBehaviorBuff id="BNdo">
+        <BehaviorCategories index="Restorable" value="1"/>
+        <TechAliasArray value="_StealableDebuff"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="BNht1">
         <MaxStackCount value="2"/>
         <MaxStackCountPerCaster value="1"/>
@@ -323,7 +333,9 @@
         <Modification>
             <DeathResponse Chance="1" Effect="AUin"/>
         </Modification>
-        <TechAliasArray index="1" removed="1"/>
+        <BehaviorCategories index="Dispelable" value="0"/>
+        <BehaviorCategories index="User1" value="1"/>
+        <TechAliasArray index="1" value="_StealableDebuff"/>
     </CBehaviorBuff>
     <!--Stun-->
     <CBehaviorBuff id="BSTN">
@@ -1219,13 +1231,13 @@
     <CBehaviorBuff id="Brej"/>
     <!--Roar-->
     <CBehaviorBuff id="Broa">
-        <MaxStackCount value="6"/>
+        <MaxStackCount value="3"/>
         <MaxStackCountPerCaster value="1"/>
         <Modification>
-            <DamageDealtScaled index="Melee" value="12"/>
-            <DamageDealtScaled index="Ranged" value="12"/>
             <DamageDealtFraction index="Melee" value="0"/>
             <DamageDealtFraction index="Ranged" value="0"/>
+            <DamageDealtUnscaled index="Melee" value="12"/>
+            <DamageDealtUnscaled index="Ranged" value="12"/>
         </Modification>
     </CBehaviorBuff>
     <!--Slow-->
@@ -1279,6 +1291,7 @@
             <AbilClassDisableArray index="CAbilWarpable" value="1"/>
             <AbilClassDisableArray index="CAbilWarpTrain" value="1"/>
             <AbilLinkEnableArray value="Asud"/>
+            <AbilLinkEnableArray value="AsudHuman"/>
             <BehaviorLinkDisableArray value="Agyd"/>
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
@@ -1286,7 +1299,6 @@
     <CBehaviorBuff id="DebuffImmunity" parent="War3_Passive">
         <Modification>
             <BehaviorLinkDisableArray value="Bslo"/>
-            <BehaviorLinkDisableArray value="BNba"/>
             <BehaviorLinkDisableArray value="BIcb"/>
             <BehaviorLinkDisableArray value="Bprg"/>
             <BehaviorLinkDisableArray value="BprgPause"/>

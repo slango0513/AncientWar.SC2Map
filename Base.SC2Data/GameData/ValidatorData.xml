@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CValidatorPlayerRequirement id="HasStealableDebuff">
+        <WhichPlayer Value="Target"/>
+        <Find value="1"/>
+        <Value value="HasStealableDebuff"/>
+        <WhichUnit Value="Target"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HasStealableBuff">
+        <WhichPlayer Value="Target"/>
+        <Find value="1"/>
+        <Value value="HasStealableBuff"/>
+        <WhichUnit Value="Target"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorCombine id="FriendHasStealableDebuff">
+        <Type value="And"/>
+        <CombineArray value="TargetIsAllyOrPlayer"/>
+        <CombineArray value="HasStealableDebuff"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="EnemyHasStealableBuff">
+        <Type value="And"/>
+        <CombineArray value="TargetIsEnemy"/>
+        <CombineArray value="HasStealableBuff"/>
+    </CValidatorCombine>
     <CValidatorLocationCompareRange id="AHdrMaxRange">
         <Range value="12"/>
     </CValidatorLocationCompareRange>
+    <CValidatorCombine id="EnemyHasStealableBuffOrFriendHasStealableDebuff">
+        <CombineArray value="EnemyHasStealableBuff"/>
+        <CombineArray value="FriendHasStealableDebuff"/>
+    </CValidatorCombine>
+    <CValidatorLocationEnumArea id="HasTransferableEnemyTarget">
+        <AreaArray index="0" Count="1" Radius="9" Validator="SpellStealFinalTarget"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="HasTransferableFriendTarget">
+        <AreaArray index="0" Count="1" Radius="9" Validator="SpellStealFinalTarget"/>
+    </CValidatorLocationEnumArea>
     <CValidatorUnitCompareField id="IsBlight">
         <Field value="TechAliasArray"/>
         <Value value="Blight"/>
@@ -22,9 +54,15 @@
     <CValidatorUnitCompareBehaviorCount id="NoBHbn">
         <Behavior value="BHbn"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBNba">
+        <Behavior value="BNba"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBblo">
         <Behavior value="Bblo"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitFilters id="SpellStealFinalTarget">
+        <Filters value="-;Player,Ally,Neutral,RawResource,HarvestableResource,Missile,Destructible,Item,PreventDefeat,PreventReveal,Dead,Invulnerable,Unstoppable"/>
+    </CValidatorUnitFilters>
     <CValidatorUnitCompareVital id="TargetLifeLT500">
         <Compare value="LT"/>
         <Value value="500"/>
@@ -143,7 +181,15 @@
     <CValidatorUnitCompareBehaviorCount id="NoBNdo">
         <Behavior value="BNdo"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasBNdo">
+        <Compare value="GT"/>
+        <Behavior value="BNdo"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBNso">
+        <Behavior value="BNso"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasBNso">
+        <Compare value="GT"/>
         <Behavior value="BNso"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBUdd">

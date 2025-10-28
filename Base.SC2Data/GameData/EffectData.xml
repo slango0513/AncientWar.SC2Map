@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectRemoveBehavior id="RemoveAStealableBuffTrigger">
+        <EditorCategories value="Race:Trigger"/>
+        <BehaviorCategories index="User1" value="1"/>
+        <BehaviorAlignment value="Positive"/>
+        <Count value="1"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="RemoveAStealableDebuffTrigger">
+        <EditorCategories value="Race:Trigger"/>
+        <BehaviorCategories index="User1" value="1"/>
+        <BehaviorAlignment value="Negative"/>
+        <Count value="1"/>
+    </CEffectRemoveBehavior>
     <CEffectApplyBehavior id="AEer1HeroDur">
         <Duration value="2"/>
     </CEffectApplyBehavior>
@@ -171,6 +183,9 @@
         <EffectArray value="uske"/>
         <EffectArray value="uskm"/>
         <EffectArray value="nsca"/>
+    </CEffectSet>
+    <CEffectSet id="Asps">
+        <ValidatorArray index="0" value="EnemyHasStealableBuffOrFriendHasStealableDebuff"/>
     </CEffectSet>
     <CEffectDamage id="BNdoDPS">
         <Amount value="0.0625"/>
@@ -480,7 +495,7 @@
         <AttributeFactor index="hero" value="0"/>
         <Amount value="12"/>
         <Random value="0"/>
-        <AreaArray Radius="1" Bonus="10"/>
+        <AreaArray Radius="0.75" Bonus="10"/>
         <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
     </CEffectDamage>
     <CEffectDamage id="owyv1">
@@ -1235,6 +1250,15 @@
             <Resource index="Vespene" value="-0.75"/>
             <Resource index="Terrazine" value="-0.75"/>
             <Resource index="Custom" value="-0.75"/>
+        </SalvageFactor>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="AsudHuman">
+        <ModifyFlags index="Salvage" value="1"/>
+        <SalvageFactor>
+            <Resource index="Minerals" value="-0.9"/>
+            <Resource index="Vespene" value="-0.9"/>
+            <Resource index="Terrazine" value="-0.9"/>
+            <Resource index="Custom" value="-0.9"/>
         </SalvageFactor>
     </CEffectModifyUnit>
     <CEffectDamage id="ocat1">

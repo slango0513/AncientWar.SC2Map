@@ -12,6 +12,7 @@ AHbn/Ubertip=使一个非机械单位灵体化，并降低其移动速度<d ref=
 AHds/Ubertip=在<d ref="Effect,BHds1,Duration"/>秒内使得圣骑士对所有的攻击免疫。
 AHfa/Ubertip=增加<d ref="Behavior,AHfa1,Modification.DamageDealtUnscaled[Ranged]"/>点的火焰伤害。
 AHhb/Ubertip=圣光术能治疗范围内所有友方单位<d ref="Effect,AHhbHeal1,RechargeVitalRate"/>点的生命值，同时对该范围内所有敌方的亡灵单位造成<d ref="Effect,AHhbDamage1,Amount"/>点伤害。
+AHsu/Tip=出售单位
 AHtb/Ubertip=向目标投掷一巨大的魔法锤，对其造成<d ref="Effect,AHtbDamage1,Amount"/>点伤害并使其<d ref="Behavior,BHtb,Duration"/>秒内处于昏迷状态。
 AHwe/Ubertip=召唤出一个具有<d ref="Unit,hwat,LifeStart"/>生命值的水元素来帮大魔法师进行战斗。攻击力为<d ref="Effect,hwat1,Amount"/>点。<n/>持续<d ref="Behavior,BHwe,Duration"/>秒。
 AIct/Tip=变更昼夜
@@ -52,6 +53,7 @@ Abil/Name/ANgl=购买木材
 Abil/Name/ANlg=购买黄金
 Abil/Name/Adef1=防御
 Abil/Name/Asud=出售单位
+Abil/Name/AsudHuman=出售单位
 Abil/Name/ShockWave=震荡波
 Ablo/Ubertip=增加一个友方单位<d ref="Behavior,Bblo,Modification.AttackSpeedMultiplier-1*100"/>%的攻击速度和<d ref="Behavior,Bblo,Modification.MoveSpeedMultiplier-1*100"/>%的移动速度，对敌人的近战攻击还会恢复自己的生命值，恢复量为造成伤害的<d ref="Behavior,Bblo,Modification.VitalDamageLeechArray[Life].KindArray[Melee]*100"/>%。<n/>持续<d ref="Behavior,Bblo,Duration"/>秒。
 Absk/Ubertip=让该单位增加<d ref="Behavior,Bbsk,Modification.AttackSpeedMultiplier-1*100"/>%的攻击速度，但是同时会受到额外<d ref="Behavior,Bbsk,DamageResponse.ModifyFraction-1*100"/>%的伤害。
@@ -82,7 +84,7 @@ Anh1/Ubertip=治疗一个友方的非机械受伤单位，恢复其<d ref="Effec
 Anh2/Ubertip=治疗一个友方的非机械受伤单位，恢复其<d ref="Effect,Anh2Heal,RechargeVitalRate"/>的生命值。
 Aps2/Ubertip=将目标单位和女妖震晕<d ref="Behavior,Bpos,Duration" precision="1"/>秒，在这个期间，女妖将受到额外的伤害。女妖会将永久地控制目标单位。<n/>占据魔法不能被使用在飞行的、强大的和具有法术抗性的单位身上。
 Apts/Ubertip=在每次攻击的时候都能释放出疾病之云。疾病之云每秒能对敌人造成<d ref="Effect,BaplDPS,Amount"/>点的伤害。<n/>持续<d ref="Behavior,Bapl,Duration"/>秒。<n/>亡灵以外的种族对被感染的单位进行攻击时，有<d ref="Behavior,Bapl,DamageResponse.Chance*100"/>%的几率受到传染。<n/>最多可叠加<d ref="Behavior,Bapl,MaxStackCount"/>层。
-Ara2/Ubertip=增加周围友方单位<d ref="Behavior,Broa,Modification.DamageDealtScaled[Melee]"/>点基础攻击力。<n/>持续<d ref="Behavior,Broa,Duration"/>秒。<n/>最多可叠加<d ref="Behavior,Broa,MaxStackCount"/>层。
+Ara2/Ubertip=增加周围友方单位<d ref="Behavior,Broa,Modification.DamageDealtUnscaled[Melee]"/>点攻击力。<n/>持续<d ref="Behavior,Broa,Duration"/>秒。<n/>最多可叠加<d ref="Behavior,Broa,MaxStackCount"/>层。
 Arai/Ubertip=从一具尸体中召唤出3个骷髅爪牙。
 Arej/Ubertip=在<d ref="Behavior,Brej,Duration"/>秒内恢复目标友方单位<d ref="Effect,BrejHealTick,RechargeVitalRate*Behavior,Brej,Duration"/>点的生命值。
 Aroc/Ubertip=对周围的敌方地面单位进行强有力的弹幕攻击。
@@ -95,6 +97,8 @@ Aspo/Ubertip=迟缓毒药攻击能造成每秒<d ref="Effect,BssdDPS,Amount"/>�
 Assk/Ubertip=降低所有施加在山岭巨人身上的伤害<d ref="1-Behavior,Assk,DamageResponse.ModifyFraction*100"/>%。
 Asta/Ubertip=召唤出一个固定隐形的陷阱来击晕靠近的敌方地面单位。当有敌方的地点单位靠近陷阱的时候会自动激活守卫。<n/>持续<d ref="Behavior,Bstt,Duration"/>秒。<n/>眩晕效果持续<d ref="Behavior,Bsta,Duration"/>秒。<n/>每个静止陷阱最多击晕个<d ref="Effect,BsttSearch,MaxCount"/>单位。
 Asud/Ubertip=允许出卖单位，返还<d ref="-Effect,Asud,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
+AsudHuman/Tip=出售单位
+AsudHuman/Ubertip=允许出卖单位，返还<d ref="-Effect,AsudHuman,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
 Auhf/Ubertip=增加目标单位<d ref="Behavior,Buhf,Modification.AttackSpeedMultiplier-1*100"/>%的攻击速度，但是也会受到<d ref="Behavior,Buhf,DamageResponse.ModifyFraction-1*100"/>%的额外伤害。<n/>持续<d ref="Behavior,Buhf,Duration"/>秒。
 Ault/Tip=夜视能力
 Ault/Ubertip=能在夜间提高<d ref="Behavior,Ault,Modification.DamageDealtFraction[Melee]*100"/>%的攻击力和<d ref="Behavior,Ault,Modification.WeaponRange"/>射程。
@@ -133,6 +137,7 @@ Buhf/Buffubertip=该单位受到了邪恶狂暴的作用，因此攻击速度加
 Button/Name/AcriPassive=残废术
 Button/Name/ImpaleAttack=穿刺攻击
 Button/Name/MultiShot=多重射击
+Button/Name/SpecialtyHuman=种族特长
 Champion1/Name=Champion1
 Champion1/Propernames=???
 ChargeKnight/Name=冲锋
@@ -424,10 +429,17 @@ DocInfo/PatchNote267=降低兽人步兵类单位的伤害。
 DocInfo/PatchNote268=掠夺(狼骑兵与混乱兽人狼骑兵)的几率提高到100%。
 DocInfo/PatchNote269=修复占据对有抗性皮肤的单位无效的漏洞。
 DocInfo/PatchNote270=人类：
-DocInfo/PatchNote271=提高狮鹫骑士的生命值，降低护甲。
-DocInfo/PatchNote272=兽人：
-DocInfo/PatchNote273=易伤(浸毒长矛)的最大叠加数量降低到6层。
-DocInfo/PatchNote274=火油与浸毒长矛现在对拥有负面效果防护的单位无效。
+DocInfo/PatchNote271=加入新种族特长。
+DocInfo/PatchNote272=提高狮鹫骑士的生命值，降低护甲。
+DocInfo/PatchNote273=暗夜精灵：
+DocInfo/PatchNote274=提高黑暗爪牙的生命值、护甲及伤害，并且获得技能负面效果防护。
+DocInfo/PatchNote275=咆哮的攻击加成不再是基础攻击加成，并且最大叠加数量降低到3层。
+DocInfo/PatchNote276=兽人：
+DocInfo/PatchNote277=易伤(浸毒长矛)的最大叠加数量降低到6层。
+DocInfo/PatchNote278=火油与浸毒长矛现在对拥有负面效果防护的单位无效。
+DocInfo/PatchNote279=调整比赛积分规则：
+DocInfo/PatchNote280=第4回合前每赢得一回合获得0.2分，从第4回合开始，每赢得一回合获得0.3分。
+DocInfo/PatchNote281=赢得四分之一决赛或半决赛获得1分，赢得总决赛获得3分。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AHhbE=AHhbE
@@ -444,6 +456,7 @@ Effect/Name/AfrzSphereEffect2=AfrzSphereEffect2
 Effect/Name/AfrzSphereEffect3=AfrzSphereEffect3
 Effect/Name/Agyd=Agyd
 Effect/Name/Asud=出售单位
+Effect/Name/AsudHuman=出售单位
 Effect/Name/Babr=Babr
 Effect/Name/ChargeKnight=冲锋
 Effect/Name/ChargeKnightEnumArea=冲锋搜索区域
@@ -586,6 +599,7 @@ Oshd/Ubertip=提供<c val="FFFFFF">5</c>名巨魔牧师、<c val="FFFFFF">1</c>�
 Otch/Tip=牛头人酋长
 Otch/Ubertip=提供<c val="FFFFFF">2</c>名牛头人、<c val="FFFFFF">1</c>位牛头酋长。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Otch1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Otch1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Otch1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Otch1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,otau1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,otau1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">粉碎</c>、<c val="FFFFFF">抗性皮肤</c>、<c val="FFFFFF">负面效果防护</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Param/Expression/0DADB9CB=U=~A~, TU=~E~, I=~B~ (~F~), Cnt=~C~, Slt=~D~
+Param/Expression/19E4D5C2=f:~A~ t:~B~
 Param/Expression/BCF8CEA7=U=~A~, TU=~E~, I=~B~ (~F~), Cnt=~C~, Slt=~D~
 Param/Value/04BEE6F3=死亡等待
 Param/Value/05267893=
@@ -698,6 +712,8 @@ ShieldWall/Tip=盾墙
 ShieldWall/Ubertip=减少<d ref="1-Behavior,ShieldWall,DamageResponse.ModifyFraction*100"/>%受到的伤害，持续<d ref="Behavior,ShieldWall,Duration"/>秒。
 ShockWave/Tip=震荡波
 ShockWave/Ubertip=每次攻击有<d ref="Behavior,ShockWave,DamageResponse.Chance*100"/>%几率发出一道向前的能量波，对一条线上的敌方地面单位造成<d ref="Effect,AOshDamage1,Amount"/>点的伤害。
+SpecialtyHuman/Tip=种族特长
+SpecialtyHuman/Ubertip=出售单位返还<d ref="-Effect,AsudHuman,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
 StarFragment/Tip=星辰碎片
 StarFragment/Ubertip=能在夜间提高<d ref="Behavior,StarFragment,Modification.AttackSpeedMultiplier-1*100"/>%攻击速度。
 SunderArmor/Tip=破甲

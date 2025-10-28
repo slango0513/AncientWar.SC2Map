@@ -12,6 +12,12 @@
     <CRequirement id="Final">
         <NodeArray index="Use" Link="CountUpgradeFinalCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="HasStealableDebuff">
+        <NodeArray index="Use" Link="CountBehavior_StealableDebuffCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="HasStealableBuff">
+        <NodeArray index="Use" Link="CountBehavior_StealableBuffCompleteOnlyAtUnit"/>
+    </CRequirement>
     <CRequirement id="ItemLevel">
         <NodeArray index="Show" Link="EqCountUpgradeItemLevelQueuedOrBetter0"/>
     </CRequirement>

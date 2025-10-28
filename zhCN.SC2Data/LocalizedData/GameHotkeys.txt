@@ -9,6 +9,7 @@ Ablo/Hotkey=
 Absk/Hotkey=
 Arpl/Hotkey=
 Asud/Hotkey=B
+AsudHuman/Hotkey=B
 CmdBuild/Hotkey=Q
 CmdBuildHuman/Hotkey=Q
 CmdBuildNaga/Hotkey=Q

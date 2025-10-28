@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CButton id="AsudHuman" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnHumanCaptureFlag.dds"/>
     <CButton id="AIct"/>
     <CButton id="ANgl">
         <TooltipFlags index="ShowResources" value="0"/>
@@ -36,6 +37,7 @@
     <CButton id="Nmag"/>
     <!--mannoroth-->
     <CButton id="Nman"/>
+    <CButton id="SpecialtyHuman" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhumancaptureflag.dds"/>
     <CButton id="StarFragment" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstarfall.dds"/>
     <CButton id="SunderArmorhgyr" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimprovedunholyarmor.dds"/>
     <CButton id="SunderArmorhrif" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimprovedunholyarmor.dds"/>
