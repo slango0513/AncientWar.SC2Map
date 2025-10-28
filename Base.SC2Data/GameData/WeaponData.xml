@@ -41,6 +41,7 @@
         <MinScanRange value="20"/>
         <Range value="6"/>
         <Period value="1.5"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <!--Hero Banshee Ranger-->
     <CWeaponLegacy id="Nbrn1" atkType="CHAOS">
@@ -387,6 +388,16 @@
         <Range value="7"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <!--destroyer-->
+    <CWeaponLegacy id="ubsp1" atkType="PIERCE">
+        <Name value="DAMAGE_PIERCE"/>
+        <Tip value="DAMAGETIP_PIERCE"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-PIERCE.tga"/>
+        <TargetFilters value="Visible;ground,wall,tree,Missile,dead,invulnerable,immunity"/>
+        <MinScanRange value="20"/>
+        <Range value="3"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
     <!--CryptFiend-->
     <CWeaponLegacy id="ucry1">
         <MinScanRange value="20"/>
@@ -409,16 +420,10 @@
         <Range value="3"/>
         <Period value="1.5"/>
     </CWeaponLegacy>
-    <!--Gargoyle-->
-    <CWeaponLegacy id="ugar1">
-        <MinScanRange value="20"/>
-        <Period value="3"/>
-    </CWeaponLegacy>
     <CWeaponLegacy id="ugar2">
         <MinScanRange value="20"/>
         <Range value="2"/>
         <Period value="3"/>
-        <TargetFilters value="Visible;wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <!--Ghoul-->
     <CWeaponLegacy id="ugho1">

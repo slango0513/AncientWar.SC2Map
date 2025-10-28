@@ -963,7 +963,7 @@
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngargoyle.dds"/>
         <Period value="0.0625"/>
         <PeriodicEffect value="UnholyDominanceIssueOrder"/>
-        <Modification WeaponRange="4"/>
+        <Modification WeaponRange="5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="FrostWyrmInvulnerable" parent="War3_Passive">
         <Requirements value="FrostWyrmInvulnerable"/>

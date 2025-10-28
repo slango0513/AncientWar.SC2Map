@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectLaunchMissile id="Hgam1LM">
+        <ImpactEffect value="Hgam1S"/>
+        <AmmoUnit value="nhym1LM"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ubsp1">
+        <AttributeFactor index="small" value="1"/>
+        <AttributeFactor index="unarmored" value="0.5"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="large" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="96"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="ugar1LM" parent="War3_Missile" weaponid="ugar1"/>
     <!--Keeper - Thorns Aura Buff=BEah-->
     <CEffectEnumArea id="AEahSearch">
         <AreaArray index="0" Radius="9" Effect="BEah"/>
@@ -29,7 +43,7 @@
         <Duration value="10"/>
     </CEffectApplyBehavior>
     <CEffectEnumArea id="ANsi1Search">
-        <AreaArray index="0" Radius="2" Effect="ANsiBuffSet"/>
+        <AreaArray index="0" Radius="3" Effect="ANsiBuffSet"/>
     </CEffectEnumArea>
     <!--Chieftain - Endurance Aura Buff=BOae-->
     <CEffectEnumArea id="AOaeSearch">
@@ -238,7 +252,7 @@
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="large" value="1"/>
         <AttributeFactor index="fortified" value="-0.65"/>
-        <Amount value="96"/>
+        <Amount value="60"/>
         <Random value="0"/>
         <AreaArray Radius="0.625" Bonus="24"/>
         <AreaArray Radius="1.25" Bonus="12"/>
@@ -250,10 +264,8 @@
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="large" value="1"/>
         <AttributeFactor index="fortified" value="-0.65"/>
-        <Amount value="96"/>
+        <Amount value="60"/>
         <Random value="0"/>
-        <AreaArray Radius="0.625" Bonus="12"/>
-        <AreaArray Radius="1.25" Bonus="12"/>
         <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
     </CEffectDamage>
     <CEffectIssueOrder id="ManaFlareIssueOrder">
@@ -620,14 +632,11 @@
     <CEffectDamage id="nhym1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="96"/>
+        <Amount value="60"/>
         <Random value="0"/>
     </CEffectDamage>
-    <CEffectLaunchMissile id="nhym1LM">
-        <ImpactEffect value="nhym1S"/>
-    </CEffectLaunchMissile>
-    <CEffectSet id="nhym1S">
-        <EffectArray value="nhym1"/>
+    <CEffectSet id="Hgam1S">
+        <EffectArray value="Hgam1"/>
         <EffectArray value="Bfro"/>
     </CEffectSet>
     <CEffectDamage id="nitp1">
