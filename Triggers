@@ -26012,7 +26012,6 @@
         <Variable Type="Variable" Id="05957528"/>
     </Element>
     <Element Type="FunctionDef" Id="CDB42282">
-        <Identifier>UnitInventoryCreate</Identifier>
         <Label Type="Label" Library="Ntve" Id="00000007"/>
         <FlagAction/>
         <Parameter Type="ParamDef" Id="A8DFCED7"/>

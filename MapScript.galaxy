@@ -156,7 +156,7 @@ region gf_PlayerBuildingRegion (int lp_p, int lp_phalanx);
 bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u);
 void gf_GetBonusItem (int lp_p, string lp_itemType);
 void gf_GetBonusGold (int lp_p, int lp_gold);
-void gf_UnitInventoryCreate (unit lp_u, unit lp_item);
+void gf__GiveItemToUnit (unit lp_u, unit lp_item);
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
@@ -207,11 +207,13 @@ trigger gt_PlayerLeft;
 // Global Functions
 //--------------------------------------------------------------------------------------------------
 point gf_PlayerBattlefieldLocation (int lp_phalanx, int lp_p) {
+    // Automatic Variable Declarations
     // Implementation
     return PointFromName(("Battlefield" + IntToString(lp_p) + "," + IntToString(lp_phalanx)));
 }
 
 point gf_PlayerReserveLocation (int lp_p, int lp_phalanx) {
+    // Automatic Variable Declarations
     // Implementation
     return PointFromName(("Reserve" + IntToString(lp_p) + "," + IntToString(lp_phalanx)));
 }
@@ -220,6 +222,7 @@ point gf_PlayerBonusLocation (int lp_p, int lp_phalanx) {
     // Variable Declarations
     int lv_p;
 
+    // Automatic Variable Declarations
     // Variable Initialization
 
     // Implementation
@@ -236,6 +239,7 @@ point gf_PlayerBonusMobLocation (int lp_p, int lp_phalanx) {
     // Variable Declarations
     int lv_p;
 
+    // Automatic Variable Declarations
     // Variable Initialization
 
     // Implementation
@@ -252,6 +256,7 @@ point gf_PlayerBonusReserveLocation (int lp_p, int lp_phalanx) {
     // Variable Declarations
     int lv_p;
 
+    // Automatic Variable Declarations
     // Variable Initialization
 
     // Implementation
@@ -265,40 +270,44 @@ point gf_PlayerBonusReserveLocation (int lp_p, int lp_phalanx) {
 }
 
 point gf_PlayerFinalLocation (int lp_p, int lp_phalanx) {
+    // Automatic Variable Declarations
     // Implementation
     return PointFromName(("FinalBattlefield" + IntToString(lp_p) + "," + IntToString(lp_phalanx)));
 }
 
 point gf_PlayerFinalReserveLocation (int lp_p, int lp_phalanx) {
+    // Automatic Variable Declarations
     // Implementation
     return PointFromName(("FinalReserve" + IntToString(lp_p) + "," + IntToString(lp_phalanx)));
 }
 
 point gf_PlayerWorkerLocation (int lp_p) {
+    // Automatic Variable Declarations
     // Implementation
     return PointFromName(("Worker" + IntToString(lp_p)));
 }
 
 region gf_PlayerBuildingRegion (int lp_p, int lp_phalanx) {
+    // Automatic Variable Declarations
     // Implementation
     return RegionFromName(("BuildingRegion" + IntToString(lp_p) + "," + IntToString(lp_phalanx)));
 }
 
 bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u) {
-    int auto60E6B4F6_ae;
-    int auto60E6B4F6_ai;
-
     // Variable Declarations
     int lv_i;
     bool lv_b;
+
+    // Automatic Variable Declarations
+    int auto60E6B4F6_ae;
+    const int auto60E6B4F6_ai = 1;
 
     // Variable Initialization
 
     // Implementation
     auto60E6B4F6_ae = UnitBehaviorCountAll(lp_u);
-    auto60E6B4F6_ai = 1;
     lv_i = 1;
-    for ( ; ( (auto60E6B4F6_ai >= 0 && lv_i <= auto60E6B4F6_ae) || (auto60E6B4F6_ai <= 0 && lv_i >= auto60E6B4F6_ae) ) ; lv_i += auto60E6B4F6_ai ) {
+    for ( ; ( (auto60E6B4F6_ai >= 0 && lv_i <= auto60E6B4F6_ae) || (auto60E6B4F6_ai < 0 && lv_i >= auto60E6B4F6_ae) ) ; lv_i += auto60E6B4F6_ai ) {
         if ((UnitBehaviorHasFlag(UnitBehaviorGet(lp_u, lv_i), lp_bf) == true)) {
             lv_b = true;
         }
@@ -311,6 +320,7 @@ void gf_GetBonusItem (int lp_p, string lp_itemType) {
     // Variable Declarations
     int lv_costGold;
 
+    // Automatic Variable Declarations
     // Variable Initialization
     lv_costGold = CatalogFieldValueGetAsInt(c_gameCatalogUnit, lp_itemType, "CostResource[" + IntToString(2) + "]", lp_p);
 
@@ -321,6 +331,7 @@ void gf_GetBonusItem (int lp_p, string lp_itemType) {
 }
 
 void gf_GetBonusGold (int lp_p, int lp_gold) {
+    // Automatic Variable Declarations
     // Implementation
     SoundPlayForPlayer(SoundLink("ReceiveGold", -1), c_maxPlayers, PlayerGroupSingle(lp_p), 100.0, 0.0);
     SoundPlayForPlayer(SoundLink("ItemReward", 0), c_maxPlayers, PlayerGroupSingle(lp_p), 100.0, 0.0);
@@ -328,7 +339,7 @@ void gf_GetBonusGold (int lp_p, int lp_gold) {
     UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/76408ADB"));
 }
 
-void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
+void gf__GiveItemToUnit (unit lp_u, unit lp_item) {
     // Variable Declarations
     order lv_dropOrder;
     string lv_itemType;
@@ -337,6 +348,7 @@ void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
     int lv_container;
     int lv_slot;
 
+    // Automatic Variable Declarations
     // Variable Initialization
     lv_dropOrder = OrderTargetingUnit(AbilityCommand("TodGodInventory", 0), lp_u);
     lv_itemType = UnitGetType(lp_item);
@@ -370,6 +382,7 @@ bool gt_GetItem_Func (bool testConds, bool runActions) {
     int lv_minLevel;
     int lv_maxLevel;
 
+    // Automatic Variable Declarations
     // Variable Initialization
     lv_player = UnitGetOwner(EventUnit());
     lv_rate = RandomInt(1, 100);
@@ -452,8 +465,6 @@ void gt_GetItem_Init () {
 // Trigger: Pawn (Workarounds)
 //--------------------------------------------------------------------------------------------------
 bool gt_PawnWorkarounds_Func (bool testConds, bool runActions) {
-    string auto9E687DDD_val;
-
     // Variable Declarations
     unit lv_u;
     unit lv_shop;
@@ -465,6 +476,9 @@ bool gt_PawnWorkarounds_Func (bool testConds, bool runActions) {
     fixed lv_rate;
     int lv_income;
     fixed lv_m;
+
+    // Automatic Variable Declarations
+    string auto9E687DDD_val;
 
     // Variable Initialization
     lv_u = EventUnit();
@@ -531,9 +545,6 @@ void gt_PawnWorkarounds_Init () {
 // Trigger: AOhw - Impact
 //--------------------------------------------------------------------------------------------------
 bool gt_AOhwImpact_Func (bool testConds, bool runActions) {
-    unitgroup auto2D2EEF05_g;
-    int auto2D2EEF05_u;
-
     // Variable Declarations
     unit lv_caster;
     int lv_level;
@@ -549,6 +560,10 @@ bool gt_AOhwImpact_Func (bool testConds, bool runActions) {
     int lv_casterPlayer;
     unitgroup lv_tempug;
     unit lv_tempu;
+
+    // Automatic Variable Declarations
+    unitgroup auto2D2EEF05_g;
+    int auto2D2EEF05_u;
 
     // Variable Initialization
     lv_caster = EventPlayerEffectUsedUnit(c_effectUnitCaster);
@@ -583,9 +598,10 @@ bool gt_AOhwImpact_Func (bool testConds, bool runActions) {
         lv_healing *= libGAwX_gv_aOhwHealingReduce;
         lv_searchPool = UnitGroupSearch(null, lv_casterPlayer, lv_searchPoint, libGAwX_gv_aOhwAoERange, gv_aOhwTargetFilter, 0);
         auto2D2EEF05_g = lv_searchPool;
-        auto2D2EEF05_u = 1;
-        for ( ; auto2D2EEF05_u <= UnitGroupCount(auto2D2EEF05_g, c_unitCountAll) ; auto2D2EEF05_u += BoolToInt(lv_tempu == UnitGroupUnit(auto2D2EEF05_g, auto2D2EEF05_u)) ) {
-            lv_tempu = UnitGroupUnit(auto2D2EEF05_g, auto2D2EEF05_u);
+        auto2D2EEF05_u = UnitGroupCount(auto2D2EEF05_g, c_unitCountAll);
+        for (;; auto2D2EEF05_u -= 1) {
+            lv_tempu = UnitGroupUnitFromEnd(auto2D2EEF05_g, auto2D2EEF05_u);
+            if (lv_tempu == null) { break; }
             if ((libGAwX_gf_UnitLifeIsFull(lv_tempu) == false)) {
                 UnitGroupAdd(lv_tempug, lv_tempu);
             }
@@ -623,6 +639,7 @@ void gt_AOhwImpact_Init () {
 // Trigger: moon - Moonstone - Change TOD
 //--------------------------------------------------------------------------------------------------
 bool gt_moonMoonstoneChangeTOD_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Actions
     if (!runActions) {
         return true;
@@ -651,6 +668,7 @@ void gt_moonMoonstoneChangeTOD_Init () {
 // Trigger: moon - Moonstone - Restore TOD
 //--------------------------------------------------------------------------------------------------
 bool gt_moonMoonstoneRestoreTOD_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Actions
     if (!runActions) {
         return true;
@@ -682,6 +700,7 @@ bool gt_AwarTargetCheck_Func (bool testConds, bool runActions) {
     unit lv_target;
     int lv_player;
 
+    // Automatic Variable Declarations
     // Variable Initialization
     lv_caster = EventUnit();
     lv_target = EventUnitTarget();
@@ -719,6 +738,7 @@ bool gt_AraiSummonCount_Func (bool testConds, bool runActions) {
     unit lv_ukill;
     unitgroup lv_ug;
 
+    // Automatic Variable Declarations
     // Variable Initialization
     lv_u = EventUnitCreatedUnit();
     lv_p = UnitGetOwner(lv_u);
@@ -761,6 +781,7 @@ bool gt_AOclImpact_Func (bool testConds, bool runActions) {
     point lv_searchPoint;
     int lv_casterPlayer;
 
+    // Automatic Variable Declarations
     // Variable Initialization
     lv_caster = EventPlayerEffectUsedUnit(c_effectUnitCaster);
     lv_level = UnitAbilityGetLevel(lv_caster, libGAwX_gv_aOclAbilLink);
@@ -811,13 +832,6 @@ void gt_AOclImpact_Init () {
 // Trigger: Aspl - Search
 //--------------------------------------------------------------------------------------------------
 bool gt_AsplSearch_Func (bool testConds, bool runActions) {
-    int auto93ABB4D9_ae;
-    int auto93ABB4D9_ai;
-    unitgroup auto23ACADAB_g;
-    int auto23ACADAB_u;
-    unitgroup autoB0817FFD_g;
-    int autoB0817FFD_u;
-
     // Variable Declarations
     unitgroup lv_ug;
     unit lv_target;
@@ -829,6 +843,17 @@ bool gt_AsplSearch_Func (bool testConds, bool runActions) {
     fixed lv_life;
     int lv_i;
     unit lv_u;
+
+    // Automatic Variable Declarations
+    int auto93ABB4D9_ae;
+    const int auto93ABB4D9_ai = 1;
+    unitgroup autoEA033833_g;
+    int autoEA033833_u;
+    unit autoEA033833_var;
+    unitgroup auto23ACADAB_g;
+    int auto23ACADAB_u;
+    unitgroup autoB0817FFD_g;
+    int autoB0817FFD_u;
 
     // Variable Initialization
     lv_ug = UnitGroupEmpty();
@@ -844,30 +869,33 @@ bool gt_AsplSearch_Func (bool testConds, bool runActions) {
     UnitBehaviorRemove(lv_target, libGAwX_gv_asplMarkerBuff, c_unitBehaviorCountAll);
     Wait(0.0625, c_timeGame);
     auto93ABB4D9_ae = (gv_asplMaxTargets - 1);
-    auto93ABB4D9_ai = 1;
     lv_i = 1;
-    for ( ; ( (auto93ABB4D9_ai >= 0 && lv_i <= auto93ABB4D9_ae) || (auto93ABB4D9_ai <= 0 && lv_i >= auto93ABB4D9_ae) ) ; lv_i += auto93ABB4D9_ai ) {
+    for ( ; ( (auto93ABB4D9_ai >= 0 && lv_i <= auto93ABB4D9_ae) || (auto93ABB4D9_ai < 0 && lv_i >= auto93ABB4D9_ae) ) ; lv_i += auto93ABB4D9_ai ) {
         lv_life = 0.0;
-        UnitGroupLoopBegin(UnitGroupSearch(null, lv_player, UnitGetPosition(lv_target), gv_asplRadius, gv_asplTargetFilter, 0));
-        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-            if ((UnitHasBehavior(UnitGroupLoopCurrent(), libGAwX_gv_asplMarkerBuff) == false) && (UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent) > lv_life) && (UnitGroupHasUnit(lv_ug, UnitGroupLoopCurrent()) == false)) {
-                lv_life = UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLife, c_unitPropCurrent);
-                lv_u = UnitGroupLoopCurrent();
+        autoEA033833_g = UnitGroupSearch(null, lv_player, UnitGetPosition(lv_target), gv_asplRadius, gv_asplTargetFilter, 0);
+        autoEA033833_u = UnitGroupCount(autoEA033833_g, c_unitCountAll);
+        for (;; autoEA033833_u -= 1) {
+            autoEA033833_var = UnitGroupUnitFromEnd(autoEA033833_g, autoEA033833_u);
+            if (autoEA033833_var == null) { break; }
+            if ((UnitHasBehavior(autoEA033833_var, libGAwX_gv_asplMarkerBuff) == false) && (UnitGetPropertyFixed(autoEA033833_var, c_unitPropLife, c_unitPropCurrent) > lv_life) && (UnitGroupHasUnit(lv_ug, autoEA033833_var) == false)) {
+                lv_life = UnitGetPropertyFixed(autoEA033833_var, c_unitPropLife, c_unitPropCurrent);
+                lv_u = autoEA033833_var;
             }
 
         }
-        UnitGroupLoopEnd();
         UnitGroupAdd(lv_ug, lv_u);
     }
     UnitGroupAdd(lv_ug, lv_target);
     auto23ACADAB_g = lv_ug;
-    auto23ACADAB_u = 1;
-    for ( ; auto23ACADAB_u <= UnitGroupCount(auto23ACADAB_g, c_unitCountAll) ; auto23ACADAB_u += BoolToInt(lv_a == UnitGroupUnit(auto23ACADAB_g, auto23ACADAB_u)) ) {
-        lv_a = UnitGroupUnit(auto23ACADAB_g, auto23ACADAB_u);
+    auto23ACADAB_u = UnitGroupCount(auto23ACADAB_g, c_unitCountAll);
+    for (;; auto23ACADAB_u -= 1) {
+        lv_a = UnitGroupUnitFromEnd(auto23ACADAB_g, auto23ACADAB_u);
+        if (lv_a == null) { break; }
         autoB0817FFD_g = lv_ug;
-        autoB0817FFD_u = 1;
-        for ( ; autoB0817FFD_u <= UnitGroupCount(autoB0817FFD_g, c_unitCountAll) ; autoB0817FFD_u += BoolToInt(lv_b == UnitGroupUnit(autoB0817FFD_g, autoB0817FFD_u)) ) {
-            lv_b = UnitGroupUnit(autoB0817FFD_g, autoB0817FFD_u);
+        autoB0817FFD_u = UnitGroupCount(autoB0817FFD_g, c_unitCountAll);
+        for (;; autoB0817FFD_u -= 1) {
+            lv_b = UnitGroupUnitFromEnd(autoB0817FFD_g, autoB0817FFD_u);
+            if (lv_b == null) { break; }
             UnitCreateEffectUnit(lv_a, libGAwX_gv_asplMarkerEffect, lv_b);
         }
     }
@@ -884,9 +912,6 @@ void gt_AsplSearch_Init () {
 // Trigger: Aspl - Split
 //--------------------------------------------------------------------------------------------------
 bool gt_AsplSplit_Func (bool testConds, bool runActions) {
-    int auto55E44E0A_ae;
-    int auto55E44E0A_ai;
-
     // Variable Declarations
     unit lv_u;
     int lv_player;
@@ -898,6 +923,10 @@ bool gt_AsplSplit_Func (bool testConds, bool runActions) {
     unitgroup lv_linkedGroup;
     unit lv_splitTarget;
     int lv_i;
+
+    // Automatic Variable Declarations
+    int auto55E44E0A_ae;
+    const int auto55E44E0A_ai = 1;
 
     // Variable Initialization
     lv_u = EventUnit();
@@ -921,9 +950,8 @@ bool gt_AsplSplit_Func (bool testConds, bool runActions) {
         UnitDamage(lv_damager, libGAwX_gv_asplMainDamageEffect, lv_u, lv_mainDamage);
         lv_splitDamage = ((lv_originalDamage - lv_mainDamage) / lv_stack);
         auto55E44E0A_ae = (lv_stack - 1);
-        auto55E44E0A_ai = 1;
         lv_i = 0;
-        for ( ; ( (auto55E44E0A_ai >= 0 && lv_i <= auto55E44E0A_ae) || (auto55E44E0A_ai <= 0 && lv_i >= auto55E44E0A_ae) ) ; lv_i += auto55E44E0A_ai ) {
+        for ( ; ( (auto55E44E0A_ai >= 0 && lv_i <= auto55E44E0A_ae) || (auto55E44E0A_ai < 0 && lv_i >= auto55E44E0A_ae) ) ; lv_i += auto55E44E0A_ai ) {
             lv_splitTarget = UnitBehaviorEffectUnit(lv_u, libGAwX_gv_asplMarkerBuff, c_effectUnitCaster, lv_i);
             if ((UnitIsAlive(lv_splitTarget) == true)) {
                 UnitDamage(lv_damager, libGAwX_gv_asplSplitDamageEffect, lv_splitTarget, lv_splitDamage);
@@ -947,20 +975,20 @@ void gt_AsplSplit_Init () {
 // Trigger: InitMap
 //--------------------------------------------------------------------------------------------------
 bool gt_InitMap_Func (bool testConds, bool runActions) {
-    playergroup auto4750D82E_g;
-    int auto4750D82E_p;
-    string auto9A9E48C8_val;
-    int auto8D94123B_ae;
-    int auto8D94123B_ai;
-    int auto82508E67_ae;
-    int auto82508E67_ai;
-
     // Variable Declarations
     int lv_p;
     playergroup lv_pg;
     string lv_race;
     string lv_raceAtt;
     int lv_r;
+
+    // Automatic Variable Declarations
+    playergroup auto4750D82E_g;
+    string auto9A9E48C8_val;
+    const int auto8D94123B_ae = 16;
+    const int auto8D94123B_ai = 1;
+    const int auto82508E67_ae = 16;
+    const int auto82508E67_ai = 1;
 
     // Variable Initialization
     lv_pg = PlayerGroupActive();
@@ -1003,10 +1031,11 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     libGAwX_gf_PauseUnpauseTimeOfDayWar3(true);
     libNtve_gf_SetPlayerGroupAlliance(PlayerGroupActive(), libNtve_ge_AllianceSetting_Enemy);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, gv_info);
-    auto4750D82E_g = lv_pg; 
-    auto4750D82E_p = 1;
-    for ( ; auto4750D82E_p <= PlayerGroupCount(auto4750D82E_g) ; auto4750D82E_p += BoolToInt(lv_p == PlayerGroupPlayer(auto4750D82E_g, auto4750D82E_p)) ) {
-        lv_p = PlayerGroupPlayer(auto4750D82E_g, auto4750D82E_p);
+    auto4750D82E_g = lv_pg;
+    lv_p = -1;
+    while (true) {
+        lv_p = PlayerGroupNextPlayer(auto4750D82E_g, lv_p);
+        if (lv_p < 0) { break; }
         lv_raceAtt = GameAttributePlayerValue("[bnet:War3 Extra (GA)/0.0/60618,file:Mods\\WarCraft\\WarCraftDataAbil.SC2Mod]1", lv_p);
         lv_race = libGAwX_gf_GenerateRaceFromRaceAttribute(lv_raceAtt);
         libGAwX_gf_SetPlayerUIRace(lv_p, lv_race);
@@ -1033,10 +1062,8 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     gv_fixedTimeLastRound = 120.0;
     auto9A9E48C8_val = gv_gameMode;
     if (auto9A9E48C8_val == "0001") {
-        auto8D94123B_ae = 16;
-        auto8D94123B_ai = 1;
         lv_r = 1;
-        for ( ; ( (auto8D94123B_ai >= 0 && lv_r <= auto8D94123B_ae) || (auto8D94123B_ai <= 0 && lv_r >= auto8D94123B_ae) ) ; lv_r += auto8D94123B_ai ) {
+        for ( ; ( (auto8D94123B_ai >= 0 && lv_r <= auto8D94123B_ae) || (auto8D94123B_ai < 0 && lv_r >= auto8D94123B_ae) ) ; lv_r += auto8D94123B_ai ) {
             gv_intG[lv_r] = 225;
         }
         gv_intG[1] = 75;
@@ -1045,10 +1072,8 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         gv_intG[4] = 150;
     }
     else if (auto9A9E48C8_val == "0002") {
-        auto82508E67_ae = 16;
-        auto82508E67_ai = 1;
         lv_r = 1;
-        for ( ; ( (auto82508E67_ai >= 0 && lv_r <= auto82508E67_ae) || (auto82508E67_ai <= 0 && lv_r >= auto82508E67_ae) ) ; lv_r += auto82508E67_ai ) {
+        for ( ; ( (auto82508E67_ai >= 0 && lv_r <= auto82508E67_ae) || (auto82508E67_ai < 0 && lv_r >= auto82508E67_ae) ) ; lv_r += auto82508E67_ai ) {
             gv_intG[lv_r] = 270;
         }
         gv_intG[1] = 90;
@@ -1088,6 +1113,7 @@ bool gt_TestMode_Func (bool testConds, bool runActions) {
     int lv_p;
     int lv_r;
 
+    // Automatic Variable Declarations
     // Variable Initialization
 
     // Actions
@@ -1113,12 +1139,16 @@ void gt_TestMode_Init () {
 // Trigger: GetRadomItem
 //--------------------------------------------------------------------------------------------------
 bool gt_GetRadomItem_Func (bool testConds, bool runActions) {
-    bool auto0ADD77FA_val;
-
     // Variable Declarations
     int lv_r;
     bool lv_b;
     fixed lv_t;
+
+    // Automatic Variable Declarations
+    bool auto0ADD77FA_val;
+    unitgroup autoB9035B91_g;
+    int autoB9035B91_u;
+    unit autoB9035B91_var;
 
     // Variable Initialization
 
@@ -1135,14 +1165,16 @@ bool gt_GetRadomItem_Func (bool testConds, bool runActions) {
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", EventPlayer())), 0, 0, UnitGetPosition(gv_unitWorker[EventPlayer()]));
                 auto0ADD77FA_val = EventKeyControl();
                 if (auto0ADD77FA_val == true) {
-                    UnitGroupLoopBegin(UnitGroupSelected(EventPlayer()));
-                    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                        libGAwX_gf_UnitInventoryCreate(UnitGroupLoopCurrent(), UnitLastCreated());
+                    autoB9035B91_g = UnitGroupSelected(EventPlayer());
+                    autoB9035B91_u = UnitGroupCount(autoB9035B91_g, c_unitCountAll);
+                    for (;; autoB9035B91_u -= 1) {
+                        autoB9035B91_var = UnitGroupUnitFromEnd(autoB9035B91_g, autoB9035B91_u);
+                        if (autoB9035B91_var == null) { break; }
+                        libGAwX_gf_GiveItemToUnit(autoB9035B91_var, UnitLastCreated());
                     }
-                    UnitGroupLoopEnd();
                 }
                 else if (auto0ADD77FA_val == false) {
-                    libGAwX_gf_UnitInventoryCreate(gv_unitWorker[EventPlayer()], UnitLastCreated());
+                    libGAwX_gf_GiveItemToUnit(gv_unitWorker[EventPlayer()], UnitLastCreated());
                 }
                 else {
                 }
@@ -1170,14 +1202,15 @@ void gt_GetRadomItem_Init () {
 // Trigger: SetOwner
 //--------------------------------------------------------------------------------------------------
 bool gt_SetOwner_Func (bool testConds, bool runActions) {
-    int auto3B478150_ae;
-    int auto3B478150_ai;
-    int auto7A471AEB_ae;
-    int auto7A471AEB_ai;
-
     // Variable Declarations
     int lv_p;
     int lv_phalanx;
+
+    // Automatic Variable Declarations
+    int auto3B478150_ae;
+    const int auto3B478150_ai = 1;
+    int auto7A471AEB_ae;
+    const int auto7A471AEB_ai = 1;
 
     // Variable Initialization
 
@@ -1189,13 +1222,11 @@ bool gt_SetOwner_Func (bool testConds, bool runActions) {
     if ((AbilityClass(EventUnitCreatedAbil()) == c_classIdCAbilBuild)) {
         Wait(5.0, c_timeGame);
         auto3B478150_ae = gv_intCountPlayer;
-        auto3B478150_ai = 1;
         lv_p = 1;
-        for ( ; ( (auto3B478150_ai >= 0 && lv_p <= auto3B478150_ae) || (auto3B478150_ai <= 0 && lv_p >= auto3B478150_ae) ) ; lv_p += auto3B478150_ai ) {
+        for ( ; ( (auto3B478150_ai >= 0 && lv_p <= auto3B478150_ae) || (auto3B478150_ai < 0 && lv_p >= auto3B478150_ae) ) ; lv_p += auto3B478150_ai ) {
             auto7A471AEB_ae = gv_intCountPhalanx;
-            auto7A471AEB_ai = 1;
             lv_phalanx = 1;
-            for ( ; ( (auto7A471AEB_ai >= 0 && lv_phalanx <= auto7A471AEB_ae) || (auto7A471AEB_ai <= 0 && lv_phalanx >= auto7A471AEB_ae) ) ; lv_phalanx += auto7A471AEB_ai ) {
+            for ( ; ( (auto7A471AEB_ai >= 0 && lv_phalanx <= auto7A471AEB_ae) || (auto7A471AEB_ai < 0 && lv_phalanx >= auto7A471AEB_ae) ) ; lv_phalanx += auto7A471AEB_ai ) {
                 if ((RegionContainsPoint(gf_PlayerBuildingRegion(lv_p, lv_phalanx), UnitGetPosition(EventUnitCreatedUnit())) == true)) {
                     UnitSetOwner(EventUnitCreatedUnit(), gv_intPlayer[lv_p], true);
                 }
@@ -1217,12 +1248,12 @@ void gt_SetOwner_Init () {
 // Trigger: Restart
 //--------------------------------------------------------------------------------------------------
 bool gt_Restart_Func (bool testConds, bool runActions) {
-    int autoBE5BF66A_val;
-    playergroup autoECC59395_g;
-    int autoECC59395_p;
-
     // Variable Declarations
     int lv_p;
+
+    // Automatic Variable Declarations
+    int autoBE5BF66A_val;
+    playergroup autoECC59395_g;
 
     // Variable Initialization
 
@@ -1252,10 +1283,11 @@ bool gt_Restart_Func (bool testConds, bool runActions) {
     }
     else {
     }
-    autoECC59395_g = PlayerGroupActive(); 
-    autoECC59395_p = 1;
-    for ( ; autoECC59395_p <= PlayerGroupCount(autoECC59395_g) ; autoECC59395_p += BoolToInt(lv_p == PlayerGroupPlayer(autoECC59395_g, autoECC59395_p)) ) {
-        lv_p = PlayerGroupPlayer(autoECC59395_g, autoECC59395_p);
+    autoECC59395_g = PlayerGroupActive();
+    lv_p = -1;
+    while (true) {
+        lv_p = PlayerGroupNextPlayer(autoECC59395_g, lv_p);
+        if (lv_p < 0) { break; }
         TechTreeUpgradeAddLevel(lv_p, "Pause", 1);
         TechTreeUpgradeAddLevel(lv_p, "Final", 1);
         VisRevealArea(lv_p, RegionPlayableMap(), 0.0, false);
@@ -1274,29 +1306,45 @@ void gt_Restart_Init () {
 // Trigger: Set
 //--------------------------------------------------------------------------------------------------
 bool gt_Set_Func (bool testConds, bool runActions) {
-    string autoCBDAB378_val;
-    int auto22F2A138_ae;
-    int auto22F2A138_ai;
-    int auto09F48E1C_ae;
-    int auto09F48E1C_ai;
-    int auto359B927A_ae;
-    int auto359B927A_ai;
-    int auto7310E746_ae;
-    int auto7310E746_ai;
-    int auto88F680D4_ae;
-    int auto88F680D4_ai;
-    int autoCDB2CDF4_ae;
-    int autoCDB2CDF4_ai;
-    int auto9880C258_ae;
-    int auto9880C258_ai;
-    int auto9B4A1391_ae;
-    int auto9B4A1391_ai;
-    int auto3C0BF267_ae;
-    int auto3C0BF267_ai;
-
     // Variable Declarations
     int lv_p;
     int lv_phalanx;
+
+    // Automatic Variable Declarations
+    string autoCBDAB378_val;
+    int auto22F2A138_ae;
+    const int auto22F2A138_ai = 1;
+    int auto09F48E1C_ae;
+    const int auto09F48E1C_ai = 1;
+    int auto359B927A_ae;
+    const int auto359B927A_ai = 1;
+    int auto7310E746_ae;
+    const int auto7310E746_ai = 1;
+    int auto88F680D4_ae;
+    const int auto88F680D4_ai = 1;
+    int autoCDB2CDF4_ae;
+    const int autoCDB2CDF4_ai = 1;
+    unitgroup autoEE169B0F_g;
+    int autoEE169B0F_u;
+    unit autoEE169B0F_var;
+    unitgroup auto21E4552C_g;
+    int auto21E4552C_u;
+    unit auto21E4552C_var;
+    unitgroup autoAB2355DA_g;
+    int autoAB2355DA_u;
+    unit autoAB2355DA_var;
+    int auto9880C258_ae;
+    const int auto9880C258_ai = 1;
+    unitgroup autoDADC2209_g;
+    int autoDADC2209_u;
+    unit autoDADC2209_var;
+    int auto9B4A1391_ae;
+    const int auto9B4A1391_ai = 1;
+    unitgroup auto6E254442_g;
+    int auto6E254442_u;
+    unit auto6E254442_var;
+    int auto3C0BF267_ae;
+    const int auto3C0BF267_ai = 1;
 
     // Variable Initialization
 
@@ -1316,25 +1364,22 @@ bool gt_Set_Func (bool testConds, bool runActions) {
     }
     else if (autoCBDAB378_val == "Living") {
         auto22F2A138_ae = gv_intCountPlayer;
-        auto22F2A138_ai = 1;
         lv_p = 1;
-        for ( ; ( (auto22F2A138_ai >= 0 && lv_p <= auto22F2A138_ae) || (auto22F2A138_ai <= 0 && lv_p >= auto22F2A138_ae) ) ; lv_p += auto22F2A138_ai ) {
+        for ( ; ( (auto22F2A138_ai >= 0 && lv_p <= auto22F2A138_ae) || (auto22F2A138_ai < 0 && lv_p >= auto22F2A138_ae) ) ; lv_p += auto22F2A138_ai ) {
             UIDisplayMessage(gv_playergroupDebug, c_messageAreaSubtitle, (TextWithColor(PlayerName(gv_intPlayer[lv_p]), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_intPlayer[lv_p], false))) + StringExternal("Param/Value/689C4447") + IntToText(gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]])));
         }
     }
     else if (autoCBDAB378_val == "Gold") {
         auto09F48E1C_ae = gv_intCountPlayer;
-        auto09F48E1C_ai = 1;
         lv_p = 1;
-        for ( ; ( (auto09F48E1C_ai >= 0 && lv_p <= auto09F48E1C_ae) || (auto09F48E1C_ai <= 0 && lv_p >= auto09F48E1C_ae) ) ; lv_p += auto09F48E1C_ai ) {
+        for ( ; ( (auto09F48E1C_ai >= 0 && lv_p <= auto09F48E1C_ae) || (auto09F48E1C_ai < 0 && lv_p >= auto09F48E1C_ae) ) ; lv_p += auto09F48E1C_ai ) {
             PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperSetTo, StringToInt(StringWord(EventChatMessage(false), 2)));
         }
     }
     else if (autoCBDAB378_val == "Lumber") {
         auto359B927A_ae = gv_intCountPlayer;
-        auto359B927A_ai = 1;
         lv_p = 1;
-        for ( ; ( (auto359B927A_ai >= 0 && lv_p <= auto359B927A_ae) || (auto359B927A_ai <= 0 && lv_p >= auto359B927A_ae) ) ; lv_p += auto359B927A_ai ) {
+        for ( ; ( (auto359B927A_ai >= 0 && lv_p <= auto359B927A_ae) || (auto359B927A_ai < 0 && lv_p >= auto359B927A_ae) ) ; lv_p += auto359B927A_ai ) {
             PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom, c_playerPropOperSetTo, StringToInt(StringWord(EventChatMessage(false), 2)));
         }
     }
@@ -1343,9 +1388,8 @@ bool gt_Set_Func (bool testConds, bool runActions) {
         gv_intBonusRound = 0;
         gv_intFinalRound = 0;
         auto7310E746_ae = gv_intCountPhalanx;
-        auto7310E746_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (auto7310E746_ai >= 0 && lv_phalanx <= auto7310E746_ae) || (auto7310E746_ai <= 0 && lv_phalanx >= auto7310E746_ae) ) ; lv_phalanx += auto7310E746_ai ) {
+        for ( ; ( (auto7310E746_ai >= 0 && lv_phalanx <= auto7310E746_ae) || (auto7310E746_ai < 0 && lv_phalanx >= auto7310E746_ae) ) ; lv_phalanx += auto7310E746_ai ) {
             gv_intRow[lv_phalanx] = 6;
         }
     }
@@ -1354,9 +1398,8 @@ bool gt_Set_Func (bool testConds, bool runActions) {
         gv_intBonusRound = StringToInt(StringWord(EventChatMessage(false), 2));
         gv_intFinalRound = 0;
         auto88F680D4_ae = gv_intCountPhalanx;
-        auto88F680D4_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (auto88F680D4_ai >= 0 && lv_phalanx <= auto88F680D4_ae) || (auto88F680D4_ai <= 0 && lv_phalanx >= auto88F680D4_ae) ) ; lv_phalanx += auto88F680D4_ai ) {
+        for ( ; ( (auto88F680D4_ai >= 0 && lv_phalanx <= auto88F680D4_ae) || (auto88F680D4_ai < 0 && lv_phalanx >= auto88F680D4_ae) ) ; lv_phalanx += auto88F680D4_ai ) {
             gv_intRow[lv_phalanx] = 6;
         }
     }
@@ -1365,68 +1408,74 @@ bool gt_Set_Func (bool testConds, bool runActions) {
         gv_intBonusRound = (gv_intCountBonusRound + 1);
         gv_intFinalRound = StringToInt(StringWord(EventChatMessage(false), 2));
         autoCDB2CDF4_ae = gv_intCountPhalanx;
-        autoCDB2CDF4_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (autoCDB2CDF4_ai >= 0 && lv_phalanx <= autoCDB2CDF4_ae) || (autoCDB2CDF4_ai <= 0 && lv_phalanx >= autoCDB2CDF4_ae) ) ; lv_phalanx += autoCDB2CDF4_ai ) {
+        for ( ; ( (autoCDB2CDF4_ai >= 0 && lv_phalanx <= autoCDB2CDF4_ae) || (autoCDB2CDF4_ai < 0 && lv_phalanx >= autoCDB2CDF4_ae) ) ; lv_phalanx += autoCDB2CDF4_ai ) {
             gv_intRow[lv_phalanx] = 15;
         }
     }
     else if (autoCBDAB378_val == "I") {
         if ((StringWord(EventChatMessage(false), 2) == "A")) {
-            UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-            for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, "oli2", 0, 0, UnitGetPosition(UnitGroupLoopCurrent()));
-                libGAwX_gf_UnitInventoryCreate(UnitGroupLoopCurrent(), UnitLastCreated());
+            autoEE169B0F_g = UnitGroup(null, c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            autoEE169B0F_u = UnitGroupCount(autoEE169B0F_g, c_unitCountAll);
+            for (;; autoEE169B0F_u -= 1) {
+                autoEE169B0F_var = UnitGroupUnitFromEnd(autoEE169B0F_g, autoEE169B0F_u);
+                if (autoEE169B0F_var == null) { break; }
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "oli2", 0, 0, UnitGetPosition(autoEE169B0F_var));
+                libGAwX_gf_GiveItemToUnit(autoEE169B0F_var, UnitLastCreated());
             }
-            UnitGroupLoopEnd();
         }
         else {
-            UnitGroupLoopBegin(UnitGroupSelected(EventPlayer()));
-            for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(StringWord(EventChatMessage(false), 2)), 0, 0, UnitGetPosition(UnitGroupLoopCurrent()));
-                libGAwX_gf_UnitInventoryCreate(UnitGroupLoopCurrent(), UnitLastCreated());
+            auto21E4552C_g = UnitGroupSelected(EventPlayer());
+            auto21E4552C_u = UnitGroupCount(auto21E4552C_g, c_unitCountAll);
+            for (;; auto21E4552C_u -= 1) {
+                auto21E4552C_var = UnitGroupUnitFromEnd(auto21E4552C_g, auto21E4552C_u);
+                if (auto21E4552C_var == null) { break; }
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(StringWord(EventChatMessage(false), 2)), 0, 0, UnitGetPosition(auto21E4552C_var));
+                libGAwX_gf_GiveItemToUnit(auto21E4552C_var, UnitLastCreated());
             }
-            UnitGroupLoopEnd();
         }
     }
     else if (autoCBDAB378_val == "U") {
         gv_gameCatalog = c_gameCatalogUnit;
-        UnitGroupLoopBegin(UnitGroupSelected(EventPlayer()));
-        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        autoAB2355DA_g = UnitGroupSelected(EventPlayer());
+        autoAB2355DA_u = UnitGroupCount(autoAB2355DA_g, c_unitCountAll);
+        for (;; autoAB2355DA_u -= 1) {
+            autoAB2355DA_var = UnitGroupUnitFromEnd(autoAB2355DA_g, autoAB2355DA_u);
+            if (autoAB2355DA_var == null) { break; }
             auto9880C258_ae = gv_intCountPlayer;
-            auto9880C258_ai = 1;
             lv_p = 1;
-            for ( ; ( (auto9880C258_ai >= 0 && lv_p <= auto9880C258_ae) || (auto9880C258_ai <= 0 && lv_p >= auto9880C258_ae) ) ; lv_p += auto9880C258_ai ) {
-                CatalogFieldValueSet(gv_gameCatalog, UnitGetType(UnitGroupLoopCurrent()), gv_stringFieldPath, gv_intPlayer[lv_p], gv_stringValue);
+            for ( ; ( (auto9880C258_ai >= 0 && lv_p <= auto9880C258_ae) || (auto9880C258_ai < 0 && lv_p >= auto9880C258_ae) ) ; lv_p += auto9880C258_ai ) {
+                CatalogFieldValueSet(gv_gameCatalog, UnitGetType(autoAB2355DA_var), gv_stringFieldPath, gv_intPlayer[lv_p], gv_stringValue);
             }
         }
-        UnitGroupLoopEnd();
     }
     else if (autoCBDAB378_val == "E") {
         gv_gameCatalog = c_gameCatalogEffect;
-        UnitGroupLoopBegin(UnitGroupSelected(EventPlayer()));
-        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        autoDADC2209_g = UnitGroupSelected(EventPlayer());
+        autoDADC2209_u = UnitGroupCount(autoDADC2209_g, c_unitCountAll);
+        for (;; autoDADC2209_u -= 1) {
+            autoDADC2209_var = UnitGroupUnitFromEnd(autoDADC2209_g, autoDADC2209_u);
+            if (autoDADC2209_var == null) { break; }
             auto9B4A1391_ae = gv_intCountPlayer;
-            auto9B4A1391_ai = 1;
             lv_p = 1;
-            for ( ; ( (auto9B4A1391_ai >= 0 && lv_p <= auto9B4A1391_ae) || (auto9B4A1391_ai <= 0 && lv_p >= auto9B4A1391_ae) ) ; lv_p += auto9B4A1391_ai ) {
-                CatalogFieldValueSet(gv_gameCatalog, ((UnitGetType(UnitGroupLoopCurrent())) + "1"), gv_stringFieldPath, gv_intPlayer[lv_p], gv_stringValue);
+            for ( ; ( (auto9B4A1391_ai >= 0 && lv_p <= auto9B4A1391_ae) || (auto9B4A1391_ai < 0 && lv_p >= auto9B4A1391_ae) ) ; lv_p += auto9B4A1391_ai ) {
+                CatalogFieldValueSet(gv_gameCatalog, ((UnitGetType(autoDADC2209_var)) + "1"), gv_stringFieldPath, gv_intPlayer[lv_p], gv_stringValue);
             }
         }
-        UnitGroupLoopEnd();
     }
     else if (autoCBDAB378_val == "W") {
         gv_gameCatalog = c_gameCatalogWeapon;
-        UnitGroupLoopBegin(UnitGroupSelected(EventPlayer()));
-        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        auto6E254442_g = UnitGroupSelected(EventPlayer());
+        auto6E254442_u = UnitGroupCount(auto6E254442_g, c_unitCountAll);
+        for (;; auto6E254442_u -= 1) {
+            auto6E254442_var = UnitGroupUnitFromEnd(auto6E254442_g, auto6E254442_u);
+            if (auto6E254442_var == null) { break; }
             auto3C0BF267_ae = gv_intCountPlayer;
-            auto3C0BF267_ai = 1;
             lv_p = 1;
-            for ( ; ( (auto3C0BF267_ai >= 0 && lv_p <= auto3C0BF267_ae) || (auto3C0BF267_ai <= 0 && lv_p >= auto3C0BF267_ae) ) ; lv_p += auto3C0BF267_ai ) {
-                CatalogFieldValueSet(gv_gameCatalog, ((UnitGetType(UnitGroupLoopCurrent())) + "1"), gv_stringFieldPath, gv_intPlayer[lv_p], gv_stringValue);
+            for ( ; ( (auto3C0BF267_ai >= 0 && lv_p <= auto3C0BF267_ae) || (auto3C0BF267_ai < 0 && lv_p >= auto3C0BF267_ae) ) ; lv_p += auto3C0BF267_ai ) {
+                CatalogFieldValueSet(gv_gameCatalog, ((UnitGetType(auto6E254442_var)) + "1"), gv_stringFieldPath, gv_intPlayer[lv_p], gv_stringValue);
             }
         }
-        UnitGroupLoopEnd();
     }
     else {
     }
@@ -1444,16 +1493,23 @@ void gt_Set_Init () {
 // Trigger: UnitRemove
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitRemove_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    unitgroup auto43D4717A_g;
+    int auto43D4717A_u;
+    unit auto43D4717A_var;
+
     // Actions
     if (!runActions) {
         return true;
     }
 
-    UnitGroupLoopBegin(UnitGroupSelected(EventPlayer()));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitRemove(UnitGroupLoopCurrent());
+    auto43D4717A_g = UnitGroupSelected(EventPlayer());
+    auto43D4717A_u = UnitGroupCount(auto43D4717A_g, c_unitCountAll);
+    for (;; auto43D4717A_u -= 1) {
+        auto43D4717A_var = UnitGroupUnitFromEnd(auto43D4717A_g, auto43D4717A_u);
+        if (auto43D4717A_var == null) { break; }
+        UnitRemove(auto43D4717A_var);
     }
-    UnitGroupLoopEnd();
     return true;
 }
 
@@ -1468,20 +1524,23 @@ void gt_UnitRemove_Init () {
 // Trigger: InitPlayer
 //--------------------------------------------------------------------------------------------------
 bool gt_InitPlayer_Func (bool testConds, bool runActions) {
-    int auto75BFDED3_ae;
-    int auto75BFDED3_ai;
-    int auto9F03706F_ae;
-    int auto9F03706F_ai;
-    int autoF06DE5CA_ae;
-    int autoF06DE5CA_ai;
-    int autoDFFE072E_val;
-
     // Variable Declarations
     int lv_p;
     int lv_pActv;
     int lv_g;
     int lv_r;
     bool lv_bRpt;
+
+    // Automatic Variable Declarations
+    playergroup auto8AAA53F0_g;
+    int auto8AAA53F0_var;
+    int auto75BFDED3_ae;
+    const int auto75BFDED3_ai = 1;
+    int auto9F03706F_ae;
+    const int auto9F03706F_ai = 1;
+    int autoF06DE5CA_ae;
+    const int autoF06DE5CA_ai = 1;
+    int autoDFFE072E_val;
 
     // Variable Initialization
 
@@ -1490,22 +1549,23 @@ bool gt_InitPlayer_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    PlayerGroupLoopBegin(PlayerGroupActive());
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+    auto8AAA53F0_g = PlayerGroupActive();
+    auto8AAA53F0_var = -1;
+    while (true) {
+        auto8AAA53F0_var = PlayerGroupNextPlayer(auto8AAA53F0_g, auto8AAA53F0_var);
+        if (auto8AAA53F0_var < 0) { break; }
         lv_p += 1;
-        gv_intPlayerActive[lv_p] = PlayerGroupLoopCurrent();
-        gv_intPlayer[lv_p] = PlayerGroupLoopCurrent();
+        gv_intPlayerActive[lv_p] = auto8AAA53F0_var;
+        gv_intPlayer[lv_p] = auto8AAA53F0_var;
     }
-    PlayerGroupLoopEnd();
     gv_intCountPlayerActive = lv_p;
     if ((ModI(gv_intCountPlayerActive, 2) != 0)) {
         while (true) {
             lv_bRpt = false;
             lv_r = RandomInt(1, (gv_intCountPlayerActive + 1));
             auto75BFDED3_ae = gv_intCountPlayerActive;
-            auto75BFDED3_ai = 1;
             lv_pActv = 1;
-            for ( ; ( (auto75BFDED3_ai >= 0 && lv_pActv <= auto75BFDED3_ae) || (auto75BFDED3_ai <= 0 && lv_pActv >= auto75BFDED3_ae) ) ; lv_pActv += auto75BFDED3_ai ) {
+            for ( ; ( (auto75BFDED3_ai >= 0 && lv_pActv <= auto75BFDED3_ae) || (auto75BFDED3_ai < 0 && lv_pActv >= auto75BFDED3_ae) ) ; lv_pActv += auto75BFDED3_ai ) {
                 if ((lv_r == gv_intPlayerActive[lv_pActv])) {
                     lv_bRpt = true;
                 }
@@ -1530,9 +1590,8 @@ bool gt_InitPlayer_Func (bool testConds, bool runActions) {
     }
     gv_intCountFinalRound = (gv_intCountPlayer - 1);
     auto9F03706F_ae = gv_intCountPlayer;
-    auto9F03706F_ai = 1;
     lv_p = 1;
-    for ( ; ( (auto9F03706F_ai >= 0 && lv_p <= auto9F03706F_ae) || (auto9F03706F_ai <= 0 && lv_p >= auto9F03706F_ae) ) ; lv_p += auto9F03706F_ai ) {
+    for ( ; ( (auto9F03706F_ai >= 0 && lv_p <= auto9F03706F_ae) || (auto9F03706F_ai < 0 && lv_p >= auto9F03706F_ae) ) ; lv_p += auto9F03706F_ai ) {
         if ((ModI(lv_p, 2) == 1)) {
             lv_g += 1;
         }
@@ -1541,9 +1600,8 @@ bool gt_InitPlayer_Func (bool testConds, bool runActions) {
     }
     gv_intCountGroup = lv_g;
     autoF06DE5CA_ae = gv_intCountPlayer;
-    autoF06DE5CA_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoF06DE5CA_ai >= 0 && lv_p <= autoF06DE5CA_ae) || (autoF06DE5CA_ai <= 0 && lv_p >= autoF06DE5CA_ae) ) ; lv_p += autoF06DE5CA_ai ) {
+    for ( ; ( (autoF06DE5CA_ai >= 0 && lv_p <= autoF06DE5CA_ae) || (autoF06DE5CA_ai < 0 && lv_p >= autoF06DE5CA_ae) ) ; lv_p += autoF06DE5CA_ai ) {
         if ((PlayerType(gv_intPlayer[lv_p]) != c_playerTypeUser)) {
             PlayerGroupAdd(gv_playergroupAI, gv_intPlayer[lv_p]);
         }
@@ -1580,16 +1638,17 @@ void gt_InitPlayer_Init () {
 // Trigger: InitRandomGroup
 //--------------------------------------------------------------------------------------------------
 bool gt_InitRandomGroup_Func (bool testConds, bool runActions) {
-    int autoAC820CBF_ae;
-    int autoAC820CBF_ai;
-    int auto5349154A_ae;
-    int auto5349154A_ai;
-
     // Variable Declarations
     int lv_g;
     bool lv_bRpt;
     int lv_rG;
     int[17] lv_r;
+
+    // Automatic Variable Declarations
+    int autoAC820CBF_ae;
+    const int autoAC820CBF_ai = 1;
+    int auto5349154A_ae;
+    const int auto5349154A_ai = 1;
 
     // Variable Initialization
 
@@ -1599,16 +1658,14 @@ bool gt_InitRandomGroup_Func (bool testConds, bool runActions) {
     }
 
     autoAC820CBF_ae = gv_intCountGroup;
-    autoAC820CBF_ai = 1;
     lv_rG = 1;
-    for ( ; ( (autoAC820CBF_ai >= 0 && lv_rG <= autoAC820CBF_ae) || (autoAC820CBF_ai <= 0 && lv_rG >= autoAC820CBF_ae) ) ; lv_rG += autoAC820CBF_ai ) {
+    for ( ; ( (autoAC820CBF_ai >= 0 && lv_rG <= autoAC820CBF_ae) || (autoAC820CBF_ai < 0 && lv_rG >= autoAC820CBF_ae) ) ; lv_rG += autoAC820CBF_ai ) {
         while (true) {
             lv_r[lv_rG] = RandomInt(1, gv_intCountGroup);
             lv_bRpt = false;
             auto5349154A_ae = gv_intCountGroup;
-            auto5349154A_ai = 1;
             lv_g = 1;
-            for ( ; ( (auto5349154A_ai >= 0 && lv_g <= auto5349154A_ae) || (auto5349154A_ai <= 0 && lv_g >= auto5349154A_ae) ) ; lv_g += auto5349154A_ai ) {
+            for ( ; ( (auto5349154A_ai >= 0 && lv_g <= auto5349154A_ae) || (auto5349154A_ai < 0 && lv_g >= auto5349154A_ae) ) ; lv_g += auto5349154A_ai ) {
                 if ((lv_r[lv_rG] == gv_intRandomGroup[lv_g])) {
                     lv_bRpt = true;
                 }
@@ -1633,16 +1690,17 @@ void gt_InitRandomGroup_Init () {
 // Trigger: InitRandomRound
 //--------------------------------------------------------------------------------------------------
 bool gt_InitRandomRound_Func (bool testConds, bool runActions) {
-    int autoE98BE96F_ae;
-    int autoE98BE96F_ai;
-    int autoDDEFDCF5_ae;
-    int autoDDEFDCF5_ai;
-
     // Variable Declarations
     int lv_rnd;
     bool lv_bRpt;
     int lv_rRnd;
     int[17] lv_r;
+
+    // Automatic Variable Declarations
+    int autoE98BE96F_ae;
+    const int autoE98BE96F_ai = 1;
+    int autoDDEFDCF5_ae;
+    const int autoDDEFDCF5_ai = 1;
 
     // Variable Initialization
 
@@ -1652,16 +1710,14 @@ bool gt_InitRandomRound_Func (bool testConds, bool runActions) {
     }
 
     autoE98BE96F_ae = gv_intCountRound;
-    autoE98BE96F_ai = 1;
     lv_rRnd = 1;
-    for ( ; ( (autoE98BE96F_ai >= 0 && lv_rRnd <= autoE98BE96F_ae) || (autoE98BE96F_ai <= 0 && lv_rRnd >= autoE98BE96F_ae) ) ; lv_rRnd += autoE98BE96F_ai ) {
+    for ( ; ( (autoE98BE96F_ai >= 0 && lv_rRnd <= autoE98BE96F_ae) || (autoE98BE96F_ai < 0 && lv_rRnd >= autoE98BE96F_ae) ) ; lv_rRnd += autoE98BE96F_ai ) {
         while (true) {
             lv_r[lv_rRnd] = RandomInt(1, gv_intCountRound);
             lv_bRpt = false;
             autoDDEFDCF5_ae = gv_intCountRound;
-            autoDDEFDCF5_ai = 1;
             lv_rnd = 1;
-            for ( ; ( (autoDDEFDCF5_ai >= 0 && lv_rnd <= autoDDEFDCF5_ae) || (autoDDEFDCF5_ai <= 0 && lv_rnd >= autoDDEFDCF5_ae) ) ; lv_rnd += autoDDEFDCF5_ai ) {
+            for ( ; ( (autoDDEFDCF5_ai >= 0 && lv_rnd <= autoDDEFDCF5_ae) || (autoDDEFDCF5_ai < 0 && lv_rnd >= autoDDEFDCF5_ae) ) ; lv_rnd += autoDDEFDCF5_ai ) {
                 if ((lv_r[lv_rRnd] == gv_intRandomRound[lv_rnd])) {
                     lv_bRpt = true;
                 }
@@ -1686,15 +1742,6 @@ void gt_InitRandomRound_Init () {
 // Trigger: InitScheduleAllPlayAll
 //--------------------------------------------------------------------------------------------------
 bool gt_InitScheduleAllPlayAll_Func (bool testConds, bool runActions) {
-    int auto1AF7E124_ae;
-    int auto1AF7E124_ai;
-    int auto0ECE6286_ae;
-    int auto0ECE6286_ai;
-    int autoC1D9CE56_ae;
-    int autoC1D9CE56_ai;
-    int auto82C1DDEA_ae;
-    int auto82C1DDEA_ai;
-
     // Variable Declarations
     int lv_rnd;
     int lv_p;
@@ -1702,6 +1749,16 @@ bool gt_InitScheduleAllPlayAll_Func (bool testConds, bool runActions) {
     int lv_g;
     int[17] lv_pOpp;
     int lv_opp;
+
+    // Automatic Variable Declarations
+    int auto1AF7E124_ae;
+    const int auto1AF7E124_ai = 1;
+    int auto0ECE6286_ae;
+    const int auto0ECE6286_ai = 1;
+    int autoC1D9CE56_ae;
+    const int autoC1D9CE56_ai = -1;
+    int auto82C1DDEA_ae;
+    const int auto82C1DDEA_ai = 1;
 
     // Variable Initialization
 
@@ -1712,13 +1769,11 @@ bool gt_InitScheduleAllPlayAll_Func (bool testConds, bool runActions) {
 
     lv_iCcl = 1;
     auto1AF7E124_ae = gv_intCountRound;
-    auto1AF7E124_ai = 1;
     lv_rnd = 1;
-    for ( ; ( (auto1AF7E124_ai >= 0 && lv_rnd <= auto1AF7E124_ae) || (auto1AF7E124_ai <= 0 && lv_rnd >= auto1AF7E124_ae) ) ; lv_rnd += auto1AF7E124_ai ) {
+    for ( ; ( (auto1AF7E124_ai >= 0 && lv_rnd <= auto1AF7E124_ae) || (auto1AF7E124_ai < 0 && lv_rnd >= auto1AF7E124_ae) ) ; lv_rnd += auto1AF7E124_ai ) {
         auto0ECE6286_ae = (gv_intCountPlayer / 2);
-        auto0ECE6286_ai = 1;
         lv_p = 1;
-        for ( ; ( (auto0ECE6286_ai >= 0 && lv_p <= auto0ECE6286_ae) || (auto0ECE6286_ai <= 0 && lv_p >= auto0ECE6286_ae) ) ; lv_p += auto0ECE6286_ai ) {
+        for ( ; ( (auto0ECE6286_ai >= 0 && lv_p <= auto0ECE6286_ae) || (auto0ECE6286_ai < 0 && lv_p >= auto0ECE6286_ae) ) ; lv_p += auto0ECE6286_ai ) {
             if ((lv_p == 1)) {
                 lv_pOpp[lv_p] = 1;
             }
@@ -1733,9 +1788,8 @@ bool gt_InitScheduleAllPlayAll_Func (bool testConds, bool runActions) {
             }
         }
         autoC1D9CE56_ae = ((gv_intCountPlayer / 2) + 1);
-        autoC1D9CE56_ai = -1;
         lv_p = gv_intCountPlayer;
-        for ( ; ( (autoC1D9CE56_ai >= 0 && lv_p <= autoC1D9CE56_ae) || (autoC1D9CE56_ai <= 0 && lv_p >= autoC1D9CE56_ae) ) ; lv_p += autoC1D9CE56_ai ) {
+        for ( ; ( (autoC1D9CE56_ai >= 0 && lv_p <= autoC1D9CE56_ae) || (autoC1D9CE56_ai < 0 && lv_p >= autoC1D9CE56_ae) ) ; lv_p += autoC1D9CE56_ai ) {
             if (lv_iCcl >= gv_intCountPlayer) {
                 lv_iCcl = 2;
             }
@@ -1746,9 +1800,8 @@ bool gt_InitScheduleAllPlayAll_Func (bool testConds, bool runActions) {
         }
         lv_g = 0;
         auto82C1DDEA_ae = gv_intCountPlayer;
-        auto82C1DDEA_ai = 1;
         lv_p = 1;
-        for ( ; ( (auto82C1DDEA_ai >= 0 && lv_p <= auto82C1DDEA_ae) || (auto82C1DDEA_ai <= 0 && lv_p >= auto82C1DDEA_ae) ) ; lv_p += auto82C1DDEA_ai ) {
+        for ( ; ( (auto82C1DDEA_ai >= 0 && lv_p <= auto82C1DDEA_ae) || (auto82C1DDEA_ai < 0 && lv_p >= auto82C1DDEA_ae) ) ; lv_p += auto82C1DDEA_ai ) {
             if ((ModI(lv_p, 2) == 1)) {
                 lv_g += 1;
                 if (gv_intRandomGroup[lv_g] >= gv_intCountGroup) {
@@ -1777,15 +1830,6 @@ void gt_InitScheduleAllPlayAll_Init () {
 // Trigger: InitPlayerFinal
 //--------------------------------------------------------------------------------------------------
 bool gt_InitPlayerFinal_Func (bool testConds, bool runActions) {
-    int autoDF2F30F0_ae;
-    int autoDF2F30F0_ai;
-    int autoB0BE6974_ae;
-    int autoB0BE6974_ai;
-    int auto13AF30FD_ae;
-    int auto13AF30FD_ai;
-    int autoCE25D07F_ae;
-    int autoCE25D07F_ai;
-
     // Variable Declarations
     int lv_p;
     bool lv_bRpt;
@@ -1793,6 +1837,16 @@ bool gt_InitPlayerFinal_Func (bool testConds, bool runActions) {
     int[17] lv_r;
     int lv_rF;
     int lv_rnd;
+
+    // Automatic Variable Declarations
+    int autoDF2F30F0_ae;
+    const int autoDF2F30F0_ai = 1;
+    int autoB0BE6974_ae;
+    const int autoB0BE6974_ai = 1;
+    int auto13AF30FD_ae;
+    const int auto13AF30FD_ai = 1;
+    int autoCE25D07F_ae;
+    const int autoCE25D07F_ai = 1;
 
     // Variable Initialization
 
@@ -1802,20 +1856,17 @@ bool gt_InitPlayerFinal_Func (bool testConds, bool runActions) {
     }
 
     autoDF2F30F0_ae = gv_intCountFinalRound;
-    autoDF2F30F0_ai = 1;
     lv_rF = 1;
-    for ( ; ( (autoDF2F30F0_ai >= 0 && lv_rF <= autoDF2F30F0_ae) || (autoDF2F30F0_ai <= 0 && lv_rF >= autoDF2F30F0_ae) ) ; lv_rF += autoDF2F30F0_ai ) {
+    for ( ; ( (autoDF2F30F0_ai >= 0 && lv_rF <= autoDF2F30F0_ae) || (autoDF2F30F0_ai < 0 && lv_rF >= autoDF2F30F0_ae) ) ; lv_rF += autoDF2F30F0_ai ) {
         autoB0BE6974_ae = gv_intCountPlayer;
-        autoB0BE6974_ai = 1;
         lv_rPlyr = 1;
-        for ( ; ( (autoB0BE6974_ai >= 0 && lv_rPlyr <= autoB0BE6974_ae) || (autoB0BE6974_ai <= 0 && lv_rPlyr >= autoB0BE6974_ae) ) ; lv_rPlyr += autoB0BE6974_ai ) {
+        for ( ; ( (autoB0BE6974_ai >= 0 && lv_rPlyr <= autoB0BE6974_ae) || (autoB0BE6974_ai < 0 && lv_rPlyr >= autoB0BE6974_ae) ) ; lv_rPlyr += autoB0BE6974_ai ) {
             while (true) {
                 lv_r[lv_rPlyr] = RandomInt(1, gv_intCountPlayer);
                 lv_bRpt = false;
                 auto13AF30FD_ae = gv_intCountPlayer;
-                auto13AF30FD_ai = 1;
                 lv_p = 1;
-                for ( ; ( (auto13AF30FD_ai >= 0 && lv_p <= auto13AF30FD_ae) || (auto13AF30FD_ai <= 0 && lv_p >= auto13AF30FD_ae) ) ; lv_p += auto13AF30FD_ai ) {
+                for ( ; ( (auto13AF30FD_ai >= 0 && lv_p <= auto13AF30FD_ae) || (auto13AF30FD_ai < 0 && lv_p >= auto13AF30FD_ae) ) ; lv_p += auto13AF30FD_ai ) {
                     if ((lv_r[lv_rPlyr] == gv_intPlayerFinal[lv_p][lv_rF])) {
                         lv_bRpt = true;
                     }
@@ -1829,9 +1880,8 @@ bool gt_InitPlayerFinal_Func (bool testConds, bool runActions) {
             }
         }
         autoCE25D07F_ae = gv_intCountPlayer;
-        autoCE25D07F_ai = 1;
         lv_p = 1;
-        for ( ; ( (autoCE25D07F_ai >= 0 && lv_p <= autoCE25D07F_ae) || (autoCE25D07F_ai <= 0 && lv_p >= autoCE25D07F_ae) ) ; lv_p += autoCE25D07F_ai ) {
+        for ( ; ( (autoCE25D07F_ai >= 0 && lv_p <= autoCE25D07F_ae) || (autoCE25D07F_ai < 0 && lv_p >= autoCE25D07F_ae) ) ; lv_p += autoCE25D07F_ai ) {
             gv_intPlayerFinal[lv_p][lv_rF] = gv_intPlayer[gv_intPlayerFinal[lv_p][lv_rF]];
         }
     }
@@ -1847,13 +1897,14 @@ void gt_InitPlayerFinal_Init () {
 // Trigger: InitBoard
 //--------------------------------------------------------------------------------------------------
 bool gt_InitBoard_Func (bool testConds, bool runActions) {
-    int autoEB6298CD_ae;
-    int autoEB6298CD_ai;
-    int autoD7E3EB29_ae;
-    int autoD7E3EB29_ai;
-
     // Variable Declarations
     int lv_p;
+
+    // Automatic Variable Declarations
+    int autoEB6298CD_ae;
+    const int autoEB6298CD_ai = 1;
+    int autoD7E3EB29_ae;
+    const int autoD7E3EB29_ai = 1;
 
     // Variable Initialization
 
@@ -1877,9 +1928,8 @@ bool gt_InitBoard_Func (bool testConds, bool runActions) {
     BoardItemSetText(gv_board, 6, c_boardRowHeader, StringExternal("Param/Value/43FD091C"));
     BoardItemSetFontSize(gv_board, 6, c_boardRowHeader, 20);
     autoEB6298CD_ae = gv_intCountPlayer;
-    autoEB6298CD_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoEB6298CD_ai >= 0 && lv_p <= autoEB6298CD_ae) || (autoEB6298CD_ai <= 0 && lv_p >= autoEB6298CD_ae) ) ; lv_p += autoEB6298CD_ai ) {
+    for ( ; ( (autoEB6298CD_ai >= 0 && lv_p <= autoEB6298CD_ae) || (autoEB6298CD_ai < 0 && lv_p >= autoEB6298CD_ae) ) ; lv_p += autoEB6298CD_ai ) {
         gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]] = lv_p;
         BoardItemSetText(gv_board, 1, lv_p, PlayerName(gv_intPlayer[lv_p]));
         BoardItemSetFontSize(gv_board, 1, lv_p, 20);
@@ -1905,9 +1955,8 @@ bool gt_InitBoard_Func (bool testConds, bool runActions) {
 
     }
     autoD7E3EB29_ae = gv_intCountPlayer;
-    autoD7E3EB29_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoD7E3EB29_ai >= 0 && lv_p <= autoD7E3EB29_ae) || (autoD7E3EB29_ai <= 0 && lv_p >= autoD7E3EB29_ae) ) ; lv_p += autoD7E3EB29_ai ) {
+    for ( ; ( (autoD7E3EB29_ai >= 0 && lv_p <= autoD7E3EB29_ae) || (autoD7E3EB29_ai < 0 && lv_p >= autoD7E3EB29_ae) ) ; lv_p += autoD7E3EB29_ai ) {
         if ((BankVerify(gv_bank[gv_intPlayer[lv_p]]) == true)) {
             if ((BankValueGetAsInt(gv_bank[gv_intPlayer[lv_p]], "Score", "GameCount") > 0)) {
                 BoardItemSetText(gv_board, 4, gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]], IntToText(BankValueGetAsInt(gv_bank[gv_intPlayer[lv_p]], "Score", "GameCount")));
@@ -1933,19 +1982,20 @@ void gt_InitBoard_Init () {
 // Trigger: InitTag
 //--------------------------------------------------------------------------------------------------
 bool gt_InitTag_Func (bool testConds, bool runActions) {
-    int auto307A7D87_ae;
-    int auto307A7D87_ai;
-    int auto78DCA8E0_ae;
-    int auto78DCA8E0_ai;
-    int autoEB69A9FA_ae;
-    int autoEB69A9FA_ai;
-    int auto8D55C4EC_ae;
-    int auto8D55C4EC_ai;
-
     // Variable Declarations
     int lv_p;
     int lv_phalanx;
     int lv_i;
+
+    // Automatic Variable Declarations
+    const int auto307A7D87_ae = 16;
+    const int auto307A7D87_ai = 1;
+    int auto78DCA8E0_ae;
+    const int auto78DCA8E0_ai = 1;
+    int autoEB69A9FA_ae;
+    const int autoEB69A9FA_ai = 1;
+    int auto8D55C4EC_ae;
+    const int auto8D55C4EC_ai = 1;
 
     // Variable Initialization
 
@@ -1958,25 +2008,20 @@ bool gt_InitTag_Func (bool testConds, bool runActions) {
     gv_campionPoint[0] = Point(128.0, 128.0);
     gv_campionUnitType[1] = "Champion1";
     gv_campionPoint[1] = Point(128.0, 128.0);
-    auto307A7D87_ae = 16;
-    auto307A7D87_ai = 1;
     lv_p = 1;
-    for ( ; ( (auto307A7D87_ai >= 0 && lv_p <= auto307A7D87_ae) || (auto307A7D87_ai <= 0 && lv_p >= auto307A7D87_ae) ) ; lv_p += auto307A7D87_ai ) {
+    for ( ; ( (auto307A7D87_ai >= 0 && lv_p <= auto307A7D87_ae) || (auto307A7D87_ai < 0 && lv_p >= auto307A7D87_ae) ) ; lv_p += auto307A7D87_ai ) {
         auto78DCA8E0_ae = gv_intCountPhalanx;
-        auto78DCA8E0_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (auto78DCA8E0_ai >= 0 && lv_phalanx <= auto78DCA8E0_ae) || (auto78DCA8E0_ai <= 0 && lv_phalanx >= auto78DCA8E0_ae) ) ; lv_phalanx += auto78DCA8E0_ai ) {
+        for ( ; ( (auto78DCA8E0_ai >= 0 && lv_phalanx <= auto78DCA8E0_ae) || (auto78DCA8E0_ai < 0 && lv_phalanx >= auto78DCA8E0_ae) ) ; lv_phalanx += auto78DCA8E0_ai ) {
             TextTagCreate(gv_textPhalanx[lv_phalanx], 36, gf_PlayerBattlefieldLocation(lv_phalanx, lv_p), 1.0, true, false, PlayerGroupAll());
         }
     }
     autoEB69A9FA_ae = gv_intCountPlayer;
-    autoEB69A9FA_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoEB69A9FA_ai >= 0 && lv_p <= autoEB69A9FA_ae) || (autoEB69A9FA_ai <= 0 && lv_p >= autoEB69A9FA_ae) ) ; lv_p += autoEB69A9FA_ai ) {
+    for ( ; ( (autoEB69A9FA_ai >= 0 && lv_p <= autoEB69A9FA_ae) || (autoEB69A9FA_ai < 0 && lv_p >= autoEB69A9FA_ae) ) ; lv_p += autoEB69A9FA_ai ) {
         auto8D55C4EC_ae = gv_intCountPhalanx;
-        auto8D55C4EC_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (auto8D55C4EC_ai >= 0 && lv_phalanx <= auto8D55C4EC_ae) || (auto8D55C4EC_ai <= 0 && lv_phalanx >= auto8D55C4EC_ae) ) ; lv_phalanx += auto8D55C4EC_ai ) {
+        for ( ; ( (auto8D55C4EC_ai >= 0 && lv_phalanx <= auto8D55C4EC_ae) || (auto8D55C4EC_ai < 0 && lv_phalanx >= auto8D55C4EC_ae) ) ; lv_phalanx += auto8D55C4EC_ai ) {
             TextTagCreate(gv_textPhalanx[lv_phalanx], 48, RegionGetCenter(gf_PlayerBuildingRegion(lv_p, lv_phalanx)), 1.0, true, false, PlayerGroupAll());
         }
     }
@@ -1995,25 +2040,26 @@ void gt_InitTag_Init () {
 // Trigger: InitWorker
 //--------------------------------------------------------------------------------------------------
 bool gt_InitWorker_Func (bool testConds, bool runActions) {
-    int autoA4D3345D_ae;
-    int autoA4D3345D_ai;
-    int autoEE5A83C0_ae;
-    int autoEE5A83C0_ai;
-    int autoB3C059B5_ae;
-    int autoB3C059B5_ai;
-    int autoE56CAEBE_ae;
-    int autoE56CAEBE_ai;
-    int autoB1DCCECE_ae;
-    int autoB1DCCECE_ai;
-    int auto1A2D867B_ae;
-    int auto1A2D867B_ai;
-    string auto11470BDF_val;
-
     // Variable Declarations
     int lv_p;
     int lv_phalanx;
     int lv_r;
     bool lv_b;
+
+    // Automatic Variable Declarations
+    int autoA4D3345D_ae;
+    const int autoA4D3345D_ai = 1;
+    int autoEE5A83C0_ae;
+    const int autoEE5A83C0_ai = 1;
+    int autoB3C059B5_ae;
+    const int autoB3C059B5_ai = 1;
+    int autoE56CAEBE_ae;
+    const int autoE56CAEBE_ai = 1;
+    int autoB1DCCECE_ae;
+    const int autoB1DCCECE_ai = 1;
+    int auto1A2D867B_ae;
+    const int auto1A2D867B_ai = 1;
+    string auto11470BDF_val;
 
     // Variable Initialization
 
@@ -2023,14 +2069,12 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
     }
 
     autoA4D3345D_ae = gv_intCountPlayer;
-    autoA4D3345D_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoA4D3345D_ai >= 0 && lv_p <= autoA4D3345D_ae) || (autoA4D3345D_ai <= 0 && lv_p >= autoA4D3345D_ae) ) ; lv_p += autoA4D3345D_ai ) {
+    for ( ; ( (autoA4D3345D_ai >= 0 && lv_p <= autoA4D3345D_ae) || (autoA4D3345D_ai < 0 && lv_p >= autoA4D3345D_ae) ) ; lv_p += autoA4D3345D_ai ) {
         libNtve_gf_SetAlliance(lv_p, 0, libNtve_ge_AllianceSetting_Ally);
         autoEE5A83C0_ae = gv_intCountPhalanx;
-        autoEE5A83C0_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (autoEE5A83C0_ai >= 0 && lv_phalanx <= autoEE5A83C0_ae) || (autoEE5A83C0_ai <= 0 && lv_phalanx >= autoEE5A83C0_ae) ) ; lv_phalanx += autoEE5A83C0_ai ) {
+        for ( ; ( (autoEE5A83C0_ai >= 0 && lv_phalanx <= autoEE5A83C0_ae) || (autoEE5A83C0_ai < 0 && lv_phalanx >= autoEE5A83C0_ae) ) ; lv_phalanx += autoEE5A83C0_ai ) {
             VisRevealerCreate(gv_intPlayer[lv_p], gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx));
             gv_visRevealer[gv_intPlayer[lv_p]][lv_phalanx] = VisRevealerLastCreated();
             VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]][lv_phalanx], true);
@@ -2038,13 +2082,11 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
     }
     if ((gv_boolTestMode == false)) {
         autoB3C059B5_ae = gv_intCountPhalanx;
-        autoB3C059B5_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (autoB3C059B5_ai >= 0 && lv_phalanx <= autoB3C059B5_ae) || (autoB3C059B5_ai <= 0 && lv_phalanx >= autoB3C059B5_ae) ) ; lv_phalanx += autoB3C059B5_ai ) {
+        for ( ; ( (autoB3C059B5_ai >= 0 && lv_phalanx <= autoB3C059B5_ae) || (autoB3C059B5_ai < 0 && lv_phalanx >= autoB3C059B5_ae) ) ; lv_phalanx += autoB3C059B5_ai ) {
             autoE56CAEBE_ae = gv_intCountPlayer;
-            autoE56CAEBE_ai = 1;
             lv_p = 1;
-            for ( ; ( (autoE56CAEBE_ai >= 0 && lv_p <= autoE56CAEBE_ae) || (autoE56CAEBE_ai <= 0 && lv_p >= autoE56CAEBE_ae) ) ; lv_p += autoE56CAEBE_ai ) {
+            for ( ; ( (autoE56CAEBE_ai >= 0 && lv_p <= autoE56CAEBE_ae) || (autoE56CAEBE_ai < 0 && lv_p >= autoE56CAEBE_ae) ) ; lv_p += autoE56CAEBE_ai ) {
                 CameraPan(lv_p, RegionGetCenter(gf_PlayerBuildingRegion(lv_p, lv_phalanx)), 1.0, -1, 10.0, false);
             }
             Wait(2.0, c_timeGame);
@@ -2052,16 +2094,14 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
     }
 
     autoB1DCCECE_ae = gv_intCountPlayer;
-    autoB1DCCECE_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoB1DCCECE_ai >= 0 && lv_p <= autoB1DCCECE_ae) || (autoB1DCCECE_ai <= 0 && lv_p >= autoB1DCCECE_ae) ) ; lv_p += autoB1DCCECE_ai ) {
+    for ( ; ( (autoB1DCCECE_ai >= 0 && lv_p <= autoB1DCCECE_ae) || (autoB1DCCECE_ai < 0 && lv_p >= autoB1DCCECE_ae) ) ; lv_p += autoB1DCCECE_ai ) {
         CameraPan(gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]), 1.0, -1, 10.0, false);
     }
     Wait(1.0, c_timeGame);
     auto1A2D867B_ae = gv_intCountPlayer;
-    auto1A2D867B_ai = 1;
     lv_p = 1;
-    for ( ; ( (auto1A2D867B_ai >= 0 && lv_p <= auto1A2D867B_ae) || (auto1A2D867B_ai <= 0 && lv_p >= auto1A2D867B_ae) ) ; lv_p += auto1A2D867B_ai ) {
+    for ( ; ( (auto1A2D867B_ai >= 0 && lv_p <= auto1A2D867B_ae) || (auto1A2D867B_ai < 0 && lv_p >= auto1A2D867B_ae) ) ; lv_p += auto1A2D867B_ai ) {
         auto11470BDF_val = PlayerRace(gv_intPlayer[lv_p]);
         if (auto11470BDF_val == "NightElf") {
             libNtve_gf_CreateUnitsAtPoint2(1, "ewsp", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
@@ -2117,6 +2157,7 @@ void gt_InitWorker_Init () {
 // Trigger: Highlight
 //--------------------------------------------------------------------------------------------------
 bool gt_Highlight_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Actions
     if (!runActions) {
         return true;
@@ -2136,19 +2177,20 @@ void gt_Highlight_Init () {
 // Trigger: Waiting
 //--------------------------------------------------------------------------------------------------
 bool gt_Waiting_Func (bool testConds, bool runActions) {
-    int auto0B911D06_ae;
-    int auto0B911D06_ai;
-    int auto3A4EFC67_ae;
-    int auto3A4EFC67_ai;
-    int auto10D5E923_ae;
-    int auto10D5E923_ai;
-
     // Variable Declarations
     int lv_p;
     int lv_phalanx;
     int lv_r;
     bool lv_b;
     fixed lv_t;
+
+    // Automatic Variable Declarations
+    int auto0B911D06_ae;
+    const int auto0B911D06_ai = 1;
+    int auto3A4EFC67_ae;
+    const int auto3A4EFC67_ai = 1;
+    int auto10D5E923_ae;
+    const int auto10D5E923_ai = 1;
 
     // Variable Initialization
 
@@ -2185,9 +2227,8 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
             if ((gv_intFinalRound <= gv_intCountFinalRound)) {
                 BoardSetName(gv_board, (StringExternal("Param/Value/D6E29B46")), Color(100.00, 100.00, 100.00));
                 auto0B911D06_ae = gv_intCountPhalanx;
-                auto0B911D06_ai = 1;
                 lv_phalanx = 1;
-                for ( ; ( (auto0B911D06_ai >= 0 && lv_phalanx <= auto0B911D06_ae) || (auto0B911D06_ai <= 0 && lv_phalanx >= auto0B911D06_ae) ) ; lv_phalanx += auto0B911D06_ai ) {
+                for ( ; ( (auto0B911D06_ai >= 0 && lv_phalanx <= auto0B911D06_ae) || (auto0B911D06_ai < 0 && lv_phalanx >= auto0B911D06_ae) ) ; lv_phalanx += auto0B911D06_ai ) {
                     gv_intRow[lv_phalanx] = 15;
                 }
             }
@@ -2195,18 +2236,16 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
         }
     }
     auto3A4EFC67_ae = gv_intCountPlayer;
-    auto3A4EFC67_ai = 1;
     lv_p = 1;
-    for ( ; ( (auto3A4EFC67_ai >= 0 && lv_p <= auto3A4EFC67_ae) || (auto3A4EFC67_ai <= 0 && lv_p >= auto3A4EFC67_ae) ) ; lv_p += auto3A4EFC67_ai ) {
+    for ( ; ( (auto3A4EFC67_ai >= 0 && lv_p <= auto3A4EFC67_ae) || (auto3A4EFC67_ai < 0 && lv_p >= auto3A4EFC67_ae) ) ; lv_p += auto3A4EFC67_ai ) {
         libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Pause", 1);
         if ((gv_intBonusRound > gv_intCountBonusRound)) {
             libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Final", 1);
         }
 
         auto10D5E923_ae = gv_intCountPhalanx;
-        auto10D5E923_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (auto10D5E923_ai >= 0 && lv_phalanx <= auto10D5E923_ae) || (auto10D5E923_ai <= 0 && lv_phalanx >= auto10D5E923_ae) ) ; lv_phalanx += auto10D5E923_ai ) {
+        for ( ; ( (auto10D5E923_ai >= 0 && lv_phalanx <= auto10D5E923_ae) || (auto10D5E923_ai < 0 && lv_phalanx >= auto10D5E923_ae) ) ; lv_phalanx += auto10D5E923_ai ) {
             VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]][lv_phalanx], true);
         }
         PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperAdd, gv_intG[gv_intRound]);
@@ -2220,7 +2259,7 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
                         lv_r = RandomInt(1, CatalogFieldValueCount(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray", gv_intPlayer[lv_p]));
                         if ((CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), "Level", gv_intPlayer[lv_p]) <= (gv_intRound + TechTreeUpgradeCount(gv_intPlayer[lv_p], "ItemLevel", c_techCountCompleteOnly))) && (CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), "Level", gv_intPlayer[lv_p]) > TechTreeUpgradeCount(gv_intPlayer[lv_p], "ItemLevel", c_techCountCompleteOnly))) {
                             libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), 0, 0, UnitGetPosition(gv_unitWorker[gv_intPlayer[lv_p]]));
-                            libGAwX_gf_UnitInventoryCreate(gv_unitWorker[gv_intPlayer[lv_p]], UnitLastCreated());
+                            libGAwX_gf_GiveItemToUnit(gv_unitWorker[gv_intPlayer[lv_p]], UnitLastCreated());
                             lv_b = true;
                         }
                         else {
@@ -2283,6 +2322,7 @@ bool gt_ItemBinding_Func (bool testConds, bool runActions) {
     unitgroup lv_ug;
     unit lv_u;
 
+    // Automatic Variable Declarations
     // Variable Initialization
     lv_iT = UnitGetType(lv_item);
     lv_unit = EventUnit();
@@ -2320,7 +2360,7 @@ bool gt_ItemBinding_Func (bool testConds, bool runActions) {
     }
 
     if (((lv_targetPlayer != lv_p) || (RegionContainsPoint(RegionFromId(1), UnitGetPosition(lv_targetUnit)) == true)) && ((lv_iM == c_unitInventoryChangeDrops) || (lv_iM == c_unitInventoryChangeGives))) {
-        gf_UnitInventoryCreate(lv_unit, lv_item);
+        gf__GiveItemToUnit(lv_unit, lv_item);
     }
     return true;
 }
@@ -2336,19 +2376,20 @@ void gt_ItemBinding_Init () {
 // Trigger: AI
 //--------------------------------------------------------------------------------------------------
 bool gt_AI_Func (bool testConds, bool runActions) {
-    int auto47BE8C45_ae;
-    int auto47BE8C45_ai;
-    string auto2E9382E2_val;
-    int autoB86FCDA7_ae;
-    int autoB86FCDA7_ai;
-    int autoA8904596_ae;
-    int autoA8904596_ai;
-
     // Variable Declarations
     int lv_p;
     int lv_r;
     int lv_phalanx;
     int lv_rPhalanx;
+
+    // Automatic Variable Declarations
+    int auto47BE8C45_ae;
+    const int auto47BE8C45_ai = 1;
+    string auto2E9382E2_val;
+    int autoB86FCDA7_ae;
+    const int autoB86FCDA7_ai = 1;
+    int autoA8904596_ae;
+    const int autoA8904596_ai = 1;
 
     // Variable Initialization
 
@@ -2358,9 +2399,8 @@ bool gt_AI_Func (bool testConds, bool runActions) {
     }
 
     auto47BE8C45_ae = gv_intCountPlayer;
-    auto47BE8C45_ai = 1;
     lv_p = 1;
-    for ( ; ( (auto47BE8C45_ai >= 0 && lv_p <= auto47BE8C45_ae) || (auto47BE8C45_ai <= 0 && lv_p >= auto47BE8C45_ae) ) ; lv_p += auto47BE8C45_ai ) {
+    for ( ; ( (auto47BE8C45_ai >= 0 && lv_p <= auto47BE8C45_ae) || (auto47BE8C45_ai < 0 && lv_p >= auto47BE8C45_ae) ) ; lv_p += auto47BE8C45_ai ) {
         if ((PlayerGroupHasPlayer(gv_playergroupAI, gv_intPlayer[lv_p]) == true)) {
             PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperSetTo, FixedToInt((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine) * 1.1)));
             PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom, c_playerPropOperSetTo, FixedToInt((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom) * 1.1)));
@@ -2401,18 +2441,16 @@ bool gt_AI_Func (bool testConds, bool runActions) {
     }
     if ((gv_boolTestMode == false)) {
         autoB86FCDA7_ae = gv_intCountPlayer;
-        autoB86FCDA7_ai = 1;
         lv_p = 1;
-        for ( ; ( (autoB86FCDA7_ai >= 0 && lv_p <= autoB86FCDA7_ae) || (autoB86FCDA7_ai <= 0 && lv_p >= autoB86FCDA7_ae) ) ; lv_p += autoB86FCDA7_ai ) {
+        for ( ; ( (autoB86FCDA7_ai >= 0 && lv_p <= autoB86FCDA7_ae) || (autoB86FCDA7_ai < 0 && lv_p >= autoB86FCDA7_ae) ) ; lv_p += autoB86FCDA7_ai ) {
             libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Pause", 0);
             if ((gv_intBonusRound > gv_intCountBonusRound)) {
                 libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Final", 0);
             }
 
             autoA8904596_ae = gv_intCountPhalanx;
-            autoA8904596_ai = 1;
             lv_phalanx = 1;
-            for ( ; ( (autoA8904596_ai >= 0 && lv_phalanx <= autoA8904596_ae) || (autoA8904596_ai <= 0 && lv_phalanx >= autoA8904596_ae) ) ; lv_phalanx += autoA8904596_ai ) {
+            for ( ; ( (autoA8904596_ai >= 0 && lv_phalanx <= autoA8904596_ae) || (autoA8904596_ai < 0 && lv_phalanx >= autoA8904596_ae) ) ; lv_phalanx += autoA8904596_ai ) {
                 VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]][lv_phalanx], false);
             }
         }
@@ -2431,27 +2469,6 @@ void gt_AI_Init () {
 // Trigger: InitUnit
 //--------------------------------------------------------------------------------------------------
 bool gt_InitUnit_Func (bool testConds, bool runActions) {
-    int autoD8349A32_ae;
-    int autoD8349A32_ai;
-    int auto01DBE8E5_ae;
-    int auto01DBE8E5_ai;
-    int auto0A6D230F_ae;
-    int auto0A6D230F_ai;
-    int auto8A4320CE_ae;
-    int auto8A4320CE_ai;
-    int auto03A34045_ae;
-    int auto03A34045_ai;
-    fixed auto5C68986E_ae;
-    fixed auto5C68986E_ai;
-    fixed auto782A081A_ae;
-    fixed auto782A081A_ai;
-    int autoE306DCEF_ae;
-    int autoE306DCEF_ai;
-    int auto4E0399EA_ae;
-    int auto4E0399EA_ai;
-    int auto2E8E3C83_ae;
-    int auto2E8E3C83_ai;
-
     // Variable Declarations
     int lv_p;
     int lv_u;
@@ -2464,6 +2481,31 @@ bool gt_InitUnit_Func (bool testConds, bool runActions) {
     region lv_region;
     int lv_item;
 
+    // Automatic Variable Declarations
+    int autoD8349A32_ae;
+    const int autoD8349A32_ai = 1;
+    int auto01DBE8E5_ae;
+    const int auto01DBE8E5_ai = 1;
+    int auto0A6D230F_ae;
+    const int auto0A6D230F_ai = 1;
+    int auto8A4320CE_ae;
+    const int auto8A4320CE_ai = 1;
+    int auto03A34045_ae;
+    const int auto03A34045_ai = 1;
+    fixed auto5C68986E_ae;
+    const fixed auto5C68986E_ai = 1.0;
+    fixed auto782A081A_ae;
+    const fixed auto782A081A_ai = 1.0;
+    unitgroup autoC887F46C_g;
+    int autoC887F46C_u;
+    unit autoC887F46C_var;
+    int autoE306DCEF_ae;
+    const int autoE306DCEF_ai = 1;
+    int auto4E0399EA_ae;
+    const int auto4E0399EA_ai = 1;
+    int auto2E8E3C83_ae;
+    const int auto2E8E3C83_ai = 1;
+
     // Variable Initialization
 
     // Actions
@@ -2474,21 +2516,18 @@ bool gt_InitUnit_Func (bool testConds, bool runActions) {
     UIClearMessages(PlayerGroupAll(), c_messageAreaDirective);
     gv_intSMax = 0;
     autoD8349A32_ae = gv_intCountPlayer;
-    autoD8349A32_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoD8349A32_ai >= 0 && lv_p <= autoD8349A32_ae) || (autoD8349A32_ai <= 0 && lv_p >= autoD8349A32_ae) ) ; lv_p += autoD8349A32_ai ) {
+    for ( ; ( (autoD8349A32_ai >= 0 && lv_p <= autoD8349A32_ae) || (autoD8349A32_ai < 0 && lv_p >= autoD8349A32_ae) ) ; lv_p += autoD8349A32_ai ) {
         gv_intS[gv_intPlayer[lv_p]] = 0;
         BoardItemSetText(gv_board, 3, lv_p, IntToText(0));
         BoardItemSetProgressValue(gv_board, 3, lv_p, 0.0);
         BoardItemSetProgressRange(gv_board, 3, lv_p, 0.0, 0.0);
         auto01DBE8E5_ae = gv_intCountPhalanx;
-        auto01DBE8E5_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (auto01DBE8E5_ai >= 0 && lv_phalanx <= auto01DBE8E5_ae) || (auto01DBE8E5_ai <= 0 && lv_phalanx >= auto01DBE8E5_ae) ) ; lv_phalanx += auto01DBE8E5_ai ) {
+        for ( ; ( (auto01DBE8E5_ai >= 0 && lv_phalanx <= auto01DBE8E5_ae) || (auto01DBE8E5_ai < 0 && lv_phalanx >= auto01DBE8E5_ae) ) ; lv_phalanx += auto01DBE8E5_ai ) {
             auto0A6D230F_ae = gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx];
-            auto0A6D230F_ai = 1;
             lv_u = 1;
-            for ( ; ( (auto0A6D230F_ai >= 0 && lv_u <= auto0A6D230F_ae) || (auto0A6D230F_ai <= 0 && lv_u >= auto0A6D230F_ae) ) ; lv_u += auto0A6D230F_ai ) {
+            for ( ; ( (auto0A6D230F_ai >= 0 && lv_u <= auto0A6D230F_ae) || (auto0A6D230F_ai < 0 && lv_u >= auto0A6D230F_ae) ) ; lv_u += auto0A6D230F_ai ) {
                 gv_typeUnit[gv_intPlayer[lv_p]][lv_u][lv_phalanx] = null;
             }
             gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx] = 0;
@@ -2500,43 +2539,39 @@ bool gt_InitUnit_Func (bool testConds, bool runActions) {
     }
     lv_sMax = 0;
     auto8A4320CE_ae = gv_intCountPlayer;
-    auto8A4320CE_ai = 1;
     lv_p = 1;
-    for ( ; ( (auto8A4320CE_ai >= 0 && lv_p <= auto8A4320CE_ae) || (auto8A4320CE_ai <= 0 && lv_p >= auto8A4320CE_ae) ) ; lv_p += auto8A4320CE_ai ) {
+    for ( ; ( (auto8A4320CE_ai >= 0 && lv_p <= auto8A4320CE_ae) || (auto8A4320CE_ai < 0 && lv_p >= auto8A4320CE_ae) ) ; lv_p += auto8A4320CE_ai ) {
         lv_s = 0;
         auto03A34045_ae = gv_intCountPhalanx;
-        auto03A34045_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (auto03A34045_ai >= 0 && lv_phalanx <= auto03A34045_ae) || (auto03A34045_ai <= 0 && lv_phalanx >= auto03A34045_ae) ) ; lv_phalanx += auto03A34045_ai ) {
+        for ( ; ( (auto03A34045_ai >= 0 && lv_phalanx <= auto03A34045_ae) || (auto03A34045_ai < 0 && lv_phalanx >= auto03A34045_ae) ) ; lv_phalanx += auto03A34045_ai ) {
             auto5C68986E_ae = (libNtve_gf_HeightOfRegion(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx)) - 1.0);
-            auto5C68986E_ai = 1.0;
             lv_r = 0.0;
-            for ( ; ( (auto5C68986E_ai >= 0 && lv_r <= auto5C68986E_ae) || (auto5C68986E_ai <= 0 && lv_r >= auto5C68986E_ae) ) ; lv_r += auto5C68986E_ai ) {
+            for ( ; ( (auto5C68986E_ai >= 0 && lv_r <= auto5C68986E_ae) || (auto5C68986E_ai < 0 && lv_r >= auto5C68986E_ae) ) ; lv_r += auto5C68986E_ai ) {
                 auto782A081A_ae = (libNtve_gf_WidthOfRegion(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx)) - 1.0);
-                auto782A081A_ai = 1.0;
                 lv_c = 0.0;
-                for ( ; ( (auto782A081A_ai >= 0 && lv_c <= auto782A081A_ae) || (auto782A081A_ai <= 0 && lv_c >= auto782A081A_ae) ) ; lv_c += auto782A081A_ai ) {
+                for ( ; ( (auto782A081A_ai >= 0 && lv_c <= auto782A081A_ae) || (auto782A081A_ai < 0 && lv_c >= auto782A081A_ae) ) ; lv_c += auto782A081A_ai ) {
                     lv_region = RegionRect((PointGetX(RegionGetBoundsMin(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))) + lv_c), ((PointGetY(RegionGetBoundsMax(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))) - lv_r) - 1.0), ((PointGetX(RegionGetBoundsMin(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))) + lv_c) + 1.0), (PointGetY(RegionGetBoundsMax(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))) - lv_r));
-                    UnitGroupLoopBegin(UnitGroup(null, gv_intPlayer[lv_p], lv_region, UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-                    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                        autoE306DCEF_ae = CatalogFieldValueCount(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "TechTreeProducedUnitArray", gv_intPlayer[lv_p]);
-                        autoE306DCEF_ai = 1;
+                    autoC887F46C_g = UnitGroup(null, gv_intPlayer[lv_p], lv_region, UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+                    autoC887F46C_u = UnitGroupCount(autoC887F46C_g, c_unitCountAll);
+                    for (;; autoC887F46C_u -= 1) {
+                        autoC887F46C_var = UnitGroupUnitFromEnd(autoC887F46C_g, autoC887F46C_u);
+                        if (autoC887F46C_var == null) { break; }
+                        autoE306DCEF_ae = CatalogFieldValueCount(c_gameCatalogUnit, UnitGetType(autoC887F46C_var), "TechTreeProducedUnitArray", gv_intPlayer[lv_p]);
                         lv_i = 1;
-                        for ( ; ( (autoE306DCEF_ai >= 0 && lv_i <= autoE306DCEF_ae) || (autoE306DCEF_ai <= 0 && lv_i >= autoE306DCEF_ae) ) ; lv_i += autoE306DCEF_ai ) {
+                        for ( ; ( (autoE306DCEF_ai >= 0 && lv_i <= autoE306DCEF_ae) || (autoE306DCEF_ai < 0 && lv_i >= autoE306DCEF_ae) ) ; lv_i += autoE306DCEF_ai ) {
                             gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]] += 1;
                             gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx] += 1;
                             gv_intCountLivingUnit[gv_intPlayer[lv_p]][lv_phalanx] += 1;
-                            gv_typeUnit[gv_intPlayer[lv_p]][gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx]][lv_phalanx] = UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "TechTreeProducedUnitArray[" + IntToString((lv_i + -1)) + "]", gv_intPlayer[lv_p]));
-                            auto4E0399EA_ae = UnitInventoryCount(UnitGroupLoopCurrent(), c_unitInventoryCountTotal);
-                            auto4E0399EA_ai = 1;
+                            gv_typeUnit[gv_intPlayer[lv_p]][gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx]][lv_phalanx] = UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(autoC887F46C_var), "TechTreeProducedUnitArray[" + IntToString((lv_i + -1)) + "]", gv_intPlayer[lv_p]));
+                            auto4E0399EA_ae = UnitInventoryCount(autoC887F46C_var, c_unitInventoryCountTotal);
                             lv_item = 1;
-                            for ( ; ( (auto4E0399EA_ai >= 0 && lv_item <= auto4E0399EA_ae) || (auto4E0399EA_ai <= 0 && lv_item >= auto4E0399EA_ae) ) ; lv_item += auto4E0399EA_ai ) {
-                                gv_typeItem[gv_intPlayer[lv_p]][gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx]][lv_phalanx][lv_item] = UnitGetType(UnitInventoryItem(UnitGroupLoopCurrent(), lv_item));
+                            for ( ; ( (auto4E0399EA_ai >= 0 && lv_item <= auto4E0399EA_ae) || (auto4E0399EA_ai < 0 && lv_item >= auto4E0399EA_ae) ) ; lv_item += auto4E0399EA_ai ) {
+                                gv_typeItem[gv_intPlayer[lv_p]][gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx]][lv_phalanx][lv_item] = UnitGetType(UnitInventoryItem(autoC887F46C_var, lv_item));
                             }
-                            lv_s += CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "TechTreeProducedUnitArray[" + IntToString((lv_i + -1)) + "]", gv_intPlayer[lv_p])), "KillResource[" + IntToString(3) + "]", gv_intPlayer[lv_p]);
+                            lv_s += CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(autoC887F46C_var), "TechTreeProducedUnitArray[" + IntToString((lv_i + -1)) + "]", gv_intPlayer[lv_p])), "KillResource[" + IntToString(3) + "]", gv_intPlayer[lv_p]);
                         }
                     }
-                    UnitGroupLoopEnd();
                 }
             }
             if ((gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx] == 0)) {
@@ -2557,9 +2592,8 @@ bool gt_InitUnit_Func (bool testConds, bool runActions) {
 
     }
     auto2E8E3C83_ae = gv_intCountPlayer;
-    auto2E8E3C83_ai = 1;
     lv_p = 1;
-    for ( ; ( (auto2E8E3C83_ai >= 0 && lv_p <= auto2E8E3C83_ae) || (auto2E8E3C83_ai <= 0 && lv_p >= auto2E8E3C83_ae) ) ; lv_p += auto2E8E3C83_ai ) {
+    for ( ; ( (auto2E8E3C83_ai >= 0 && lv_p <= auto2E8E3C83_ae) || (auto2E8E3C83_ai < 0 && lv_p >= auto2E8E3C83_ae) ) ; lv_p += auto2E8E3C83_ai ) {
         BoardItemSetProgressRange(gv_board, 2, gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]], 0.0, lv_sMax);
     }
     TriggerExecute(gt_Position, true, false);
@@ -2575,25 +2609,6 @@ void gt_InitUnit_Init () {
 // Trigger: Position
 //--------------------------------------------------------------------------------------------------
 bool gt_Position_Func (bool testConds, bool runActions) {
-    int autoC8C5DC5C_ae;
-    int autoC8C5DC5C_ai;
-    int auto1356DB97_ae;
-    int auto1356DB97_ai;
-    int auto20195369_ae;
-    int auto20195369_ai;
-    int auto4D275698_ae;
-    int auto4D275698_ai;
-    int autoCC490C0E_ae;
-    int autoCC490C0E_ai;
-    int auto692426D5_ae;
-    int auto692426D5_ai;
-    int autoF1CBA2E8_ae;
-    int autoF1CBA2E8_ai;
-    int auto4BEA0BF1_ae;
-    int auto4BEA0BF1_ai;
-    int autoCF61D4F3_ae;
-    int autoCF61D4F3_ai;
-
     // Variable Declarations
     int lv_p;
     int lv_c;
@@ -2605,6 +2620,32 @@ bool gt_Position_Func (bool testConds, bool runActions) {
     int lv_phalanx;
     int lv_item;
 
+    // Automatic Variable Declarations
+    unitgroup auto5C181EFF_g;
+    int auto5C181EFF_u;
+    unit auto5C181EFF_var;
+    int autoC8C5DC5C_ae;
+    const int autoC8C5DC5C_ai = 1;
+    int auto1356DB97_ae;
+    const int auto1356DB97_ai = 1;
+    int auto20195369_ae;
+    const int auto20195369_ai = 1;
+    int auto4D275698_ae;
+    const int auto4D275698_ai = 1;
+    int autoCC490C0E_ae;
+    const int autoCC490C0E_ai = 1;
+    int auto692426D5_ae;
+    const int auto692426D5_ai = 1;
+    int autoF1CBA2E8_ae;
+    const int autoF1CBA2E8_ai = 1;
+    const int auto4BEA0BF1_ae = gv_campionCount;
+    const int auto4BEA0BF1_ai = 1;
+    int autoCF61D4F3_ae;
+    const int autoCF61D4F3_ai = 1;
+    unitgroup auto49002435_g;
+    int auto49002435_u;
+    unit auto49002435_var;
+
     // Variable Initialization
 
     // Actions
@@ -2614,20 +2655,21 @@ bool gt_Position_Func (bool testConds, bool runActions) {
 
     VisEnable(c_visTypeMask, false);
     VisEnable(c_visTypeFog, false);
-    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, 0, 0), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitRemove(UnitGroupLoopCurrent());
+    auto5C181EFF_g = UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, 0, 0), 0);
+    auto5C181EFF_u = UnitGroupCount(auto5C181EFF_g, c_unitCountAll);
+    for (;; auto5C181EFF_u -= 1) {
+        auto5C181EFF_var = UnitGroupUnitFromEnd(auto5C181EFF_g, auto5C181EFF_u);
+        if (auto5C181EFF_var == null) { break; }
+        UnitRemove(auto5C181EFF_var);
     }
-    UnitGroupLoopEnd();
     if (((gv_intCountPlayer - PlayerGroupCount(gv_playergroupWon) - PlayerGroupCount(gv_playergroupLose)) <= 1)) {
         PlayerGroupClear(gv_playergroupWon);
     }
 
     lv_pF = 0;
     autoC8C5DC5C_ae = gv_intCountPlayer;
-    autoC8C5DC5C_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoC8C5DC5C_ai >= 0 && lv_p <= autoC8C5DC5C_ae) || (autoC8C5DC5C_ai <= 0 && lv_p >= autoC8C5DC5C_ae) ) ; lv_p += autoC8C5DC5C_ai ) {
+    for ( ; ( (autoC8C5DC5C_ai >= 0 && lv_p <= autoC8C5DC5C_ae) || (autoC8C5DC5C_ai < 0 && lv_p >= autoC8C5DC5C_ae) ) ; lv_p += autoC8C5DC5C_ai ) {
         if ((gv_intRound <= gv_intCountRound)) {
         }
         else {
@@ -2648,18 +2690,15 @@ bool gt_Position_Func (bool testConds, bool runActions) {
             }
         }
         auto1356DB97_ae = gv_intCountPhalanx;
-        auto1356DB97_ai = 1;
         lv_phalanx = 1;
-        for ( ; ( (auto1356DB97_ai >= 0 && lv_phalanx <= auto1356DB97_ae) || (auto1356DB97_ai <= 0 && lv_phalanx >= auto1356DB97_ae) ) ; lv_phalanx += auto1356DB97_ai ) {
+        for ( ; ( (auto1356DB97_ai >= 0 && lv_phalanx <= auto1356DB97_ae) || (auto1356DB97_ai < 0 && lv_phalanx >= auto1356DB97_ae) ) ; lv_phalanx += auto1356DB97_ai ) {
             lv_i = 0;
             auto20195369_ae = gv_intRow[lv_phalanx];
-            auto20195369_ai = 1;
             lv_r = 1;
-            for ( ; ( (auto20195369_ai >= 0 && lv_r <= auto20195369_ae) || (auto20195369_ai <= 0 && lv_r >= auto20195369_ae) ) ; lv_r += auto20195369_ai ) {
+            for ( ; ( (auto20195369_ai >= 0 && lv_r <= auto20195369_ae) || (auto20195369_ai < 0 && lv_r >= auto20195369_ae) ) ; lv_r += auto20195369_ai ) {
                 auto4D275698_ae = gv_intColumn[lv_phalanx];
-                auto4D275698_ai = 1;
                 lv_c = 1;
-                for ( ; ( (auto4D275698_ai >= 0 && lv_c <= auto4D275698_ae) || (auto4D275698_ai <= 0 && lv_c >= auto4D275698_ae) ) ; lv_c += auto4D275698_ai ) {
+                for ( ; ( (auto4D275698_ai >= 0 && lv_c <= auto4D275698_ae) || (auto4D275698_ai < 0 && lv_c >= auto4D275698_ae) ) ; lv_c += auto4D275698_ai ) {
                     lv_i += 1;
                     if ((gv_intRound <= gv_intCountRound)) {
                         if ((lv_i <= gv_intCountUnit[gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRound]][lv_phalanx])) {
@@ -2668,9 +2707,8 @@ bool gt_Position_Func (bool testConds, bool runActions) {
                             UnitBehaviorAddPlayer(UnitLastCreated(), "Preparing", UnitGetOwner(UnitLastCreated()), 1);
                             UnitSetCustomValue(UnitLastCreated(), 0, lv_phalanx);
                             autoCC490C0E_ae = UnitInventoryCount(UnitLastCreated(), c_unitInventoryCountTotal);
-                            autoCC490C0E_ai = 1;
                             lv_item = 1;
-                            for ( ; ( (autoCC490C0E_ai >= 0 && lv_item <= autoCC490C0E_ae) || (autoCC490C0E_ai <= 0 && lv_item >= autoCC490C0E_ae) ) ; lv_item += autoCC490C0E_ai ) {
+                            for ( ; ( (autoCC490C0E_ai >= 0 && lv_item <= autoCC490C0E_ae) || (autoCC490C0E_ai < 0 && lv_item >= autoCC490C0E_ae) ) ; lv_item += autoCC490C0E_ai ) {
                                 UnitInventoryCreate(UnitLastCreated(), gv_typeItem[gv_intScheduleAllPlayAll[gv_intPlayer[lv_p]][gv_intRound]][lv_i][lv_phalanx][lv_item]);
                             }
                         }
@@ -2684,9 +2722,8 @@ bool gt_Position_Func (bool testConds, bool runActions) {
                                 UnitBehaviorAddPlayer(UnitLastCreated(), "Preparing", UnitGetOwner(UnitLastCreated()), 1);
                                 UnitSetCustomValue(UnitLastCreated(), 0, lv_phalanx);
                                 auto692426D5_ae = UnitInventoryCount(UnitLastCreated(), c_unitInventoryCountTotal);
-                                auto692426D5_ai = 1;
                                 lv_item = 1;
-                                for ( ; ( (auto692426D5_ai >= 0 && lv_item <= auto692426D5_ae) || (auto692426D5_ai <= 0 && lv_item >= auto692426D5_ae) ) ; lv_item += auto692426D5_ai ) {
+                                for ( ; ( (auto692426D5_ai >= 0 && lv_item <= auto692426D5_ae) || (auto692426D5_ai < 0 && lv_item >= auto692426D5_ae) ) ; lv_item += auto692426D5_ai ) {
                                     UnitInventoryCreate(UnitLastCreated(), gv_typeItem[gv_intPlayer[lv_p]][lv_i][lv_phalanx][lv_item]);
                                 }
                             }
@@ -2700,9 +2737,8 @@ bool gt_Position_Func (bool testConds, bool runActions) {
                                     UnitBehaviorAddPlayer(UnitLastCreated(), "Preparing", UnitGetOwner(UnitLastCreated()), 1);
                                     UnitSetCustomValue(UnitLastCreated(), 0, lv_phalanx);
                                     autoF1CBA2E8_ae = UnitInventoryCount(UnitLastCreated(), c_unitInventoryCountTotal);
-                                    autoF1CBA2E8_ai = 1;
                                     lv_item = 1;
-                                    for ( ; ( (autoF1CBA2E8_ai >= 0 && lv_item <= autoF1CBA2E8_ae) || (autoF1CBA2E8_ai <= 0 && lv_item >= autoF1CBA2E8_ae) ) ; lv_item += autoF1CBA2E8_ai ) {
+                                    for ( ; ( (autoF1CBA2E8_ai >= 0 && lv_item <= autoF1CBA2E8_ae) || (autoF1CBA2E8_ai < 0 && lv_item >= autoF1CBA2E8_ae) ) ; lv_item += autoF1CBA2E8_ai ) {
                                         UnitInventoryCreate(UnitLastCreated(), gv_typeItem[gv_intPlayerFinal[lv_p][gv_intFinalRound]][lv_i][lv_phalanx][lv_item]);
                                     }
                                 }
@@ -2758,10 +2794,8 @@ bool gt_Position_Func (bool testConds, bool runActions) {
     if ((gv_intRound <= gv_intCountRound)) {
         if ((gv_gameMode != "0002")) {
             libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_campionUnitType[0], c_unitCreateIgnorePlacement, 15, gv_campionPoint[0]);
-            auto4BEA0BF1_ae = gv_campionCount;
-            auto4BEA0BF1_ai = 1;
             lv_i = 1;
-            for ( ; ( (auto4BEA0BF1_ai >= 0 && lv_i <= auto4BEA0BF1_ae) || (auto4BEA0BF1_ai <= 0 && lv_i >= auto4BEA0BF1_ae) ) ; lv_i += auto4BEA0BF1_ai ) {
+            for ( ; ( (auto4BEA0BF1_ai >= 0 && lv_i <= auto4BEA0BF1_ae) || (auto4BEA0BF1_ai < 0 && lv_i >= auto4BEA0BF1_ae) ) ; lv_i += auto4BEA0BF1_ai ) {
                 libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_campionUnitType[lv_i], c_unitCreateIgnorePlacement, 15, gv_campionPoint[lv_i]);
             }
         }
@@ -2771,21 +2805,22 @@ bool gt_Position_Func (bool testConds, bool runActions) {
     SoundPlayForPlayer(SoundLink("HornOfCenariusSound", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
     Wait(5.0, c_timeGame);
     autoCF61D4F3_ae = gv_intCountPlayer;
-    autoCF61D4F3_ai = 1;
     lv_p = 1;
-    for ( ; ( (autoCF61D4F3_ai >= 0 && lv_p <= autoCF61D4F3_ae) || (autoCF61D4F3_ai <= 0 && lv_p >= autoCF61D4F3_ae) ) ; lv_p += autoCF61D4F3_ai ) {
+    for ( ; ( (autoCF61D4F3_ai >= 0 && lv_p <= autoCF61D4F3_ae) || (autoCF61D4F3_ai < 0 && lv_p >= autoCF61D4F3_ae) ) ; lv_p += autoCF61D4F3_ai ) {
         if ((UnitGroupCount(UnitGroup(null, gv_intPlayer[lv_p], RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) == 0)) {
             gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]] = 0;
             gv_boolPlayerInBattle[gv_intPlayer[lv_p]] = false;
         }
 
     }
-    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitBehaviorRemove(UnitGroupLoopCurrent(), "Preparing", 1);
-        libNtve_gf_MakeUnitUncommandable(UnitGroupLoopCurrent(), gv_optionCommandable);
+    auto49002435_g = UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto49002435_u = UnitGroupCount(auto49002435_g, c_unitCountAll);
+    for (;; auto49002435_u -= 1) {
+        auto49002435_var = UnitGroupUnitFromEnd(auto49002435_g, auto49002435_u);
+        if (auto49002435_var == null) { break; }
+        UnitBehaviorRemove(auto49002435_var, "Preparing", 1);
+        libNtve_gf_MakeUnitUncommandable(auto49002435_var, gv_optionCommandable);
     }
-    UnitGroupLoopEnd();
     TriggerEnable(libGAwX_gt_NonHeroItemDeathDrop, false);
     TriggerEnable(gt_Attack, true);
     TriggerEnable(gt_UnitDied, true);
@@ -2809,6 +2844,7 @@ void gt_Position_Init () {
 // Trigger: UnitDied
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitDied_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Conditions
     if (testConds) {
         if (!((UnitGetCustomValue(EventUnit(), 1) == 0.0))) {
@@ -2847,6 +2883,7 @@ void gt_UnitDied_Init () {
 // Trigger: UnitDiedSummoned
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitDiedSummoned_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Conditions
     if (testConds) {
         if (!((UnitGetCustomValue(EventUnit(), 1) == 0.0))) {
@@ -2896,6 +2933,7 @@ void gt_UnitDiedSummoned_Init () {
 // Trigger: UnitOwnerChanged
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitOwnerChanged_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Conditions
     if (testConds) {
         if (!((UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeSummoned) == false))) {
@@ -2949,11 +2987,6 @@ void gt_UnitOwnerChanged_Init () {
 // Trigger: Reserve
 //--------------------------------------------------------------------------------------------------
 bool gt_Reserve_Func (bool testConds, bool runActions) {
-    int auto33A120BB_ae;
-    int auto33A120BB_ai;
-    int autoDBEAF3E9_ae;
-    int autoDBEAF3E9_ai;
-
     // Variable Declarations
     int lv_i;
     int lv_p;
@@ -2962,6 +2995,12 @@ bool gt_Reserve_Func (bool testConds, bool runActions) {
     int lv_pLs;
     int lv_phalanx;
     int lv_item;
+
+    // Automatic Variable Declarations
+    int auto33A120BB_ae;
+    const int auto33A120BB_ai = 1;
+    int autoDBEAF3E9_ae;
+    const int autoDBEAF3E9_ai = 1;
 
     // Variable Initialization
 
@@ -2980,9 +3019,8 @@ bool gt_Reserve_Func (bool testConds, bool runActions) {
         }
 
         auto33A120BB_ae = gv_intCountPlayer;
-        auto33A120BB_ai = 1;
         lv_p = 1;
-        for ( ; ( (auto33A120BB_ai >= 0 && lv_p <= auto33A120BB_ae) || (auto33A120BB_ai <= 0 && lv_p >= auto33A120BB_ae) ) ; lv_p += auto33A120BB_ai ) {
+        for ( ; ( (auto33A120BB_ai >= 0 && lv_p <= auto33A120BB_ae) || (auto33A120BB_ai < 0 && lv_p >= auto33A120BB_ae) ) ; lv_p += auto33A120BB_ai ) {
             BoardItemSetProgressRange(gv_board, 3, lv_p, 0.0, gv_intSMax);
         }
     }
@@ -3000,9 +3038,8 @@ bool gt_Reserve_Func (bool testConds, bool runActions) {
             UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerReserveLocation(gv_intEventPlayer, lv_phalanx)), 0.0);
             libNtve_gf_MakeUnitUncommandable(UnitLastCreated(), gv_optionCommandable);
             autoDBEAF3E9_ae = UnitInventoryCount(UnitLastCreated(), c_unitInventoryCountTotal);
-            autoDBEAF3E9_ai = 1;
             lv_item = 1;
-            for ( ; ( (autoDBEAF3E9_ai >= 0 && lv_item <= autoDBEAF3E9_ae) || (autoDBEAF3E9_ai <= 0 && lv_item >= autoDBEAF3E9_ae) ) ; lv_item += autoDBEAF3E9_ai ) {
+            for ( ; ( (autoDBEAF3E9_ai >= 0 && lv_item <= autoDBEAF3E9_ae) || (autoDBEAF3E9_ai < 0 && lv_item >= autoDBEAF3E9_ae) ) ; lv_item += autoDBEAF3E9_ai ) {
                 UnitInventoryCreate(UnitLastCreated(), gv_typeItem[gv_intEventPlayer][lv_i][lv_phalanx][lv_item]);
             }
         }
@@ -3021,16 +3058,20 @@ void gt_Reserve_Init () {
 // Trigger: WinLossPeriod
 //--------------------------------------------------------------------------------------------------
 bool gt_WinLossPeriod_Func (bool testConds, bool runActions) {
-    int auto859AF73D_ae;
-    int auto859AF73D_ai;
-    int autoA7A52EEB_ae;
-    int autoA7A52EEB_ai;
-
     // Variable Declarations
     int[17] lv_i;
     int lv_p;
     int lv_pw;
     int lv_phalanx;
+
+    // Automatic Variable Declarations
+    unitgroup autoBAB055A8_g;
+    int autoBAB055A8_u;
+    unit autoBAB055A8_var;
+    int auto859AF73D_ae;
+    const int auto859AF73D_ai = 1;
+    int autoA7A52EEB_ae;
+    const int autoA7A52EEB_ai = 1;
 
     // Variable Initialization
 
@@ -3039,24 +3080,24 @@ bool gt_WinLossPeriod_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterSummoned - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetCustomValue(UnitGroupLoopCurrent(), 1) == 0.0) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, UnitGroupLoopCurrent()) == false) && (UnitTypeTestAttribute(UnitGetType(UnitGroupLoopCurrent()), c_unitAttributeSummoned) == false)) {
-            lv_i[UnitGetOwner(UnitGroupLoopCurrent())] += 1;
+    autoBAB055A8_g = UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterSummoned - 32))), 0);
+    autoBAB055A8_u = UnitGroupCount(autoBAB055A8_g, c_unitCountAll);
+    for (;; autoBAB055A8_u -= 1) {
+        autoBAB055A8_var = UnitGroupUnitFromEnd(autoBAB055A8_g, autoBAB055A8_u);
+        if (autoBAB055A8_var == null) { break; }
+        if ((UnitGetCustomValue(autoBAB055A8_var, 1) == 0.0) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, autoBAB055A8_var) == false) && (UnitTypeTestAttribute(UnitGetType(autoBAB055A8_var), c_unitAttributeSummoned) == false)) {
+            lv_i[UnitGetOwner(autoBAB055A8_var)] += 1;
         }
 
     }
-    UnitGroupLoopEnd();
     auto859AF73D_ae = gv_intCountPlayer;
-    auto859AF73D_ai = 1;
     lv_p = 1;
-    for ( ; ( (auto859AF73D_ai >= 0 && lv_p <= auto859AF73D_ae) || (auto859AF73D_ai <= 0 && lv_p >= auto859AF73D_ae) ) ; lv_p += auto859AF73D_ai ) {
+    for ( ; ( (auto859AF73D_ai >= 0 && lv_p <= auto859AF73D_ae) || (auto859AF73D_ai < 0 && lv_p >= auto859AF73D_ae) ) ; lv_p += auto859AF73D_ai ) {
         if ((lv_i[gv_intPlayer[lv_p]] == 0)) {
             gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]] = 0;
             autoA7A52EEB_ae = gv_intCountPhalanx;
-            autoA7A52EEB_ai = 1;
             lv_phalanx = 1;
-            for ( ; ( (autoA7A52EEB_ai >= 0 && lv_phalanx <= autoA7A52EEB_ae) || (autoA7A52EEB_ai <= 0 && lv_phalanx >= autoA7A52EEB_ae) ) ; lv_phalanx += autoA7A52EEB_ai ) {
+            for ( ; ( (autoA7A52EEB_ai >= 0 && lv_phalanx <= autoA7A52EEB_ae) || (autoA7A52EEB_ai < 0 && lv_phalanx >= autoA7A52EEB_ae) ) ; lv_phalanx += autoA7A52EEB_ai ) {
                 gv_intCountLivingUnit[gv_intPlayer[lv_p]][lv_phalanx] = 0;
             }
         }
@@ -3077,21 +3118,35 @@ void gt_WinLossPeriod_Init () {
 // Trigger: WinLoss
 //--------------------------------------------------------------------------------------------------
 bool gt_WinLoss_Func (bool testConds, bool runActions) {
-    int auto3D1BE2E6_ae;
-    int auto3D1BE2E6_ai;
-    int auto1D1DAF8F_ae;
-    int auto1D1DAF8F_ai;
-    int autoA5DAEA43_ae;
-    int autoA5DAEA43_ai;
-    int autoB7E72304_n;
-    int autoB7E72304_i;
-
     // Variable Declarations
     int lv_p;
     int lv_pL;
     int lv_pWn;
     int lv_pLs;
     unit lv_item;
+
+    // Automatic Variable Declarations
+    int auto3D1BE2E6_ae;
+    const int auto3D1BE2E6_ai = 1;
+    playergroup auto2F0CEC6D_g;
+    int auto2F0CEC6D_var;
+    playergroup auto3F44CB90_g;
+    int auto3F44CB90_var;
+    unitgroup auto5B90E8C7_g;
+    int auto5B90E8C7_u;
+    unit auto5B90E8C7_var;
+    int auto1D1DAF8F_ae;
+    const int auto1D1DAF8F_ai = 1;
+    unitgroup autoFD1E9C91_g;
+    int autoFD1E9C91_u;
+    unit autoFD1E9C91_var;
+    int autoA5DAEA43_ae;
+    const int autoA5DAEA43_ai = 1;
+    const int autoB7E72304_n = 50;
+    int autoB7E72304_i;
+    unitgroup auto5C6559ED_g;
+    int auto5C6559ED_u;
+    unit auto5C6559ED_var;
 
     // Variable Initialization
 
@@ -3103,9 +3158,8 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
     if ((gv_intRound <= gv_intCountRound)) {
         if ((gv_boolKilling == false)) {
             autoA5DAEA43_ae = gv_intCountPlayer;
-            autoA5DAEA43_ai = 1;
             lv_p = 1;
-            for ( ; ( (autoA5DAEA43_ai >= 0 && lv_p <= autoA5DAEA43_ae) || (autoA5DAEA43_ai <= 0 && lv_p >= autoA5DAEA43_ae) ) ; lv_p += autoA5DAEA43_ai ) {
+            for ( ; ( (autoA5DAEA43_ai >= 0 && lv_p <= autoA5DAEA43_ae) || (autoA5DAEA43_ai < 0 && lv_p >= autoA5DAEA43_ae) ) ; lv_p += autoA5DAEA43_ai ) {
                 if ((gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]] > 0)) {
                     lv_pL += 1;
                     lv_pWn = gv_intPlayer[lv_p];
@@ -3130,24 +3184,25 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                 BoardItemSetText(gv_board, 6, gv_intRowBoardOfPlayer[lv_pWn], FixedToText(gv_champion[lv_pWn], 1));
                 TriggerEnable(libGAwX_gt_ankhAnkhofReincarnationRemove, false);
                 Wait(2.0, c_timeGame);
-                autoB7E72304_n = 50;
                 for (autoB7E72304_i = 1; autoB7E72304_i <= autoB7E72304_n; autoB7E72304_i += 1) {
                     if ((gv_intCountLivingUnitPlayer[lv_pWn] > 0)) {
-                        UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-                        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                            if ((UnitGetOwner(UnitGroupLoopCurrent()) != 15)) {
-                                if ((UnitTypeTestAttribute(UnitGetType(UnitGroupLoopCurrent()), c_unitAttributeSummoned) == false) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, UnitGroupLoopCurrent()) == false)) {
-                                    UnitSetCustomValue(UnitGroupLoopCurrent(), 1, 0.0);
-                                    PlayerModifyPropertyInt(lv_pWn, c_playerPropCustom, c_playerPropOperAdd, CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "KillResource[" + IntToString(3) + "]", lv_pWn));
+                        auto5C6559ED_g = UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+                        auto5C6559ED_u = UnitGroupCount(auto5C6559ED_g, c_unitCountAll);
+                        for (;; auto5C6559ED_u -= 1) {
+                            auto5C6559ED_var = UnitGroupUnitFromEnd(auto5C6559ED_g, auto5C6559ED_u);
+                            if (auto5C6559ED_var == null) { break; }
+                            if ((UnitGetOwner(auto5C6559ED_var) != 15)) {
+                                if ((UnitTypeTestAttribute(UnitGetType(auto5C6559ED_var), c_unitAttributeSummoned) == false) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, auto5C6559ED_var) == false)) {
+                                    UnitSetCustomValue(auto5C6559ED_var, 1, 0.0);
+                                    PlayerModifyPropertyInt(lv_pWn, c_playerPropCustom, c_playerPropOperAdd, CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(auto5C6559ED_var), "KillResource[" + IntToString(3) + "]", lv_pWn));
                                 }
 
-                                PlayerCreateEffectUnit(lv_pWn, "Kill", UnitGroupLoopCurrent());
-                                UnitRemove(UnitGroupLoopCurrent());
+                                PlayerCreateEffectUnit(lv_pWn, "Kill", auto5C6559ED_var);
+                                UnitRemove(auto5C6559ED_var);
                                 Wait(0.0625, c_timeGame);
                             }
 
                         }
-                        UnitGroupLoopEnd();
                     }
                     else {
                         break;
@@ -3165,9 +3220,8 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
     else {
         if ((gv_intBonusRound <= gv_intCountBonusRound)) {
             auto1D1DAF8F_ae = gv_intCountPlayer;
-            auto1D1DAF8F_ai = 1;
             lv_p = 1;
-            for ( ; ( (auto1D1DAF8F_ai >= 0 && lv_p <= auto1D1DAF8F_ae) || (auto1D1DAF8F_ai <= 0 && lv_p >= auto1D1DAF8F_ae) ) ; lv_p += auto1D1DAF8F_ai ) {
+            for ( ; ( (auto1D1DAF8F_ai >= 0 && lv_p <= auto1D1DAF8F_ae) || (auto1D1DAF8F_ai < 0 && lv_p >= auto1D1DAF8F_ae) ) ; lv_p += auto1D1DAF8F_ai ) {
                 if ((gv_boolPlayerInBattle[gv_intPlayer[lv_p]] == true)) {
                     if ((gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]] > 0)) {
                         lv_pL += 1;
@@ -3184,11 +3238,13 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                 TriggerExecute(gt_moonMoonstoneRestoreTOD, true, false);
                 gv_boolKilling = true;
                 Wait(2.0, c_timeGame);
-                UnitGroupLoopBegin(UnitGroup(null, 15, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-                for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                    UnitRemove(UnitGroupLoopCurrent());
+                autoFD1E9C91_g = UnitGroup(null, 15, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+                autoFD1E9C91_u = UnitGroupCount(autoFD1E9C91_g, c_unitCountAll);
+                for (;; autoFD1E9C91_u -= 1) {
+                    autoFD1E9C91_var = UnitGroupUnitFromEnd(autoFD1E9C91_g, autoFD1E9C91_u);
+                    if (autoFD1E9C91_var == null) { break; }
+                    UnitRemove(autoFD1E9C91_var);
                 }
-                UnitGroupLoopEnd();
                 Wait(2.0, c_timeGame);
                 gv_boolKilling = false;
                 if ((gv_intBonusRound == gv_intCountBonusRound)) {
@@ -3203,9 +3259,8 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
         else {
             if ((gv_intFinalRound <= gv_intCountFinalRound)) {
                 auto3D1BE2E6_ae = gv_intCountPlayer;
-                auto3D1BE2E6_ai = 1;
                 lv_p = 1;
-                for ( ; ( (auto3D1BE2E6_ai >= 0 && lv_p <= auto3D1BE2E6_ae) || (auto3D1BE2E6_ai <= 0 && lv_p >= auto3D1BE2E6_ae) ) ; lv_p += auto3D1BE2E6_ai ) {
+                for ( ; ( (auto3D1BE2E6_ai >= 0 && lv_p <= auto3D1BE2E6_ae) || (auto3D1BE2E6_ai < 0 && lv_p >= auto3D1BE2E6_ae) ) ; lv_p += auto3D1BE2E6_ai ) {
                     if ((gv_boolPlayerInBattle[gv_intPlayer[lv_p]] == true)) {
                         if ((gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]] > 0)) {
                             lv_pL += 1;
@@ -3230,31 +3285,35 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                         TriggerEnable(gt_PlayerLeft, false);
                         libGAwX_gv_moonTODCritSection = 1;
                         TriggerExecute(gt_moonMoonstoneRestoreTOD, true, false);
-                        PlayerGroupLoopBegin(PlayerGroupActive());
-                        for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-                            BankValueSetFromInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount", (BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount") + 1));
-                            if ((PlayerGroupLoopCurrent() == lv_pWn)) {
-                                BankValueSetFromInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win", (BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win") + 1));
+                        auto2F0CEC6D_g = PlayerGroupActive();
+                        auto2F0CEC6D_var = -1;
+                        while (true) {
+                            auto2F0CEC6D_var = PlayerGroupNextPlayer(auto2F0CEC6D_g, auto2F0CEC6D_var);
+                            if (auto2F0CEC6D_var < 0) { break; }
+                            BankValueSetFromInt(gv_bank[auto2F0CEC6D_var], "Score", "GameCount", (BankValueGetAsInt(gv_bank[auto2F0CEC6D_var], "Score", "GameCount") + 1));
+                            if ((auto2F0CEC6D_var == lv_pWn)) {
+                                BankValueSetFromInt(gv_bank[auto2F0CEC6D_var], "Score", "Win", (BankValueGetAsInt(gv_bank[auto2F0CEC6D_var], "Score", "Win") + 1));
                             }
 
-                            BankSave(gv_bank[PlayerGroupLoopCurrent()]);
-                            BoardItemSetText(gv_board, 4, gv_intRowBoardOfPlayer[PlayerGroupLoopCurrent()], IntToText(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount")));
-                            BoardItemSetText(gv_board, 5, gv_intRowBoardOfPlayer[PlayerGroupLoopCurrent()], FixedToText((IntToFixed(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win")) / IntToFixed(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount"))), 2));
+                            BankSave(gv_bank[auto2F0CEC6D_var]);
+                            BoardItemSetText(gv_board, 4, gv_intRowBoardOfPlayer[auto2F0CEC6D_var], IntToText(BankValueGetAsInt(gv_bank[auto2F0CEC6D_var], "Score", "GameCount")));
+                            BoardItemSetText(gv_board, 5, gv_intRowBoardOfPlayer[auto2F0CEC6D_var], FixedToText((IntToFixed(BankValueGetAsInt(gv_bank[auto2F0CEC6D_var], "Score", "Win")) / IntToFixed(BankValueGetAsInt(gv_bank[auto2F0CEC6D_var], "Score", "GameCount"))), 2));
                         }
-                        PlayerGroupLoopEnd();
                         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lv_pWn), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_pWn, false))) + StringExternal("Param/Value/6250BEB1")));
                         UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, gv_info);
                         Wait(15.0, c_timeGame);
-                        PlayerGroupLoopBegin(PlayerGroupActive());
-                        for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-                            if ((PlayerGroupLoopCurrent() == lv_pWn)) {
-                                GameOver(PlayerGroupLoopCurrent(), c_gameOverVictory, true, true);
+                        auto3F44CB90_g = PlayerGroupActive();
+                        auto3F44CB90_var = -1;
+                        while (true) {
+                            auto3F44CB90_var = PlayerGroupNextPlayer(auto3F44CB90_g, auto3F44CB90_var);
+                            if (auto3F44CB90_var < 0) { break; }
+                            if ((auto3F44CB90_var == lv_pWn)) {
+                                GameOver(auto3F44CB90_var, c_gameOverVictory, true, true);
                             }
                             else {
-                                GameOver(PlayerGroupLoopCurrent(), c_gameOverDefeat, true, true);
+                                GameOver(auto3F44CB90_var, c_gameOverDefeat, true, true);
                             }
                         }
-                        PlayerGroupLoopEnd();
                     }
                     else {
                         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lv_pWn), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_pWn, false))) + StringExternal("Param/Value/171BD6C0")));
@@ -3271,11 +3330,13 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                         gv_champion[lv_pWn] += 1.0;
                         BoardItemSetText(gv_board, 6, gv_intRowBoardOfPlayer[lv_pWn], FixedToText(gv_champion[lv_pWn], 1));
                         Wait(2.0, c_timeGame);
-                        UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-                        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                            UnitRemove(UnitGroupLoopCurrent());
+                        auto5B90E8C7_g = UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+                        auto5B90E8C7_u = UnitGroupCount(auto5B90E8C7_g, c_unitCountAll);
+                        for (;; auto5B90E8C7_u -= 1) {
+                            auto5B90E8C7_var = UnitGroupUnitFromEnd(auto5B90E8C7_g, auto5B90E8C7_u);
+                            if (auto5B90E8C7_var == null) { break; }
+                            UnitRemove(auto5B90E8C7_var);
                         }
-                        UnitGroupLoopEnd();
                         Wait(2.0, c_timeGame);
                         gv_boolKilling = false;
                         gv_intFinalRound += 1;
@@ -3300,6 +3361,7 @@ void gt_WinLoss_Init () {
 // Trigger: Build
 //--------------------------------------------------------------------------------------------------
 bool gt_Build_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Actions
     if (!runActions) {
         return true;
@@ -3330,6 +3392,11 @@ bool gt_Attack_Func (bool testConds, bool runActions) {
     unitfilter lv_unfilter;
     abilcmd lv_abilCmd;
 
+    // Automatic Variable Declarations
+    unitgroup auto07FEB532_g;
+    int auto07FEB532_u;
+    unit auto07FEB532_var;
+
     // Variable Initialization
     lv_unfilter = UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem) | (1 << c_targetFilterCloaked), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterBenign - 32)));
     lv_abilCmd = AbilityCommand("Aatk", 0);
@@ -3339,20 +3406,22 @@ bool gt_Attack_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((libNtve_gf_UnitInRegion(UnitGroupLoopCurrent(), RegionFromId(1)) == true)) {
-            lv_r = RegionCircle(UnitGetPosition(UnitGroupLoopCurrent()), 35.0);
-            if ((UnitCountAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, lv_unfilter, 0) != 0)) {
-                UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(lv_abilCmd, UnitGetPosition(UnitGroupClosestToPoint(UnitGroupAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, lv_unfilter, 0), UnitGetPosition(UnitGroupLoopCurrent())))), c_orderQueueReplace);
+    auto07FEB532_g = UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto07FEB532_u = UnitGroupCount(auto07FEB532_g, c_unitCountAll);
+    for (;; auto07FEB532_u -= 1) {
+        auto07FEB532_var = UnitGroupUnitFromEnd(auto07FEB532_g, auto07FEB532_u);
+        if (auto07FEB532_var == null) { break; }
+        if ((libNtve_gf_UnitInRegion(auto07FEB532_var, RegionFromId(1)) == true)) {
+            lv_r = RegionCircle(UnitGetPosition(auto07FEB532_var), 35.0);
+            if ((UnitCountAlliance(UnitGetOwner(auto07FEB532_var), c_unitAllianceEnemy, lv_r, lv_unfilter, 0) != 0)) {
+                UnitIssueOrder(auto07FEB532_var, OrderTargetingPoint(lv_abilCmd, UnitGetPosition(UnitGroupClosestToPoint(UnitGroupAlliance(UnitGetOwner(auto07FEB532_var), c_unitAllianceEnemy, lv_r, lv_unfilter, 0), UnitGetPosition(auto07FEB532_var)))), c_orderQueueReplace);
             }
             else {
-                UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(lv_abilCmd, RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
+                UnitIssueOrder(auto07FEB532_var, OrderTargetingPoint(lv_abilCmd, RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
             }
         }
 
     }
-    UnitGroupLoopEnd();
     return true;
 }
 
@@ -3367,6 +3436,7 @@ void gt_Attack_Init () {
 // Trigger: Revive
 //--------------------------------------------------------------------------------------------------
 bool gt_Revive_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Actions
     if (!runActions) {
         return true;
@@ -3392,6 +3462,7 @@ void gt_Revive_Init () {
 // Trigger: PlayerLeft
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerLeft_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
     // Actions
     if (!runActions) {
         return true;
