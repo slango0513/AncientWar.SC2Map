@@ -26,11 +26,13 @@ int[17] gv_intColumn;
 int[17] gv_intRow;
 int gv_intCountPhalanx;
 text[17] gv_textPhalanx;
+int gv_behaviorFlagRaiseDead;
+playergroup gv_playergroupDebug;
 bool gv_boolTestMode;
-int gv_intTestMode;
 int gv_gameCatalog;
 string gv_stringFieldPath;
 string gv_stringValue;
+bool gv_optionCommandable;
 int gv_intCountPlayer;
 int gv_intCountPlayerActive;
 int gv_intCountRound;
@@ -64,6 +66,8 @@ playergroup gv_playergroupBonusDone;
 int gv_intEventPlayer;
 int gv_intKillingPlayer;
 unit gv_unitEventUnit;
+bool gv_boolOwnerChanged;
+int[17][17] gv_intCountControlledUnit;
 timer gv_timerWinLoss;
 int gv_playerEvent;
 int gv_playerKilling;
@@ -77,9 +81,12 @@ void InitGlobals () {
     int init_i;
     int init_j;
 
+    gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser1;
+    gv_playergroupDebug = PlayerGroupEmpty();
     gv_gameCatalog = c_gameCatalogUnit;
     gv_stringFieldPath = "";
     gv_stringValue = "";
+    gv_optionCommandable = true;
     gv_board = c_boardNone;
     for (init_i = 0; init_i <= 16; init_i += 1) {
         for (init_j = 0; init_j <= 16; init_j += 1) {
@@ -105,6 +112,7 @@ point gf_PlayerFinalLocation (int lp_p, int lp_phalanx);
 point gf_PlayerFinalReserveLocation (int lp_p, int lp_phalanx);
 point gf_PlayerWorkerLocation (int lp_p);
 region gf_PlayerBuildingRegion (int lp_p, int lp_phalanx);
+bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u);
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
@@ -131,11 +139,11 @@ trigger gt_Position;
 trigger gt_UnitDied;
 trigger gt_UnitOwnerChanged;
 trigger gt_Reserve;
+trigger gt_WinLossPeriod;
 trigger gt_WinLoss;
 trigger gt_Build;
 trigger gt_Attack;
 trigger gt_Revive;
-trigger gt_ChangeOwner;
 trigger gt_PlayerLeft;
 
 //--------------------------------------------------------------------------------------------------
@@ -219,6 +227,29 @@ region gf_PlayerBuildingRegion (int lp_p, int lp_phalanx) {
     return RegionFromName(("BuildingRegion" + IntToString(lp_p) + "," + IntToString(lp_phalanx)));
 }
 
+bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u) {
+    int auto60E6B4F6_ae;
+    int auto60E6B4F6_ai;
+
+    // Variable Declarations
+    int lv_i;
+    bool lv_b;
+
+    // Variable Initialization
+
+    // Implementation
+    auto60E6B4F6_ae = UnitBehaviorCountAll(lp_u);
+    auto60E6B4F6_ai = 1;
+    lv_i = 1;
+    for ( ; ( (auto60E6B4F6_ai >= 0 && lv_i <= auto60E6B4F6_ae) || (auto60E6B4F6_ai <= 0 && lv_i >= auto60E6B4F6_ae) ) ; lv_i += auto60E6B4F6_ai ) {
+        if ((UnitBehaviorHasFlag(UnitBehaviorGet(lp_u, lv_i), lp_bf) == true)) {
+            lv_b = true;
+        }
+
+    }
+    return lv_b;
+}
+
 //--------------------------------------------------------------------------------------------------
 // Trigger: InitMap
 //--------------------------------------------------------------------------------------------------
@@ -244,12 +275,13 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_boolTestMode = true;
+    gv_boolTestMode = false;
     TriggerEnable(libGAwX_gt_AegrElunesGraceRegister, false);
     TriggerEnable(libGAwX_gt_AdefDefendInitRegister, false);
     VisEnable(c_visTypeMask, true);
     VisEnable(c_visTypeFog, true);
     libNtve_gf_SetPlayerGroupAlliance(PlayerGroupActive(), libNtve_ge_AllianceSetting_Enemy);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, StringExternal("Param/Value/C8A54DA0"));
     auto4750D82E_g = lv_pg; 
     auto4750D82E_p = 1;
     for ( ; auto4750D82E_p <= PlayerGroupCount(auto4750D82E_g) ; auto4750D82E_p += BoolToInt(lv_p == PlayerGroupPlayer(auto4750D82E_g, auto4750D82E_p)) ) {
@@ -270,6 +302,9 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         CameraLockInput(lv_p, true);
         CameraPan(lv_p, RegionGetCenter(RegionFromId(1)), 0.0, -1, 10.0, false);
     }
+    gv_optionCommandable = true;
+    gv_playergroupDebug = PlayerGroupEmpty();
+    gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser1;
     gv_intCountPhalanx = 3;
     gv_intColumn[1] = 6;
     gv_intRow[1] = 6;
@@ -281,7 +316,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     gv_intRow[3] = 6;
     gv_textPhalanx[3] = StringExternal("Param/Value/7A840C97");
     gv_fixedTime = 40.0;
-    gv_fixedTimeLastRound = 120.0;
+    gv_fixedTimeLastRound = 80.0;
     auto8D94123B_ae = 16;
     auto8D94123B_ai = 1;
     lv_r = 1;
@@ -300,12 +335,11 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_InitPlayerFinal, true, false);
     TriggerExecute(gt_InitBoard, true, false);
     TriggerExecute(gt_InitTag, true, false);
-    if ((gv_boolTestMode == false)) {
-        TriggerExecute(gt_InitWorker, true, false);
-    }
-    else {
+    TriggerExecute(gt_InitWorker, true, false);
+    if ((gv_boolTestMode == true)) {
         TriggerExecute(gt_TestMode, true, false);
     }
+
     return true;
 }
 
@@ -319,10 +353,6 @@ void gt_InitMap_Init () {
 // Trigger: TestMode
 //--------------------------------------------------------------------------------------------------
 bool gt_TestMode_Func (bool testConds, bool runActions) {
-    int autoD571EA1D_val;
-    playergroup autoC0DFBE21_g;
-    int autoC0DFBE21_p;
-
     // Variable Declarations
     int lv_p;
     int lv_r;
@@ -334,58 +364,13 @@ bool gt_TestMode_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_intTestMode = 1;
-    autoD571EA1D_val = gv_intTestMode;
-    if (autoD571EA1D_val == 1) {
-        gv_intRound = 1;
-    }
-    else if (autoD571EA1D_val == 2) {
-        gv_intRound = gv_intCountRound;
-        gv_intBonusRound = 1;
-    }
-    else if (autoD571EA1D_val == 3) {
-        gv_intRound = gv_intCountRound;
-        gv_intBonusRound = gv_intCountBonusRound;
-        gv_intFinalRound = 1;
-    }
-    else {
-    }
+    gv_playergroupDebug = PlayerGroupAll();
+    gv_optionCommandable = false;
     TriggerEnable(gt_GetRadomItem, true);
     TriggerEnable(gt_SetOwner, true);
     TriggerEnable(gt_Restart, true);
     TriggerEnable(gt_SetUnit, true);
     TriggerEnable(gt_UnitRemove, true);
-    autoC0DFBE21_g = PlayerGroupActive(); 
-    autoC0DFBE21_p = 1;
-    for ( ; autoC0DFBE21_p <= PlayerGroupCount(autoC0DFBE21_g) ; autoC0DFBE21_p += BoolToInt(lv_p == PlayerGroupPlayer(autoC0DFBE21_g, autoC0DFBE21_p)) ) {
-        lv_p = PlayerGroupPlayer(autoC0DFBE21_g, autoC0DFBE21_p);
-        libNtve_gf_CreateUnitsAtPoint2(1, "ndrl", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
-        libNtve_gf_CreateUnitsAtPoint2(1, "nmpe", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
-        libNtve_gf_CreateUnitsAtPoint2(1, "hpea", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
-        if ((PlayerRace(gv_intPlayer[lv_p]) == "Human")) {
-            gv_unitWorker[gv_intPlayer[lv_p]] = UnitLastCreated();
-        }
-
-        libNtve_gf_CreateUnitsAtPoint2(1, "ewsp", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
-        if ((PlayerRace(gv_intPlayer[lv_p]) == "NightElf")) {
-            gv_unitWorker[gv_intPlayer[lv_p]] = UnitLastCreated();
-        }
-
-        libNtve_gf_CreateUnitsAtPoint2(1, "uaco", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
-        if ((PlayerRace(gv_intPlayer[lv_p]) == "Undead")) {
-            gv_unitWorker[gv_intPlayer[lv_p]] = UnitLastCreated();
-        }
-
-        libNtve_gf_CreateUnitsAtPoint2(1, "hrdh", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
-        CameraPan(gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]), 0.0, -1, 10.0, false);
-        PlayerModifyPropertyInt(lv_p, c_playerPropTerrazine, c_playerPropOperAdd, 10000);
-        PlayerModifyPropertyInt(lv_p, c_playerPropCustom, c_playerPropOperAdd, 10000);
-        TechTreeRequirementsEnable(lv_p, false);
-        TechTreeUpgradeAddLevel(lv_p, "Pause", 1);
-        TechTreeUpgradeAddLevel(lv_p, "Final", 1);
-        VisRevealArea(lv_p, RegionPlayableMap(), 0.0, false);
-        CameraLockInput(lv_p, false);
-    }
     return true;
 }
 
@@ -398,6 +383,8 @@ void gt_TestMode_Init () {
 // Trigger: GetRadomItem
 //--------------------------------------------------------------------------------------------------
 bool gt_GetRadomItem_Func (bool testConds, bool runActions) {
+    bool auto0ADD77FA_val;
+
     // Variable Declarations
     int lv_r;
     bool lv_b;
@@ -415,8 +402,20 @@ bool gt_GetRadomItem_Func (bool testConds, bool runActions) {
         if ((lv_b == false)) {
             lv_r = RandomInt(1, CatalogFieldValueCount(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray", EventPlayer()));
             if ((CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", EventPlayer())), "Level", EventPlayer()) <= (gv_intRound + TechTreeUpgradeCount(EventPlayer(), "ItemLevel", c_techCountCompleteOnly))) && (CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", EventPlayer())), "Level", EventPlayer()) > TechTreeUpgradeCount(EventPlayer(), "ItemLevel", c_techCountCompleteOnly))) {
-                libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", EventPlayer())), 0, EventPlayer(), UnitGetPosition(gv_unitWorker[EventPlayer()]));
-                libGAwX_gf_UnitInventoryCreate(gv_unitWorker[EventPlayer()], UnitLastCreated());
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", EventPlayer())), 0, 0, UnitGetPosition(gv_unitWorker[EventPlayer()]));
+                auto0ADD77FA_val = EventKeyControl();
+                if (auto0ADD77FA_val == true) {
+                    UnitGroupLoopBegin(UnitGroupSelected(EventPlayer()));
+                    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                        libGAwX_gf_UnitInventoryCreate(UnitGroupLoopCurrent(), UnitLastCreated());
+                    }
+                    UnitGroupLoopEnd();
+                }
+                else if (auto0ADD77FA_val == false) {
+                    libGAwX_gf_UnitInventoryCreate(gv_unitWorker[EventPlayer()], UnitLastCreated());
+                }
+                else {
+                }
                 lv_b = true;
             }
             else {
@@ -509,6 +508,14 @@ bool gt_Restart_Func (bool testConds, bool runActions) {
     else if (autoBE5BF66A_val == c_keyF6) {
         TriggerExecute(gt_AI, true, false);
     }
+    else if (autoBE5BF66A_val == c_keyF7) {
+        if ((TriggerIsEnabled(gt_WinLossPeriod) == false)) {
+            TriggerEnable(gt_WinLossPeriod, true);
+        }
+        else {
+            TriggerEnable(gt_WinLossPeriod, false);
+        }
+    }
     else {
     }
     autoECC59395_g = PlayerGroupActive(); 
@@ -534,6 +541,12 @@ void gt_Restart_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_SetUnit_Func (bool testConds, bool runActions) {
     string autoCBDAB378_val;
+    int auto22F2A138_ae;
+    int auto22F2A138_ai;
+    int auto09F48E1C_ae;
+    int auto09F48E1C_ai;
+    int auto359B927A_ae;
+    int auto359B927A_ai;
     int auto9880C258_ae;
     int auto9880C258_ai;
     int auto9B4A1391_ae;
@@ -554,14 +567,62 @@ bool gt_SetUnit_Func (bool testConds, bool runActions) {
     gv_stringFieldPath = StringWord(EventChatMessage(false), 2);
     gv_stringValue = StringWord(EventChatMessage(false), 3);
     autoCBDAB378_val = StringWord(EventChatMessage(false), 1);
-    if (autoCBDAB378_val == "Round") {
+    if (autoCBDAB378_val == "Living") {
+        auto22F2A138_ae = gv_intCountPlayer;
+        auto22F2A138_ai = 1;
+        lv_p = 1;
+        for ( ; ( (auto22F2A138_ai >= 0 && lv_p <= auto22F2A138_ae) || (auto22F2A138_ai <= 0 && lv_p >= auto22F2A138_ae) ) ; lv_p += auto22F2A138_ai ) {
+            UIDisplayMessage(gv_playergroupDebug, c_messageAreaSubtitle, (TextWithColor(PlayerName(gv_intPlayer[lv_p]), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_intPlayer[lv_p], false))) + StringExternal("Param/Value/689C4447") + IntToText(gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]])));
+        }
+    }
+    else if (autoCBDAB378_val == "Gold") {
+        auto09F48E1C_ae = gv_intCountPlayer;
+        auto09F48E1C_ai = 1;
+        lv_p = 1;
+        for ( ; ( (auto09F48E1C_ai >= 0 && lv_p <= auto09F48E1C_ae) || (auto09F48E1C_ai <= 0 && lv_p >= auto09F48E1C_ae) ) ; lv_p += auto09F48E1C_ai ) {
+            PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperSetTo, StringToInt(StringWord(EventChatMessage(false), 2)));
+        }
+    }
+    else if (autoCBDAB378_val == "Lumber") {
+        auto359B927A_ae = gv_intCountPlayer;
+        auto359B927A_ai = 1;
+        lv_p = 1;
+        for ( ; ( (auto359B927A_ai >= 0 && lv_p <= auto359B927A_ae) || (auto359B927A_ai <= 0 && lv_p >= auto359B927A_ae) ) ; lv_p += auto359B927A_ai ) {
+            PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom, c_playerPropOperSetTo, StringToInt(StringWord(EventChatMessage(false), 2)));
+        }
+    }
+    else if (autoCBDAB378_val == "Round") {
         gv_intRound = StringToInt(StringWord(EventChatMessage(false), 2));
+        gv_intBonusRound = 0;
+        gv_intFinalRound = 0;
     }
     else if (autoCBDAB378_val == "BonusRound") {
+        gv_intRound = (gv_intCountRound + 1);
         gv_intBonusRound = StringToInt(StringWord(EventChatMessage(false), 2));
+        gv_intFinalRound = 0;
     }
     else if (autoCBDAB378_val == "FinalRound") {
+        gv_intRound = (gv_intCountRound + 1);
+        gv_intBonusRound = (gv_intCountBonusRound + 1);
         gv_intFinalRound = StringToInt(StringWord(EventChatMessage(false), 2));
+    }
+    else if (autoCBDAB378_val == "I") {
+        if ((StringWord(EventChatMessage(false), 2) == "A")) {
+            UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+            for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, "oli2", 0, 0, UnitGetPosition(UnitGroupLoopCurrent()));
+                libGAwX_gf_UnitInventoryCreate(UnitGroupLoopCurrent(), UnitLastCreated());
+            }
+            UnitGroupLoopEnd();
+        }
+        else {
+            UnitGroupLoopBegin(UnitGroupSelected(EventPlayer()));
+            for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(StringWord(EventChatMessage(false), 2)), 0, 0, UnitGetPosition(UnitGroupLoopCurrent()));
+                libGAwX_gf_UnitInventoryCreate(UnitGroupLoopCurrent(), UnitLastCreated());
+            }
+            UnitGroupLoopEnd();
+        }
     }
     else if (autoCBDAB378_val == "U") {
         gv_gameCatalog = c_gameCatalogUnit;
@@ -1172,18 +1233,21 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
             VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]][lv_phalanx], true);
         }
     }
-    autoB3C059B5_ae = gv_intCountPhalanx;
-    autoB3C059B5_ai = 1;
-    lv_phalanx = 1;
-    for ( ; ( (autoB3C059B5_ai >= 0 && lv_phalanx <= autoB3C059B5_ae) || (autoB3C059B5_ai <= 0 && lv_phalanx >= autoB3C059B5_ae) ) ; lv_phalanx += autoB3C059B5_ai ) {
-        autoE56CAEBE_ae = gv_intCountPlayer;
-        autoE56CAEBE_ai = 1;
-        lv_p = 1;
-        for ( ; ( (autoE56CAEBE_ai >= 0 && lv_p <= autoE56CAEBE_ae) || (autoE56CAEBE_ai <= 0 && lv_p >= autoE56CAEBE_ae) ) ; lv_p += autoE56CAEBE_ai ) {
-            CameraPan(lv_p, RegionGetCenter(gf_PlayerBuildingRegion(lv_p, lv_phalanx)), 1.0, -1, 10.0, false);
+    if ((gv_boolTestMode == false)) {
+        autoB3C059B5_ae = gv_intCountPhalanx;
+        autoB3C059B5_ai = 1;
+        lv_phalanx = 1;
+        for ( ; ( (autoB3C059B5_ai >= 0 && lv_phalanx <= autoB3C059B5_ae) || (autoB3C059B5_ai <= 0 && lv_phalanx >= autoB3C059B5_ae) ) ; lv_phalanx += autoB3C059B5_ai ) {
+            autoE56CAEBE_ae = gv_intCountPlayer;
+            autoE56CAEBE_ai = 1;
+            lv_p = 1;
+            for ( ; ( (autoE56CAEBE_ai >= 0 && lv_p <= autoE56CAEBE_ae) || (autoE56CAEBE_ai <= 0 && lv_p >= autoE56CAEBE_ae) ) ; lv_p += autoE56CAEBE_ai ) {
+                CameraPan(lv_p, RegionGetCenter(gf_PlayerBuildingRegion(lv_p, lv_phalanx)), 1.0, -1, 10.0, false);
+            }
+            Wait(2.0, c_timeGame);
         }
-        Wait(2.0, c_timeGame);
     }
+
     autoB1DCCECE_ae = gv_intCountPlayer;
     autoB1DCCECE_ai = 1;
     lv_p = 1;
@@ -1203,7 +1267,7 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
             libNtve_gf_CreateUnitsAtPoint2(1, "hpea", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
         }
         else if (auto11470BDF_val == "Undead") {
-            libNtve_gf_CreateUnitsAtPoint2(1, "ewsp", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+            libNtve_gf_CreateUnitsAtPoint2(1, "uaco", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
         }
         else if (auto11470BDF_val == "Orc") {
             libNtve_gf_CreateUnitsAtPoint2(1, "hpea", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
@@ -1212,6 +1276,13 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
         }
         gv_unitWorker[gv_intPlayer[lv_p]] = UnitLastCreated();
         libNtve_gf_CreateUnitsAtPoint2(1, "hrdh", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+        if ((gv_boolTestMode == true)) {
+            libNtve_gf_CreateUnitsAtPoint2(1, "ewsp", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+            libNtve_gf_CreateUnitsAtPoint2(1, "hpea", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+            libNtve_gf_CreateUnitsAtPoint2(1, "uaco", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+            libNtve_gf_CreateUnitsAtPoint2(1, "opeo", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
+        }
+
         CameraLockInput(lv_p, false);
     }
     TriggerExecute(gt_Waiting, true, false);
@@ -1243,25 +1314,22 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
 
     // Variable Initialization
 
-    // Conditions
-    if (testConds) {
-        if (!((gv_boolTestMode == false))) {
-            return false;
-        }
-    }
-
     // Actions
     if (!runActions) {
         return true;
     }
 
     TriggerEnable(gt_Revive, false);
-    TriggerEnable(gt_Reserve, false);
+    TriggerEnable(gt_UnitDied, false);
+    TriggerEnable(gt_UnitOwnerChanged, false);
     TriggerEnable(gt_Attack, false);
-    TriggerEnable(gt_ChangeOwner, false);
+    TriggerEnable(gt_WinLossPeriod, false);
     TriggerEnable(libGAwX_gt_NonHeroItemDeathDrop, true);
-    VisEnable(c_visTypeMask, true);
-    VisEnable(c_visTypeFog, true);
+    if ((gv_boolTestMode == false)) {
+        VisEnable(c_visTypeMask, true);
+        VisEnable(c_visTypeFog, true);
+    }
+
     TimerRestart(gv_timerWinLoss);
     TimerPause(gv_timerWinLoss, true);
     gv_intRound += 1;
@@ -1311,7 +1379,7 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
                 if ((lv_b == false)) {
                     lv_r = RandomInt(1, CatalogFieldValueCount(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray", gv_intPlayer[lv_p]));
                     if ((CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), "Level", gv_intPlayer[lv_p]) <= (gv_intRound + TechTreeUpgradeCount(gv_intPlayer[lv_p], "ItemLevel", c_techCountCompleteOnly))) && (CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), "Level", gv_intPlayer[lv_p]) > TechTreeUpgradeCount(gv_intPlayer[lv_p], "ItemLevel", c_techCountCompleteOnly))) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), 0, gv_intPlayer[lv_p], UnitGetPosition(gv_unitWorker[gv_intPlayer[lv_p]]));
+                        libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), 0, 0, UnitGetPosition(gv_unitWorker[gv_intPlayer[lv_p]]));
                         libGAwX_gf_UnitInventoryCreate(gv_unitWorker[gv_intPlayer[lv_p]], UnitLastCreated());
                         lv_b = true;
                     }
@@ -1326,21 +1394,20 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
         }
 
     }
-    if ((gv_intBonusRound > gv_intCountBonusRound)) {
-        TimerStart(TimerCreate(), gv_fixedTimeLastRound, false, c_timeGame);
-        TimerWindowCreate(TimerLastStarted(), StringExternal("Param/Value/781AF07E"), true, false);
-        Wait(gv_fixedTimeLastRound, c_timeGame);
-    }
-    else {
-        lv_t = (gv_fixedTime + (4.0 * gv_intRound));
+    if ((gv_boolTestMode == false)) {
+        if ((gv_intBonusRound > gv_intCountBonusRound)) {
+            lv_t = (gv_fixedTimeLastRound + (4.0 * gv_intRound));
+        }
+        else {
+            lv_t = (gv_fixedTime + (4.0 * gv_intRound));
+        }
         TimerStart(TimerCreate(), lv_t, false, c_timeGame);
         TimerWindowCreate(TimerLastStarted(), StringExternal("Param/Value/91DF5681"), true, false);
         Wait(lv_t, c_timeGame);
+        TimerWindowDestroy(TimerWindowLastCreated());
+        TriggerExecute(gt_AI, true, false);
     }
-    TimerWindowDestroy(TimerWindowLastCreated());
-    VisEnable(c_visTypeMask, false);
-    VisEnable(c_visTypeFog, false);
-    TriggerExecute(gt_AI, true, false);
+
     return true;
 }
 
@@ -1383,14 +1450,6 @@ bool gt_AI_Func (bool testConds, bool runActions) {
             PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperSetTo, FixedToInt((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine) * 1.1)));
             PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom, c_playerPropOperSetTo, FixedToInt((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom) * 1.1)));
             if ((gv_intBonusRound > gv_intCountBonusRound)) {
-                while (true) {
-                    if ((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine) >= CatalogFieldValueGetAsInt(c_gameCatalogAbil, "ANgl", "Cost[" + IntToString(0) + "].Resource[" + IntToString(2) + "]", gv_intPlayer[lv_p]))) {
-                        UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], Order(AbilityCommand("ANgl", 0)), c_orderQueueReplace);
-                    }
-                    else {
-                        break;
-                    }
-                }
             }
             else {
                 while (true) {
@@ -1404,7 +1463,7 @@ bool gt_AI_Func (bool testConds, bool runActions) {
             }
             while (true) {
                 if ((gv_intBonusRound > gv_intCountBonusRound)) {
-                    if ((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom) >= 3000)) {
+                    if ((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine) >= 30) && (PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom) >= 3000)) {
                         lv_r = RandomInt(0, 29);
                         lv_phalanx = RandomInt(1, gv_intCountPhalanx);
                         auto3F74DF9D_val = PlayerRace(gv_intPlayer[lv_p]);
@@ -1415,7 +1474,7 @@ bool gt_AI_Func (bool testConds, bool runActions) {
                             UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AHbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))), c_orderQueueReplace);
                         }
                         else if (auto3F74DF9D_val == "Undead") {
-                            UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AEbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))), c_orderQueueReplace);
+                            UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AUbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))), c_orderQueueReplace);
                         }
                         else if (auto3F74DF9D_val == "Orc") {
                             UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AHbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))), c_orderQueueReplace);
@@ -1428,7 +1487,7 @@ bool gt_AI_Func (bool testConds, bool runActions) {
                     }
                 }
                 else {
-                    if ((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine) >= 20)) {
+                    if ((PlayerGetPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine) >= 30)) {
                         lv_r = RandomInt(0, 29);
                         lv_phalanx = RandomInt(1, gv_intCountPhalanx);
                         auto2E9382E2_val = PlayerRace(gv_intPlayer[lv_p]);
@@ -1439,7 +1498,7 @@ bool gt_AI_Func (bool testConds, bool runActions) {
                             UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AHbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))), c_orderQueueReplace);
                         }
                         else if (auto2E9382E2_val == "Undead") {
-                            UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AEbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))), c_orderQueueReplace);
+                            UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AUbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))), c_orderQueueReplace);
                         }
                         else if (auto2E9382E2_val == "Orc") {
                             UnitIssueOrder(gv_unitWorker[gv_intPlayer[lv_p]], OrderTargetingPoint(AbilityCommand("AHbu", lv_r), RegionRandomPoint(gf_PlayerBuildingRegion(gv_intPlayer[lv_p], lv_phalanx))), c_orderQueueReplace);
@@ -1455,23 +1514,26 @@ bool gt_AI_Func (bool testConds, bool runActions) {
         }
 
     }
-    autoB86FCDA7_ae = gv_intCountPlayer;
-    autoB86FCDA7_ai = 1;
-    lv_p = 1;
-    for ( ; ( (autoB86FCDA7_ai >= 0 && lv_p <= autoB86FCDA7_ae) || (autoB86FCDA7_ai <= 0 && lv_p >= autoB86FCDA7_ae) ) ; lv_p += autoB86FCDA7_ai ) {
-        libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Pause", 0);
-        if ((gv_intBonusRound > gv_intCountBonusRound)) {
-            libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Final", 0);
-        }
+    if ((gv_boolTestMode == false)) {
+        autoB86FCDA7_ae = gv_intCountPlayer;
+        autoB86FCDA7_ai = 1;
+        lv_p = 1;
+        for ( ; ( (autoB86FCDA7_ai >= 0 && lv_p <= autoB86FCDA7_ae) || (autoB86FCDA7_ai <= 0 && lv_p >= autoB86FCDA7_ae) ) ; lv_p += autoB86FCDA7_ai ) {
+            libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Pause", 0);
+            if ((gv_intBonusRound > gv_intCountBonusRound)) {
+                libNtve_gf_SetUpgradeLevelForPlayer(gv_intPlayer[lv_p], "Final", 0);
+            }
 
-        autoA8904596_ae = gv_intCountPhalanx;
-        autoA8904596_ai = 1;
-        lv_phalanx = 1;
-        for ( ; ( (autoA8904596_ai >= 0 && lv_phalanx <= autoA8904596_ae) || (autoA8904596_ai <= 0 && lv_phalanx >= autoA8904596_ae) ) ; lv_phalanx += autoA8904596_ai ) {
-            VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]][lv_phalanx], false);
+            autoA8904596_ae = gv_intCountPhalanx;
+            autoA8904596_ai = 1;
+            lv_phalanx = 1;
+            for ( ; ( (autoA8904596_ai >= 0 && lv_phalanx <= autoA8904596_ae) || (autoA8904596_ai <= 0 && lv_phalanx >= autoA8904596_ae) ) ; lv_phalanx += autoA8904596_ai ) {
+                VisRevealerEnable(gv_visRevealer[gv_intPlayer[lv_p]][lv_phalanx], false);
+            }
         }
+        TriggerExecute(gt_InitUnit, true, false);
     }
-    TriggerExecute(gt_InitUnit, true, false);
+
     return true;
 }
 
@@ -1484,8 +1546,6 @@ void gt_AI_Init () {
 // Trigger: InitUnit
 //--------------------------------------------------------------------------------------------------
 bool gt_InitUnit_Func (bool testConds, bool runActions) {
-    int auto5DF700B2_ae;
-    int auto5DF700B2_ai;
     int autoD8349A32_ae;
     int autoD8349A32_ai;
     int auto01DBE8E5_ae;
@@ -1526,11 +1586,7 @@ bool gt_InitUnit_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    auto5DF700B2_ae = gv_intCountPhalanx;
-    auto5DF700B2_ai = 1;
-    lv_phalanx = 1;
-    for ( ; ( (auto5DF700B2_ai >= 0 && lv_phalanx <= auto5DF700B2_ae) || (auto5DF700B2_ai <= 0 && lv_phalanx >= auto5DF700B2_ae) ) ; lv_phalanx += auto5DF700B2_ai ) {
-    }
+    UIClearMessages(PlayerGroupAll(), c_messageAreaDirective);
     gv_intSMax = 0;
     autoD8349A32_ae = gv_intCountPlayer;
     autoD8349A32_ai = 1;
@@ -1552,6 +1608,7 @@ bool gt_InitUnit_Func (bool testConds, bool runActions) {
             }
             gv_intCountUnit[gv_intPlayer[lv_p]][lv_phalanx] = 0;
             gv_intCountLivingUnit[gv_intPlayer[lv_p]][lv_phalanx] = 0;
+            gv_intCountControlledUnit[gv_intPlayer[lv_p]][lv_phalanx] = 0;
         }
         gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]] = 0;
         gv_boolPlayerInBattle[gv_intPlayer[lv_p]] = true;
@@ -1668,6 +1725,8 @@ bool gt_Position_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    VisEnable(c_visTypeMask, false);
+    VisEnable(c_visTypeFog, false);
     UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, 0, 0), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         UnitRemove(UnitGroupLoopCurrent());
@@ -1820,14 +1879,18 @@ bool gt_Position_Func (bool testConds, bool runActions) {
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         UnitBehaviorRemove(UnitGroupLoopCurrent(), "Preparing", 1);
         UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
-        libNtve_gf_MakeUnitUncommandable(UnitGroupLoopCurrent(), true);
+        libNtve_gf_MakeUnitUncommandable(UnitGroupLoopCurrent(), gv_optionCommandable);
     }
     UnitGroupLoopEnd();
-    TriggerEnable(gt_Attack, true);
-    TriggerEnable(gt_Reserve, true);
-    TriggerEnable(gt_Revive, true);
-    TriggerEnable(gt_ChangeOwner, true);
     TriggerEnable(libGAwX_gt_NonHeroItemDeathDrop, false);
+    TriggerEnable(gt_Attack, true);
+    TriggerEnable(gt_UnitDied, true);
+    TriggerEnable(gt_UnitOwnerChanged, true);
+    TriggerEnable(gt_Revive, true);
+    if ((gv_boolTestMode == false)) {
+        TriggerEnable(gt_WinLossPeriod, true);
+    }
+
     return true;
 }
 
@@ -1840,13 +1903,28 @@ void gt_Position_Init () {
 // Trigger: UnitDied
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitDied_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetCustomValue(EventUnit(), 1) == 0.0))) {
+            return false;
+        }
+
+        if (!((UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeSummoned) == false))) {
+            return false;
+        }
+    }
+
     // Actions
     if (!runActions) {
         return true;
     }
 
+    gv_boolOwnerChanged = false;
+    if ((UnitTypeTestAttribute(UnitGetType(libNtve_gf_KillingUnit()), c_unitAttributeSummoned) == false) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, libNtve_gf_KillingUnit()) == false) && (gv_boolKilling == false)) {
+        gv_intKillingPlayer = libNtve_gf_KillingPlayer();
+    }
+
     gv_intEventPlayer = EventPlayer();
-    gv_intKillingPlayer = libNtve_gf_KillingPlayer();
     gv_unitEventUnit = EventUnit();
     TriggerExecute(gt_Reserve, true, false);
     return true;
@@ -1863,11 +1941,42 @@ void gt_UnitDied_Init () {
 // Trigger: UnitOwnerChanged
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitOwnerChanged_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeSummoned) == false))) {
+            return false;
+        }
+
+        if (!((UnitIsAlive(EventUnit()) == true))) {
+            return false;
+        }
+
+        if (!((gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, EventUnit()) == false))) {
+            return false;
+        }
+
+        if (!((gv_boolKilling == false))) {
+            return false;
+        }
+
+        if (!((EventUnitOwnerNew() != 0))) {
+            return false;
+        }
+    }
+
     // Actions
     if (!runActions) {
         return true;
     }
 
+    gv_boolOwnerChanged = true;
+    UIDisplayMessage(gv_playergroupDebug, c_messageAreaSubtitle, (TextWithColor(UnitTypeGetName(UnitGetType(EventUnit())), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventUnitOwnerOld(), false))) + StringExternal("Param/Value/B12B21DB") + TextWithColor(PlayerName(EventUnitOwnerNew()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventUnitOwnerNew(), false))) + StringExternal("Param/Value/631C0CCD")));
+    gv_intCountControlledUnit[EventUnitOwnerNew()][FixedToInt(UnitGetCustomValue(EventUnit(), 0))] += 1;
+    gv_intCountUnit[EventUnitOwnerNew()][FixedToInt(UnitGetCustomValue(EventUnit(), 0))] += 1;
+    gv_intCountLivingUnit[EventUnitOwnerNew()][FixedToInt(UnitGetCustomValue(EventUnit(), 0))] += 1;
+    gv_intCountLivingUnitPlayer[EventUnitOwnerNew()] += 1;
+    UnitIssueOrder(EventUnit(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
+    libNtve_gf_MakeUnitUncommandable(EventUnit(), gv_optionCommandable);
     gv_intEventPlayer = EventUnitOwnerOld();
     gv_intKillingPlayer = EventUnitOwnerNew();
     gv_unitEventUnit = EventUnit();
@@ -1902,25 +2011,18 @@ bool gt_Reserve_Func (bool testConds, bool runActions) {
 
     // Variable Initialization
 
-    // Conditions
-    if (testConds) {
-        if (!((UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeSummoned) == false))) {
-            return false;
-        }
-    }
-
     // Actions
     if (!runActions) {
         return true;
     }
 
-    lv_phalanx = FixedToInt(UnitGetCustomValue(EventUnit(), 0));
-    if ((libNtve_gf_KillingPlayer() != 15)) {
-        gv_intS[libNtve_gf_KillingPlayer()] += CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "KillResource[" + IntToString(3) + "]", EventPlayer());
-        BoardItemSetText(gv_board, 3, gv_intRowBoardOfPlayer[libNtve_gf_KillingPlayer()], IntToText(gv_intS[libNtve_gf_KillingPlayer()]));
-        BoardItemSetProgressValue(gv_board, 3, gv_intRowBoardOfPlayer[libNtve_gf_KillingPlayer()], gv_intS[libNtve_gf_KillingPlayer()]);
-        if ((gv_intS[libNtve_gf_KillingPlayer()] > gv_intSMax)) {
-            gv_intSMax = gv_intS[libNtve_gf_KillingPlayer()];
+    lv_phalanx = FixedToInt(UnitGetCustomValue(gv_unitEventUnit, 0));
+    if ((gv_boolOwnerChanged == false) && (gv_intKillingPlayer != 15)) {
+        gv_intS[gv_intKillingPlayer] += CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(gv_unitEventUnit), "KillResource[" + IntToString(3) + "]", gv_intEventPlayer);
+        BoardItemSetText(gv_board, 3, gv_intRowBoardOfPlayer[gv_intKillingPlayer], IntToText(gv_intS[gv_intKillingPlayer]));
+        BoardItemSetProgressValue(gv_board, 3, gv_intRowBoardOfPlayer[gv_intKillingPlayer], gv_intS[gv_intKillingPlayer]);
+        if ((gv_intS[gv_intKillingPlayer] > gv_intSMax)) {
+            gv_intSMax = gv_intS[gv_intKillingPlayer];
         }
 
         auto33A120BB_ae = gv_intCountPlayer;
@@ -1931,37 +2033,91 @@ bool gt_Reserve_Func (bool testConds, bool runActions) {
         }
     }
 
-    if ((EventPlayer() != 15)) {
-        gv_playerEvent = EventPlayer();
-        gv_playerKilling = libNtve_gf_KillingPlayer();
-        gv_intCountLivingUnit[EventPlayer()][lv_phalanx] -= 1;
-        gv_intCountLivingUnitPlayer[EventPlayer()] -= 1;
-        lv_i = ((gv_intCountUnit[EventPlayer()][lv_phalanx] - gv_intCountLivingUnit[EventPlayer()][lv_phalanx]) + (gv_intColumn[lv_phalanx] * gv_intRow[lv_phalanx]));
-        if ((lv_i <= gv_intCountUnit[EventPlayer()][lv_phalanx])) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_typeUnit[EventPlayer()][lv_i][lv_phalanx], c_unitCreateIgnorePlacement, EventPlayer(), gv_pointReserve[EventPlayer()][lv_phalanx]);
+    if ((gv_intEventPlayer != 15)) {
+        gv_playerEvent = gv_intEventPlayer;
+        gv_playerKilling = gv_intKillingPlayer;
+        gv_intCountLivingUnit[gv_intEventPlayer][lv_phalanx] -= 1;
+        gv_intCountLivingUnitPlayer[gv_intEventPlayer] -= 1;
+        lv_i = ((gv_intCountUnit[gv_intEventPlayer][lv_phalanx] - gv_intCountLivingUnit[gv_intEventPlayer][lv_phalanx]) + (gv_intColumn[lv_phalanx] * gv_intRow[lv_phalanx]));
+        UIDisplayMessage(gv_playergroupDebug, c_messageAreaSubtitle, (StringExternal("Param/Value/509B45CD") + IntToText(gv_intCountUnit[gv_intEventPlayer][lv_phalanx]) + StringExternal("Param/Value/BA6EBB63") + IntToText(gv_intCountLivingUnit[gv_intEventPlayer][lv_phalanx]) + StringExternal("Param/Value/0C743DF6") + IntToText(gv_intColumn[lv_phalanx]) + StringExternal("Param/Value/FDA0F90B") + IntToText(gv_intRow[lv_phalanx]) + StringExternal("Param/Value/D0A6DD6E") + IntToText(lv_i) + StringExternal("Param/Value/A5D7CF57") + IntToText(lv_phalanx) + StringExternal("Param/Value/ADE5DD22") + IntToText(gv_intCountLivingUnit[gv_intEventPlayer][lv_phalanx]) + StringExternal("Param/Value/68AE5752") + IntToText(gv_intCountLivingUnitPlayer[gv_intEventPlayer]) + StringExternal("Param/Value/B0788FE7") + IntToText(gv_intCountUnit[gv_intEventPlayer][lv_phalanx]) + StringExternal("Param/Value/6A831C96") + TextWithColor(UnitTypeGetName(UnitGetType(gv_unitEventUnit)), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(gv_intEventPlayer, false)))));
+        if ((lv_i <= (gv_intCountUnit[gv_intEventPlayer][lv_phalanx] - gv_intCountControlledUnit[gv_intEventPlayer][lv_phalanx])) && ((gv_intCountUnit[gv_intEventPlayer][lv_phalanx] - gv_intCountLivingUnit[gv_intEventPlayer][lv_phalanx]) > 0)) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_typeUnit[gv_intEventPlayer][lv_i][lv_phalanx], c_unitCreateIgnorePlacement, gv_intEventPlayer, gv_pointReserve[gv_intEventPlayer][lv_phalanx]);
             UnitSetCustomValue(UnitLastCreated(), 0, lv_phalanx);
-            UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerReserveLocation(EventPlayer(), lv_phalanx)), 0.0);
+            UnitSetFacing(UnitLastCreated(), PointGetFacing(gf_PlayerReserveLocation(gv_intEventPlayer, lv_phalanx)), 0.0);
             UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
-            libNtve_gf_MakeUnitUncommandable(UnitLastCreated(), true);
+            libNtve_gf_MakeUnitUncommandable(UnitLastCreated(), gv_optionCommandable);
             autoDBEAF3E9_ae = UnitInventoryCount(UnitLastCreated(), c_unitInventoryCountTotal);
             autoDBEAF3E9_ai = 1;
             lv_item = 1;
             for ( ; ( (autoDBEAF3E9_ai >= 0 && lv_item <= autoDBEAF3E9_ae) || (autoDBEAF3E9_ai <= 0 && lv_item >= autoDBEAF3E9_ae) ) ; lv_item += autoDBEAF3E9_ai ) {
-                UnitInventoryCreate(UnitLastCreated(), gv_typeItem[EventPlayer()][lv_i][lv_phalanx][lv_item]);
+                UnitInventoryCreate(UnitLastCreated(), gv_typeItem[gv_intEventPlayer][lv_i][lv_phalanx][lv_item]);
             }
         }
 
     }
 
-    TimerStart(gv_timerWinLoss, 8.0, false, c_timeGame);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_Reserve_Init () {
     gt_Reserve = TriggerCreate("gt_Reserve_Func");
-    TriggerEnable(gt_Reserve, false);
-    TriggerAddEventUnitDied(gt_Reserve, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: WinLossPeriod
+//--------------------------------------------------------------------------------------------------
+bool gt_WinLossPeriod_Func (bool testConds, bool runActions) {
+    int auto859AF73D_ae;
+    int auto859AF73D_ai;
+    int autoA7A52EEB_ae;
+    int autoA7A52EEB_ai;
+
+    // Variable Declarations
+    int[17] lv_i;
+    int lv_p;
+    int lv_pw;
+    int lv_phalanx;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterSummoned - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        if ((UnitGetCustomValue(UnitGroupLoopCurrent(), 1) == 0.0) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, UnitGroupLoopCurrent()) == false) && (UnitTypeTestAttribute(UnitGetType(UnitGroupLoopCurrent()), c_unitAttributeSummoned) == false)) {
+            lv_i[UnitGetOwner(UnitGroupLoopCurrent())] += 1;
+        }
+
+    }
+    UnitGroupLoopEnd();
+    auto859AF73D_ae = gv_intCountPlayer;
+    auto859AF73D_ai = 1;
+    lv_p = 1;
+    for ( ; ( (auto859AF73D_ai >= 0 && lv_p <= auto859AF73D_ae) || (auto859AF73D_ai <= 0 && lv_p >= auto859AF73D_ae) ) ; lv_p += auto859AF73D_ai ) {
+        if ((lv_i[gv_intPlayer[lv_p]] == 0)) {
+            gv_intCountLivingUnitPlayer[gv_intPlayer[lv_p]] = 0;
+            autoA7A52EEB_ae = gv_intCountPhalanx;
+            autoA7A52EEB_ai = 1;
+            lv_phalanx = 1;
+            for ( ; ( (autoA7A52EEB_ai >= 0 && lv_phalanx <= autoA7A52EEB_ae) || (autoA7A52EEB_ai <= 0 && lv_phalanx >= autoA7A52EEB_ae) ) ; lv_phalanx += autoA7A52EEB_ai ) {
+                gv_intCountLivingUnit[gv_intPlayer[lv_p]][lv_phalanx] = 0;
+            }
+        }
+
+    }
+    TimerStart(gv_timerWinLoss, 0.0625, false, c_timeGame);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_WinLossPeriod_Init () {
+    gt_WinLossPeriod = TriggerCreate("gt_WinLossPeriod_Func");
+    TriggerEnable(gt_WinLossPeriod, false);
+    TriggerAddEventTimePeriodic(gt_WinLossPeriod, 1.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1980,6 +2136,7 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
     int lv_pL;
     int lv_pWn;
     int lv_pLs;
+    unit lv_item;
 
     // Variable Initialization
 
@@ -2001,22 +2158,28 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
 
             }
             if ((lv_pL <= 1)) {
+                TriggerEnable(gt_WinLossPeriod, false);
                 if ((lv_pL == 0)) {
                     lv_pWn = gv_playerKilling;
                 }
 
                 gv_boolKilling = true;
+                TriggerEnable(libGAwX_gt_ankhAnkhofReincarnationRemove, false);
                 Wait(2.0, c_timeGame);
                 while (true) {
                     if ((gv_intCountLivingUnitPlayer[lv_pWn] > 0)) {
                         UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
                         for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                            PlayerModifyPropertyInt(lv_pWn, c_playerPropCustom, c_playerPropOperAdd, CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "KillResource[" + IntToString(3) + "]", lv_pWn));
+                            if ((UnitTypeTestAttribute(UnitGetType(UnitGroupLoopCurrent()), c_unitAttributeSummoned) == false) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, UnitGroupLoopCurrent()) == false)) {
+                                UnitSetCustomValue(UnitGroupLoopCurrent(), 1, 0.0);
+                                PlayerModifyPropertyInt(lv_pWn, c_playerPropCustom, c_playerPropOperAdd, CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "KillResource[" + IntToString(3) + "]", lv_pWn));
+                            }
+
                             PlayerCreateEffectUnit(lv_pWn, "Kill", UnitGroupLoopCurrent());
+                            UnitRemove(UnitGroupLoopCurrent());
                             Wait(0.0625, c_timeGame);
                         }
                         UnitGroupLoopEnd();
-                        Wait(0.125, c_timeGame);
                     }
                     else {
                         break;
@@ -2024,6 +2187,7 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                 }
                 Wait(2.0, c_timeGame);
                 gv_boolKilling = false;
+                TriggerEnable(libGAwX_gt_ankhAnkhofReincarnationRemove, true);
                 TriggerExecute(gt_Waiting, true, false);
             }
 
@@ -2047,6 +2211,9 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
 
             }
             if ((lv_pL == 0)) {
+                TriggerEnable(gt_WinLossPeriod, false);
+                TriggerEnable(gt_PlayerLeft, false);
+                gv_boolKilling = true;
                 Wait(2.0, c_timeGame);
                 UnitGroupLoopBegin(UnitGroup(null, 15, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
                 for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
@@ -2054,6 +2221,7 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                 }
                 UnitGroupLoopEnd();
                 Wait(2.0, c_timeGame);
+                gv_boolKilling = false;
                 if ((gv_intBonusRound == gv_intCountBonusRound)) {
                     TriggerExecute(gt_Waiting, true, false);
                 }
@@ -2081,14 +2249,15 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
 
                 }
                 if ((lv_pL <= 1)) {
+                    TriggerEnable(gt_WinLossPeriod, false);
                     if ((lv_pL == 0)) {
                         lv_pWn = gv_playerKilling;
                         lv_pLs = gv_playerEvent;
                     }
 
                     if ((gv_intFinalRound == gv_intCountFinalRound)) {
-                        TriggerEnable(gt_PlayerLeft, false);
                         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lv_pWn), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_pWn, false))) + StringExternal("Param/Value/6250BEB1")));
+                        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, StringExternal("Param/Value/50A1E790"));
                         Wait(15.0, c_timeGame);
                         PlayerGroupLoopBegin(PlayerGroupActive());
                         for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
@@ -2110,6 +2279,7 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                         BoardItemSetProgressColor(gv_board, 2, gv_intRowBoardOfPlayer[lv_pLs], Color(100.00, 100.00, 100.00), 1);
                         BoardItemSetTextColor(gv_board, 3, gv_intRowBoardOfPlayer[lv_pLs], Color(0.00, 0.00, 0.00));
                         BoardItemSetProgressColor(gv_board, 3, gv_intRowBoardOfPlayer[lv_pLs], Color(100.00, 100.00, 100.00), 1);
+                        gv_boolKilling = true;
                         Wait(2.0, c_timeGame);
                         UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
                         for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
@@ -2117,6 +2287,7 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                         }
                         UnitGroupLoopEnd();
                         Wait(2.0, c_timeGame);
+                        gv_boolKilling = false;
                         gv_intFinalRound += 1;
                         TriggerExecute(gt_InitUnit, true, false);
                     }
@@ -2150,7 +2321,7 @@ bool gt_Build_Func (bool testConds, bool runActions) {
     }
     else if ((UnitTypeTestAttribute(UnitGetType(EventUnitCreatedUnit()), c_unitAttributeSummoned) == true)) {
         UnitIssueOrder(EventUnitCreatedUnit(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
-        libNtve_gf_MakeUnitUncommandable(EventUnitCreatedUnit(), true);
+        libNtve_gf_MakeUnitUncommandable(EventUnitCreatedUnit(), gv_optionCommandable);
     }
     return true;
 }
@@ -2179,8 +2350,8 @@ bool gt_Attack_Func (bool testConds, bool runActions) {
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         if ((libNtve_gf_UnitInRegion(UnitGroupLoopCurrent(), RegionFromId(1)) == true)) {
             lv_r = RegionCircle(UnitGetPosition(UnitGroupLoopCurrent()), 35.0);
-            if ((UnitCountAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32))), 0) != 0)) {
-                UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(UnitGroupClosestToPoint(UnitGroupAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32))), 0), UnitGetPosition(UnitGroupLoopCurrent())))), c_orderQueueReplace);
+            if ((UnitCountAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32))), 0) != 0)) {
+                UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(UnitGroupClosestToPoint(UnitGroupAlliance(UnitGetOwner(UnitGroupLoopCurrent()), c_unitAllianceEnemy, lv_r, UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32))), 0), UnitGetPosition(UnitGroupLoopCurrent())))), c_orderQueueReplace);
             }
             else {
                 UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
@@ -2208,10 +2379,13 @@ bool gt_Revive_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_intCountLivingUnit[EventPlayer()][FixedToInt(UnitGetCustomValue(EventUnit(), 0))] += 1;
-    gv_intCountLivingUnitPlayer[EventPlayer()] += 1;
     UnitIssueOrder(EventUnit(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
-    libNtve_gf_MakeUnitUncommandable(EventUnit(), true);
+    libNtve_gf_MakeUnitUncommandable(EventUnit(), gv_optionCommandable);
+    if ((gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, EventUnit()) == true)) {
+        UnitSetCustomValue(EventUnit(), 1, 1.0);
+        UIDisplayMessage(gv_playergroupDebug, c_messageAreaSubtitle, (TextWithColor(UnitTypeGetName(UnitGetType(EventUnit())), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventPlayer(), false))) + StringExternal("Param/Value/0EDF9767")));
+    }
+
     return true;
 }
 
@@ -2220,31 +2394,6 @@ void gt_Revive_Init () {
     gt_Revive = TriggerCreate("gt_Revive_Func");
     TriggerEnable(gt_Revive, false);
     TriggerAddEventUnitRevive(gt_Revive, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: ChangeOwner
-//--------------------------------------------------------------------------------------------------
-bool gt_ChangeOwner_Func (bool testConds, bool runActions) {
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gv_intCountLivingUnit[EventUnitOwnerOld()][FixedToInt(UnitGetCustomValue(EventUnit(), 0))] -= 1;
-    gv_intCountLivingUnitPlayer[EventUnitOwnerOld()] -= 1;
-    gv_intCountLivingUnit[EventUnitOwnerNew()][FixedToInt(UnitGetCustomValue(EventUnit(), 0))] += 1;
-    gv_intCountLivingUnitPlayer[EventUnitOwnerNew()] += 1;
-    UnitIssueOrder(EventUnit(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionGetCenter(RegionFromId(1))), c_orderQueueReplace);
-    libNtve_gf_MakeUnitUncommandable(EventUnit(), true);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ChangeOwner_Init () {
-    gt_ChangeOwner = TriggerCreate("gt_ChangeOwner_Func");
-    TriggerEnable(gt_ChangeOwner, false);
-    TriggerAddEventUnitChangeOwner(gt_ChangeOwner, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -2293,11 +2442,11 @@ void InitTriggers () {
     gt_UnitDied_Init();
     gt_UnitOwnerChanged_Init();
     gt_Reserve_Init();
+    gt_WinLossPeriod_Init();
     gt_WinLoss_Init();
     gt_Build_Init();
     gt_Attack_Init();
     gt_Revive_Init();
-    gt_ChangeOwner_Init();
     gt_PlayerLeft_Init();
 }
 

@@ -1,5 +1,6 @@
 ﻿AEah/Ubertip=该光环能给予周围的友方单位一个具有攻击力的护盾保护，敌人对这些单位进行一次近战或远程攻击就会有<d ref="Behavior,BEah,DamageResponse.Chance*100"/>%的几率受到相当于10%自身攻击力的伤害。
 AEer/Ubertip=从地下伸出缠绕的根须将目标内固定住<d ref="Effect,AEer1Dur,Duration"/>秒，并对其造成每秒<d ref="Effect,BEerDPS1,Amount"/>点的伤害。
+AEev/Ubertip=给予<d ref="Behavior,AEev1,DamageResponse.Chance*100"/>%的概率躲避掉敌人的攻击。
 AEfk/Ubertip=典狱官对周围的敌人发射扇面刀簇进行伤害，每把尖刀造成<d ref="Effect,AEfk1Damage,Amount"/>点的伤害。
 AHfa/Ubertip=增加<d ref="Behavior,AHfa1,Modification.DamageDealtUnscaled[Ranged]"/>点的火焰伤害。
 AHwe/Ubertip=召唤出一个具有<d ref="Unit,hwat,LifeStart"/>生命值的水元素来帮大魔法师进行战斗。攻击力为<d ref="Effect,hwat1,Amount"/>点。<n/>持续<d ref="Behavior,BHwe,Duration"/>秒。
@@ -8,26 +9,38 @@ ANgl/Tip=购买木材
 ANgl/Ubertip=用<d ref="Abil,ANgl,Cost[0].Resource[Terrazine]"/>黄金交换<d ref="-Abil,ANgl,Cost[0].Resource[Custom]"/>木材。
 ANlg/Tip=购买黄金
 ANlg/Ubertip=用<d ref="Abil,ANlg,Cost[0].Resource[Custom]"/>木材交换<d ref="-Abil,ANlg,Cost[0].Resource[Terrazine]"/>黄金。
+AUan/Ubertip=复活<d ref="Effect,AUanSearch,MaxCount"/>个阵亡单位，持续时间为<d ref="Behavior,BUan,Duration"/>秒。
+AUcb/Ubertip=从目标尸体中召唤出<d ref="Effect,ucs1,SpawnCount"/>条甲虫来。每条甲虫具有<d ref="Unit,ucs1,LifeMax"/>点生命值和<d ref="Effect,ucs11,Amount"/>点的攻击力。在被杀死之前，甲虫能一直存在。<n/>最多<d ref="Validator,AUcbMarkerLessThan5,Value"/>条甲虫。
 Aadm/Ubertip=对召唤单位造成<d ref="Effect,HurtEnemySummoned300,Amount"/>点的伤害。
+Aam2/Ubertip=建立一道屏障，使得目标单位能少受<d ref="Behavior,Bam2,DamageResponse.ModifyLimit"/>点的魔法伤害。<n/>持续<d ref="Behavior,Bam2,Duration"/>秒。
+Aapl/Ubertip=用疾病来感染周围的敌人。疾病之云每秒能对敌人造成<d ref="Effect,BaplDPS,Amount"/>点的伤害。<n/>持续<d ref="Behavior,Bapl,Duration"/>秒。
 Abil/Name/ANgl=购买木材
 Abil/Name/ANlg=购买黄金
 Abil/Name/Adef1=防御
 Abil/Name/Asud=出售单位
 Abil/Name/ShockWave=震荡波
+Acrs/Ubertip=诅咒敌人的某个单位使其有<d ref="Effect,BcrsMiss33Chance,Chance*100"/>%的概率不能击中自己的目标。<n/>持续<d ref="Behavior,Bcrs,Duration"/>秒。
 Adef/Ubertip=激活以减少所有类型的远程攻击<d ref="-Behavior,Adef,DamageResponse.ModifyAmount"/>点伤害。如果防御状态被激活，移动速度会变成<d ref="Behavior,Adef,Modification.MoveSpeedMultiplier*100"/>%的常规速度。
 Aegr/Ubertip=减少来自所有类型的远程攻击的伤害到原来的<d ref="Behavior,Aegr,DamageResponse.ModifyFraction*100"/>%，并减少来自技能的伤害到原来的<d ref="Behavior,AegrSpellReduction,DamageResponse.ModifyFraction*100"/>%。
+Aexh/Ubertip=每<d ref="Behavior,Aexh,Period"/>秒让绞肉车制造出一具尸体。
 Afae/Ubertip=减少目标单位<d ref="-Behavior,Bfae,Modification.LifeArmorBonus"/>点护甲值，持续<d ref="Behavior,Bfae,Duration"/>秒。
 Ahea/Ubertip=治疗一个友方的非机械受伤单位，恢复其<d ref="Effect,AheaHeal,RechargeVitalRate"/>的生命值。
 Ainf/Ubertip=增加目标友方单位<d ref="Behavior,Binf,Modification.DamageDealtUnscaled[Melee]"/>点攻击力。<n/>持续<d ref="Behavior,Binf,Duration"/>秒。
 Amfl/Ubertip=在周围敌方单位施放魔法的时候，让精灵龙对其造成伤害。同时增加精灵龙<d ref="Behavior,Bmfl,Modification.LifeArmorBonus"/>点护甲值。<n/>持续<d ref="Behavior,Bmfl,Duration"/>秒。
 Anh2/Ubertip=治疗一个友方的非机械受伤单位，恢复其<d ref="Effect,Anh2Heal,RechargeVitalRate"/>的生命值。
+Aps2/Ubertip=将目标单位和女妖震晕<d ref="Behavior,Bpos,Duration" precision="1"/>秒，在这个期间，女妖将受到额外的伤害。女妖会将永久地控制目标单位，但是与此同时，施法者的身体也将会被毁掉。<n/>占据魔法不能被使用在飞行单位和强大的单位身上。
+Apts/Ubertip=在每次攻击的时候都能释放出疾病之云。疾病之云每秒能对敌人造成<d ref="Effect,BaplDPS,Amount"/>点的伤害。<n/>持续<d ref="Behavior,Bapl,Duration"/>秒。
 Ara2/Ubertip=增加周围友方单位<d ref="Behavior,Broa,Modification.DamageDealtUnscaled[Melee]"/>点攻击力。<n/>持续<d ref="Behavior,Broa,Duration"/>秒。<n/>最多可叠加<d ref="Behavior,Broa,MaxStackCount"/>层。
 Arej/Ubertip=在<d ref="Behavior,Brej,Duration"/>秒内恢复目标友方单位<d ref="Effect,BrejHealTick,RechargeVitalRate*Behavior,Brej,Duration"/>点的生命值。
 Aroc/Ubertip=对周围的敌方地面单位进行强有力的弹幕攻击。每次发射能造成<d ref="Effect,hrtt2,Amount"/>点的伤害。
+Arpl/Ubertip=恢复附近友方<d ref="Effect,BrplHeal,RechargeVitalRate"/>点生命值。
+Arpm/Ubertip=恢复附近友方<d ref="Effect,ReplenishRefund,VitalArray[Energy].Change"/>点法力值。
 Aslo/Ubertip=减慢目标单位<d ref="1-Behavior,Bslo,Modification.AttackSpeedMultiplier*100"/>%的攻击速度和<d ref="1-Behavior,Bslo,Modification.MoveSpeedMultiplier*100"/>%的移动速度。<n/>持续<d ref="Behavior,Bslo,Duration"/>秒。
 Aspo/Ubertip=迟缓毒药攻击能造成每秒<d ref="Effect,BssdDPS,Amount"/>点的伤害，并在<d ref="Behavior,Bspo,Duration"/>秒内减慢敌人<d ref="1-Behavior,Bspo,Modification.MoveSpeedMultiplier*100"/>%的移动速度和<d ref="1-Behavior,Bspo,Modification.AttackSpeedMultiplier*100"/>%的攻击速度。
 Assk/Ubertip=降低所有施加在山岭巨人身上的伤害<d ref="1-Behavior,Assk,DamageResponse.ModifyFraction*100"/>%。
 Asud/Ubertip=允许出卖单位，返还<d ref="-Effect,Asud,SalvageFactor.Resource[Terrazine]*100"/>%的资源。
+Auhf/Ubertip=增加目标单位<d ref="Behavior,Buhf,Modification.AttackSpeedMultiplier-1*100"/>%的攻击速度，但是每秒也会消耗目标<d ref="Effect,BuhfDPS,Amount" precision="1"/>点的生命值。<n/>持续<d ref="Behavior,Buhf,Duration"/>秒。
+Aweb/Ubertip=将目标单位用一张网来捕获到地面，从而地面上的单位可以对其进行攻击。<n/>持续<d ref="Behavior,Bwea,Duration"/>秒。
 BEah/Buffubertip=该单位处在荆棘光环的作用之下，因此近战或远程单位攻击它会受到伤害。
 Behavior/Name/Building=建筑
 Behavior/Name/ManaFlareChannelling=魔力之焰引导中
@@ -35,56 +48,76 @@ Behavior/Name/Preparing=准备中
 Behavior/Name/hgry1=狮鹫骑士
 Bfae/Buffubertip=该单位受到了精灵之火的作用，因此其护甲被削弱了。
 Binf/Buffubertip=该单位拥有心灵之火，所以其攻击力都得到了加强。
+Button/Name/ImpaleAttack=穿刺攻击
 Button/Name/MultiShot=多重射击
-DebuffImmunity/Name=负面效果防护
 DebuffImmunity/Tip=负面效果防护
 DebuffImmunity/Ubertip=让该单位对负面效果免疫。
-DocInfo/DescLong=原名《锦标赛》，该版本使用麦德三世的魔兽争霸III Mod。<n/>排兵布阵，建造场地的兵将会按书写顺序出现在战场里。<n/>与每个玩家都打过一次后——即单循环赛制，将进行单败淘汰赛。<n/>部分创意来自魔兽争霸III地图《血液锦标赛》。<n/>注意：目前只有人类和暗夜精灵种族。选择兽人或亡灵将分别成为人类和暗夜精灵。
+DocInfo/DescLong=原名《锦标赛》，该版本使用麦德三世的魔兽争霸III Mod。<n/>排兵布阵，建造场地的兵将会按书写顺序出现在战场里。<n/>与每个玩家都打过一次后——即单循环赛制，将进行单败淘汰赛。<n/>部分创意来自魔兽争霸III地图《血液锦标赛》。<n/>玩家交流QQ群：417769011。<n/>即将加入兽人！
 DocInfo/DescShort=任意
 DocInfo/HowToPlayBasic00=使用步兵方阵稳扎稳打，还是利用骑兵冲锋敌人侧翼？
 DocInfo/Name=古代战争 - 魔兽争霸III Mod (GA)
-DocInfo/PatchNote001=完成暗夜精灵种族
-DocInfo/PatchNote002=完成人类种族
-DocInfo/PatchNote003=调整平衡性
-DocInfo/PatchNote004=完善人类种族
-DocInfo/PatchNote005=加入物品系统
-DocInfo/PatchNote006=调整平衡性
-DocInfo/PatchNote007=尝试修复奖励回合1血不死的严重漏洞
-DocInfo/PatchNote008=再次尝试修复奖励回合1血不死的严重漏洞
-DocInfo/PatchNote009=决赛前每块阵地现在最多可以容纳36个单位
-DocInfo/PatchNote010=加入新单位精灵龙
-DocInfo/PatchNote011=加入新单位丛林守护者 (幽灵)
-DocInfo/PatchNote012=树妖类单位经过重新设计
-DocInfo/PatchNote013=大法师现在可以攻击空中单位
-DocInfo/PatchNote014=月之女祭司不再能够攻击空中单位
-DocInfo/PatchNote015=高射炮火伤害提高
-DocInfo/PatchNote016=纠缠根须冷却时间延长
-DocInfo/PatchNote017=狮鹫骑士不再拥有物品栏
-DocInfo/PatchNote018=再次尝试修复奖励回合1血不死的严重漏洞，感谢魔龙提出的建设性解决方案
+DocInfo/PatchNote001=完成暗夜精灵种族。
+DocInfo/PatchNote002=完成人类种族。
+DocInfo/PatchNote003=调整平衡性。
+DocInfo/PatchNote004=完善人类种族。
+DocInfo/PatchNote005=加入物品系统。
+DocInfo/PatchNote006=调整平衡性。
+DocInfo/PatchNote007=尝试修复奖励回合1血不死的严重漏洞。
+DocInfo/PatchNote008=再次尝试修复奖励回合1血不死的严重漏洞。
+DocInfo/PatchNote009=决赛前每块阵地现在最多可以容纳36个单位。
+DocInfo/PatchNote010=加入新单位精灵龙。
+DocInfo/PatchNote011=加入新单位丛林守护者（幽灵形态）。
+DocInfo/PatchNote012=树妖类单位经过重新设计。
+DocInfo/PatchNote013=大法师现在可以攻击空中单位。
+DocInfo/PatchNote014=月之女祭司不再能够攻击空中单位。
+DocInfo/PatchNote015=高射炮火伤害提高。
+DocInfo/PatchNote016=纠缠根须冷却时间延长。
+DocInfo/PatchNote017=狮鹫骑士不再拥有物品栏。
+DocInfo/PatchNote018=再次尝试修复奖励回合1血不死的严重漏洞，感谢魔龙提出的建设性解决方案。
+DocInfo/PatchNote019=完成亡灵种族。
+DocInfo/PatchNote020=改善奖励回合单位路径。
+DocInfo/PatchNote021=狮鹫骑士获得新技能负面效果防护。
+DocInfo/PatchNote022=调整平衡性。
+DocInfo/PatchNote023=尝试修复结算时游戏无法继续的严重漏洞。
+DocInfo/PatchNote024=奖励回合单位将在一定时间后进入狂怒状态。
+DocInfo/PatchNote025=修复石像鬼在石像形态下无法回到石像鬼状态的漏洞。
+DocInfo/PatchNote026=现在能从食尸鬼的尸体中召唤出骷髅爪牙。
+DocInfo/PatchNote027=现在无法获得物品复活纹章。
+DocInfo/PatchNote028=尝试修复决赛时胜负判定过早的严重漏洞。
+DocInfo/PatchNote029=修复被技能操纵死尸复活的单位能被玩家指挥的漏洞。
+DocInfo/PatchNote030=操纵死尸不再能够复活强大的单位。
+DocInfo/PatchNote031=加入新单位深渊亡魂。
+DocInfo/PatchNote032=加入新单位死亡亡魂。
+DocInfo/PatchNote033=反魔法护盾持续时间大幅度降低，但吸收伤害量增加。
+DocInfo/PatchNote034=调整平衡性。
+DocInfo/Screenshot03=即将加入兽人！
 Effect/Name/Asud=出售单位
 Effect/Name/DefendIssueOrder=防御发布指令
 Effect/Name/DefendSet=防御集合
 Effect/Name/DefendStopIssueOrder=停止防御发布指令
 Effect/Name/Defending=防御中
+Effect/Name/FuryBuff=狂怒增益
 Effect/Name/HonorShieldBuff=荣誉之盾增益
 Effect/Name/ManaFlareChannelling=魔力之焰引导中
 Effect/Name/ManaFlareIssueOrder=魔力之焰发布指令
 Effect/Name/ManaFlareSet=魔力之焰集合
 Effect/Name/ManaFlareStopIssueOrder=魔力之焰停止发布指令
-Effect/Name/UnknownEffect=hgry1Set
+Effect/Name/StoneFormExtra=石像形态
+Effect/Name/StoneFormIssueOrder=石像形态发布指令
+Effect/Name/StoneFormUnExtra=石像鬼状态
+Effect/Name/StoneFormUnIssueOrder=石像鬼状态发布指令
 Effect/Name/hgry1ImpactSet2=hgry1ImpactSet2
 Effect/Name/hgry1ImpactSet3=hgry1ImpactSet3
 Effect/Name/hgry1LM2=hgry1LM2
 Effect/Name/hgry1LM3=hgry1LM3
 Effect/Name/hgry1RectangeSearch2=hgry1RectangeSearch2
 Effect/Name/hgry1RectangeSearch3=hgry1RectangeSearch3
+Effect/Name/hgry1Set=hgry1Set
 Efur/Name=法里奥
 Efur/Tip=法里奥
 Efur/Ubertip=提供<c val="FFFFFF">8</c>名猛禽德鲁伊、<c val="FFFFFF">1</c>名法里奥。<n/><n/>魔法攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Efur1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Efur1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Efur1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Efur1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,edot1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,edot1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,edot1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">精灵之火</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 Ekee/Tip=丛林守护者
 Ekee/Ubertip=提供<c val="FFFFFF">5</c>名树妖、<c val="FFFFFF">1</c>名丛林守护者。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Ekee1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Ekee1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Ekee1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Ekee1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,edry1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,edry1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,edry1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">多重射击</c>、<c val="FFFFFF">迟缓毒药</c>、<c val="FFFFFF">纠缠根须</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
-Ekgg/Name=丛林守护者 (幽灵)
-Ekgg/Tip=丛林守护者 (幽灵)
 Ekgg/Ubertip=提供<c val="FFFFFF">5</c>名树妖、<c val="FFFFFF">1</c>名丛林守护者。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Ekee1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Ekee1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Ekee1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Ekee1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,edry1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,edry1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,edry1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">多重射击</c>、<c val="FFFFFF">迟缓毒药</c>、<c val="FFFFFF">荆棘光环</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 Emoo/Name=月之女祭司
 Emoo/Tip=月之女祭司
@@ -92,6 +125,8 @@ Emoo/Ubertip=提供<c val="FFFFFF">2</c>名女猎手、<c val="FFFFFF">1</c>名�
 Ewar/Name=典狱官
 Ewar/Tip=典狱官
 Ewar/Ubertip=提供<c val="FFFFFF">8</c>名哨兵、<c val="FFFFFF">1</c>名典狱官。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Ewar1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Ewar1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Ewar1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Ewar1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Ewar1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Ewar1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">刃扇</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+Fury/Buffubertip=<d ref="Behavior,Fury,Duration"/>秒后进入狂怒状态。
+Fury/Name=狂怒
 Hamg/Name=大法师
 Hamg/Tip=大法师
 Hamg/Ubertip=提供<c val="FFFFFF">2</c>名水占师、<c val="FFFFFF">1</c>名大法师。<n/><n/>魔法攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hamg1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hamg1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hamg1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hamg1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Hamg1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Hamg1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Hamg1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">召唤水元素</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
@@ -101,9 +136,10 @@ Hjai/Ubertip=提供<c val="FFFFFF">8</c>名女巫、<c val="FFFFFF">1</c>名吉�
 Hlgr/Name=甲胄骑兵
 Hlgr/Tip=甲胄骑兵
 Hlgr/Ubertip=提供<c val="FFFFFF">2</c>名骑士、<c val="FFFFFF">1</c>名甲胄骑兵。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hlgr1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hlgr1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hlgr1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hlgr1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,hkni1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,hkni1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
-HonorShield/Name=荣誉之盾
 HonorShield/Tip=荣誉之盾
 HonorShield/Ubertip=每次攻击地面单位或受到攻击将会提升<d ref="Behavior,HonorShieldBuff,Modification.DamageDealtUnscaled[Ranged]"/>点攻击及<d ref="Behavior,HonorShieldBuff,Modification.LifeArmorBonus"/>点护甲。
+ImpaleAttack/Tip=穿刺攻击
+ImpaleAttack/Ubertip=每次攻击能向前射出一道直线形尖刺波，造成<d ref="Effect,BUimDamage1,Amount"/>点伤害，并将其轨迹上的敌地面单位抛入空中，使他们晕眩<d ref="Effect,AUim1Dur,Duration"/>秒。
 Inventory1/Name=单位物品栏
 Inventory2/Name=单位物品栏
 Inventory3/Name=单位物品栏
@@ -111,6 +147,8 @@ Inventory4/Name=单位物品栏
 Inventory5/Name=单位物品栏
 Inventory6/Name=单位物品栏
 Item/Name=物品
+LifePeriod/Tip=生命周期
+LifePeriod/Ubertip=每<d ref="Behavior,StoneFormUn,Duration"/>秒石像鬼将变成一尊雕像，持续<d ref="Behavior,StoneForm,Duration"/>秒。雕像能以每秒<d ref="Behavior,Astn,Modification.VitalRegenArray[Life]"/>点的速度来恢复自己的生命值，但受到攻击时会多承受<d ref="Behavior,Astn,DamageResponse.ModifyAmount"/>点伤害。<n/>石像鬼在这种状态下不能攻击敌人。
 MapInfo/Player00/Name=中立
 MapInfo/Player01/Name=玩家1
 MapInfo/Player02/Name=玩家2
@@ -135,60 +173,94 @@ Nbrn/Tip=黑暗游侠
 Nbrn/Ubertip=提供<c val="FFFFFF">5</c>名弓箭手、<c val="FFFFFF">1</c>名黑暗游侠。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Nbrn1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Nbrn1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Nbrn1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Nbrn1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">混乱</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Nbrn1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Nbrn1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Nbrn1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">艾露恩的赐福</c>、<c val="FFFFFF">黑暗箭</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 Param/Value/04BEE6F3=死亡等待
 Param/Value/05267893=
+Param/Value/08D0231A=死亡
+Param/Value/0C743DF6=)+(
+Param/Value/0EDF9767=被复活，自定义值[1]=1
 Param/Value/171BD6C0=在本场比赛获得胜利。
 Param/Value/1F61923B=
-Param/Value/213ADCDA=)<n/>i=
 Param/Value/216860A7= iCLivingUnit=
 Param/Value/22F0B0C0=奖励 (回合
+Param/Value/27934500=复活增益被激活
+Param/Value/2E5110F9=是否有标旗
+Param/Value/3586DB95=剩余
 Param/Value/35BB6FEE=)
+Param/Value/3ED4FC08=被
 Param/Value/40026B7B=奖励回合pointReserv[
-Param/Value/46FF2052= unitLvP=
 Param/Value/508D1D51=剩余
+Param/Value/509B45CD=i=(
+Param/Value/50A1E790=玩家交流QQ群：<c val="FF00FF">417769011</c>，<n/>和其他人一同讨论兵法战略！
 Param/Value/55DB5BD8=回合奖励
 Param/Value/55F724F7=玩家
 Param/Value/5AAD0B64=奖励
-Param/Value/5F256B76=*
+Param/Value/5D715EBB=)<n/>i=
 Param/Value/61D13CE0=,
 Param/Value/6250BEB1=在整场比赛获得胜利！游戏将在15秒后退出。
 Param/Value/62D1EB4C=
+Param/Value/631C0CCD=控制
+Param/Value/689C4447=剩余
+Param/Value/68AE5752= unitLvP=
+Param/Value/6A831C96= 
+Param/Value/6E435D9E= 
 Param/Value/6EB48F1E=兽人正在制作中，如果在大厅选择兽人将成为人类。
-Param/Value/761B4CC3=i=(
-Param/Value/781AF07E=剩余时间
+Param/Value/7A74AE4A=的
 Param/Value/7A840C97=<c val="FF0000">侧翼</c>
+Param/Value/7C99279E=/
 Param/Value/82C803CB=,
+Param/Value/90D3E747=-
 Param/Value/90EBD34C=回合开始，总共
 Param/Value/91DF5681=剩余时间
+Param/Value/93AC8809=剩余
 Param/Value/9B94C0E9=回合。
+Param/Value/9EFDB562= CountUnit[方阵]=
 Param/Value/9F45A887=玩家
 Param/Value/A0C906DD= s=
+Param/Value/A5D7CF57= phalanx=
+Param/Value/A997AFE4=行为数
 Param/Value/A99D8C2B=现在由电脑接管。
+Param/Value/ADE5DD22= unitLv[方阵]=
+Param/Value/B0788FE7= CountUnit[方阵]=
+Param/Value/B12B21DB=被
+Param/Value/B283AD66= unitLv[方阵]=
 Param/Value/B399A25B=玩家
-Param/Value/B9683A5F= phalanx=
+Param/Value/B92D1E00= phalanx=
+Param/Value/B9649E09=有标旗
+Param/Value/BA6EBB63=-
 Param/Value/BCD3B42D=奖励 (<c val="00FF00">奖励回合</c>)
 Param/Value/BE944676=为
+Param/Value/BF4879B9=被复活，自定义值[1]=0
 Param/Value/C7AB0A54= PIBattle=
-Param/Value/C8F784D7= unitLv[方阵]=
+Param/Value/C8A54DA0=玩家交流QQ群：<c val="FF00FF">417769011</c>，<n/>和其他人一同讨论兵法战略！
+Param/Value/CAA741DC=击杀
+Param/Value/D0A6DD6E=)<n/>i=
 Param/Value/D52897FF=战斗奖励
 Param/Value/D6E29B46=奖励 (<c val="FF00FF">决赛</c>)
+Param/Value/DA25E9E7= 
 Param/Value/DD5919AD=<c val="00FF00">后阵</c>
+Param/Value/DFFAC700=方阵
 Param/Value/E141C2CA=物品等级：
-Param/Value/E1C3B26D= CountUnit[方阵]=
-Param/Value/E4122EF6=)+(
-Param/Value/E4A741C0= 
 Param/Value/E53E578E=]=
 Param/Value/E702DCDD= iCUnit=
+Param/Value/E7D3969D= unitLvP=
 Param/Value/E7D5D0E0=<c val="00FFFF">前阵</c>
+Param/Value/E8713E8A=)+(
 Param/Value/E8E781DD=-
 Param/Value/ED8C3A4C=第
+Param/Value/EEA80C0B=*
+Param/Value/F31A9CD6=i=(
 Param/Value/F44BE4BA=/
+Param/Value/F504319A= 
 Param/Value/F7E66B93=]=
-Param/Value/F938EAC2=-
+Param/Value/FDA0F90B=*
 Param/Value/FEE6645E=奖励回合pointReserv[
 Pause/Name=Pause
-ShockWave/Name=震荡波
 ShockWave/Tip=震荡波
 ShockWave/Ubertip=每次攻击有<d ref="Behavior,ShockWave,DamageResponse.Chance*100"/>%几率发出一道向前的能量波，对一条线上的敌方地面单位造成<d ref="Effect,AOshDamage1,Amount"/>点的伤害。
-Ucrl/Name=地穴领主
+StoneForm/Name=石像形态
+StoneFormExtra/Name=石像形态 (Extra)
+StoneFormUn/Name=石像鬼状态
+StoneFormUnExtra/Name=石像鬼状态 (Extra)
+Ucrl/Tip=地穴领主
+Ucrl/Ubertip=提供<c val="FFFFFF">5</c>只地穴恶魔、<c val="FFFFFF">1</c>名地穴领主。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Ucrl1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Ucrl1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Ucrl1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Ucrl1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Ucrl1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,BUimDamage1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Ucrl1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">穿刺攻击</c>、<c val="FFFFFF">腐尸甲虫</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Unit/Name/Hjai1=吉安娜
 Unit/Name/Item=物品
 Unit/Name/Ucrl1LM=Ucrl1LM
@@ -273,12 +345,17 @@ nbld/Ubertip=提供<c val="FFFFFF">2</c>名骑士、<c val="FFFFFF">1</c>名枪�
 nbld1/Tip=枪骑兵
 nchp/Tip=教会牧师
 nchp/Ubertip=提供<c val="FFFFFF">2</c>名教会牧师。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,nchp,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,nchp,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,nchp,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,nchp,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,nchp1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nchp1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nchp1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">治疗术</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
+ndrv/Tip=深渊亡魂
+ndrv/Ubertip=提供<c val="FFFFFF">1</c>名深渊亡魂。<n/><n/>防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,ndrv,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,ndrv,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,ndrv,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,ndrv,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">混乱</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,ndrv1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,ndrv1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+nfgl/Ubertip=提供<c val="FFFFFF">1</c>名憎恶、<c val="FFFFFF">1</c>名血肉傀儡。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,nfgl,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,nfgl,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,nfgl,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,nfgl,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nfgl1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nfgl1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">疾病之云</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 nhea/Name=高等精灵弓箭手
 nhea/Tip=高等精灵弓箭手
 nhea/Ubertip=提供<c val="FFFFFF">12</c>名高等精灵弓箭手。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,nhea,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,nhea,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,nhea,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,nhea,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,nhea1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nhea1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nhea1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 nhym/Name=水占师
 nhym/Tip=水占师
 nhym/Ubertip=提供<c val="FFFFFF">1</c>名水占师。<n/><n/>魔法攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,nhym,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,nhym,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,nhym,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,nhym,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,nhym1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nhym1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nhym1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+nrvd/Tip=死亡亡魂
+nrvd/Ubertip=提供<c val="FFFFFF">2</c>名深渊亡魂、<c val="FFFFFF">1</c>名死亡亡魂。<n/><n/>防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,nrvd,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,nrvd,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,nrvd,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,nrvd,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">混乱</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nrvd1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nrvd1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">闪避</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 nssn/Name=暗夜精灵刺客
 nssn/Tip=暗夜精灵刺客
 nssn/Ubertip=提供<c val="FFFFFF">3</c>名暗夜精灵刺客。<n/><n/>防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,nssn,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,nssn,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,nssn,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,nssn,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,nssn1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nssn1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nssn1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
@@ -336,7 +413,27 @@ sor9/Ubertip=等级：<d ref="Item,sor9,Level"/><n/>这个神器被注入了兽�
 sora/Name=暗影之球
 sora/Ubertip=等级：<d ref="Item,sora,Level"/><n/>这个神器被注入了兽人暗影议会的力量，从而能增加你<d ref="Behavior,AItc,Modification.DamageDealtUnscaled[Melee]"/>点攻击力和<d ref="Behavior,AId3,Modification.LifeArmorBonus"/>点护甲值，并能加快生命值恢复速度。
 srtl/Ubertip=等级：<d ref="Item,srtl,Level"/><n/><c val="ff8c00">神器</c><n/>增加<d ref="Behavior,AIs2,Modification.AttackSpeedMultiplier-1*100"/>%攻击速度和<d ref="Behavior,AItf,Modification.DamageDealtUnscaled[Melee]"/>点攻击力。<n/><c val="ffcc00">历史</c><n/><c val="ffdead">这柄巨大的战斧是为德拉诺的卡斯德拉克所造的。并在血河战争中被使用。随着暗疮氏族的灭亡，这把战斧也最终不知去向。纳兹格雷尔是卡斯德拉克唯一还健在的亲戚。</c>
+uabo/Tip=憎恶
+uabo/Ubertip=提供<c val="FFFFFF">1</c>名憎恶。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,uabo,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,uabo,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,uabo,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,uabo,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uabo1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uabo1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">疾病之云</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+uban/Tip=女妖
+uban/Ubertip=提供<c val="FFFFFF">2</c>名女妖。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,uban,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,uban,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,uban,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,uban,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,uban1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uban1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uban1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">诅咒</c>、<c val="FFFFFF">反魔法护罩</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 ucry/Name=地穴恶魔
+ucry/Tip=地穴恶魔
+ucry/Ubertip=提供<c val="FFFFFF">2</c>只地穴恶魔。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,ucry,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,ucry,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,ucry,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,ucry,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,ucry1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,ucry1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,ucry1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">网</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+ufro/Tip=冰霜巨龙
+ugar/Tip=石像鬼
+ugar/Ubertip=提供<c val="FFFFFF">2</c>只石像鬼。<n/><n/>飞行单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,ugar,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,ugar,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,ugar,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,ugar,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,ugar2,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,ugar2,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,ugar2,Period" precision="1"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,ugar1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,ugar1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">生命周期</c>、<c val="FFFFFF">负面效果防护</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
+ugho/Tip=食尸鬼
+ugho/Ubertip=提供<c val="FFFFFF">12</c>只食尸鬼。<n/><n/>基本的防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,ugho,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,ugho,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,ugho,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,ugho,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,ugho1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,ugho1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+uktg/Ubertip=提供<c val="FFFFFF">5</c>位通灵师、<c val="FFFFFF">1</c>位克尔苏加德。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,uktg,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,uktg,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,uktg,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,uktg,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,unec1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,unec1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,unec1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">尸控术</c>、<c val="FFFFFF">操纵死尸</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
+uktn/Ubertip=提供<c val="FFFFFF">5</c>位通灵师、<c val="FFFFFF">1</c>位克尔苏加德。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,uktn,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,uktn,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,uktn,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,uktn,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,unec1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,unec1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,unec1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">尸控术</c>、<c val="FFFFFF">邪恶狂暴</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
+umtw/Tip=绞肉车
+umtw/Ubertip=提供<c val="FFFFFF">2</c>辆绞肉车。<n/><n/>远程攻击单位，能存放尸体<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,umtw,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,umtw,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,umtw,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,umtw,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">攻城</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,umtw1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,umtw1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,umtw1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">疾病之云</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+unec/Tip=通灵师
+unec/Ubertip=提供<c val="FFFFFF">2</c>位通灵师。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,unec,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,unec,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,unec,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,unec,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,unec1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,unec1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,unec1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">尸控术</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
+uobs/Tip=黑曜石雕像
+uobs/Ubertip=提供<c val="FFFFFF">2</c>座黑曜石雕像。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,uobs,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,uobs,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,uobs,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,uobs,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,uobs1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uobs1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uobs1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">荒芜精华</c>、<c val="FFFFFF">灵魂之触</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 uswb/Name=女妖之王
 uswb/Tip=女妖之王
+uswb/Ubertip=提供<c val="FFFFFF">5</c>名女妖、<c val="FFFFFF">1</c>名女妖之王。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,uswb,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,uswb,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,uswb,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,uswb,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,uban1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uban1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uban1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">诅咒</c>、<c val="FFFFFF">反魔法护罩</c>、<c val="FFFFFF">占据</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 ward/Ubertip=等级：<d ref="Item,ward,Level"/><n/>能增加周围单位<d ref="Behavior,BOac,Modification.DamageDealtFraction[Melee]*100"/>%的攻击力。<n/>不能和命令光环同时使用。

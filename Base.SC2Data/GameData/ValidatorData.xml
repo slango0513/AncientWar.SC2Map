@@ -2,7 +2,7 @@
 <Catalog>
     <CValidatorLocationEnumArea id="AnimateDeadAutoCastValidator">
         <WhichLocation Value="CasterUnit"/>
-        <AreaArray Radius="9" Validator="RaiseDeadValidatorDead"/>
+        <AreaArray Radius="7.5" Validator="RaiseDeadValidatorDeadCombie"/>
         <Compare value="GE"/>
         <Count value="6"/>
     </CValidatorLocationEnumArea>
@@ -43,8 +43,23 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="ManaFlareChannelling"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoWeb">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="Bwea"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoStoneForm">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="StoneForm"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoStoneFormUn">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="StoneFormUn"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoUnholyFrenzy">
         <Behavior value="Buhf"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBuilding">
+        <Behavior value="Building"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoRejuvenation">
         <ResultFailed value="Error,Errors/Alreadybeinghealed"/>
@@ -52,6 +67,9 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoEntanglingRoots">
         <Behavior value="BEer"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NonPowerfulUnit">
+        <Behavior value="PowerfulUnit"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="RejuvenationAutoCastTargetFilter">
         <CombineArray value="NotFullLife"/>
@@ -70,7 +88,12 @@
         <AreaArray Radius="9" Validator="TargetMoreThan10Mana"/>
         <SearchFilters value="-;Player,Ally,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"/>
     </CValidatorLocationEnumArea>
-    <CValidatorUnitCompareVital id="TargetLifeE25">
+    <CValidatorUnitCompareVital id="TargetLifeGE25">
+        <Compare value="GE"/>
+        <Value value="25"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="TargetLifeGT25">
+        <Compare value="GT"/>
         <Value value="25"/>
     </CValidatorUnitCompareVital>
 </Catalog>

@@ -289,6 +289,7 @@
         <SoundArray index="Click" value="Ucrl1_Click"/>
         <SoundArray index="ClickError" value="Ucrl1_ClickError"/>
         <SoundArray index="Highlight" value="Ucrl1_Highlight"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--archer-->
     <CActorUnit id="earc">
@@ -321,7 +322,7 @@
     </CActorUnit>
     <!--mountaingiant-->
     <CActorUnit id="emtg">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
     </CActorUnit>
     <!--huntress-->
     <CActorUnit id="esen">
@@ -384,7 +385,7 @@
     </CActorUnit>
     <!--rocketengine-->
     <CActorUnit id="hrtt">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
     </CActorUnit>
     <!--sorceress-->
     <CActorUnit id="hsor">
@@ -436,6 +437,18 @@
     <CActorUnit id="ndr1">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
     </CActorUnit>
+    <!--revenantofthedepths-->
+    <CActorUnit id="ndrv" defType="MEDIUM">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <Scale value="1.000000"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+    </CActorUnit>
+    <!--fleshgolem-->
+    <CActorUnit id="nfgl" defType="LARGE">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+        <Scale value="1.000000"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+    </CActorUnit>
     <!--highelvenarcher-->
     <CActorUnit id="nhea">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
@@ -457,6 +470,11 @@
     <CActorUnit id="nmgw">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
+    <!--deathrevenant-->
+    <CActorUnit id="nrvd" defType="MEDIUM">
+        <Scale value="1.000000"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+    </CActorUnit>
     <!--nightelfassassin-->
     <CActorUnit id="nssn">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
@@ -470,9 +488,81 @@
     <CActorUnit id="opeo">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
+    <!--abomination-->
+    <CActorUnit id="uabo">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
     <!--acolyte-->
     <CActorUnit id="uaco">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <CActorMissile id="Ucrl1LM" parent="War3_MissileSwapable" unitName="Ucrl1LM"/>
+    <!--banshee-->
+    <CActorUnit id="uban">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--cryptfiend-->
+    <CActorUnit id="ucry">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--carrionscarab1-->
+    <CActorUnit id="ucs1">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <Scale value="1.300000"/>
+    </CActorUnit>
+    <!--frostwyrm-->
+    <CActorUnit id="ufro">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
+    <!--gargoyle-->
+    <CActorUnit id="ugar">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
+    <!--ghoul-->
+    <CActorUnit id="ugho">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
+    <!--gargoylemorphed-->
+    <CActorUnit id="ugrm">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
+    <!--kelthuzadghost-->
+    <CActorUnit id="uktg" defType="NONE">
+        <On index="89" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+    </CActorUnit>
+    <!--kelthuzadnecro-->
+    <CActorUnit id="uktn" defType="NONE">
+        <On index="89" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+    </CActorUnit>
+    <!--meatwagon-->
+    <CActorUnit id="umtw">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--necromancer-->
+    <CActorUnit id="unec">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--obsidianstatue-->
+    <CActorUnit id="uobs">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--skeletonwarrior-->
+    <CActorUnit id="uske">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
+    <!--skeletalmage-->
+    <CActorUnit id="uskm" defType="NONE">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+    </CActorUnit>
+    <!--sylvanusbanshee-->
+    <CActorUnit id="uswb" defType="NONE">
+        <On index="89" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+    </CActorUnit>
 </Catalog>

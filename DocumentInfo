@@ -11,11 +11,11 @@
     </Dependencies>
     <Screenshot>
         <File>
-            <Value>Screenshot1.jpg</Value>
+            <Value>Screenshot.jpg</Value>
             <Value>Screenshot2.jpg</Value>
         </File>
         <CaptionId>
-            <Value>1</Value>
+            <Value>3</Value>
             <Value>2</Value>
         </CaptionId>
         <Flags>
@@ -31,6 +31,9 @@
             <Value>0.9</Value>
             <Value>0.11</Value>
             <Value>0.12</Value>
+            <Value>0.13</Value>
+            <Value>0.14</Value>
+            <Value>0.15</Value>
         </Version>
         <Date>
             <Value>7/13/2016</Value>
@@ -39,6 +42,9 @@
             <Value>7/18/2016</Value>
             <Value>7/19/2016</Value>
             <Value>7/21/2016</Value>
+            <Value>7/24/2016</Value>
+            <Value>7/24/2016</Value>
+            <Value>7/25/2016</Value>
         </Date>
         <Notes>
             <Value>1,2</Value>
@@ -47,6 +53,9 @@
             <Value>7</Value>
             <Value>8,9,10,11,12,13,14,15,16</Value>
             <Value>18,17</Value>
+            <Value>19,20,21,22</Value>
+            <Value>23,24,25,26,27</Value>
+            <Value>28,29,30,31,32,33,34</Value>
         </Notes>
     </PatchNote>
 </DocInfo>
