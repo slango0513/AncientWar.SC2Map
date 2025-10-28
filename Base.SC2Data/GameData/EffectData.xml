@@ -151,7 +151,7 @@
         <AttributeFactor index="medium" value="0.5"/>
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="fortified" value="-0.3"/>
-        <Amount value="120"/>
+        <Amount value="144"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="Hpal1">

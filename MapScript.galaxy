@@ -296,7 +296,6 @@ void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
     OrderSetTargetItem(lv_dropOrder, lv_newItem);
     UnitIssueOrder(libGAwX_gv_god, OrderTargetingUnit(AbilityCommand("TodGodInventory", 2), lv_newItem), c_orderQueueReplace);
     UnitIssueOrder(libGAwX_gv_god, lv_dropOrder, c_orderQueueAddToEnd);
-    UnitInventoryMove(lv_newItem, lv_container, lv_slot);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -565,7 +564,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_boolTestMode = false;
+    gv_boolTestMode = true;
     TriggerEnable(libGAwX_gt_AegrElunesGraceRegister, false);
     TriggerEnable(libGAwX_gt_AdefDefendInitRegister, false);
     TriggerEnable(libGAwX_gt_AsplMarker, false);
@@ -1798,6 +1797,15 @@ bool gt_ItemBinding_Func (bool testConds, bool runActions) {
     int lv_slot;
     int lv_iM;
     order lv_dropOrder;
+    order lv_takeOrder;
+    order lv_takeOrder2;
+    order lv_takeOrder3;
+    order lv_takeOrder4;
+    order lv_takeOrder5;
+    order lv_takeOrder6;
+    point lv_unitPosition;
+    unitgroup lv_ug;
+    unit lv_u;
 
     // Variable Initialization
     lv_iT = UnitGetType(lv_item);
@@ -1810,6 +1818,14 @@ bool gt_ItemBinding_Func (bool testConds, bool runActions) {
     lv_slot = EventUnitInventoryItemSlot();
     lv_iM = EventUnitInventoryChange();
     lv_dropOrder = OrderTargetingUnit(AbilityCommand("TodGodInventory", 0), lv_unit);
+    lv_takeOrder = OrderTargetingUnit(AbilityCommand("Inventory2", 2), lv_unit);
+    lv_takeOrder2 = OrderTargetingUnit(AbilityCommand("Inventory2", 2), lv_unit);
+    lv_takeOrder3 = OrderTargetingUnit(AbilityCommand("Inventory3", 2), lv_unit);
+    lv_takeOrder4 = OrderTargetingUnit(AbilityCommand("Inventory4", 2), lv_unit);
+    lv_takeOrder5 = OrderTargetingUnit(AbilityCommand("Inventory5", 2), lv_unit);
+    lv_takeOrder6 = OrderTargetingUnit(AbilityCommand("Inventory6", 2), lv_unit);
+    lv_unitPosition = UnitGetPosition(lv_unit);
+    lv_ug = UnitGroup(null, c_playerAny, RegionCircle(lv_unitPosition, 50.0), UnitFilter((1 << c_targetFilterItem), 0, 0, 0), 0);
 
     // Conditions
     if (testConds) {
@@ -1829,8 +1845,6 @@ bool gt_ItemBinding_Func (bool testConds, bool runActions) {
 
     if ((lv_targetPlayer != lv_p) && ((lv_iM == c_unitInventoryChangeDrops) || (lv_iM == c_unitInventoryChangeGives))) {
         gf_UnitInventoryCreate(lv_unit, lv_item);
-    }
-    else if (true) {
     }
     return true;
 }
