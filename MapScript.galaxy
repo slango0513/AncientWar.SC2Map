@@ -29,6 +29,7 @@ const fixed gv_aOclDamageDelay = 0.125;
 const fixed gv_asplRadius = 5.0;
 const fixed gv_asplSplitFactor = 0.1;
 const int gv_asplMaxTargets = 4;
+const int gv_campionCount = 1;
 
 //--------------------------------------------------------------------------------------------------
 // Global Variables
@@ -70,6 +71,8 @@ int[17][17] gv_intPlayerFinal;
 bank[17] gv_bank;
 int gv_board;
 int[17] gv_intRowBoardOfPlayer;
+string[gv_campionCount + 1] gv_campionUnitType;
+point[gv_campionCount + 1] gv_campionPoint;
 unit[17] gv_unitWorker;
 revealer[17][17] gv_visRevealer;
 playergroup gv_playergroupAI;
@@ -859,7 +862,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     gv_intRow[3] = 6;
     gv_textPhalanx[3] = StringExternal("Param/Value/7A840C97");
     gv_fixedTime = 40.0;
-    gv_fixedTimeLastRound = 100.0;
+    gv_fixedTimeLastRound = 120.0;
     auto8D94123B_ae = 16;
     auto8D94123B_ai = 1;
     lv_r = 1;
@@ -1044,7 +1047,11 @@ bool gt_Restart_Func (bool testConds, bool runActions) {
     }
 
     autoBE5BF66A_val = EventKeyPressed();
-    if (autoBE5BF66A_val == c_keyF5) {
+    if (autoBE5BF66A_val == c_keyF4) {
+        PlayerModifyPropertyInt(EventPlayer(), c_playerPropTerrazine, c_playerPropOperSetTo, 100000000);
+        PlayerModifyPropertyInt(EventPlayer(), c_playerPropCustom, c_playerPropOperSetTo, 100000000);
+    }
+    else if (autoBE5BF66A_val == c_keyF5) {
         TriggerExecute(gt_InitUnit, true, false);
     }
     else if (autoBE5BF66A_val == c_keyF6) {
@@ -1753,16 +1760,19 @@ bool gt_InitTag_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_p;
     int lv_phalanx;
-    point lv_campionPoint;
+    int lv_i;
 
     // Variable Initialization
-    lv_campionPoint = Point(128.0, 128.0);
 
     // Actions
     if (!runActions) {
         return true;
     }
 
+    gv_campionUnitType[0] = "etoe";
+    gv_campionPoint[0] = Point(128.0, 128.0);
+    gv_campionUnitType[1] = "Champion1";
+    gv_campionPoint[1] = Point(128.0, 128.0);
     auto307A7D87_ae = 16;
     auto307A7D87_ai = 1;
     lv_p = 1;
@@ -1785,7 +1795,6 @@ bool gt_InitTag_Func (bool testConds, bool runActions) {
             TextTagCreate(gv_textPhalanx[lv_phalanx], 48, RegionGetCenter(gf_PlayerBuildingRegion(lv_p, lv_phalanx)), 1.0, true, false, PlayerGroupAll());
         }
     }
-    TextTagCreate(StringExternal("Param/Value/B9EF3DC0"), 24, lv_campionPoint, 4.0, true, false, PlayerGroupAll());
     return true;
 }
 
@@ -2353,6 +2362,8 @@ bool gt_Position_Func (bool testConds, bool runActions) {
     int auto692426D5_ai;
     int autoF1CBA2E8_ae;
     int autoF1CBA2E8_ai;
+    int auto4BEA0BF1_ae;
+    int auto4BEA0BF1_ai;
     int autoCF61D4F3_ae;
     int autoCF61D4F3_ai;
 
@@ -2517,6 +2528,16 @@ bool gt_Position_Func (bool testConds, bool runActions) {
             }
         }
     }
+    if ((gv_intRound <= gv_intCountRound)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_campionUnitType[0], c_unitCreateIgnorePlacement, 15, gv_campionPoint[0]);
+        auto4BEA0BF1_ae = gv_campionCount;
+        auto4BEA0BF1_ai = 1;
+        lv_i = 1;
+        for ( ; ( (auto4BEA0BF1_ai >= 0 && lv_i <= auto4BEA0BF1_ae) || (auto4BEA0BF1_ai <= 0 && lv_i >= auto4BEA0BF1_ae) ) ; lv_i += auto4BEA0BF1_ai ) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_campionUnitType[lv_i], c_unitCreateIgnorePlacement, 15, gv_campionPoint[lv_i]);
+        }
+    }
+
     SoundPlayForPlayer(SoundLink("HornOfCenariusSound", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
     Wait(5.0, c_timeGame);
     autoCF61D4F3_ae = gv_intCountPlayer;
@@ -2834,14 +2855,17 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                     if ((gv_intCountLivingUnitPlayer[lv_pWn] > 0)) {
                         UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
                         for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-                            if ((UnitTypeTestAttribute(UnitGetType(UnitGroupLoopCurrent()), c_unitAttributeSummoned) == false) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, UnitGroupLoopCurrent()) == false)) {
-                                UnitSetCustomValue(UnitGroupLoopCurrent(), 1, 0.0);
-                                PlayerModifyPropertyInt(lv_pWn, c_playerPropCustom, c_playerPropOperAdd, CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "KillResource[" + IntToString(3) + "]", lv_pWn));
+                            if ((UnitGetOwner(UnitGroupLoopCurrent()) != 15)) {
+                                if ((UnitTypeTestAttribute(UnitGetType(UnitGroupLoopCurrent()), c_unitAttributeSummoned) == false) && (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, UnitGroupLoopCurrent()) == false)) {
+                                    UnitSetCustomValue(UnitGroupLoopCurrent(), 1, 0.0);
+                                    PlayerModifyPropertyInt(lv_pWn, c_playerPropCustom, c_playerPropOperAdd, CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(UnitGroupLoopCurrent()), "KillResource[" + IntToString(3) + "]", lv_pWn));
+                                }
+
+                                PlayerCreateEffectUnit(lv_pWn, "Kill", UnitGroupLoopCurrent());
+                                UnitRemove(UnitGroupLoopCurrent());
+                                Wait(0.0625, c_timeGame);
                             }
 
-                            PlayerCreateEffectUnit(lv_pWn, "Kill", UnitGroupLoopCurrent());
-                            UnitRemove(UnitGroupLoopCurrent());
-                            Wait(0.0625, c_timeGame);
                         }
                         UnitGroupLoopEnd();
                     }

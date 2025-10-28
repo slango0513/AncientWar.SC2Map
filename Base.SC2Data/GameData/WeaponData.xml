@@ -33,6 +33,28 @@
         <Period value="1.5"/>
         <TargetFilters value="Visible;air,wall,tree,Missile,dead,invulnerable,immunity"/>
     </CWeaponLegacy>
+    <!--Admiral Proudmoore-->
+    <CWeaponLegacy id="Hapm1" atkType="NORMAL">
+        <Name value="DAMAGE_NORMAL"/>
+        <Tip value="DAMAGETIP_NORMAL"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
+        <MinScanRange value="0.7812"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--arthas w/ frostmourne-->
+    <CWeaponLegacy id="Harf1">
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-chaos.tga"/>
+        <MinScanRange value="0.7812"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--arthas-->
+    <CWeaponLegacy id="Hart1" atkType="NORMAL">
+        <Name value="DAMAGE_NORMAL"/>
+        <Tip value="DAMAGETIP_NORMAL"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
+        <MinScanRange value="0.7812"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
     <!--HeroBloodMage-->
     <CWeaponLegacy id="Hblm1" atkType="MAGIC">
         <Name value="DAMAGE_MAGIC"/>
@@ -59,7 +81,7 @@
         <Tip value="DAMAGETIP_NORMAL"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
         <MinScanRange value="0.7812"/>
-        <Period value="1.5"/>
+        <Period value="3"/>
     </CWeaponLegacy>
     <!--HeroPaladin-->
     <CWeaponLegacy id="Hpal1" atkType="NORMAL">
@@ -279,6 +301,7 @@
     <CWeaponLegacy id="nban1">
         <MinScanRange value="0.7812"/>
         <Period value="3"/>
+        <TargetFilters value="Visible,MapBoss;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <!--bandit lord-->
     <CWeaponLegacy id="nbld1">

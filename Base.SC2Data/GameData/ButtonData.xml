@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CButton id="CmdBuildFinalHuman" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnHumanBuild.dds"/>
     <CButton id="AsudHuman" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnHumanCaptureFlag.dds"/>
     <CButton id="AIct"/>
     <CButton id="ANgl">
@@ -23,17 +24,29 @@
     <CButton id="DebuffImmunitynfgl" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>
     <CButton id="Firebolt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfirebolt.dds"/>
     <CButton id="Fortitude" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>
+    <CButton id="FreedomAura" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btntransmute.dds"/>
     <CButton id="Frostbolt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfrostbolt.dds"/>
     <!--archmage-->
     <CButton id="Hamg"/>
+    <!--admiralproudmoore-->
+    <CButton id="Hapm" art="Assets\Textures\BTN\Renee_war3_btnproudmoore.dds">
+        <Icon value="Assets\Textures\BTN\Renee_war3_btnproudmoore.dds"/>
+        <AlertIcon value="Assets\Textures\BTN\Renee_war3_btnproudmoore.dds"/>
+    </CButton>
+    <!--arthaswithfrostmourne-->
+    <CButton id="Harf"/>
+    <!--arthas-->
+    <CButton id="Hart"/>
     <CButton id="Hex" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhex.dds"/>
     <!--mountainking-->
     <CButton id="Hmkg"/>
+    <CButton id="HonorArmour" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhumanarmorupthree.dds"/>
     <CButton id="HonorShield" parent="War3_Button" art="Assets\Textures\war3_btnbarkskin.dds"/>
     <CButton id="HonorSpear" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnarcaniteranged.dds"/>
     <!--sylvanuswindrunner-->
     <CButton id="Hvwd"/>
     <CButton id="ImpaleAttack" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimpale.dds"/>
+    <CButton id="MirrorArmour" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnspellshieldamulet.dds"/>
     <!--magtheridon-->
     <CButton id="Nmag"/>
     <!--mannoroth-->

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CValidatorUnitCompareVital id="CasterEnergyGE5">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
     <CValidatorLocationCompareRange id="AHdrMaxRange">
         <Range value="12"/>
     </CValidatorLocationCompareRange>
@@ -20,8 +26,18 @@
         <Behavior value="BUav1"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="IsKnight">
+        <CombineArray value="Ishkn2"/>
+        <CombineArray value="IsHlgr1"/>
         <CombineArray value="Ishkni"/>
         <CombineArray value="Isnbld1"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="IsKnight2">
+        <CombineArray value="Ishkni"/>
+        <CombineArray value="Isnbld1"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="IsKnight1">
+        <CombineArray value="Ishkn2"/>
+        <CombineArray value="IsHlgr1"/>
     </CValidatorCombine>
     <CValidatorUnitType id="Ishkni">
         <Value value="hkni"/>
@@ -43,6 +59,13 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBblo">
         <Behavior value="Bblo"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoHonorSpearBuff">
+        <Behavior value="HonorSpearBuff"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasHonorSpearBuff">
+        <Compare value="GT"/>
+        <Behavior value="HonorSpearBuff"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoMoraleBoosting">
         <Behavior value="MoraleBoosting"/>
@@ -98,6 +121,11 @@
         <WhichLocation Value="CasterUnit"/>
         <AreaArray Compare="GE" Count="1" Radius="6"/>
         <SearchFilters value="-;Player,Ally,Neutral,Air,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="NoGroundEnemiesNearby9" parent="GroundEnemiesNearby">
+        <AreaArray index="0" Compare="Eq" Count="0" Radius="9"/>
+        <Compare value="Eq"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden,MapBoss"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="EnemiesNearby6">
         <WhichLocation Value="CasterUnit"/>

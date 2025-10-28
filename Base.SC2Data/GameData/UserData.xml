@@ -7,4 +7,14 @@
             </Fixed>
         </Instances>
     </CUser>
+    <CUser id="AbilityDataThornsAuraThornyShield">
+        <Instances Id="[Override]AEah">
+            <Fixed Fixed="1">
+                <Field Id="Damage To Attakers"/>
+            </Fixed>
+            <Fixed>
+                <Field Id="Damage Taken"/>
+            </Fixed>
+        </Instances>
+    </CUser>
 </Catalog>

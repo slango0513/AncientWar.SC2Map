@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Preload>
 <Actor id="SYSTEM_ActorConfig"/>
-<Actor id="Champion"/>
 <Behavior id="Building"/>
 <Behavior id="Preparing"/>
 <Effect id="Kill"/>

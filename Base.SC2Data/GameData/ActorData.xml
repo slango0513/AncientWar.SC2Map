@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <!--treeofeternity-->
+    <CActorUnit id="etoe">
+        <Scale value="1.000000"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <HighlightTooltip value="Champion0/TreeOfEternity"/>
+        <HighlightSubTooltip value="Champion0/Name"/>
+        <StatusBarFlags index="Custom" value="0"/>
+    </CActorUnit>
+    <CActorUnit id="Champion1" parent="Npbm" unitName="Champion1">
+        <On index="0" Terms="UnitBirth.Champion1" Send="Create SoundEmitter Champion1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Champion1"/>
+        <On index="2" Terms="UnitRevive.Champion1"/>
+        <On index="3" Terms="UnitRevive.Champion1"/>
+        <On index="4" Terms="UnitConstruction.Champion1.Start"/>
+        <On index="5" Terms="UnitConstruction.Champion1.Finish"/>
+        <On index="67" Terms="UnitRevive.Champion1; !ScopeContains Champion1"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Champion1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Champion1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Champion1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Champion1"/>
+        <On index="79" Send="ModelSwap Champion1"/>
+        <On index="80" Terms="WeaponStart.Champion11.AttackStart"/>
+        <On index="81" Terms="WeaponStart.Champion12.AttackStart"/>
+        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
+        <On index="86" Terms="Behavior.HeroHasUnspentSkillPoint.Off" Send="SetGroupIcon 2 Assets\Textures\Renee_GroupIconEmpty.dds"/>
+        <On index="87" removed="1"/>
+        <HighlightTooltip value="Champion1/Propernames"/>
+        <HighlightSubTooltip value="Champion1/Name"/>
+    </CActorUnit>
     <CActorModel id="AHadTarget">
         <On Terms="Behavior.HonorSpear.On" Send="Create"/>
         <On Terms="Behavior.HonorSpear.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.HonorArmour.On" Send="Create"/>
+        <On Terms="Behavior.HonorArmour.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.FreedomAura.On" Send="Create"/>
+        <On Terms="Behavior.FreedomAura.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorModel id="BEahSpecial">
+        <On index="4" Terms="Behavior.BEahDamageAbsorption.DamageHandled" Send="Create"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
     </CActorModel>
     <CActorModel id="BHad">
         <On Terms="Behavior.HonorSpearBuff.On" Send="Create"/>
         <On Terms="Behavior.HonorSpearBuff.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.HonorArmourBuff.On" Send="Create"/>
+        <On Terms="Behavior.HonorArmourBuff.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.FreedomAuraBuff.On" Send="Create"/>
+        <On Terms="Behavior.FreedomAuraBuff.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
     <CActorModel id="DebuffImmunity" parent="War3_Buff">
         <Model value="BNms"/>
-        <On Terms="ActorCreation" Send="SetOpacity 0.330000"/>
+        <On Terms="ActorCreation" Send="SetOpacity 0.250000"/>
     </CActorModel>
     <!--demonhunter-->
     <CActorUnit id="Edem" unitName="Edem1" defType="SMALL">
@@ -103,12 +144,92 @@
         <On Terms="Behavior.ChargingKnight.On" Send="Create"/>
         <On Terms="Behavior.ChargingKnight.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
-    <CActorDoodad id="Champion" parent="War3_Doodad">
-        <On Terms="ActorCreation" Send="SetOpacity 0.750000"/>
-        <On Terms="ActorCreation" Send="SetHeight 2.000000"/>
-        <Model value="Npbm"/>
-        <Scale value="0.781300"/>
-    </CActorDoodad>
+    <!--admiralproudmoore-->
+    <CActorUnit id="Hapm" unitName="Hapm1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Hapm1" Send="Create SoundEmitter Hapm1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hapm1"/>
+        <On index="2" Terms="UnitRevive.Hapm1"/>
+        <On index="3" Terms="UnitRevive.Hapm1"/>
+        <On index="4" Terms="UnitConstruction.Hapm1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hapm1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hapm1; !ScopeContains Hapm"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hapm1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hapm1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hapm1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hapm1"/>
+        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
+        <On index="86" Terms="Behavior.HeroHasUnspentSkillPoint.Off" Send="SetGroupIcon 2 Assets\Textures\Renee_GroupIconEmpty.dds"/>
+        <On index="87" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Hapm1Death" VoiceLink="Hapm1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+        <GroupSoundArray index="What" value="Hapm1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Hapm1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Hapm1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Hapm1_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\BTN\Renee_war3_btnproudmoore.dds"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <SoundArray index="Birth" value="Hapm1_Birth"/>
+        <SoundArray index="Help" value="Hapm1_Help"/>
+        <SoundArray index="Movement" value="Hapm1_Movement"/>
+        <SoundArray index="Turning" value="Hapm1_Turning"/>
+        <SoundArray index="Board" value="Hapm1_Board"/>
+        <SoundArray index="Click" value="Hapm1_Click"/>
+        <SoundArray index="ClickError" value="Hapm1_ClickError"/>
+        <SoundArray index="Highlight" value="Hapm1_Highlight"/>
+        <UnitIcon value="Assets\Textures\BTN\Renee_war3_btnproudmoore.dds"/>
+    </CActorUnit>
+    <!--arthaswithfrostmourne-->
+    <CActorUnit id="Harf" unitName="Harf1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Harf1" Send="Create SoundEmitter Harf1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Harf1"/>
+        <On index="2" Terms="UnitRevive.Harf1"/>
+        <On index="3" Terms="UnitRevive.Harf1"/>
+        <On index="4" Terms="UnitConstruction.Harf1.Start"/>
+        <On index="5" Terms="UnitConstruction.Harf1.Finish"/>
+        <On index="67" Terms="UnitRevive.Harf1; !ScopeContains Harf"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Harf1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Harf1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Harf1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Harf1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Harf1Death" VoiceLink="Harf1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+        <GroupSoundArray index="What" value="Harf1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Harf1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Harf1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Harf1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <SoundArray index="Birth" value="Harf1_Birth"/>
+        <SoundArray index="Help" value="Harf1_Help"/>
+        <SoundArray index="Movement" value="Harf1_Movement"/>
+        <SoundArray index="Turning" value="Harf1_Turning"/>
+        <SoundArray index="Board" value="Harf1_Board"/>
+        <SoundArray index="Click" value="Harf1_Click"/>
+        <SoundArray index="ClickError" value="Harf1_ClickError"/>
+        <SoundArray index="Highlight" value="Harf1_Highlight"/>
+    </CActorUnit>
+    <!--arthas-->
+    <CActorUnit id="Hart">
+        <On index="0" Terms="UnitBirth.Hart1" Send="Create SoundEmitter Hart1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hart1"/>
+        <On index="2" Terms="UnitRevive.Hart1"/>
+        <On index="3" Terms="UnitRevive.Hart1"/>
+        <On index="4" Terms="UnitConstruction.Hart1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hart1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hart1; !ScopeContains Hart"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hart1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hart1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hart1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hart1"/>
+        <On index="85" Terms="Behavior.HeroHasUnspentSkillPoint.On" Send="SetGroupIcon 2 Assets\Textures\UI\Renee_GroupSkillpoint.dds"/>
+        <On index="86" Terms="Behavior.HeroHasUnspentSkillPoint.Off" Send="SetGroupIcon 2 Assets\Textures\Renee_GroupIconEmpty.dds"/>
+        <On index="87" removed="1"/>
+        <Scale value="1.200000"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+    </CActorUnit>
     <!--bloodmage-->
     <CActorUnit id="Hblm" unitName="Hblm1" defType="MEDIUM">
         <On index="0" Terms="UnitBirth.Hblm1" Send="Create SoundEmitter Hblm1_Ambience"/>
@@ -317,7 +438,7 @@
     </CActorModel>
     <CActorSound id="ChargeKnightInitial" parent="SoundOneShot">
         <On Terms="Effect.ChargeKnightInitialSet.Start" Send="Create"/>
-        <Sound value="MetalHeavyBashMetal"/>
+        <Sound value="MetalHeavyChopMetal"/>
     </CActorSound>
     <!--paladin-->
     <CActorUnit id="Hpal" unitName="Hpal1" defType="LARGE">
@@ -1322,28 +1443,5 @@
         <On index="89" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
-    </CActorUnit>
-    <CActorUnit id="Champion1" parent="Npbm" unitName="Champion1">
-        <On index="0" Terms="UnitBirth.Champion1" Send="Create SoundEmitter Champion1_Ambience"/>
-        <On index="1" Terms="UnitBirth.Champion1"/>
-        <On index="2" Terms="UnitRevive.Champion1"/>
-        <On index="3" Terms="UnitRevive.Champion1"/>
-        <On index="4" Terms="UnitConstruction.Champion1.Start"/>
-        <On index="5" Terms="UnitConstruction.Champion1.Finish"/>
-        <On index="67" Terms="UnitRevive.Champion1; !ScopeContains Champion1"/>
-        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Champion1"/>
-        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Champion1"/>
-        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Champion1"/>
-        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Champion1"/>
-        <On index="79" Send="ModelSwap Champion1"/>
-        <On index="80" Terms="WeaponStart.Champion11.AttackStart"/>
-        <On index="81" Terms="WeaponStart.Champion12.AttackStart"/>
-        <On index="85" removed="1"/>
-        <On index="86" removed="1"/>
-        <On index="87" removed="1"/>
-        <HighlightTooltip value="Champion1/Propernames"/>
-        <StatusBarFlags index="Cargo" value="0"/>
-        <StatusBarFlags index="Workers" value="0"/>
-        <StatusBarFlags index="Custom" value="0"/>
     </CActorUnit>
 </Catalog>
