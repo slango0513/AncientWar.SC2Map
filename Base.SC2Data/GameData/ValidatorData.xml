@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CValidatorUnitCompareDamageDealtTime id="AEahManaRegenSuppressRemove">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="5"/>
+    </CValidatorUnitCompareDamageDealtTime>
     <CValidatorUnitCompareVital id="CasterEnergyGE5">
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
@@ -179,6 +184,10 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitType id="IsFleshGolem">
         <Value value="nfgl"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="NotHblm1">
+        <Value value="Hblm1"/>
+        <Find value="0"/>
     </CValidatorUnitType>
     <CValidatorUnitType id="Isugar">
         <Value value="ugar"/>

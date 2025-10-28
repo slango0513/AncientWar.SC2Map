@@ -41,6 +41,9 @@ unitfilter gv_aOclTargetFilter;
 unitfilter gv_asplTargetFilter;
 string gv_defaultTOD;
 text gv_info;
+text gv_tip;
+text gv_tip2;
+text gv_tip3;
 fixed gv_fixedTime;
 fixed gv_fixedTimeLastRound;
 int[17] gv_intG;
@@ -114,6 +117,9 @@ void InitGlobals () {
     gv_asplTargetFilter = UnitFilter(0, 0, (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMechanical) | (1 << c_targetFilterHover) | (1 << c_targetFilterHarvestableResource) | (1 << c_targetFilterMissile) | (1 << c_targetFilterDestructible) | (1 << c_targetFilterItem) | (1 << c_targetFilterPreventDefeat), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterUnstoppable - 32)));
     gv_defaultTOD = "13:00:00";
     gv_info = StringExternal("Param/Value/6A6122E9");
+    gv_tip = StringExternal("Param/Value/1D3BBDC1");
+    gv_tip2 = StringExternal("Param/Value/793C0C9F");
+    gv_tip3 = StringExternal("Param/Value/0C8520BB");
     gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser1;
     gv_playergroupDebug = PlayerGroupEmpty();
     gv_gameCatalog = c_gameCatalogUnit;
@@ -175,6 +181,7 @@ trigger gt_InitPlayerFinal;
 trigger gt_InitBoard;
 trigger gt_InitTag;
 trigger gt_InitWorker;
+trigger gt_Highlight;
 trigger gt_Waiting;
 trigger gt_ItemBinding;
 trigger gt_AI;
@@ -1795,6 +1802,9 @@ bool gt_InitTag_Func (bool testConds, bool runActions) {
             TextTagCreate(gv_textPhalanx[lv_phalanx], 48, RegionGetCenter(gf_PlayerBuildingRegion(lv_p, lv_phalanx)), 1.0, true, false, PlayerGroupAll());
         }
     }
+    HelpPanelAddTip(PlayerGroupAll(), libNtve_gf_FormatTipTitle(StringExternal("Param/Value/DCC8A3F4"), libNtve_ge_TipType_NormalTip), gv_tip, StringExternal("Param/Value/5308C117"), "Assets\\Textures\\BTN\\Renee_war3_btnmoonkey.dds");
+    HelpPanelAddTip(PlayerGroupAll(), libNtve_gf_FormatTipTitle(StringExternal("Param/Value/524F5983"), libNtve_ge_TipType_NormalTip), gv_tip2, StringExternal("Param/Value/AAECE384"), "Assets\\Textures\\BTN\\Renee_war3_btnsunkey.dds");
+    HelpPanelAddTip(PlayerGroupAll(), libNtve_gf_FormatTipTitle(StringExternal("Param/Value/E954831E"), libNtve_ge_TipType_NormalTip), gv_tip3, StringExternal("Param/Value/B5A41D85"), "Assets\\Textures\\BTN\\Renee_war3_btnstrongdrink.dds");
     return true;
 }
 
@@ -1889,6 +1899,7 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
         }
         else {
         }
+        UISetButtonHighlighted(PlayerGroupSingle(gv_intPlayer[lv_p]), AbilityCommand("ANlg", 0), true);
         gv_unitWorker[gv_intPlayer[lv_p]] = UnitLastCreated();
         libNtve_gf_CreateUnitsAtPoint2(1, "hrdh", c_unitCreateIgnorePlacement, gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]));
         if ((gv_boolTestMode == true)) {
@@ -1907,6 +1918,25 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_InitWorker_Init () {
     gt_InitWorker = TriggerCreate("gt_InitWorker_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Highlight
+//--------------------------------------------------------------------------------------------------
+bool gt_Highlight_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UISetButtonHighlighted(PlayerGroupSingle(EventPlayer()), AbilityCommand("ANlg", 0), false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Highlight_Init () {
+    gt_Highlight = TriggerCreate("gt_Highlight_Func");
+    TriggerAddEventUnitAbility(gt_Highlight, null, AbilityCommand("ANlg", 0), c_unitAbilStageAll, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -3158,6 +3188,7 @@ void InitTriggers () {
     gt_InitBoard_Init();
     gt_InitTag_Init();
     gt_InitWorker_Init();
+    gt_Highlight_Init();
     gt_Waiting_Init();
     gt_ItemBinding_Init();
     gt_AI_Init();

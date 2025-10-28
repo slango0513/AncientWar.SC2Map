@@ -450,8 +450,7 @@ DocInfo/PatchNote278=火油与浸毒长矛现在对拥有负面效果防护的�
 DocInfo/PatchNote279=调整比赛积分规则：
 DocInfo/PatchNote280=第4回合前每赢得一回合获得0.2分，从第4回合开始，每赢得一回合获得0.3分。
 DocInfo/PatchNote281=赢得四分之一决赛或半决赛获得1分，赢得总决赛获得3分。
-DocInfo/PatchNote282=亡灵：
-DocInfo/PatchNote283=占据现在不能被施放到鼓舞士气中的单位。
+DocInfo/PatchNote282=冰霜巨龙现在会狂怒。
 DocInfo/PatchNote284=调整部分物品。
 DocInfo/PatchNote285=修复战争践踏，冲锋和圣盾术对强盗施放的漏洞。
 DocInfo/PatchNote286=修复高射炮火受护甲影响的漏洞。
@@ -493,9 +492,23 @@ DocInfo/PatchNote321=牛头人酋长不再拥有技能负面效果防护。
 DocInfo/PatchNote322=浸毒长矛的最大叠加数量增加到9层(每个施法者最多6层)。
 DocInfo/PatchNote323=燃烧之油的伤害提高到75点(微弱火焰50点)。
 DocInfo/PatchNote324=火油的持续时间增加到15秒。
+DocInfo/PatchNote325=加入提示。
+DocInfo/PatchNote326=修复冠军雕像能被作为技能目标的漏洞。
+DocInfo/PatchNote327=修复血法师互相施放生命吸取导致游戏不能继续的漏洞。
+DocInfo/PatchNote328=人类：
+DocInfo/PatchNote329=沉默的持续时间降低到12秒。
+DocInfo/PatchNote330=暗夜精灵：
+DocInfo/PatchNote331=奇美拉现在会狂怒。
+DocInfo/PatchNote332=提高女猎手类单位的射程。
+DocInfo/PatchNote333=荆棘光环的范围缩小，魔法消耗减少到3，并且不再对疾病有效。
+DocInfo/PatchNote334=兽人：
+DocInfo/PatchNote335=牛头人酋长现在是强大的单位。
+DocInfo/PatchNote336=掠夺(狼骑兵)的掠夺量降低到4，掠夺(混乱兽人狼骑兵)的掠夺量降低到8。
+DocInfo/PatchNote337=亡灵：
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
+Effect/Name/AEahSet=AEahSet
 Effect/Name/AHhbE=AHhbE
 Effect/Name/AIvaLeech=AIvaLeech
 Effect/Name/ANdrE=ANdrE
@@ -698,10 +711,12 @@ Param/Value/04BEE6F3=死亡等待
 Param/Value/05267893=
 Param/Value/08D0231A=死亡
 Param/Value/0C743DF6=)+(
+Param/Value/0C8520BB=<c val="FFFF00">玩家交流QQ群：</c>417769011<n/><c val="FFFF00">第三方视频教程：</c>搜索“小杰比艾斯 古代战争”(优酷)
 Param/Value/0EDF9767=被复活，自定义值[1]=1
 Param/Value/171BD6C0=在本场比赛获得胜利。
 Param/Value/1AAE96FC=场次
 Param/Value/1AD0034E=购买
+Param/Value/1D3BBDC1=<c val="FFFF00">游戏目标：</c>在总决赛夺冠！<n/><c val="FFFF00">游戏流程：</c>1到7回合；奖励回合；决赛（四分之一决赛、半决赛、总决赛）<n/><c val="FFFF00">如何夺冠：</c>1到7回合通过战胜其他玩家积累优势，奖励回合争取获得更多木材，以此为经济基础在决赛击败所有人。
 Param/Value/1DC82578=给予
 Param/Value/1F61923B=
 Param/Value/216860A7= iCLivingUnit=
@@ -715,6 +730,8 @@ Param/Value/40026B7B=奖励回合pointReserv[
 Param/Value/43FD091C=分数
 Param/Value/508D1D51=剩余
 Param/Value/509B45CD=i=(
+Param/Value/524F5983=进阶提示
+Param/Value/5308C117=新手提示
 Param/Value/55DB5BD8=回合奖励
 Param/Value/55F724F7=玩家
 Param/Value/5AAD0B64=奖励
@@ -728,6 +745,7 @@ Param/Value/68AE5752= unitLvP=
 Param/Value/6A6122E9=玩家交流QQ群：<c val="FF00FF">417769011</c>，<n/>和其他人一同讨论兵法战略！
 Param/Value/6A831C96= 
 Param/Value/6E435D9E= 
+Param/Value/793C0C9F=<c val="FFFF00">方阵：</c>你有3个方阵，每个方阵的位置与功能都不同，并且最多容纳6x6=36个单位。超出的单位将成为后备军支援前线。<n/><c val="FFFF00">物品：</c>每个回合开始时会获得一个随机物品，你可以通过鼠标右键拖拽的方式将工人身上的物品放到部队身上，这样部队将会享受物品带来的各种加成。将物品拖拽到货运马能卖掉这个物品。<n/><c val="FFFF00">物品等级：</c>每个物品都有自己的等级。等级越高，售价越贵，一般而言对部队的加成也越强。工人可以提升每个回合获得物品的等级，由于获得物品的数量有限，越早升级物品等级收益越大。<n/><c val="FFFF00">回合战略：</c>1到7回合你将随机遇上某个玩家，不会重复。观察还未与之战斗过的玩家，提前做好相应对策，对获胜有很大帮助。<n/><c val="FFFF00">奖励回合战略：</c>奖励回合是决赛前非常重要的一个环节，获得木材量将直接影响比赛结果。观察他人阵型，通过保存录像实践，有助于设计有效而稳定的布阵。<n/><c val="FFFF00">决赛战略：</c>决赛有很大随机性与变数，但也有规律可循。例如，有经验的玩家会针对在奖励回合获得最多木材的玩家出兵，经济最好的玩家将面临被剩下7人针对的危险。<n/><c val="FFFF00">奇袭(大招)：</c>如果你经济非常落后，可以考虑在决赛前夕采用非常规战术，例如，将所有部队卖掉后只出空军。这类战术带有“要是运气好说不定能赢”的赌博特性和“反正赢不了我也不让你赢”的恶作剧特性，作者是非常推荐的。
 Param/Value/7A74AE4A=的
 Param/Value/7A840C97=<c val="FF0000">侧翼</c>
 Param/Value/7C99279E=/
@@ -744,11 +762,13 @@ Param/Value/A0C906DD= s=
 Param/Value/A5D7CF57= phalanx=
 Param/Value/A997AFE4=行为数
 Param/Value/A99D8C2B=现在由电脑接管。
+Param/Value/AAECE384=进阶提示
 Param/Value/ADE5DD22= unitLv[方阵]=
 Param/Value/B0788FE7= CountUnit[方阵]=
 Param/Value/B12B21DB=被
 Param/Value/B283AD66= unitLv[方阵]=
 Param/Value/B399A25B=玩家
+Param/Value/B5A41D85=玩家交流
 Param/Value/B92D1E00= phalanx=
 Param/Value/B9649E09=有标旗
 Param/Value/BA6EBB63=-
@@ -761,9 +781,11 @@ Param/Value/C8A54DA0=玩家交流QQ群：<c val="FF00FF">417769011</c>，<n/>和
 Param/Value/CAA741DC=击杀
 Param/Value/CB0633EF=掉落
 Param/Value/D0A6DD6E=)<n/>i=
+Param/Value/D3EE8314=目标：在总决赛夺冠！<n/>游戏流程：1到7回合；奖励回合；决赛（四分之一决赛、半决赛、总决赛）<n/>如何夺冠：1到7回合通过战胜其他玩家积累优势，奖励回合争取获得更多木材，以此为经济基础在决赛击败所有人。<n/>阵型：你有3个方阵，每个方阵位置不同，并且最多容纳6x6=36个单位。超出的单位将成为后备军支援前线。<n/>提示：<n/>1到7回合你将随机遇上某个玩家，不会重复。观察还未与之战斗过的玩家，提前做好相应对策，对获胜有很大帮助。
 Param/Value/D52897FF=战斗奖励
 Param/Value/D6E29B46=奖励 (<c val="FF00FF">决赛</c>)
 Param/Value/DA25E9E7= 
+Param/Value/DCC8A3F4=新手提示
 Param/Value/DD5919AD=<c val="00FF00">后阵</c>
 Param/Value/DFFAC700=方阵
 Param/Value/E141C2CA=物品等级：
@@ -773,6 +795,7 @@ Param/Value/E7D3969D= unitLvP=
 Param/Value/E7D5D0E0=<c val="00FFFF">前阵</c>
 Param/Value/E8713E8A=)+(
 Param/Value/E8E781DD=-
+Param/Value/E954831E=玩家交流
 Param/Value/E9E1C5B7=无效
 Param/Value/ED8C3A4C=第
 Param/Value/EEA80C0B=*

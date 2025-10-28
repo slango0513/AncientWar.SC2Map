@@ -288,12 +288,12 @@
         <Cost index="0">
             <Cooldown Location="Unit" TimeUse="180"/>
         </Cost>
-        <Range value="4.5"/>
-        <AutoCastRange value="4.5"/>
-        <AutoCastValidatorArray value="EnemiesNearby4.5"/>
+        <Range value="6"/>
+        <AutoCastRange value="6"/>
+        <AutoCastValidatorArray value="EnemiesNearby6"/>
         <AutoCastValidatorArray value="TargetLifeGT1"/>
         <AutoCastValidatorArray value="Day"/>
-        <PrepTime value="2"/>
+        <PrepTime value="1"/>
         <CastOutroTime value="0"/>
         <UninterruptibleArray index="Approach" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
@@ -349,6 +349,7 @@
         <AutoCastValidatorArray value="NonPowerfulUnit"/>
         <AutoCastValidatorArray value="CasterLifeNotFull"/>
         <AutoCastValidatorArray value="EnemiesNearby4.5"/>
+        <AutoCastValidatorArray value="NotHblm1"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="ANht">
         <Flags index="AutoCast" value="1"/>

@@ -3,6 +3,10 @@
     <CEffectApplyBehavior id="AEahManaRegenSuppress" parent="War3_ApplyBuff">
         <WhichUnit Value="Caster"/>
     </CEffectApplyBehavior>
+    <CEffectSet id="AEahSet">
+        <EffectArray value="AEahSearch"/>
+        <EffectArray value="AEahManaRegenSuppress"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="BEahDamageAbsorption" parent="War3_AuraBuff"/>
     <CEffectApplyBehavior id="AEer1HeroDur">
         <Duration value="2"/>
@@ -71,7 +75,7 @@
         <Duration value="3"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ANsi1HeroDur">
-        <Duration value="3"/>
+        <Duration value="2.4"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ANso1Dur">
         <Duration value="0"/>
@@ -177,13 +181,12 @@
         <EffectArray value="nsca"/>
     </CEffectSet>
     <CEffectModifyUnit id="BEahMana">
-        <VitalArray index="Energy" Change="-5"/>
+        <VitalArray index="Energy" Change="-3"/>
         <LaunchUnit Value="Target"/>
         <ImpactUnit Value="Caster"/>
     </CEffectModifyUnit>
     <CEffectSet id="BEahManaSet">
         <EffectArray value="BEahMana"/>
-        <EffectArray value="AEahManaRegenSuppress"/>
     </CEffectSet>
     <CEffectSet id="BEahSet">
         <EffectArray value="BEah"/>
@@ -620,7 +623,7 @@
     <CEffectLaunchMissile id="ugar1LM" parent="War3_Missile" weaponid="ugar1"/>
     <!--Keeper - Thorns Aura Buff=BEah-->
     <CEffectEnumArea id="AEahSearch">
-        <AreaArray index="0" Radius="6" Effect="BEahSet"/>
+        <AreaArray index="0" Radius="4.5" Effect="BEahSet"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="AEer1Dur">
         <ValidatorArray value="AEer1DurTargetFilters"/>
@@ -644,7 +647,7 @@
         <ValidatorArray value="NonPowerfulUnit"/>
     </CEffectSet>
     <CEffectApplyBehavior id="ANsi1Dur">
-        <Duration value="15"/>
+        <Duration value="12"/>
     </CEffectApplyBehavior>
     <!--Chieftain - Endurance Aura Buff=BOae-->
     <CEffectEnumArea id="AOaeSearch">
@@ -920,7 +923,7 @@
     <CEffectEnumArea id="Emoo1E">
         <ExcludeArray Value="Target" History="Damage"/>
         <SearchFilters value="Visible;player,allies,wall,tree,Missile,item,ethereal,dead,Hidden,invulnerable"/>
-        <AreaArray MaxCount="2" Radius="4" Effect="Emoo1LM"/>
+        <AreaArray MaxCount="2" Radius="6" Effect="Emoo1LM"/>
         <ImpactLocation Value="CasterUnit"/>
     </CEffectEnumArea>
     <CEffectSet id="Emoo1S">

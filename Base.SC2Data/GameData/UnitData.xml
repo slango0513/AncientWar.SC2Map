@@ -8,6 +8,7 @@
         <FlagArray index="Untargetable" value="1"/>
         <FlagArray index="Invulnerable" value="1"/>
         <Attributes index="ancient" value="1"/>
+        <Attributes index="wall" value="1"/>
     </CUnit>
     <CUnit id="Champion1" parent="Champion">
         <Height value="2"/>
@@ -503,7 +504,7 @@
         <AbilArray Link="DebuffImmunity"/>
         <AbilArray Link="AEsf"/>
         <BehaviorArray index="4" Link="PowerfulUnit"/>
-        <BehaviorArray index="5" removed="1"/>
+        <BehaviorArray index="5" Link="Fury"/>
         <WeaponArray index="0" Link="echm2"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
@@ -3531,6 +3532,7 @@
         <CostResource index="gold" value="225"/>
         <LifeStart value="2400"/>
         <LifeMax value="2400"/>
+        <BehaviorArray Link="PowerfulUnit"/>
     </CUnit>
     <!--Berserker-->
     <CUnit id="otbk">
@@ -4310,6 +4312,7 @@
         <BehaviorArray index="7" Link="PowerfulUnit"/>
         <BehaviorArray Link="UnholyDominanceAura"/>
         <BehaviorArray Link="FrostWyrmInvulnerable"/>
+        <BehaviorArray Link="Fury"/>
         <AttackTargetPriority value="21"/>
     </CUnit>
     <!--Gargoyle-->

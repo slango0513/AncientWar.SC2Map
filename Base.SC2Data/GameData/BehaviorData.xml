@@ -6,10 +6,11 @@
         <Modification>
             <VitalRegenArray index="Energy" value="5"/>
         </Modification>
+        <PeriodicEffect value="AEahSet"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AEahManaRegenSuppress" parent="War3_Buff">
-        <Duration value="15"/>
-        <DurationOverride index="0" Duration="15">
+        <Duration value="10"/>
+        <DurationOverride index="0" Duration="10">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <Modification>
@@ -327,7 +328,9 @@
         <DisableValidatorArray value="CasterNotDead"/>
         <MaxStackCount value="0"/>
         <MaxStackCountPerCaster value="1"/>
-        <DamageResponse Chance="1" Handled="BEahManaSet" ModifyFraction="0"/>
+        <DamageResponse Chance="1" Handled="BEahManaSet" ModifyFraction="0">
+            <ExcludeEffectArray value="BaplDPS"/>
+        </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <!--Banish-->
@@ -905,7 +908,7 @@
     <CBehaviorBuff id="PillageRaider" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
             <Cost>
-                <Resource index="Custom" value="-5"/>
+                <Resource index="Custom" value="-4"/>
             </Cost>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
@@ -916,7 +919,7 @@
     <CBehaviorBuff id="PillageChaosRaider" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
             <Cost>
-                <Resource index="Custom" value="-10"/>
+                <Resource index="Custom" value="-8"/>
             </Cost>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
@@ -1602,6 +1605,8 @@
         <DisplayDuration index="Enemy" value="1"/>
         <Duration value="150"/>
         <ExpireEffect value="FuryBuff"/>
+        <DisableValidatorArray value="CasterNoBuilding"/>
+        <RemoveValidatorArray value="CasterNoBuilding"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HonorShieldBuff" parent="War3_Passive">
         <Requirements value="HonorShieldBuff"/>
@@ -1625,8 +1630,8 @@
         <Period value="5"/>
         <PeriodicEffect value="FuryBuff"/>
         <Modification AttackSpeedMultiplier="1.3" LifeArmorBonus="1">
-            <DamageDealtUnscaled index="Melee" value="96"/>
-            <DamageDealtUnscaled index="Ranged" value="96"/>
+            <DamageDealtUnscaled index="Melee" value="192"/>
+            <DamageDealtUnscaled index="Ranged" value="192"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="StoneForm" parent="War3_Passive">
