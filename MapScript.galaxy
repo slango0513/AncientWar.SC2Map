@@ -999,6 +999,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     }
 
     gv_boolTestMode = false;
+    SoundChannelSetVolume(PlayerGroupAll(), c_soundCategoryCombat, 50.0, 0.0);
     TriggerEnable(libGAwX_gt_PawnWorkarounds, false);
     TriggerEnable(libGAwX_gt_AsplSearch, false);
     TriggerEnable(libGAwX_gt_AsplSplit, false);

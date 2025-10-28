@@ -245,7 +245,7 @@
     </CBehaviorBuff>
     <!--Elune's Grace-->
     <CBehaviorBuff id="Aegr">
-        <DamageResponse ModifyFraction="0.5"/>
+        <DamageResponse ModifyFraction="0.75"/>
         <Tooltip value="Aegr/Buffubertip"/>
         <InfoFlags index="Hidden" value="0"/>
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnelunesblessing.dds"/>

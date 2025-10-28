@@ -16,6 +16,9 @@
         <AssetArray File="Assets\Sounds\Music\SindoreiTheme1.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\SindoreiTheme2.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\StormwindTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\ForgedInBlood1.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\ForgedInBlood2.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\TheCulling.ogg" FacialGroup=""/>
         <Volume value="3.000000,3.000000"/>
     </CSound>
     <CSound id="NightElf_Music_V1">
@@ -26,12 +29,18 @@
         <AssetArray File="Assets\Sounds\Music\MoonfallTheme.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\SongOfElune.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\TempleTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\GuardiansOfNordrassil.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\Ruins.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\Teldrassil.ogg" FacialGroup=""/>
         <Volume value="3.000000,3.000000"/>
     </CSound>
     <CSound id="Orc_Music_V1">
         <AssetArray File="Assets\Sounds\Music\Doom.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\Reforged1.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\Reforged2.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\CallOfTheCrusade3.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\JourneyToKalimdor2.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\ThunderBluff.ogg" FacialGroup=""/>
         <Volume value="3.000000,3.000000"/>
     </CSound>
     <CSound id="Undead_Music_V1">
@@ -41,6 +50,7 @@
         <AssetArray File="Assets\Sounds\Music\FelwoodThema.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\SeasonsOfWar.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\ShadowOfTheNecropolis.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\AngratharsShadow.ogg" FacialGroup=""/>
         <Volume value="3.000000,3.000000"/>
     </CSound>
 </Catalog>
