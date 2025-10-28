@@ -105,7 +105,7 @@ Arpl/Ubertip=恢复附近友方<d ref="Effect,BrplHeal,RechargeVitalRate"/>点�
 Arpm/Ubertip=恢复附近友方<d ref="Behavior,Brpm,Modification.VitalRegenArray[Energy]"/>点法力值。
 Arsk/Ubertip=降低负性魔法的持续时间，并让对某些特定魔法免疫。
 Aslo/Ubertip=减慢目标单位<d ref="1-Behavior,Bslo,Modification.AttackSpeedMultiplier*100"/>%的攻击速度和<d ref="1-Behavior,Bslo,Modification.MoveSpeedMultiplier*100"/>%的移动速度。<n/>持续<d ref="Behavior,Bslo,Duration"/>秒。
-Aspl/Ubertip=链接4个单位在一起。所有被灵魂连接作用的单位都可以将其90%受到的伤害转移到其他单位身上。<n/>持续<d ref="Behavior,Bspl,Duration"/>秒。
+Aspl/Ubertip=链接4个单位在一起。所有被灵魂连接作用的单位都可以将其50%受到的伤害转移到其他单位身上。<n/>持续<d ref="Behavior,Bspl,Duration"/>秒。
 Aspo/Ubertip=迟缓毒药攻击能造成每秒<d ref="Effect,BssdDPS,Amount"/>点的伤害，并在<d ref="Behavior,Bspo,Duration"/>秒内减慢敌人<d ref="1-Behavior,Bspo,Modification.MoveSpeedMultiplier*100"/>%的移动速度和<d ref="1-Behavior,Bspo,Modification.AttackSpeedMultiplier*100"/>%的攻击速度。
 Assk/Ubertip=降低所有施加在山岭巨人身上的伤害<d ref="1-Behavior,Assk,DamageResponse.ModifyFraction*100"/>%。
 Asta/Ubertip=召唤出一个固定隐形的陷阱来击晕靠近的敌方地面单位。当有敌方的地点单位靠近陷阱的时候会自动激活守卫。<n/>持续<d ref="Behavior,Bstt,Duration"/>秒。<n/>眩晕效果持续<d ref="Behavior,Bsta,Duration"/>秒。<n/>每个静止陷阱最多击晕个<d ref="Effect,BsttSearch,MaxCount"/>单位。
@@ -615,6 +615,7 @@ DocInfo/PatchNote410=提高地狱战车类单位的生命值。
 DocInfo/PatchNote411=地狱装甲现在会减少远程伤害，并且不再提供护甲加成。
 DocInfo/PatchNote412=虚无打击现在会使目标受到的法术伤害提高。
 DocInfo/PatchNote413=邪恶护甲、食尸鬼狂暴在夜间也能被激活。
+DocInfo/PatchNote414=亡灵与灵魂行者永久性下线，古代战争停止更新。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -885,7 +886,7 @@ Param/Value/04BEE6F3=死亡等待
 Param/Value/05267893=
 Param/Value/08D0231A=死亡
 Param/Value/0C743DF6=)+(
-Param/Value/0C8520BB=<c val="FFFF00">玩家交流QQ群：</c>417769011<n/><c val="FFFF00">第三方视频教程：</c>搜索“小杰比艾斯 古代战争”(优酷)
+Param/Value/0C8520BB=<c val="FF00FF">致古代战争玩家：</c><n/>小蛇向古代战争玩家抱歉。由于当初缺乏开发经验，错误地将所有数据继承自魔兽争霸III Mod，以至于Mod更新，古代战争也会受影响出现层出不穷的漏洞。随着时间流逝漏洞积少成多，造成永久性亡灵和灵魂行者下线，未来也可能出现不可知漏洞。<n/>小蛇在疲于应付漏洞的同时吸取经验教训开发出<c val="FF00FF">稳定的</c>古代战争II(下简称II代)，不仅不受Mod更新的影响，而且经扩展的核心框架能容纳更多玩法，如2V2V2V2模式以及新种族。为了发展的可持续性，小蛇会将重心移至II代，而古代战争将停止更新。<n/>若古代战争出现过多严重漏洞将永久下架，在此之前古代战争与II代共存，玩家可自行选择。<n/><n/><c val="FFFF00">玩家交流QQ群：</c>417769011<n/><c val="FFFF00">第三方视频教程：</c>搜索“小杰比艾斯 古代战争”(优酷)
 Param/Value/0EDF9767=被复活，自定义值[1]=1
 Param/Value/171BD6C0=在本场比赛获得胜利。
 Param/Value/1AAE96FC=场次
@@ -916,7 +917,7 @@ Param/Value/62D1EB4C=
 Param/Value/631C0CCD=控制
 Param/Value/689C4447=剩余
 Param/Value/68AE5752= unitLvP=
-Param/Value/6A6122E9=古代战争II已上线！<c val="FF00FF">新种族</c>、<c val="FF00FF">组队模式</c>、<c val="FF00FF">自由阵型</c>等。<n/>由于星际争霸II的更新造成问题，亡灵种族暂时关闭，在问题解决后会重新开放。<n/>加入玩家交流QQ群：<c val="FF00FF">417769011</c>，<n/>获得最新信息。
+Param/Value/6A6122E9=古代战争II上线，新种族，新模式！<n/>古代战争停止更新(<c val="FF00FF">F12查看详情</c>)。<n/>加入玩家交流QQ群：<c val="FF00FF">417769011</c>，<n/>获得最新信息。
 Param/Value/6A831C96= 
 Param/Value/6E435D9E= 
 Param/Value/793C0C9F=<c val="FFFF00">方阵：</c>你有3个方阵，每个方阵的位置与功能都不同，并且最多容纳6x6=36个单位。超出的单位将成为后备军支援前线。<n/><c val="FFFF00">物品：</c>每个回合开始时会获得一个随机物品，你可以通过鼠标右键拖拽的方式将工人身上的物品放到部队身上，这样部队将会享受物品带来的各种加成。将物品拖拽到货运马能卖掉这个物品。<n/><c val="FFFF00">物品等级：</c>每个物品都有自己的等级。等级越高，售价越贵，一般而言对部队的加成也越强。工人可以提升每个回合获得物品的等级，由于获得物品的数量有限，越早升级物品等级收益越大。<n/><c val="FFFF00">回合战略：</c>1到7回合你将随机遇上某个玩家，不会重复。观察还未与之战斗过的玩家，提前做好相应对策，对获胜有很大帮助。<n/><c val="FFFF00">奖励回合战略：</c>奖励回合是决赛前非常重要的一个环节，获得木材量将直接影响比赛结果。观察他人阵型，通过保存录像实践，有助于设计有效而稳定的布阵。<n/><c val="FFFF00">决赛战略：</c>决赛有很大随机性与变数，但也有规律可循。例如，有经验的玩家会针对在奖励回合获得最多木材的玩家出兵，经济最好的玩家将面临被剩下7人针对的危险。<n/><c val="FFFF00">奇袭(大招)：</c>如果你经济非常落后，可以考虑在决赛前夕采用非常规战术，例如，将所有部队卖掉后只出空军。这类战术带有“要是运气好说不定能赢”的赌博特性和“反正赢不了我也不让你赢”的恶作剧特性，作者是非常推荐的。

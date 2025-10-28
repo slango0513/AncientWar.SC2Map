@@ -507,8 +507,8 @@
         <InfoArray index="Build4" Unit="orai" Time="0">
             <Button DefaultButtonFace="orai" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build5" Unit="" Time="0">
-            <Button DefaultButtonFace="" Requirements=""/>
+        <InfoArray index="Build5" Unit="ospw" Time="0">
+            <Button DefaultButtonFace="ospw" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build6" Unit="okod" Time="0">
             <Button DefaultButtonFace="okod" Requirements="Pause"/>
@@ -522,8 +522,8 @@
         <InfoArray index="Build9" Unit="odoc" Time="0">
             <Button DefaultButtonFace="odoc" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build10" Unit="ospw" Time="0">
-            <Button DefaultButtonFace="ospm" Requirements="Pause"/>
+        <InfoArray index="Build10" Unit="" Time="0">
+            <Button DefaultButtonFace="" Requirements=""/>
         </InfoArray>
         <InfoArray index="Build11" Unit="otau">
             <Button DefaultButtonFace="otau" Requirements="Pause"/>
