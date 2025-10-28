@@ -4,6 +4,26 @@
         <MinScanRange value="20"/>
         <Range value="3"/>
     </CWeaponLegacy>
+    <!--Mal'furion-->
+    <CWeaponLegacy id="Emfr1" atkType="MAGIC">
+        <Name value="DAMAGE_MAGIC"/>
+        <Tip value="DAMAGETIP_MAGIC"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+        <MinScanRange value="6"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <!--Mal'furion No Stag-->
+    <CWeaponLegacy id="Emns1" atkType="MAGIC">
+        <Name value="DAMAGE_MAGIC"/>
+        <Tip value="DAMAGETIP_MAGIC"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
+        <MinScanRange value="6"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+    </CWeaponLegacy>
     <!--HeroMoonPriestess-->
     <CWeaponLegacy id="Emoo1" atkType="CHAOS">
         <MinScanRange value="4"/>
@@ -65,6 +85,15 @@
         <Range value="3"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <!--Dagren the Orcslayer-->
+    <CWeaponLegacy id="Hdgo1" atkType="MAGIC">
+        <Name value="DAMAGE_MAGIC"/>
+        <Tip value="DAMAGETIP_MAGIC"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
+        <MinScanRange value="1"/>
+        <Range value="1"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
     <!--Ghostly Archmage-->
     <CWeaponLegacy id="Hgam1" atkType="MAGIC">
         <Name value="DAMAGE_MAGIC"/>
@@ -74,6 +103,15 @@
         <Range value="6"/>
         <Period value="1.5"/>
         <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable,immunity"/>
+    </CWeaponLegacy>
+    <!--Halahk the Lifebringer-->
+    <CWeaponLegacy id="Hhkl1" atkType="NORMAL">
+        <Name value="DAMAGE_NORMAL"/>
+        <Tip value="DAMAGETIP_NORMAL"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
+        <MinScanRange value="1"/>
+        <Range value="1"/>
+        <Period value="3"/>
     </CWeaponLegacy>
     <!--HeroMountainKing-->
     <CWeaponLegacy id="Hmkg1" atkType="NORMAL">
@@ -88,8 +126,18 @@
         <Name value="DAMAGE_NORMAL"/>
         <Tip value="DAMAGETIP_NORMAL"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
-        <MinScanRange value="0.7812"/>
+        <MinScanRange value="1"/>
         <Period value="3"/>
+        <Range value="1"/>
+    </CWeaponLegacy>
+    <!--uther-->
+    <CWeaponLegacy id="Huth1" atkType="NORMAL">
+        <Name value="DAMAGE_NORMAL"/>
+        <Tip value="DAMAGETIP_NORMAL"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
+        <MinScanRange value="1"/>
+        <Period value="3"/>
+        <Range value="1"/>
     </CWeaponLegacy>
     <!--blackrock blademaster-->
     <CWeaponLegacy id="Nbbc1" parent="normal" atkType="CHAOS">
@@ -340,6 +388,12 @@
         <Range value="2"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <!--battle golem-->
+    <CWeaponLegacy id="narg1">
+        <MinScanRange value="1"/>
+        <Period value="1.5"/>
+        <Range value="1"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="nba22">
         <MinScanRange value="1"/>
         <Period value="3"/>
@@ -406,8 +460,9 @@
     </CWeaponLegacy>
     <!--flesh golem-->
     <CWeaponLegacy id="nfgl1">
-        <MinScanRange value="0.7812"/>
-        <Period value="1.5"/>
+        <MinScanRange value="1"/>
+        <Period value="3"/>
+        <Range value="1"/>
     </CWeaponLegacy>
     <!--high elven archer-->
     <CWeaponLegacy id="nhea1">

@@ -854,6 +854,10 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         lv_p = PlayerGroupPlayer(auto4750D82E_g, auto4750D82E_p);
         lv_raceAtt = GameAttributePlayerValue("[bnet:War3 Extra (GA)/0.0/60618,file:Mods\\WarCraft\\WarCraftDataAbil.SC2Mod]1", lv_p);
         lv_race = libGAwX_gf_GenerateRaceFromRaceAttribute(lv_raceAtt);
+        if ((lv_race == "Undead")) {
+            lv_race = "Human";
+        }
+
         libGAwX_gf_SetPlayerUIRace(lv_p, lv_race);
         PlayerOptionOverride(lv_p, "displayunitstatus", "All");
         PlayerOptionOverride(lv_p, "simplecommandcard", "0");

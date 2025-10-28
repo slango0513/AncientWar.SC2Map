@@ -14,6 +14,10 @@
     <CValidatorLocationCompareRange id="AHdrMaxRange">
         <Range value="12"/>
     </CValidatorLocationCompareRange>
+    <CValidatorCombine id="CasterHasBUau1OrNight">
+        <CombineArray value="CasterHasBUau1"/>
+        <CombineArray value="Night"/>
+    </CValidatorCombine>
     <CValidatorLocationEnumArea id="DamagedFriendNearBy">
         <AreaArray index="0" Radius="6" Validator="HealingAutoCastTargetFilter"/>
     </CValidatorLocationEnumArea>
@@ -36,6 +40,12 @@
         <Compare value="GE"/>
         <Value value="2"/>
         <Behavior value="BUav1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasYserasGift">
+        <WhichUnit Effect="Brej"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="YserasGiftBuff"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="IsKnight">
         <CombineArray value="Ishkn2"/>
@@ -66,6 +76,12 @@
     <CValidatorUnitCompareBehaviorCount id="MortalStrikeLT2">
         <Compare value="LT"/>
         <Value value="2"/>
+        <Behavior value="MortalStrike"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBIrg">
+        <Behavior value="BIrg"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoMortalStrike">
         <Behavior value="MortalStrike"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBEsh">
@@ -115,6 +131,11 @@
     <CValidatorCombine id="BrejTargetFilters">
         <Type value="And"/>
         <CombineArray value="NoRejuvenation"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="BIrgTargetFilters">
+        <Type value="And"/>
+        <CombineArray value="NoBIrg"/>
+        <CombineArray value="TargetLifeGE300"/>
     </CValidatorCombine>
     <CValidatorCombine id="ChargeKnightTargetFilters">
         <Type value="And"/>
@@ -204,6 +225,9 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitType id="IsFleshGolem">
         <Value value="nfgl"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="Isnarg">
+        <Value value="narg"/>
     </CValidatorUnitType>
     <CValidatorUnitType id="NotHblm1">
         <Value value="Hblm1"/>
@@ -386,7 +410,7 @@
         <Behavior value="Patchwork"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="PatchworkTargetFilters">
-        <CombineArray value="IsFleshGolem"/>
+        <CombineArray value="Isnarg"/>
     </CValidatorCombine>
     <CValidatorCombine id="RejuvenationAutoCastTargetFilter">
         <CombineArray value="NotFullLife"/>
@@ -426,4 +450,8 @@
     <CValidatorUnitCompareVital id="TargetLifeGE300" parent="TargetLifeGE200">
         <Value value="300"/>
     </CValidatorUnitCompareVital>
+    <CValidatorCombine id="CasterHasBUav1OrNight">
+        <CombineArray value="CasterHasBUav1"/>
+        <CombineArray value="Night"/>
+    </CValidatorCombine>
 </Catalog>

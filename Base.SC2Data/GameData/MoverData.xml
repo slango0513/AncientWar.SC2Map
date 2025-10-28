@@ -39,4 +39,5 @@
         </MotionPhases>
     </CMoverMissile>
     <CMoverMissile id="Ucrl1LM" parent="missile"/>
+    <CMoverMissile id="PyroblastMissile" parent="missile"/>
 </Catalog>

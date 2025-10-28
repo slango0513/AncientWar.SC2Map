@@ -1,5 +1,205 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorModel id="AHabTarget">
+        <On Terms="Behavior.YserasGift.On" Send="Create"/>
+        <On Terms="Behavior.YserasGift.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorModel id="AUauTarget">
+        <On Terms="Behavior.Aabr.On" Send="Create"/>
+        <On Terms="Behavior.Aabr.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorModel id="Babr">
+        <On Terms="Behavior.YserasGiftBuff.On" Send="Create"/>
+        <On Terms="Behavior.YserasGiftBuff.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <!--malfurion-->
+    <CActorUnit id="Emfr" unitName="Emfr1" defType="NONE">
+        <On index="0" Terms="UnitBirth.Emfr1" Send="Create SoundEmitter Emfr1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Emfr1"/>
+        <On index="2" Terms="UnitRevive.Emfr1"/>
+        <On index="3" Terms="UnitRevive.Emfr1"/>
+        <On index="4" Terms="UnitConstruction.Emfr1.Start"/>
+        <On index="5" Terms="UnitConstruction.Emfr1.Finish"/>
+        <On index="67" Terms="UnitRevive.Emfr1; !ScopeContains Emfr"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Emfr1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Emfr1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Emfr1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Emfr1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <Scale value="1.000000"/>
+        <DeathArray index="Normal" SoundLink="Emfr1Death" VoiceLink="Emfr1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <GroupSoundArray index="What" value="Emfr1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Emfr1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Emfr1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Emfr1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+        <SoundArray index="Birth" value="Emfr1_Birth"/>
+        <SoundArray index="Help" value="Emfr1_Help"/>
+        <SoundArray index="Movement" value="Emfr1_Movement"/>
+        <SoundArray index="Turning" value="Emfr1_Turning"/>
+        <SoundArray index="Board" value="Emfr1_Board"/>
+        <SoundArray index="Click" value="Emfr1_Click"/>
+        <SoundArray index="ClickError" value="Emfr1_ClickError"/>
+        <SoundArray index="Highlight" value="Emfr1_Highlight"/>
+        <WalkAnimMoveSpeed value="3.5"/>
+    </CActorUnit>
+    <CActorUnit id="Emn2" parent="War3_Army" unitSound="MalFurion" unitName="Emn2" defType="NONE">
+        <UnitIcon value="Assets\Textures\BTN\Renee_war3_btnFurion.dds"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\BTN\Renee_war3_btnFurion.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\BTN\Renee_war3_btnFurion.dds"/>
+        <BarWidth value="112"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <BarOffset value="60"/>
+        <WalkAnimMoveSpeed value="3.5"/>
+        <Model value="Emfr"/>
+        <BuildModel value="Emfr"/>
+        <PlacementModel value="Emfr"/>
+        <PortraitModel value="Emfr_Portrait"/>
+        <MinimapIconIsTeamColored value="1"/>
+        <MinimapIconScale value="0.700000"/>
+    </CActorUnit>
+    <!--malfurionnostag-->
+    <CActorUnit id="Emns" unitName="Emns1" defType="NONE">
+        <On index="0" Terms="UnitBirth.Emns1" Send="Create SoundEmitter Emns1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Emns1"/>
+        <On index="2" Terms="UnitRevive.Emns1"/>
+        <On index="3" Terms="UnitRevive.Emns1"/>
+        <On index="4" Terms="UnitConstruction.Emns1.Start"/>
+        <On index="5" Terms="UnitConstruction.Emns1.Finish"/>
+        <On index="67" Terms="UnitRevive.Emns1; !ScopeContains Emns"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Emns1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Emns1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Emns1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Emns1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <Scale value="1.000000"/>
+        <DeathArray index="Normal" SoundLink="Emns1Death" VoiceLink="Emns1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <GroupSoundArray index="What" value="Emns1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Emns1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Emns1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Emns1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+        <SoundArray index="Birth" value="Emns1_Birth"/>
+        <SoundArray index="Help" value="Emns1_Help"/>
+        <SoundArray index="Movement" value="Emns1_Movement"/>
+        <SoundArray index="Turning" value="Emns1_Turning"/>
+        <SoundArray index="Board" value="Emns1_Board"/>
+        <SoundArray index="Click" value="Emns1_Click"/>
+        <SoundArray index="ClickError" value="Emns1_ClickError"/>
+        <SoundArray index="Highlight" value="Emns1_Highlight"/>
+    </CActorUnit>
+    <!--dagren-->
+    <CActorUnit id="Hdgo" unitName="Hdgo1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Hdgo1" Send="Create SoundEmitter Hdgo1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hdgo1"/>
+        <On index="2" Terms="UnitRevive.Hdgo1"/>
+        <On index="3" Terms="UnitRevive.Hdgo1"/>
+        <On index="4" Terms="UnitConstruction.Hdgo1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hdgo1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hdgo1; !ScopeContains Hdgo"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hdgo1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hdgo1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hdgo1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hdgo1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Hdgo1Death" VoiceLink="Hdgo1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <GroupSoundArray index="What" value="Hdgo1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Hdgo1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Hdgo1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Hdgo1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <SoundArray index="Birth" value="Hdgo1_Birth"/>
+        <SoundArray index="Help" value="Hdgo1_Help"/>
+        <SoundArray index="Movement" value="Hdgo1_Movement"/>
+        <SoundArray index="Turning" value="Hdgo1_Turning"/>
+        <SoundArray index="Board" value="Hdgo1_Board"/>
+        <SoundArray index="Click" value="Hdgo1_Click"/>
+        <SoundArray index="ClickError" value="Hdgo1_ClickError"/>
+        <SoundArray index="Highlight" value="Hdgo1_Highlight"/>
+    </CActorUnit>
+    <!--halahk-->
+    <CActorUnit id="Hhkl" unitName="Hhkl1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Hhkl1" Send="Create SoundEmitter Hhkl1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hhkl1"/>
+        <On index="2" Terms="UnitRevive.Hhkl1"/>
+        <On index="3" Terms="UnitRevive.Hhkl1"/>
+        <On index="4" Terms="UnitConstruction.Hhkl1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hhkl1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hhkl1; !ScopeContains Hhkl"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hhkl1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hhkl1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hhkl1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hhkl1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Hhkl1Death" VoiceLink="Hhkl1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <GroupSoundArray index="What" value="Hhkl1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Hhkl1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Hhkl1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Hhkl1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <SoundArray index="Birth" value="Hhkl1_Birth"/>
+        <SoundArray index="Help" value="Hhkl1_Help"/>
+        <SoundArray index="Movement" value="Hhkl1_Movement"/>
+        <SoundArray index="Turning" value="Hhkl1_Turning"/>
+        <SoundArray index="Board" value="Hhkl1_Board"/>
+        <SoundArray index="Click" value="Hhkl1_Click"/>
+        <SoundArray index="ClickError" value="Hhkl1_ClickError"/>
+        <SoundArray index="Highlight" value="Hhkl1_Highlight"/>
+    </CActorUnit>
+    <!--uther-->
+    <CActorUnit id="Huth" unitName="Huth1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Huth1" Send="Create SoundEmitter Huth1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Huth1"/>
+        <On index="2" Terms="UnitRevive.Huth1"/>
+        <On index="3" Terms="UnitRevive.Huth1"/>
+        <On index="4" Terms="UnitConstruction.Huth1.Start"/>
+        <On index="5" Terms="UnitConstruction.Huth1.Finish"/>
+        <On index="67" Terms="UnitRevive.Huth1; !ScopeContains Huth"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Huth1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Huth1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Huth1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Huth1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <Scale value="1.000000"/>
+        <DeathArray index="Normal" SoundLink="Huth1Death" VoiceLink="Huth1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <GroupSoundArray index="What" value="Huth1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Huth1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Huth1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Huth1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <SoundArray index="Birth" value="Huth1_Birth"/>
+        <SoundArray index="Help" value="Huth1_Help"/>
+        <SoundArray index="Movement" value="Huth1_Movement"/>
+        <SoundArray index="Turning" value="Huth1_Turning"/>
+        <SoundArray index="Board" value="Huth1_Board"/>
+        <SoundArray index="Click" value="Huth1_Click"/>
+        <SoundArray index="ClickError" value="Huth1_ClickError"/>
+        <SoundArray index="Highlight" value="Huth1_Highlight"/>
+    </CActorUnit>
+    <CActorMissile id="PyroblastMissile" parent="War3_Missile" unitName="PyroblastMissile"/>
+    <CActorAction id="PyroblastMissileAttack" parent="War3_GenericMissileAttack" effectImpact="PyroblastMissileImpactSet" effectLaunch="PyroblastMissile" missile="PyroblastMissile">
+        <LaunchSiteOps Ops="$weapon"/>
+    </CActorAction>
+    <CActorSimple id="Pyroblast" parent="War3_SimpleCastAnim">
+        <On index="0" Terms="Abil.Pyroblast.SourcePrepStart" Target="_Selectable" Send="AnimPlay attack Attack NonLooping -1.000000 -1.000000 1.000000 AsTimeScaleAbsolute"/>
+    </CActorSimple>
     <!--Blade Master - Bladestorm Buff=BOww-->
     <!--CActorSimple id="BOww">-->
     <!--        <On Terms="Behavior.BOww.On" Send="Create"/>-->
@@ -172,6 +372,7 @@
     </CActorSimple>
     <CActorModel id="AHhbTarget">
         <On Terms="Effect.AIlx; At Target" Send="Create"/>
+        <On Terms="Effect.CircleOfHolyLightHeal.Start; At Target" Send="Create"/>
     </CActorModel>
     <CActorModel id="AgydSpecial1">
         <On index="0" removed="1"/>
@@ -548,6 +749,22 @@
         <SoundArray index="Click" value="Hpal1_Click"/>
         <SoundArray index="ClickError" value="Hpal1_ClickError"/>
         <SoundArray index="Highlight" value="Hpal1_Highlight"/>
+    </CActorUnit>
+    <CActorUnit id="Hpa2" parent="Hpal" unitName="Hpa2">
+        <On index="0" Terms="UnitBirth.Hpa2" Send="Create SoundEmitter Hpa2_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hpa2"/>
+        <On index="2" Terms="UnitRevive.Hpa2"/>
+        <On index="3" Terms="UnitRevive.Hpa2"/>
+        <On index="4" Terms="UnitConstruction.Hpa2.Start"/>
+        <On index="5" Terms="UnitConstruction.Hpa2.Finish"/>
+        <On index="67" Terms="UnitRevive.Hpa2; !ScopeContains Hpa2"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hpa2"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hpa2"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hpa2"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hpa2"/>
+        <On index="79" Send="ModelSwap Hpa2"/>
+        <On index="80" Terms="WeaponStart.Hpa21.AttackStart"/>
+        <On index="81" Terms="WeaponStart.Hpa22.AttackStart"/>
     </CActorUnit>
     <CActorSound id="MoraleBoostingSearch" parent="SoundOneShot">
         <On Terms="Effect.MoraleBoostingSearch.Start" Send="Create"/>
@@ -1253,6 +1470,13 @@
     <CActorUnit id="hwat">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
     </CActorUnit>
+    <!--battlegolem-->
+    <CActorUnit id="narg" defType="LARGE">
+        <On index="89" removed="1"/>
+        <Scale value="1.000000"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+    </CActorUnit>
     <CActorUnit id="nba2">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
@@ -1329,7 +1553,7 @@
     </CActorUnit>
     <!--fleshgolem-->
     <CActorUnit id="nfgl" defType="LARGE">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <Scale value="1.000000"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
     </CActorUnit>
@@ -1477,9 +1701,25 @@
     <CActorUnit id="owyv">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
-    <!--abomination-->
     <CActorUnit id="uabo">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
+    <!--abomination-->
+    <CActorUnit id="uab2" parent="uabo" unitName="uab2">
+        <On index="0" Terms="UnitBirth.uab2" Send="Create SoundEmitter uab2_Ambience"/>
+        <On index="1" Terms="UnitBirth.uab2"/>
+        <On index="2" Terms="UnitRevive.uab2"/>
+        <On index="3" Terms="UnitRevive.uab2"/>
+        <On index="4" Terms="UnitConstruction.uab2.Start"/>
+        <On index="5" Terms="UnitConstruction.uab2.Finish"/>
+        <On index="67" Terms="UnitRevive.uab2; !ScopeContains uab2"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom uab2"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo uab2"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom uab2"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo uab2"/>
+        <On index="79" Send="ModelSwap uab2"/>
+        <On index="80" Terms="WeaponStart.uab21.AttackStart"/>
+        <On index="81" Terms="WeaponStart.uab22.AttackStart"/>
     </CActorUnit>
     <!--acolyte-->
     <CActorUnit id="uaco">
@@ -1562,4 +1802,14 @@
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
+    <CActorModel id="PyroblastApplyBehavior" parent="War3_Buff">
+        <On index="3" Terms="Behavior.Pyroblast.On" Send="Create"/>
+        <On index="4" Terms="Behavior.Pyroblast.Off" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="$overhead"/>
+        <Model value="Pyroblast"/>
+    </CActorModel>
+    <CActorModel id="EtherealStrike" parent="War3_Buff">
+        <HostSiteOps Ops="$overhead"/>
+    </CActorModel>
+    <CActorSimple id="CircleOfHolyLight" parent="War3_SimpleCastAnim"/>
 </Catalog>

@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="BHtb">
+        <ScaleMax value="1.000000,1.000000,1.000000"/>
+        <ScaleMin value="1.000000,1.000000,1.000000"/>
+    </CModel>
+    <CModel id="PyroblastMissile" parent="War3_BallsOfFireMissile">
+        <ScaleMax value="1.000000,1.000000,1.000000"/>
+        <ScaleMin value="1.000000,1.000000,1.000000"/>
+        <Events index="0" Anim="Death" Type="Sound" Payload="SND_AGMH"/>
+    </CModel>
     <CModel id="MortalStrike" parent="War3_shadowstrike">
         <Events index="0" Anim="Birth" Type="Sound" Payload="SND_ANFI"/>
     </CModel>
     <CModel id="MortalStrikeTarget" parent="War3_BarkSkinTarget">
         <Events index="0" Anim="Birth" Type="Sound" Payload="SND_ANFI"/>
+    </CModel>
+    <CModel id="EtherealStrike" parent="War3_shadowstrike">
+        <Events index="0" Anim="Birth" Type="Sound" Payload="SND_ANSA"/>
     </CModel>
     <CModel id="BEahSpecial">
         <ScaleMax value="3.125000,3.125000,3.125000"/>
@@ -17,4 +29,5 @@
         <ScaleMax value="0.900000,0.900000,0.900000"/>
         <ScaleMin value="0.900000,0.900000,0.900000"/>
     </CModel>
+    <CModel id="Pyroblast" parent="War3_ThunderBoltTarget"/>
 </Catalog>

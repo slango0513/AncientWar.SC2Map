@@ -29,7 +29,6 @@
         <ModeDesc Value="Variant001/ModeDesc"/>
         <MaxTeamSize Value="1"/>
         <AttributeHidden Namespace="999" Id="3006"/>
-        <AttributeHidden Namespace="999" Id="3000"/>
         <AttributeHidden Namespace="999" Id="4000"/>
         <AttributeHidden Namespace="999" Id="3010"/>
         <AttributeHidden Namespace="999" Id="3015"/>
@@ -48,6 +47,7 @@
         <AttributeHidden Namespace="999" Id="3109"/>
         <AttributeHidden Namespace="999" Id="3110"/>
         <AttributeHidden Namespace="999" Id="3111"/>
+        <AttributeHidden Namespace="999" Id="3000"/>
         <Attribute Namespace="999" Id="1001">
             <Default>
                 <Slot Id="Global"/>
@@ -67,6 +67,10 @@
                 <Slot Id="Global"/>
                 <Value Id="1315926637"/>
             </Default>
+            <ValueHidden Id="1399615346"/>
+            <ValueHidden Id="1399615351"/>
+            <ValueHidden Id="1180791666"/>
+            <ValueHidden Id="1180791668"/>
         </Attribute>
         <Attribute Id="2">
             <Default>
@@ -125,7 +129,6 @@
         <ModeDesc Value="Variant002/ModeDesc"/>
         <MaxTeamSize Value="1"/>
         <AttributeHidden Namespace="999" Id="3006"/>
-        <AttributeHidden Namespace="999" Id="3000"/>
         <AttributeHidden Namespace="999" Id="3010"/>
         <AttributeHidden Namespace="999" Id="3015"/>
         <AttributeHidden Namespace="0" Id="2"/>
@@ -144,6 +147,7 @@
         <AttributeHidden Namespace="999" Id="3109"/>
         <AttributeHidden Namespace="999" Id="3110"/>
         <AttributeHidden Namespace="999" Id="3111"/>
+        <AttributeHidden Namespace="999" Id="3000"/>
         <Attribute Namespace="999" Id="1001">
             <Default>
                 <Slot Id="Global"/>
@@ -163,6 +167,10 @@
                 <Slot Id="Global"/>
                 <Value Id="1315926637"/>
             </Default>
+            <ValueHidden Id="1399615346"/>
+            <ValueHidden Id="1399615351"/>
+            <ValueHidden Id="1180791666"/>
+            <ValueHidden Id="1180791668"/>
         </Attribute>
         <Attribute Id="2">
             <Default>

@@ -17,6 +17,10 @@
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="AEtr">
+        <MaxStackCount value="0"/>
+        <MaxStackCountPerCaster value="1"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="AIva" parent="War3_Passive">
         <Requirements value="AIva"/>
         <DamageResponse Chance="1" Handled="AIvaLeech" Location="Attacker">
@@ -194,6 +198,9 @@
     <CBehaviorBuff id="Aabr" parent="War3_AuraCaster">
         <Requirements value="Aabr"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="YserasGift" parent="War3_AuraCaster">
+        <Requirements value="YserasGift"/>
+    </CBehaviorBuff>
     <!--Aura - Plague (Abomination) Buff=Bapl-->
     <CBehaviorBuff id="Aap1">
         <Requirements value=""/>
@@ -317,6 +324,10 @@
     <CBehaviorBuff id="Aven">
         <Requirements value=""/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="BCnr">
+        <MaxStackCount value="3"/>
+        <MaxStackCountPerCaster value="1"/>
+    </CBehaviorBuff>
     <!--AuraThorns-->
     <CBehaviorBuff id="BEah">
         <DisableValidatorArray value="CasterEnergyGE5"/>
@@ -375,6 +386,18 @@
         <Duration value="5"/>
         <DurationOverride index="0" Duration="1"/>
     </CBehaviorBuff>
+    <!--Regeneration-->
+    <CBehaviorBuff id="BIrg">
+        <RemoveValidatorArray index="0" removed="1"/>
+        <Duration value="5"/>
+        <DurationOverride index="0" Duration="5">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+        <Modification>
+            <VitalRegenArray index="Life" value="75"/>
+            <VitalRegenArray index="Energy" value="5"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="BNab1">
         <BehaviorCategories index="Dispelable" value="0"/>
         <TechAliasArray index="1" removed="1"/>
@@ -406,11 +429,6 @@
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
     </CBehaviorBuff>
-    <!--Silence-->
-    <CBehaviorBuff id="BNsi">
-        <BehaviorCategories index="Dispelable" value="1"/>
-        <TechAliasArray value="_PurgableDebuff"/>
-    </CBehaviorBuff>
     <!--SoulBurn-->
     <CBehaviorBuff id="BNso">
         <Modification>
@@ -430,8 +448,8 @@
     <!--WhirlwindAoe-->
     <CBehaviorBuff id="BOww">
         <PeriodicEffect value="BOwwDPSObla1"/>
-        <Duration value="10"/>
-        <DurationOverride index="0" Duration="10">
+        <Duration value="8"/>
+        <DurationOverride index="0" Duration="8">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <Modification MoveSpeedMultiplier="10">
@@ -479,6 +497,15 @@
     </CBehaviorBuff>
     <!--AuraBlightRegen-->
     <CBehaviorBuff id="Babr">
+        <MaxStackCount value="2"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Modification>
+            <RateMultiplierArray index="Cooldown" value="1.5"/>
+            <RateMultiplierArray index="Spawn" value="2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="YserasGiftBuff" parent="War3_AuraBuff">
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngreendragonroost.dds"/>
         <MaxStackCount value="2"/>
         <MaxStackCountPerCaster value="1"/>
         <Modification>
@@ -566,7 +593,7 @@
         <DisableValidatorArray value="CasterHasBUau1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Bugf" parent="War3_Passive">
-        <DisableValidatorArray value="CasterHasBUav1"/>
+        <DisableValidatorArray value="CasterHasBUav1OrNight"/>
         <Modification AttackSpeedMultiplier="2">
             <DamageDealtScaled index="Melee" value="30"/>
             <DamageDealtScaled index="Ranged" value="30"/>
@@ -577,7 +604,7 @@
         <Modification AttackSpeedMultiplier="3"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Buar" parent="War3_Passive">
-        <DisableValidatorArray value="CasterHasBUau1"/>
+        <DisableValidatorArray value="CasterHasBUau1OrNight"/>
         <Modification LifeArmorBonus="5">
             <VitalMaxArray index="Life" value="150"/>
         </Modification>
@@ -643,10 +670,8 @@
         <DamageResponse Chance="1" ModifyFraction="0.5">
             <Kind index="Spell" value="0"/>
             <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
         </DamageResponse>
         <DisableValidatorArray value="CasterHasBUau1"/>
-        <Modification LifeArmorBonus="15"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MirrorArmour" parent="War3_Passive">
         <Requirements value="MirrorArmour"/>
@@ -696,8 +721,19 @@
             <VitalRegenArray index="Energy" value="10"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="CircleOfHolyLight" parent="War3_Buff">
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnholybolt.dds"/>
+        <Modification LifeArmorBonus="5"/>
+        <Duration value="5"/>
+        <DurationOverride index="0" Duration="5">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+    </CBehaviorBuff>
     <CBehaviorBuff id="NocturnalityAura" parent="War3_AuraCaster">
         <Requirements value="NocturnalityAura"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CircleOfHolyLightAura" parent="War3_AuraCaster">
+        <Requirements value="CircleOfHolyLightAura"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StarFragment" parent="War3_Passive">
         <Name value="Ault2/Name"/>
@@ -724,7 +760,7 @@
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="BHad1">
-        <MaxStackCount value="2"/>
+        <MaxStackCount value="3"/>
         <MaxStackCountPerCaster value="1"/>
         <Modification LifeArmorBonus="5"/>
     </CBehaviorBuff>
@@ -849,6 +885,8 @@
         </DurationOverride>
         <DamageResponse>
             <ExcludeEffectArray value="Hamg1"/>
+            <ExcludeEffectArray value="PyroblastDamage"/>
+            <ExcludeEffectArray value="PyroblastDPS"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="Bsta">
@@ -1366,122 +1404,125 @@
             <ExcludeEffectArray index="267" value="Eilm2"/>
             <ExcludeEffectArray index="268" value="Ekgg1"/>
             <ExcludeEffectArray index="269" value="Ekgg2"/>
-            <ExcludeEffectArray index="270" value="Emfr1"/>
-            <ExcludeEffectArray index="271" value="Emfr2"/>
-            <ExcludeEffectArray index="272" value="Emns1"/>
-            <ExcludeEffectArray index="273" value="Emns2"/>
-            <ExcludeEffectArray index="274" value="Etyr1"/>
-            <ExcludeEffectArray index="275" value="Etyr2"/>
-            <ExcludeEffectArray index="276" value="Ewrd2"/>
-            <ExcludeEffectArray index="277" value="Hant1"/>
-            <ExcludeEffectArray index="278" value="Hant2"/>
-            <ExcludeEffectArray index="279" value="Hapm2"/>
-            <ExcludeEffectArray index="280" value="Harf2"/>
-            <ExcludeEffectArray index="281" value="Hart2"/>
-            <ExcludeEffectArray index="282" value="Hdgo2"/>
-            <ExcludeEffectArray index="283" value="Hhkl2"/>
-            <ExcludeEffectArray index="284" value="Hjai1"/>
-            <ExcludeEffectArray index="285" value="Hjai2"/>
-            <ExcludeEffectArray index="286" value="Hkal1"/>
-            <ExcludeEffectArray index="287" value="Hkal2"/>
-            <ExcludeEffectArray index="288" value="Hlgr2"/>
-            <ExcludeEffectArray index="289" value="Hmbr2"/>
-            <ExcludeEffectArray index="290" value="Hmgd2"/>
-            <ExcludeEffectArray index="291" value="Hpb12"/>
-            <ExcludeEffectArray index="292" value="Hpb22"/>
-            <ExcludeEffectArray index="293" value="Huth2"/>
-            <ExcludeEffectArray index="294" value="Hvsh1"/>
-            <ExcludeEffectArray index="295" value="Hvsh2"/>
-            <ExcludeEffectArray index="296" value="Hvwd1"/>
-            <ExcludeEffectArray index="297" value="Hvwd2"/>
-            <ExcludeEffectArray index="298" value="Nbbc2"/>
-            <ExcludeEffectArray index="299" value="Nklj2"/>
-            <ExcludeEffectArray index="300" value="Nkjx2"/>
-            <ExcludeEffectArray index="301" value="Nmag2"/>
-            <ExcludeEffectArray index="302" value="Nman2"/>
-            <ExcludeEffectArray index="303" value="Nsjs2"/>
-            <ExcludeEffectArray index="304" value="Ocbh2"/>
-            <ExcludeEffectArray index="305" value="Ocb22"/>
-            <ExcludeEffectArray index="306" value="Odrt1"/>
-            <ExcludeEffectArray index="307" value="Odrt2"/>
-            <ExcludeEffectArray index="308" value="Ogld1"/>
-            <ExcludeEffectArray index="309" value="Ogld2"/>
-            <ExcludeEffectArray index="310" value="Ogrh2"/>
-            <ExcludeEffectArray index="311" value="Opgh2"/>
-            <ExcludeEffectArray index="312" value="Orex2"/>
-            <ExcludeEffectArray index="313" value="Orkn1"/>
-            <ExcludeEffectArray index="314" value="Orkn2"/>
-            <ExcludeEffectArray index="315" value="Osam2"/>
-            <ExcludeEffectArray index="316" value="Otcc2"/>
-            <ExcludeEffectArray index="317" value="Othr1"/>
-            <ExcludeEffectArray index="318" value="Othr2"/>
-            <ExcludeEffectArray index="319" value="Uanb2"/>
-            <ExcludeEffectArray index="320" value="Ubal2"/>
-            <ExcludeEffectArray index="321" value="Uclc1"/>
-            <ExcludeEffectArray index="322" value="Uclc2"/>
-            <ExcludeEffectArray index="323" value="Udth2"/>
-            <ExcludeEffectArray index="324" value="Uear2"/>
-            <ExcludeEffectArray index="325" value="Uktl1"/>
-            <ExcludeEffectArray index="326" value="Uktl2"/>
-            <ExcludeEffectArray index="327" value="Umal2"/>
-            <ExcludeEffectArray index="328" value="Usyl1"/>
-            <ExcludeEffectArray index="329" value="Usyl2"/>
-            <ExcludeEffectArray index="330" value="Utic2"/>
-            <ExcludeEffectArray index="331" value="Uvar2"/>
-            <ExcludeEffectArray index="332" value="Uvng2"/>
-            <ExcludeEffectArray index="333" value="Uwar1"/>
-            <ExcludeEffectArray index="334" value="Uwar2"/>
-            <ExcludeEffectArray index="335" value="Hgam1"/>
-            <ExcludeEffectArray index="336" value="Hgam2"/>
-            <ExcludeEffectArray index="337" value="ensh1"/>
-            <ExcludeEffectArray index="338" value="eshd1"/>
-            <ExcludeEffectArray index="339" value="ncat2"/>
-            <ExcludeEffectArray index="340" value="nbel1"/>
-            <ExcludeEffectArray index="341" value="nchw1"/>
-            <ExcludeEffectArray index="342" value="nckb1"/>
-            <ExcludeEffectArray index="343" value="ndrh1"/>
-            <ExcludeEffectArray index="344" value="ndrm1"/>
-            <ExcludeEffectArray index="345" value="ndrs1"/>
-            <ExcludeEffectArray index="346" value="ndsa1"/>
-            <ExcludeEffectArray index="347" value="nemi1"/>
-            <ExcludeEffectArray index="348" value="ngbl1"/>
-            <ExcludeEffectArray index="349" value="nhea1"/>
-            <ExcludeEffectArray index="350" value="nmdm1"/>
-            <ExcludeEffectArray index="351" value="nmed1"/>
-            <ExcludeEffectArray index="352" value="nmsn1"/>
-            <ExcludeEffectArray index="353" value="nser1"/>
-            <ExcludeEffectArray index="354" value="nssn1"/>
-            <ExcludeEffectArray index="355" value="nthr1"/>
-            <ExcludeEffectArray index="356" value="nw2w1"/>
-            <ExcludeEffectArray index="357" value="odkt1"/>
-            <ExcludeEffectArray index="358" value="ubdd1"/>
-            <ExcludeEffectArray index="359" value="ubdd2"/>
-            <ExcludeEffectArray index="360" value="ubdr1"/>
-            <ExcludeEffectArray index="361" value="ubdr2"/>
-            <ExcludeEffectArray index="362" value="udes1"/>
-            <ExcludeEffectArray index="363" value="uktn1"/>
-            <ExcludeEffectArray index="364" value="uswb1"/>
-            <ExcludeEffectArray index="365" value="nbt12"/>
-            <ExcludeEffectArray index="366" value="nbt22"/>
-            <ExcludeEffectArray index="367" value="ncap2"/>
-            <ExcludeEffectArray index="368" value="ndgt1"/>
-            <ExcludeEffectArray index="369" value="negf1"/>
-            <ExcludeEffectArray index="370" value="negm1"/>
-            <ExcludeEffectArray index="371" value="negt1"/>
-            <ExcludeEffectArray index="372" value="nndk1"/>
-            <ExcludeEffectArray index="373" value="nndk2"/>
-            <ExcludeEffectArray index="374" value="Nngs1"/>
-            <ExcludeEffectArray index="375" value="Nngs2"/>
-            <ExcludeEffectArray index="376" value="ntt11"/>
-            <ExcludeEffectArray index="377" value="ntx21"/>
-            <ExcludeEffectArray index="378" value="ocbw1"/>
-            <ExcludeEffectArray index="379" value="zcso1"/>
-            <ExcludeEffectArray index="380" value="zhyd1"/>
-            <ExcludeEffectArray index="381" value="zjug1"/>
-            <ExcludeEffectArray index="382" value="zmar1"/>
-            <ExcludeEffectArray index="383" value="zsmc1"/>
-            <ExcludeEffectArray index="384" value="ubsp1"/>
-            <ExcludeEffectArray index="385" value="Hamg1"/>
+            <ExcludeEffectArray index="270" value="Emfr2"/>
+            <ExcludeEffectArray index="271" value="Emns1"/>
+            <ExcludeEffectArray index="272" value="Emns2"/>
+            <ExcludeEffectArray index="273" value="Etyr1"/>
+            <ExcludeEffectArray index="274" value="Etyr2"/>
+            <ExcludeEffectArray index="275" value="Ewrd2"/>
+            <ExcludeEffectArray index="276" value="Hant1"/>
+            <ExcludeEffectArray index="277" value="Hant2"/>
+            <ExcludeEffectArray index="278" value="Hapm2"/>
+            <ExcludeEffectArray index="279" value="Harf2"/>
+            <ExcludeEffectArray index="280" value="Hart2"/>
+            <ExcludeEffectArray index="281" value="Hdgo2"/>
+            <ExcludeEffectArray index="282" value="Hhkl2"/>
+            <ExcludeEffectArray index="283" value="Hjai1"/>
+            <ExcludeEffectArray index="284" value="Hjai2"/>
+            <ExcludeEffectArray index="285" value="Hkal1"/>
+            <ExcludeEffectArray index="286" value="Hkal2"/>
+            <ExcludeEffectArray index="287" value="Hlgr2"/>
+            <ExcludeEffectArray index="288" value="Hmbr2"/>
+            <ExcludeEffectArray index="289" value="Hmgd2"/>
+            <ExcludeEffectArray index="290" value="Hpb12"/>
+            <ExcludeEffectArray index="291" value="Hpb22"/>
+            <ExcludeEffectArray index="292" value="Huth2"/>
+            <ExcludeEffectArray index="293" value="Hvsh1"/>
+            <ExcludeEffectArray index="294" value="Hvsh2"/>
+            <ExcludeEffectArray index="295" value="Hvwd1"/>
+            <ExcludeEffectArray index="296" value="Hvwd2"/>
+            <ExcludeEffectArray index="297" value="Nbbc2"/>
+            <ExcludeEffectArray index="298" value="Nklj2"/>
+            <ExcludeEffectArray index="299" value="Nkjx2"/>
+            <ExcludeEffectArray index="300" value="Nmag2"/>
+            <ExcludeEffectArray index="301" value="Nman2"/>
+            <ExcludeEffectArray index="302" value="Nsjs2"/>
+            <ExcludeEffectArray index="303" value="Ocbh2"/>
+            <ExcludeEffectArray index="304" value="Ocb22"/>
+            <ExcludeEffectArray index="305" value="Odrt1"/>
+            <ExcludeEffectArray index="306" value="Odrt2"/>
+            <ExcludeEffectArray index="307" value="Ogld1"/>
+            <ExcludeEffectArray index="308" value="Ogld2"/>
+            <ExcludeEffectArray index="309" value="Ogrh2"/>
+            <ExcludeEffectArray index="310" value="Opgh2"/>
+            <ExcludeEffectArray index="311" value="Orex2"/>
+            <ExcludeEffectArray index="312" value="Orkn1"/>
+            <ExcludeEffectArray index="313" value="Orkn2"/>
+            <ExcludeEffectArray index="314" value="Osam2"/>
+            <ExcludeEffectArray index="315" value="Otcc2"/>
+            <ExcludeEffectArray index="316" value="Othr1"/>
+            <ExcludeEffectArray index="317" value="Othr2"/>
+            <ExcludeEffectArray index="318" value="Uanb2"/>
+            <ExcludeEffectArray index="319" value="Ubal2"/>
+            <ExcludeEffectArray index="320" value="Uclc1"/>
+            <ExcludeEffectArray index="321" value="Uclc2"/>
+            <ExcludeEffectArray index="322" value="Udth2"/>
+            <ExcludeEffectArray index="323" value="Uear2"/>
+            <ExcludeEffectArray index="324" value="Uktl1"/>
+            <ExcludeEffectArray index="325" value="Uktl2"/>
+            <ExcludeEffectArray index="326" value="Umal2"/>
+            <ExcludeEffectArray index="327" value="Usyl1"/>
+            <ExcludeEffectArray index="328" value="Usyl2"/>
+            <ExcludeEffectArray index="329" value="Utic2"/>
+            <ExcludeEffectArray index="330" value="Uvar2"/>
+            <ExcludeEffectArray index="331" value="Uvng2"/>
+            <ExcludeEffectArray index="332" value="Uwar1"/>
+            <ExcludeEffectArray index="333" value="Uwar2"/>
+            <ExcludeEffectArray index="334" value="Hgam1"/>
+            <ExcludeEffectArray index="335" value="Hgam2"/>
+            <ExcludeEffectArray index="336" value="ensh1"/>
+            <ExcludeEffectArray index="337" value="eshd1"/>
+            <ExcludeEffectArray index="338" value="ncat2"/>
+            <ExcludeEffectArray index="339" value="nbel1"/>
+            <ExcludeEffectArray index="340" value="nchw1"/>
+            <ExcludeEffectArray index="341" value="nckb1"/>
+            <ExcludeEffectArray index="342" value="ndrh1"/>
+            <ExcludeEffectArray index="343" value="ndrm1"/>
+            <ExcludeEffectArray index="344" value="ndrs1"/>
+            <ExcludeEffectArray index="345" value="ndsa1"/>
+            <ExcludeEffectArray index="346" value="nemi1"/>
+            <ExcludeEffectArray index="347" value="ngbl1"/>
+            <ExcludeEffectArray index="348" value="nhea1"/>
+            <ExcludeEffectArray index="349" value="nmdm1"/>
+            <ExcludeEffectArray index="350" value="nmed1"/>
+            <ExcludeEffectArray index="351" value="nmsn1"/>
+            <ExcludeEffectArray index="352" value="nser1"/>
+            <ExcludeEffectArray index="353" value="nssn1"/>
+            <ExcludeEffectArray index="354" value="nthr1"/>
+            <ExcludeEffectArray index="355" value="nw2w1"/>
+            <ExcludeEffectArray index="356" value="odkt1"/>
+            <ExcludeEffectArray index="357" value="ubdd1"/>
+            <ExcludeEffectArray index="358" value="ubdd2"/>
+            <ExcludeEffectArray index="359" value="ubdr1"/>
+            <ExcludeEffectArray index="360" value="ubdr2"/>
+            <ExcludeEffectArray index="361" value="udes1"/>
+            <ExcludeEffectArray index="362" value="uktn1"/>
+            <ExcludeEffectArray index="363" value="uswb1"/>
+            <ExcludeEffectArray index="364" value="nbt12"/>
+            <ExcludeEffectArray index="365" value="nbt22"/>
+            <ExcludeEffectArray index="366" value="ncap2"/>
+            <ExcludeEffectArray index="367" value="ndgt1"/>
+            <ExcludeEffectArray index="368" value="negf1"/>
+            <ExcludeEffectArray index="369" value="negm1"/>
+            <ExcludeEffectArray index="370" value="negt1"/>
+            <ExcludeEffectArray index="371" value="nndk1"/>
+            <ExcludeEffectArray index="372" value="nndk2"/>
+            <ExcludeEffectArray index="373" value="Nngs1"/>
+            <ExcludeEffectArray index="374" value="Nngs2"/>
+            <ExcludeEffectArray index="375" value="ntt11"/>
+            <ExcludeEffectArray index="376" value="ntx21"/>
+            <ExcludeEffectArray index="377" value="ocbw1"/>
+            <ExcludeEffectArray index="378" value="zcso1"/>
+            <ExcludeEffectArray index="379" value="zhyd1"/>
+            <ExcludeEffectArray index="380" value="zjug1"/>
+            <ExcludeEffectArray index="381" value="zmar1"/>
+            <ExcludeEffectArray index="382" value="zsmc1"/>
+            <ExcludeEffectArray index="383" value="ubsp1"/>
+            <ExcludeEffectArray index="384" value="Hamg1"/>
+            <ExcludeEffectArray index="385" value="zmar1"/>
+            <ExcludeEffectArray index="386" value="zsmc1"/>
+            <ExcludeEffectArray index="387" value="PyroblastDamage"/>
+            <ExcludeEffectArray value="PyroblastDPS"/>
         </DamageResponse>
         <Duration value="15"/>
         <DurationOverride index="0" Duration="15">
@@ -1533,16 +1574,18 @@
         <DamageResponse ModifyFraction="2"/>
     </CBehaviorBuff>
     <!--Rejuvination-->
-    <CBehaviorBuff id="Brej"/>
+    <CBehaviorBuff id="Brej">
+        <FinalEffect value="BIrgSearch"/>
+    </CBehaviorBuff>
     <!--Roar-->
     <CBehaviorBuff id="Broa">
-        <MaxStackCount value="3"/>
+        <MaxStackCount value="2"/>
         <MaxStackCountPerCaster value="1"/>
         <Modification>
+            <DamageDealtScaled index="Melee" value="12"/>
+            <DamageDealtScaled index="Ranged" value="12"/>
             <DamageDealtFraction index="Melee" value="0"/>
             <DamageDealtFraction index="Ranged" value="0"/>
-            <DamageDealtUnscaled index="Melee" value="12"/>
-            <DamageDealtUnscaled index="Ranged" value="12"/>
         </Modification>
     </CBehaviorBuff>
     <!--Slow-->
@@ -1826,6 +1869,11 @@
         <Modification LifeArmorBonus="10">
             <VitalMaxArray index="Life" value="100"/>
         </Modification>
+        <DamageResponse Chance="1" ModifyFraction="0.5">
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="UnholyDominanceAura" parent="War3_AuraCaster">
         <Requirements value="UnholyDominanceAura"/>
@@ -1845,23 +1893,25 @@
     <CBehaviorBuff id="EtherealStrike" parent="War3_Buff">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngrimward.dds"/>
-        <MaxStackCount value="3"/>
-        <Duration value="30"/>
-        <DurationOverride index="0" Duration="6">
-            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
-        </DurationOverride>
-        <Modification HealTakenMultiplier="0.67"/>
-        <MaxStackCountPerCaster value="1"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="MortalStrike" parent="War3_Buff">
-        <Alignment value="Negative"/>
-        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnarcanitemelee.dds"/>
-        <MaxStackCount value="2"/>
         <Duration value="30"/>
         <DurationOverride index="0" Duration="6">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <Modification HealTakenMultiplier="0.5"/>
+        <DamageResponse Chance="1" ModifyFraction="1.5">
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MortalStrike" parent="War3_Buff">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnarcanitemelee.dds"/>
+        <Duration value="30"/>
+        <DurationOverride index="0" Duration="6">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+        <Modification HealTakenMultiplier="0.1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="nmgw" parent="War3_Buff">
         <DamageResponse Chance="1" Fatal="1" Handled="nmgr"/>
@@ -1874,5 +1924,25 @@
     <CBehaviorBuff id="nmgr" parent="War3_Buff">
         <DamageResponse Chance="1" Fatal="1" Handled="nmgd"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Pyroblast" parent="War3_Buff">
+        <BehaviorCategories index="Stun" value="1"/>
+        <Duration value="5"/>
+        <DurationOverride index="0" Duration="1">
+            <ValidatorArray index="0" value="Hero"/>
+        </DurationOverride>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <StateFlags index="Stun" value="1"/>
+            <BehaviorLinkDisableArray value="HostileSleeperAlert"/>
+        </Modification>
+        <Alignment value="Negative"/>
+        <TechAliasArray value="_Debuff"/>
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnfireforthecannon.dds"/>
+        <Period value="1"/>
+        <PeriodCount value="5"/>
+        <PeriodicEffect value="PyroblastDPS"/>
+        <MaxStackCount value="0"/>
+        <MaxStackCountPerCaster value="1"/>
     </CBehaviorBuff>
 </Catalog>
