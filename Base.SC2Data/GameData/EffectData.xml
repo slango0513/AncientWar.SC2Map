@@ -9,6 +9,10 @@
         <BehaviorAlignment value="Negative"/>
         <BehaviorLink value="Bdis"/>
     </CEffectRemoveBehavior>
+    <CEffectEnumArea id="AclfSearch">
+        <SearchFilters value="-;air,wall,tree,Missile,debris,item,ward,dead,Hidden,immunity"/>
+        <AreaArray index="0" Radius="1.5" Effect="Bclf"/>
+    </CEffectEnumArea>
     <CEffectEnumArea id="AdisSearch">
         <AreaArray index="0" Radius="2" Effect="DispelAllBuffsAndHurtEnemySummoned200"/>
     </CEffectEnumArea>
@@ -17,12 +21,25 @@
         <EffectArray value="uskm"/>
         <EffectArray value="nsca"/>
     </CEffectSet>
+    <CEffectApplyBehavior id="Bclf">
+        <ValidatorArray index="0" value="BclfRemove"/>
+        <ValidatorArray index="1" removed="1"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="Xclf">
+        <PeriodCount value="10"/>
+    </CEffectCreatePersistent>
     <CEffectEnumArea id="esen1E1">
         <SearchFilters value="Visible;player,allies,neutral,air,Missile,dead,Hidden,invulnerable,Passive"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="esen1E2">
         <SearchFilters value="Visible;player,allies,neutral,air,Missile,dead,Hidden,invulnerable,Passive"/>
     </CEffectEnumArea>
+    <CEffectDamage id="hdhw1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="54"/>
+        <Random value="0"/>
+    </CEffectDamage>
     <CEffectCreateUnit id="nsca" parent="War3_SummonUnit">
         <EditorCategories value="Race:Undead"/>
         <SpawnEffect value="Brai"/>
@@ -199,6 +216,12 @@
         <Amount value="12"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectDamage id="nws11">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="54"/>
+        <Random value="0"/>
+    </CEffectDamage>
     <CEffectDamage id="ubsp1">
         <AttributeFactor index="small" value="1"/>
         <AttributeFactor index="unarmored" value="0.5"/>
@@ -242,7 +265,7 @@
         <AreaArray index="0" Radius="9" Effect="BOaeSet"/>
     </CEffectEnumArea>
     <CEffectDamage id="AOshDamage1">
-        <Amount value="50"/>
+        <Amount value="20"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="AOws1Dur">
         <Duration value="5"/>

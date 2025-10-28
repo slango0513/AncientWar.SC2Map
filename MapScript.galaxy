@@ -564,7 +564,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_boolTestMode = true;
+    gv_boolTestMode = false;
     TriggerEnable(libGAwX_gt_AegrElunesGraceRegister, false);
     TriggerEnable(libGAwX_gt_AdefDefendInitRegister, false);
     TriggerEnable(libGAwX_gt_AsplMarker, false);
@@ -1060,9 +1060,15 @@ bool gt_InitPlayer_Func (bool testConds, bool runActions) {
 
     PlayerGroupLoopBegin(PlayerGroupActive());
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        lv_p += 1;
-        gv_intPlayerActive[lv_p] = PlayerGroupLoopCurrent();
-        gv_intPlayer[lv_p] = PlayerGroupLoopCurrent();
+        if ((PlayerGroupLoopCurrent() != 9)) {
+            lv_p += 1;
+            gv_intPlayerActive[lv_p] = PlayerGroupLoopCurrent();
+            gv_intPlayer[lv_p] = PlayerGroupLoopCurrent();
+        }
+        else {
+            VisRevealArea(PlayerGroupLoopCurrent(), RegionEntireMap(), 0.0, false);
+            CameraLockInput(PlayerGroupLoopCurrent(), false);
+        }
     }
     PlayerGroupLoopEnd();
     gv_intCountPlayerActive = lv_p;
@@ -2672,14 +2678,17 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                         TriggerEnable(gt_PlayerLeft, false);
                         PlayerGroupLoopBegin(PlayerGroupActive());
                         for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-                            BankValueSetFromInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount", (BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount") + 1));
-                            if ((PlayerGroupLoopCurrent() == lv_pWn)) {
-                                BankValueSetFromInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win", (BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win") + 1));
+                            if ((PlayerGroupLoopCurrent() != 9)) {
+                                BankValueSetFromInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount", (BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount") + 1));
+                                if ((PlayerGroupLoopCurrent() == lv_pWn)) {
+                                    BankValueSetFromInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win", (BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win") + 1));
+                                }
+
+                                BankSave(gv_bank[PlayerGroupLoopCurrent()]);
+                                BoardItemSetText(gv_board, 4, gv_intRowBoardOfPlayer[PlayerGroupLoopCurrent()], IntToText(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount")));
+                                BoardItemSetText(gv_board, 5, gv_intRowBoardOfPlayer[PlayerGroupLoopCurrent()], FixedToText((IntToFixed(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win")) / IntToFixed(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount"))), 2));
                             }
 
-                            BankSave(gv_bank[PlayerGroupLoopCurrent()]);
-                            BoardItemSetText(gv_board, 4, gv_intRowBoardOfPlayer[PlayerGroupLoopCurrent()], IntToText(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount")));
-                            BoardItemSetText(gv_board, 5, gv_intRowBoardOfPlayer[PlayerGroupLoopCurrent()], FixedToText((IntToFixed(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win")) / IntToFixed(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount"))), 2));
                         }
                         PlayerGroupLoopEnd();
                         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lv_pWn), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_pWn, false))) + StringExternal("Param/Value/6250BEB1")));
@@ -2830,6 +2839,13 @@ void gt_Revive_Init () {
 // Trigger: PlayerLeft
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerLeft_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((EventPlayer() != 9))) {
+            return false;
+        }
+    }
+
     // Actions
     if (!runActions) {
         return true;

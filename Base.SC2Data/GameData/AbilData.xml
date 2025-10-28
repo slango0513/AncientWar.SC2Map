@@ -119,6 +119,12 @@
         <InfoArray index="Build21" Unit="Hmkg1">
             <Button DefaultButtonFace="Hmkg" Requirements="Final"/>
         </InfoArray>
+        <InfoArray index="Build22" Unit="nws1">
+            <Button DefaultButtonFace="nws1" Requirements="Pause"/>
+        </InfoArray>
+        <InfoArray index="Build23" Unit="hdhw">
+            <Button DefaultButtonFace="hdhw" Requirements="Pause"/>
+        </InfoArray>
         <Range value="500"/>
     </CAbilBuild>
     <!--Paladin - Divine Shield Buff=BHds-->
@@ -537,6 +543,25 @@
         <AutoCastRange value="7.5"/>
         <AutoCastValidatorArray value="EnemiesNearby7.5"/>
     </CAbilEffectInstant>
+    <CAbilEffectTarget id="Aclf">
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost index="0">
+            <Vital index="Energy" value="0"/>
+            <Cooldown Location="Unit" TimeUse="60"/>
+        </Cost>
+        <TargetFilters index="0" value="-;player,allies,air,wall,tree,Missile,debris,item,structure,ward,dead,invulnerable,immunity"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSRandom"/>
+        </TargetSorts>
+        <Range index="0" value="21"/>
+        <AutoCastRange value="21"/>
+        <AutoCastValidatorArray value="noMarkers"/>
+        <AutoCastValidatorArray value="NoBclf"/>
+        <AutoCastValidatorArray value="GroundEnemiesNearby9"/>
+        <CastOutroTime index="0" value="10"/>
+        <CmdButtonArray index="Execute" Requirements=""/>
+    </CAbilEffectTarget>
     <!--Curse Dur=120 HeroDur=60 Buff=Bcrs-->
     <CAbilEffectTarget id="Acrs">
         <Cost index="0">
@@ -1513,6 +1538,20 @@
     <CAbilMorph id="UpgradeTonchg" parent="War3_Upgrade" toUnit="nchg">
         <CmdButtonArray index="Execute" Requirements="Pause"/>
         <InfoArray index="0" Score="1" Unit="nchg">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeTohdhw" parent="War3_Upgrade" toUnit="hdhw">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="hdhw">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>

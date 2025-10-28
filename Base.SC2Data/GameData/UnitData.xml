@@ -10,7 +10,6 @@
         <FlagArray index="Unstoppable" value="1"/>
         <Attributes index="summoned" value="1"/>
         <BehaviorArray index="0" Link="Statue"/>
-        <BehaviorArray Link="Champion"/>
     </CUnit>
     <CUnit id="Hmkg1" parent="War3_Army" defType="LARGE">
         <DeathTime value="15"/>
@@ -990,6 +989,55 @@
     <CUnit id="gcel">
         <CostResource index="gold" value="40"/>
     </CUnit>
+    <!--blood elf dragon hawk-->
+    <CUnit id="hdhw">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PlaneArray index="Air" value="0"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Flying" value="0"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <EnergyStart value="0"/>
+        <EnergyMax value="0"/>
+        <EnergyRegenRate value="0"/>
+        <Mover value="foot"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <Height value="0.875"/>
+        <Food value="0"/>
+        <CostResource index="gold" value="90"/>
+        <CostResource index="lumber" value="0"/>
+        <KillResource index="gold" value="0"/>
+        <KillResource index="Custom" value="15"/>
+        <AbilArray index="4" Link="Inventory2"/>
+        <AbilArray index="5" Link="Asud"/>
+        <AbilArray Link="Aclf"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="Aclf" Type="AbilCmd" AbilCmd="Aclf,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <!--AttackTargetPriority value="4"/-->
+        <SubgroupPriority value="0"/>
+        <TechTreeProducedUnitArray value="nws1"/>
+        <TechTreeProducedUnitArray value="nws1"/>
+        <TechTreeProducedUnitArray value="nws1"/>
+        <TechTreeProducedUnitArray value="nws1"/>
+        <TechTreeProducedUnitArray value="nws1"/>
+        <TechTreeProducedUnitArray value="hdhw"/>
+        <LifeArmor value="0"/>
+        <BehaviorArray index="4" removed="1"/>
+    </CUnit>
     <!--Footman-->
     <CUnit id="hfoo">
         <DeathRevealRadius value="0"/>
@@ -1433,15 +1481,16 @@
             <LayoutButtons index="0" Face="hmil" Type="AbilCmd" AbilCmd="AHbu,Build1" Row="0" Column="0"/>
             <LayoutButtons index="1" Face="nchp" Type="AbilCmd" AbilCmd="AHbu,Build5" Row="2" Column="0"/>
             <LayoutButtons index="2" Face="hkni" Type="AbilCmd" AbilCmd="AHbu,Build3" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="hrtt" Type="AbilCmd" AbilCmd="AHbu,Build7" Row="1" Column="3"/>
+            <LayoutButtons index="3" Face="hrtt" Type="AbilCmd" AbilCmd="AHbu,Build7" Row="1" Column="4"/>
             <LayoutButtons index="4" Face="hspt" Type="AbilCmd" AbilCmd="AHbu,Build6" Row="0" Column="3"/>
-            <LayoutButtons index="5" Face="hmtm" Type="AbilCmd" AbilCmd="AHbu,Build8" Row="1" Column="2"/>
-            <LayoutButtons index="6" Face="hrif" Type="AbilCmd" AbilCmd="AHbu,Build2" Row="1" Column="1"/>
+            <LayoutButtons index="5" Face="hmtm" Type="AbilCmd" AbilCmd="AHbu,Build8" Row="1" Column="3"/>
+            <LayoutButtons index="6" Face="hrif" Type="AbilCmd" AbilCmd="AHbu,Build2" Row="1" Column="2"/>
             <LayoutButtons index="7" Face="hsor" Type="AbilCmd" AbilCmd="AHbu,Build4" Row="2" Column="1"/>
             <LayoutButtons index="8" Face="nhea" Type="AbilCmd" AbilCmd="AHbu,Build9" Row="1" Column="0"/>
             <LayoutButtons index="9" Face="CmdCancel" Type="CancelSubmenu" AbilCmd="" Row="2" Column="4"/>
             <LayoutButtons index="10" Face="nhym" Type="AbilCmd" AbilCmd="AHbu,Build10" Row="2" Column="2"/>
             <LayoutButtons index="11" Face="hgry" Type="AbilCmd" AbilCmd="AHbu,Build17" Row="2" Column="3"/>
+            <LayoutButtons Face="nws1" Type="AbilCmd" AbilCmd="AHbu,Build22" Row="1" Column="1"/>
             <LayoutButtons Face="hfoo" Type="AbilCmd" AbilCmd="AHbu,Build11" Row="0" Column="1"/>
             <LayoutButtons Face="Hmkg" Type="AbilCmd" AbilCmd="AHbu,Build21" Row="0" Column="4"/>
         </CardLayouts>
@@ -2575,6 +2624,51 @@
         <LifeMax value="500"/>
         <LifeArmor value="5"/>
         <KillResource index="Custom" value="15"/>
+    </CUnit>
+    <!--dragon hawk-->
+    <CUnit id="nws1">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <PlaneArray index="Ground" value="1"/>
+        <PlaneArray index="Air" value="0"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Flying" value="0"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <Mover value="foot"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <Height value="0.875"/>
+        <Food value="0"/>
+        <CostResource index="gold" value="30"/>
+        <CostResource index="lumber" value="0"/>
+        <KillResource index="gold" value="0"/>
+        <KillResource index="Custom" value="15"/>
+        <AbilArray index="4" Link="Inventory2"/>
+        <AbilArray Link="Asud"/>
+        <AbilArray Link="UpgradeTohdhw"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="hdhw" Type="AbilCmd" AbilCmd="UpgradeTohdhw,Execute" Row="0" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.5"/>
+        <SeparationRadius value="0.5"/>
+        <InnerRadius value="0.5"/>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <!--AttackTargetPriority value="3"/-->
+        <SubgroupPriority value="0"/>
+        <MinimapRadius value="0.5"/>
+        <TechTreeProducedUnitArray value="nws1"/>
+        <TechTreeProducedUnitArray value="nws1"/>
+        <LifeArmor value="0"/>
     </CUnit>
     <!--Demolisher-->
     <CUnit id="ocat">

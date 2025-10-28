@@ -120,6 +120,8 @@
         <Icon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
         <AlertIcon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
     </CButton>
+    <!--windserpent-->
+    <CButton id="nws1"/>
     <!--demolisher-->
     <CButton id="ocat"/>
     <!--witchdoctor-->

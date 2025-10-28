@@ -90,6 +90,9 @@
         <Compare value="GE"/>
         <Value value="0"/>
     </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareBehaviorCount id="NoBclf">
+        <Behavior value="Bclf"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoChargeKnightController">
         <Behavior value="ChargeKnightController"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -248,4 +251,7 @@
     <CValidatorCombine id="UnholyDominanceSearchTargetFilters">
         <CombineArray value="Isugar"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareVital id="TargetLifeGE800" parent="TargetLifeGE200">
+        <Value value="800"/>
+    </CValidatorUnitCompareVital>
 </Catalog>

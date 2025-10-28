@@ -286,6 +286,14 @@
         </DurationOverride>
         <Modification AttackSpeedMultiplier="2"/>
     </CBehaviorBuff>
+    <!--Buff-->
+    <!--CloudOfFog-->
+    <CBehaviorBuff id="Bclf">
+        <Duration value="1.0625"/>
+        <DurationOverride index="0" Duration="1.0625">
+            <ValidatorArray index="0" value="Hero"/>
+        </DurationOverride>
+    </CBehaviorBuff>
     <!--Curse-->
     <CBehaviorBuff id="Bcrs">
         <Duration value="30"/>
@@ -327,9 +335,6 @@
         <PeriodicEffect value=""/>
         <Modification AttackSpeedMultiplier="2"/>
         <DamageResponse Chance="1" ModifyFraction="1.25"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="Champion" parent="War3_Passive">
-        <Requirements value="Champion"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ChargingKnight" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnanimalwartraining.dds"/>

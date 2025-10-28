@@ -116,8 +116,6 @@
     <CActorModel id="Aetl">
         <On Terms="Behavior.FrostWyrmInvulnerable.On" Send="Create"/>
         <On Terms="Behavior.FrostWyrmInvulnerable.Off" Send="AnimBracketStop BSD"/>
-        <On Terms="Behavior.Champion.On" Send="Create"/>
-        <On Terms="Behavior.Champion.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
     <CActorModel id="Bdef">
         <On Terms="Behavior.ShieldWall.On" Send="Create"/>
@@ -647,6 +645,10 @@
         <SoundArray index="ClickError" value="Udre1_ClickError"/>
         <SoundArray index="Highlight" value="Udre1_Highlight"/>
     </CActorUnit>
+    <!--Mushrooms-->
+    <CActorModel id="Xclf">
+        <Scale value="1.280000"/>
+    </CActorModel>
     <!--archer-->
     <CActorUnit id="earc">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
@@ -690,6 +692,11 @@
     </CActorUnit>
     <!--wisp-->
     <CActorUnit id="ewsp">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--dragonhawk-->
+    <CActorUnit id="hdhw">
+        <On Terms="ActorCreation" Send="Create War3_HeroGlow"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--footman-->
@@ -858,6 +865,11 @@
     <CActorUnit id="nwat" defType="SMALL">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
+    </CActorUnit>
+    <!--windserpent-->
+    <CActorUnit id="nws1">
+        <Scale value="1.000000"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--demolisher-->
     <CActorUnit id="ocat">

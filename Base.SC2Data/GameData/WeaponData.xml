@@ -161,6 +161,12 @@
         <Range value="16"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <!--blood elf dragon hawk-->
+    <CWeaponLegacy id="hdhw1">
+        <MinScanRange value="8"/>
+        <Range value="8"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
     <!--Footman-->
     <CWeaponLegacy id="hfoo1">
         <MinScanRange value="0.7031"/>
@@ -208,14 +214,14 @@
     </CWeaponLegacy>
     <!--MortarTeam-->
     <CWeaponLegacy id="hmtm1">
-        <MinScanRange value="9"/>
+        <MinScanRange value="10"/>
         <Period value="3"/>
-        <Range value="9"/>
+        <Range value="10"/>
     </CWeaponLegacy>
     <!--Rifleman-->
     <CWeaponLegacy id="hrif1">
-        <MinScanRange value="8"/>
-        <Range value="8"/>
+        <MinScanRange value="9"/>
+        <Range value="9"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--siege engine upgraded-->
@@ -352,6 +358,12 @@
     <!--Watcher-->
     <CWeaponLegacy id="nwat1">
         <MinScanRange value="0.7812"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--dragon hawk-->
+    <CWeaponLegacy id="nws11">
+        <MinScanRange value="8"/>
+        <Range value="8"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Demolisher-->
