@@ -2076,6 +2076,7 @@ bool gt_Position_Func (bool testConds, bool runActions) {
             }
         }
     }
+    SoundPlayForPlayer(SoundLink("HornOfCenariusSound", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
     Wait(5.0, c_timeGame);
     autoCF61D4F3_ae = gv_intCountPlayer;
     autoCF61D4F3_ai = 1;
@@ -2553,7 +2554,7 @@ bool gt_Attack_Func (bool testConds, bool runActions) {
     unitfilter lv_unfilter;
 
     // Variable Initialization
-    lv_unfilter = UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile) | (1 << c_targetFilterCloaked), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)));
+    lv_unfilter = UnitFilter(0, 0, (1 << c_targetFilterAir) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem) | (1 << c_targetFilterCloaked), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)));
 
     // Actions
     if (!runActions) {

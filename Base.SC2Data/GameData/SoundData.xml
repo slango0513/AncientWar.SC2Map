@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CSound id="ChargeKnight" parent="Combat">
+        <Pitch value="-0.890000,0.840000"/>
+        <Volume value="-7.960000,-7.960000"/>
+        <AssetArray File="Assets\Sounds\Protoss\Zealot\Zealot_Charge0.wav"/>
+        <SustainFade index="1" Time="300"/>
+    </CSound>
+</Catalog>

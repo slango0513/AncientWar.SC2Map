@@ -10,6 +10,27 @@
         <Type value="And"/>
         <CombineArray value="NoRejuvenation"/>
     </CValidatorCombine>
+    <CValidatorCombine id="ChargeKnightTargetFilters">
+        <Type value="And"/>
+        <CombineArray value="ChargeKnightMinTriggerDistance"/>
+        <CombineArray value="ChargeKnightMaxDistance"/>
+    </CValidatorCombine>
+    <CValidatorLocationCompareRange id="ChargeKnightMaxDistance">
+        <WhichLocation Value="SourceUnit"/>
+        <Value Value="TargetUnit"/>
+        <Compare value="LT"/>
+        <Range value="6"/>
+        <ResultFailed value="TargetIsOutOfRange"/>
+        <Pathing value="1"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorUnitCompareOrderTargetRange id="ChargeKnightMinTriggerDistance">
+        <ResultFailed value="TargetIsTooClose"/>
+        <WhichUnit Value="Caster"/>
+        <OtherUnit Value="Target"/>
+        <Compare value="GT"/>
+        <AbilLink value="Aatk"/>
+        <Value value="3"/>
+    </CValidatorUnitCompareOrderTargetRange>
     <CValidatorLocationCompareRange id="DistanceGT3">
         <WhichLocation Value="CasterUnit"/>
         <Compare value="GT"/>
@@ -47,9 +68,12 @@
     <CValidatorLocationEnumArea id="GroundEnemiesNearby9" parent="GroundEnemiesNearby">
         <AreaArray index="0" Compare="GE" Count="1" Radius="9"/>
     </CValidatorLocationEnumArea>
-    <CValidatorLocationEnumArea id="GroundEnemiesNearby18" parent="GroundEnemiesNearby">
-        <AreaArray index="0" Compare="GE" Count="1" Radius="18"/>
+    <CValidatorLocationEnumArea id="GroundEnemiesNearby12" parent="GroundEnemiesNearby">
+        <AreaArray index="0" Compare="GE" Count="1" Radius="12"/>
     </CValidatorLocationEnumArea>
+    <CValidatorUnitType id="IsFleshGolem">
+        <Value value="nfgl"/>
+    </CValidatorUnitType>
     <CValidatorUnitType id="Isugar">
         <Value value="ugar"/>
     </CValidatorUnitType>
@@ -57,6 +81,9 @@
         <Compare value="GE"/>
         <Value value="0"/>
     </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareBehaviorCount id="NoChargeKnightController">
+        <Behavior value="ChargeKnightController"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoDefending">
         <WhichUnit Value="Caster"/>
         <Behavior value="Defending"/>
@@ -111,6 +138,69 @@
     <CValidatorUnitCompareBehaviorCount id="NonPowerfulUnit">
         <Behavior value="PowerfulUnit"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize">
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize4">
+        <Compare value="GE"/>
+        <Value value="4"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize7">
+        <Compare value="GE"/>
+        <Value value="7"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize10">
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize13">
+        <Compare value="GE"/>
+        <Value value="13"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize16">
+        <Compare value="GE"/>
+        <Value value="16"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize19">
+        <Compare value="GE"/>
+        <Value value="19"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize22">
+        <Compare value="GE"/>
+        <Value value="22"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize28">
+        <Compare value="GE"/>
+        <Value value="28"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize34">
+        <Compare value="GE"/>
+        <Value value="34"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize40">
+        <Compare value="GE"/>
+        <Value value="40"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="PatchworkSize46">
+        <Compare value="GE"/>
+        <Value value="46"/>
+        <Behavior value="Patchwork"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="PatchworkTargetFilters">
+        <CombineArray value="IsFleshGolem"/>
+    </CValidatorCombine>
     <CValidatorCombine id="RejuvenationAutoCastTargetFilter">
         <CombineArray value="NotFullLife"/>
         <CombineArray value="NotNegativeLifeRegen"/>

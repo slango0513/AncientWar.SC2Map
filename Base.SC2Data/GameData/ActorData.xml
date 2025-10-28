@@ -1,9 +1,147 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorModel id="PatchworkSize">
+        <On Terms="Behavior.PatchworkSize.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 1.250000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize4">
+        <On Terms="Behavior.PatchworkSize4.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize4.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 1.500000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize7">
+        <On Terms="Behavior.PatchworkSize7.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize7.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 1.750000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize10">
+        <On Terms="Behavior.PatchworkSize10.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize10.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 2.000000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize13">
+        <On Terms="Behavior.PatchworkSize13.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize13.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 2.250000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize16">
+        <On Terms="Behavior.PatchworkSize16.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize16.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 2.500000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize19">
+        <On Terms="Behavior.PatchworkSize19.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize19.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 2.750000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize22">
+        <On Terms="Behavior.PatchworkSize22.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize22.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 3.000000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize28">
+        <On Terms="Behavior.PatchworkSize28.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize28.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 3.500000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize34">
+        <On Terms="Behavior.PatchworkSize34.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize34.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 4.000000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize40">
+        <On Terms="Behavior.PatchworkSize40.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize40.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 4.500000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
+    <CActorModel id="PatchworkSize46">
+        <On Terms="Behavior.PatchworkSize46.On" Send="Create"/>
+        <On Terms="Behavior.PatchworkSize46.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Target="_Selectable" Send="SetScale 5.000000 0.700000 PatchworkSize"/>
+        <On Terms="ActorDestruction" Target="_Selectable" Send="ClearScale 0.300000 PatchworkSize"/>
+        <Host Subject="_Selectable"/>
+        <Model value="Invisible"/>
+    </CActorModel>
     <CActorModel id="Aetl">
         <On Terms="Behavior.FrostWyrmInvulnerable.On" Send="Create"/>
         <On Terms="Behavior.FrostWyrmInvulnerable.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
+    <CActorModel id="Bdef">
+        <On Terms="Behavior.MoraleBoosting.On" Send="Create"/>
+        <On Terms="Behavior.MoraleBoosting.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorSound id="ChargeKnightInitial" parent="SoundOneShot">
+        <On Terms="Effect.ChargeKnightInitialSet.Start" Send="Create"/>
+        <Sound value="MetalHeavyBashMetal"/>
+    </CActorSound>
+    <!--paladin-->
+    <CActorUnit id="Hpal" unitName="Hpal1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Hpal1" Send="Create SoundEmitter Hpal1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hpal1"/>
+        <On index="2" Terms="UnitRevive.Hpal1"/>
+        <On index="3" Terms="UnitRevive.Hpal1"/>
+        <On index="4" Terms="UnitConstruction.Hpal1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hpal1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hpal1; !ScopeContains Hpal"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hpal1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hpal1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hpal1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hpal1"/>
+        <On index="85" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Hpal1Death" VoiceLink="Hpal1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <GroupSoundArray index="What" value="Hpal1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Hpal1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Hpal1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Hpal1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <SoundArray index="Birth" value="Hpal1_Birth"/>
+        <SoundArray index="Help" value="Hpal1_Help"/>
+        <SoundArray index="Movement" value="Hpal1_Movement"/>
+        <SoundArray index="Turning" value="Hpal1_Turning"/>
+        <SoundArray index="Board" value="Hpal1_Board"/>
+        <SoundArray index="Click" value="Hpal1_Click"/>
+        <SoundArray index="ClickError" value="Hpal1_ClickError"/>
+        <SoundArray index="Highlight" value="Hpal1_Highlight"/>
+    </CActorUnit>
+    <CActorSound id="MoraleBoostingSearch" parent="SoundOneShot">
+        <On Terms="Effect.MoraleBoostingSearch.Start" Send="Create"/>
+        <Sound value="BurrowBattleStations"/>
+    </CActorSound>
     <CActorModel id="Defend" parent="ModelAnimationStyleOneShotUNIT">
         <On Terms="Behavior.Defend.DamageHandled" Send="Create"/>
         <On Terms="AnimDone" Send="Destroy"/>
@@ -266,6 +404,56 @@
         <SoundArray index="ClickError" value="Hlgr1_ClickError"/>
         <SoundArray index="Highlight" value="Hlgr1_Highlight"/>
     </CActorUnit>
+    <!--mountainking-->
+    <CActorUnit id="Hmkg" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Hmkg1" Send="Create SoundEmitter Hmkg1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hmkg1"/>
+        <On index="2" Terms="UnitRevive.Hmkg1"/>
+        <On index="3" Terms="UnitRevive.Hmkg1"/>
+        <On index="4" Terms="UnitConstruction.Hmkg1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hmkg1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hmkg1; !ScopeContains Hmkg"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hmkg1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hmkg1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hmkg1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hmkg1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+    </CActorUnit>
+    <!--sylvanuswindrunner-->
+    <CActorUnit id="Hvwd" unitName="Hvwd1" defType="MEDIUM">
+        <On index="0" Terms="UnitBirth.Hvwd1" Send="Create SoundEmitter Hvwd1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hvwd1"/>
+        <On index="2" Terms="UnitRevive.Hvwd1"/>
+        <On index="3" Terms="UnitRevive.Hvwd1"/>
+        <On index="4" Terms="UnitConstruction.Hvwd1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hvwd1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hvwd1; !ScopeContains Hvwd"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hvwd1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hvwd1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hvwd1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hvwd1"/>
+        <On index="85" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Hvwd1Death" VoiceLink="Hvwd1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <GroupSoundArray index="What" value="Hvwd1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Hvwd1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Hvwd1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Hvwd1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+        <SoundArray index="Birth" value="Hvwd1_Birth"/>
+        <SoundArray index="Help" value="Hvwd1_Help"/>
+        <SoundArray index="Movement" value="Hvwd1_Movement"/>
+        <SoundArray index="Turning" value="Hvwd1_Turning"/>
+        <SoundArray index="Board" value="Hvwd1_Board"/>
+        <SoundArray index="Click" value="Hvwd1_Click"/>
+        <SoundArray index="ClickError" value="Hvwd1_ClickError"/>
+        <SoundArray index="Highlight" value="Hvwd1_Highlight"/>
+    </CActorUnit>
     <!--darkranger-->
     <CActorUnit id="Nbrn" unitName="Nbrn1" defType="MEDIUM">
         <On index="0" Terms="UnitBirth.Nbrn1" Send="Create SoundEmitter Nbrn1_Ambience"/>
@@ -295,6 +483,23 @@
         <SoundArray index="ClickError" value="Nbrn1_ClickError"/>
         <SoundArray index="Highlight" value="Nbrn1_Highlight"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--farseer-->
+    <CActorUnit id="Ofar" unitName="Ofar1" defType="NONE">
+        <On index="0" Terms="UnitBirth.Ofar1" Send="Create SoundEmitter Ofar1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Ofar1"/>
+        <On index="2" Terms="UnitRevive.Ofar1"/>
+        <On index="3" Terms="UnitRevive.Ofar1"/>
+        <On index="4" Terms="UnitConstruction.Ofar1.Start"/>
+        <On index="5" Terms="UnitConstruction.Ofar1.Finish"/>
+        <On index="67" Terms="UnitRevive.Ofar1; !ScopeContains Ofar"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Ofar1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Ofar1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ofar1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ofar1"/>
+        <On index="85" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
     <!--shadowhunter-->
     <CActorUnit id="Oshd" defType="NONE">
@@ -329,6 +534,7 @@
         <On index="85" removed="1"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <Scale value="1.000000"/>
     </CActorUnit>
     <!--cryptlord-->
     <CActorUnit id="Ucrl" unitName="Ucrl1" defType="MEDIUM">
@@ -358,6 +564,35 @@
         <SoundArray index="ClickError" value="Ucrl1_ClickError"/>
         <SoundArray index="Highlight" value="Ucrl1_Highlight"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--dreadlord-->
+    <CActorUnit id="Udre" unitName="Udre1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Udre1" Send="Create SoundEmitter Udre1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Udre1"/>
+        <On index="2" Terms="UnitRevive.Udre1"/>
+        <On index="3" Terms="UnitRevive.Udre1"/>
+        <On index="4" Terms="UnitConstruction.Udre1.Start"/>
+        <On index="5" Terms="UnitConstruction.Udre1.Finish"/>
+        <On index="67" Terms="UnitRevive.Udre1; !ScopeContains Udre"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Udre1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Udre1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Udre1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Udre1"/>
+        <DeathArray index="Normal" SoundLink="Udre1Death" VoiceLink="Udre1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <GroupSoundArray index="What" value="Udre1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Udre1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Udre1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Udre1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <SoundArray index="Birth" value="Udre1_Birth"/>
+        <SoundArray index="Help" value="Udre1_Help"/>
+        <SoundArray index="Movement" value="Udre1_Movement"/>
+        <SoundArray index="Turning" value="Udre1_Turning"/>
+        <SoundArray index="Board" value="Udre1_Board"/>
+        <SoundArray index="Click" value="Udre1_Click"/>
+        <SoundArray index="ClickError" value="Udre1_ClickError"/>
+        <SoundArray index="Highlight" value="Udre1_Highlight"/>
     </CActorUnit>
     <!--archer-->
     <CActorUnit id="earc">
@@ -427,6 +662,10 @@
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
     </CActorUnit>
+    <CActorSound id="ChargeKnight" parent="SoundContinuous">
+        <On Terms="Behavior.ChargingKnight.Create" Send="Create"/>
+        <On Terms="Behavior.ChargingKnight.Destroy" Send="Destroy"/>
+    </CActorSound>
     <!--militia-->
     <CActorUnit id="hmil">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>

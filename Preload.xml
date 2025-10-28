@@ -8,6 +8,7 @@
 <Race id="NightElf"/>
 <Race id="Orc"/>
 <Race id="Undead"/>
+<Sound id="HornOfCenariusSound" Variations="0"/>
 <Terrain id="BelShirEx2"/>
 <Unit id="hpea"/>
 <Unit id="opeo"/>

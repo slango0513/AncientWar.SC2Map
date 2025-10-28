@@ -5007,7 +5007,7 @@
     </Element>
     <Element Type="Param" Id="C654DC58">
         <ParameterDef Type="ParamDef" Library="GAwX" Id="514F410F"/>
-        <Value>Undead</Value>
+        <Value>Human</Value>
         <ValueType Type="gamelink"/>
         <ValueGameType Type="Race"/>
     </Element>
@@ -20561,6 +20561,7 @@
         <Action Type="FunctionCall" Id="3D15BF73"/>
         <Action Type="FunctionCall" Id="4CE517B8"/>
         <Action Type="FunctionCall" Id="C8C5DC5C"/>
+        <Action Type="FunctionCall" Id="1A3D48B9"/>
         <Action Type="FunctionCall" Id="A26B9C3B"/>
         <Action Type="FunctionCall" Id="CF61D4F3"/>
         <Action Type="FunctionCall" Id="49002435"/>
@@ -24988,6 +24989,41 @@
     <Element Type="Param" Id="8DBB07E0">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="4A15EC5F"/>
         <Variable Type="Variable" Id="DA663707"/>
+    </Element>
+    <Element Type="FunctionCall" Id="1A3D48B9">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="651D9322"/>
+        <Parameter Type="Param" Id="FBA9FDD9"/>
+        <Parameter Type="Param" Id="A7402C3E"/>
+        <Parameter Type="Param" Id="0658364C"/>
+        <Parameter Type="Param" Id="44358DD2"/>
+        <Parameter Type="Param" Id="05EFB21F"/>
+    </Element>
+    <Element Type="Param" Id="FBA9FDD9">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="4FD0F5E6"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="8229CCB3"/>
+    </Element>
+    <Element Type="Param" Id="A7402C3E">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="420B8251"/>
+        <FunctionCall Type="FunctionCall" Id="9FA06C0D"/>
+    </Element>
+    <Element Type="FunctionCall" Id="9FA06C0D">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000192"/>
+    </Element>
+    <Element Type="Param" Id="0658364C">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="83444B10"/>
+        <Value>100.0</Value>
+        <ValueType Type="fixed"/>
+    </Element>
+    <Element Type="Param" Id="44358DD2">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="1D1E66BC"/>
+        <Value>0.0</Value>
+        <ValueType Type="fixed"/>
+    </Element>
+    <Element Type="Param" Id="05EFB21F">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="B7793BD2"/>
+        <Value>HornOfCenariusSound</Value>
+        <ValueType Type="soundlink"/>
+        <ValueId Id="1"/>
     </Element>
     <Element Type="FunctionCall" Id="A26B9C3B">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000242"/>
@@ -31670,7 +31706,7 @@
         <Value Type="Param" Id="854F0990"/>
     </Element>
     <Element Type="Param" Id="854F0990">
-        <Value>-;Air,Missile,Cloaked,Dead,Hidden,Invulnerable</Value>
+        <Value>-;Air,Missile,Item,Cloaked,Dead,Hidden,Invulnerable</Value>
         <ValueType Type="unitfilter"/>
     </Element>
     <Element Type="FunctionCall" Id="36158AFE">

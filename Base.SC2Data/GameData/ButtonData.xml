@@ -10,16 +10,24 @@
         <Icon value="Assets\Textures\war3_btnchestofgold.dds"/>
         <AlertIcon value="Assets\Textures\war3_btnchestofgold.dds"/>
     </CButton>
+    <CButton id="ChargeKnight" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnanimalwartraining.dds"/>
     <CButton id="DebuffImmunity" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>
     <CButton id="Firebolt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfirebolt.dds"/>
     <CButton id="Frostbolt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfrostbolt.dds"/>
     <!--archmage-->
     <CButton id="Hamg"/>
     <CButton id="Hex" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhex.dds"/>
+    <!--mountainking-->
+    <CButton id="Hmkg"/>
     <CButton id="HonorShield" parent="War3_Button" art="Assets\Textures\war3_btnbarkskin.dds"/>
+    <!--sylvanuswindrunner-->
+    <CButton id="Hvwd"/>
     <CButton id="ImpaleAttack" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimpale.dds"/>
     <CButton id="LifePeriod" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstoneform.dds"/>
     <CButton id="MultiShot" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstrengthofthemoon.dds"/>
+    <!--farseer-->
+    <CButton id="Ofar"/>
+    <CButton id="Patchwork" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnabomination.dds"/>
     <CButton id="PillageGrunt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="PillageChaosGrunt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="PillageRaider" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>

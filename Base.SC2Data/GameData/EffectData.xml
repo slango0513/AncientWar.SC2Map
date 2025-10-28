@@ -1,9 +1,140 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <!--Priestess - Trueshot Aura Buff=BEar-->
+    <CEffectEnumArea id="AEarSearch">
+        <AreaArray index="0" Radius="9" Effect="BEarSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="AHabSearch">
+        <AreaArray index="0" Radius="9" Effect="BHabSet"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="AHhbDamage1">
+        <Amount value="25"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="AHhbE" parent="War3_AbilSearch">
+        <SearchFilters value="-;Structure,wall,tree,Missile,debris,item,ward,dead,Hidden,invulnerable,immunity"/>
+        <AreaArray Radius="2" Effect="AHhb"/>
+    </CEffectEnumArea>
+    <CEffectCreateHealer id="AHhbHeal1">
+        <RechargeVitalRate value="50"/>
+    </CEffectCreateHealer>
+    <CEffectDamage id="AHtbDamage1">
+        <Amount value="300"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="ANsi1Search">
+        <AreaArray index="0" Radius="2" Effect="ANsiBuffSet"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="AOcl1">
+        <AttributeBonus index="Light" value="450"/>
+        <Amount value="150"/>
+    </CEffectDamage>
+    <!--Dreadlord - Vampiric Aura Buff=BUav-->
+    <CEffectEnumArea id="AUavSearch">
+        <AreaArray index="0" Radius="9" Effect="BUavSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="AbofFullDamageSearch">
+        <SearchFilters value="-;player,allies,air,wall,tree,Missile,debris,item,ward,dead,invulnerable"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="AbofHalfDamageSearch">
+        <SearchFilters value="-;player,allies,air,wall,tree,Missile,debris,item,ward,dead,invulnerable"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="Bsta">
+        <ValidatorArray value="NonPowerfulUnit"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ChargeKnight" parent="War3_ApplyBuff">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ChargingKnight"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="ChargeKnightEnumArea">
+        <SearchFilters value="-;player,allies,neutral,air,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable"/>
+        <AreaArray Radius="0.625" Effect="ChargeKnightInitialSet"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+    </CEffectEnumArea>
+    <CEffectSet id="ChargeKnightSet">
+        <EffectArray value="ChargeKnightApplyForce"/>
+        <EffectArray value="ChargeKnightController"/>
+    </CEffectSet>
+    <CEffectSet id="ChargeKnightInitialSet">
+        <EffectArray value="ChargeKnightCreatePersistent"/>
+        <EffectArray value="ChargingKnightInitialRemover"/>
+        <EffectArray value="MoraleBoostingSearch"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="ChargeKnightCreatePersistent">
+        <InitialEffect value="ChargeKnightInitial"/>
+        <PeriodCount value="8"/>
+        <PeriodicEffectArray value="ChargeKnightInitial"/>
+        <PeriodicPeriodArray value="0.0625"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyForce id="ChargeKnightApplyForce">
+        <Amount value="1"/>
+    </CEffectApplyForce>
+    <CEffectApplyBehavior id="ChargeKnightController">
+        <ValidatorArray index="0" value="NoChargeKnightController"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="ChargeKnightInitial">
+        <SearchFilters value="-;player,allies,neutral,air,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable"/>
+        <AreaArray Radius="0.5" RadiusBonus="0.25" Effect="ChargeKnightSet"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="ChargeKnightHeight"/>
+    <CEffectModifyUnit id="ChargeKnightRaise">
+        <Height value="2.625"/>
+        <HeightTime value="0.75"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="ChargeKnightLower">
+        <Height value="-2.625"/>
+        <HeightTime value="1"/>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="ChargeKnightStun"/>
+    <CEffectApplyBehavior id="ChargingKnightInitialRemover">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ChargingKnightRemover"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="ChargingKnightRemover">
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="ChargingKnight"/>
+        <Count value="1"/>
+    </CEffectRemoveBehavior>
     <CEffectLaunchMissile id="Hgam1LM">
         <ImpactEffect value="Hgam1S"/>
         <AmmoUnit value="nhym1LM"/>
     </CEffectLaunchMissile>
+    <CEffectDamage id="Hmkg1">
+        <AttributeFactor index="medium" value="0.5"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="fortified" value="-0.3"/>
+        <Amount value="120"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="Hpal1">
+        <AttributeFactor index="medium" value="0.5"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="fortified" value="-0.3"/>
+        <Amount value="48"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="HurtEnemySummoned200">
+        <Amount value="100"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="MoraleBoosting" parent="War3_ApplyBuff"/>
+    <CEffectEnumArea id="MoraleBoostingSearch" parent="War3_AbilSearch">
+        <SearchFilters value="-;neutral,enemies,Structure,wall,tree,Missile,debris,item,ward,dead,Hidden"/>
+        <AreaArray Radius="500" Effect="MoraleBoosting"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="Ofar1">
+        <AttributeFactor index="small" value="0.25"/>
+        <AttributeFactor index="medium" value="-0.25"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="large" value="1"/>
+        <AttributeFactor index="fortified" value="-0.65"/>
+        <Amount value="120"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Patchwork" parent="War3_ApplyBuff"/>
+    <CEffectEnumArea id="PatchworkSearch" parent="War3_AbilSearch">
+        <ImpactLocation Value="CasterUnit"/>
+        <SearchFilters value="-;neutral,enemies,air,Structure,wall,tree,Missile,debris,item,ward,dead,Hidden,invulnerable"/>
+        <AreaArray Radius="7.5" Effect="Patchwork"/>
+        <MaxCount value="1"/>
+    </CEffectEnumArea>
     <CEffectDamage id="ubsp1">
         <AttributeFactor index="small" value="1"/>
         <AttributeFactor index="unarmored" value="0.5"/>
@@ -40,11 +171,8 @@
     </CEffectSet>
     <CEffectApplyBehavior id="ANsi1Dur">
         <ValidatorArray value="NonPowerfulUnit"/>
-        <Duration value="10"/>
+        <Duration value="15"/>
     </CEffectApplyBehavior>
-    <CEffectEnumArea id="ANsi1Search">
-        <AreaArray index="0" Radius="3" Effect="ANsiBuffSet"/>
-    </CEffectEnumArea>
     <!--Chieftain - Endurance Aura Buff=BOae-->
     <CEffectEnumArea id="AOaeSearch">
         <AreaArray index="0" Radius="9" Effect="BOaeSet"/>
@@ -181,8 +309,8 @@
         <SearchFilters value="ground;player,allies,neutral,wall,tree,Missile,debris,item,structure,ward,dead,Hidden"/>
     </CEffectEnumArea>
     <CEffectDamage id="AwarAoEDamage">
-        <AreaArray index="0" Radius="3" Bonus="50" Fraction="1"/>
-        <AreaArray index="1" Radius="4.5" Bonus="25" Fraction="1"/>
+        <AreaArray index="0" Radius="1.5" Bonus="50" Fraction="1"/>
+        <AreaArray index="1" Radius="3" Bonus="25" Fraction="1"/>
     </CEffectDamage>
     <CEffectDamage id="BEerDPS1">
         <Amount value="50"/>
@@ -257,6 +385,7 @@
         <AreaArray Radius="0.625" Bonus="24"/>
         <AreaArray Radius="1.25" Bonus="12"/>
         <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
+        <Alert value="DAMAGE_MAGIC"/>
     </CEffectDamage>
     <CEffectDamage id="Hgam1">
         <AttributeFactor index="small" value="0.25"/>
@@ -267,6 +396,7 @@
         <Amount value="60"/>
         <Random value="0"/>
         <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
+        <Alert value="DAMAGE_MAGIC"/>
     </CEffectDamage>
     <CEffectIssueOrder id="ManaFlareIssueOrder">
         <WhichUnit Value="Caster"/>
@@ -626,8 +756,12 @@
     </CEffectDamage>
     <CEffectDamage id="nfgl1">
         <AttributeFactor index="divine" value="0"/>
-        <Amount value="288"/>
+        <Amount value="144"/>
         <Random value="0"/>
+        <AreaArray Radius="0.3906" Fraction="1"/>
+        <AreaArray Radius="0.7812" Fraction="0.75"/>
+        <AreaArray Radius="1.1718" Fraction="0.5"/>
+        <SearchFilters value="-;player,allies,air,tree,Missile,item,ward,ethereal,dead,invulnerable"/>
     </CEffectDamage>
     <CEffectDamage id="nhym1">
         <AttributeFactor index="divine" value="0"/>
@@ -654,6 +788,7 @@
         <AreaArray Radius="0.7812" Fraction="0.75"/>
         <AreaArray Radius="1.1718" Fraction="0.5"/>
         <Random value="0"/>
+        <SearchFilters value="-;player,allies,air,tree,Missile,item,ward,ethereal,dead,invulnerable"/>
     </CEffectDamage>
     <CEffectCreateUnit id="nmgr">
         <SpawnUnit value="nmgr"/>
@@ -729,7 +864,7 @@
     <CEffectDamage id="ocat1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="192"/>
+        <Amount value="144"/>
         <Random value="0"/>
         <AreaArray index="0" Radius="1" Fraction="1"/>
         <AreaArray index="1" Radius="1.5" Fraction="0.6667"/>
@@ -791,7 +926,6 @@
     <!--Stasis Trap Dur=150 HeroDur=2.5 Buff=Bstt StunBuff=Bsta-->
     <CEffectCreateUnit id="otot">
         <WhichLocation Value="TargetUnit"/>
-        <SpawnOffset value="0,1"/>
     </CEffectCreateUnit>
     <CEffectDamage id="uabo1">
         <AttributeFactor index="divine" value="0"/>
@@ -801,7 +935,7 @@
     <CEffectDamage id="uban1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="48"/>
+        <Amount value="24"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="ucry1">
