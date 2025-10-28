@@ -50,8 +50,6 @@
     <!--Warden - Fan of Knives-->
     <CEffectEnumArea id="AEfk1Search">
         <MaxCount value="6"/>
-        <SearchFilters value="Visible;player,allies,neutral,air,mechanical,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable,immunity"/>
-        <AreaArray index="0" Radius="3" Effect="AEfkMissile"/>
     </CEffectEnumArea>
     <!--Demon Hunter - Mana Burn-->
     <CEffectSet id="AEmb1">
@@ -409,16 +407,21 @@
     <CEffectDamage id="HurtEnemySummoned200">
         <Amount value="100"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="EtherealStrikeCaster" parent="War3_AugmentApply"/>
     <CEffectApplyBehavior id="MortalStrikeCaster" parent="War3_AugmentApply"/>
     <CEffectCreateHealer id="MortalStrikeMana" parent="War3_InstantHeal">
         <ImpactUnit Value="Caster"/>
         <RechargeVitalRate value="12.5"/>
         <RechargeVital value="Energy"/>
     </CEffectCreateHealer>
+    <CEffectSet id="EtherealStrikeSet">
+        <EffectArray value="EtherealStrike"/>
+    </CEffectSet>
     <CEffectSet id="MortalStrikeSet">
         <EffectArray value="MortalStrike"/>
         <EffectArray value="MortalStrikeMana"/>
     </CEffectSet>
+    <CEffectApplyBehavior id="EtherealStrike" parent="War3_ApplyBuff"/>
     <CEffectApplyBehavior id="MortalStrike" parent="War3_ApplyBuff"/>
     <CEffectDamage id="Nbbc1" parent="War3_ChaosDamage">
         <Kind value="Melee"/>
@@ -438,6 +441,9 @@
     <CEffectCreatePersistent id="Xclf">
         <PeriodCount value="15"/>
     </CEffectCreatePersistent>
+    <CEffectCreateUnit id="YoinkStartCreatePlaceholder">
+        <SpawnUnit value="uplg"/>
+    </CEffectCreateUnit>
     <CEffectDamage id="ebal1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="large" value="0.5"/>
@@ -529,7 +535,7 @@
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="ninm1">
-        <VitalFractionMax index="Life" value="0.02"/>
+        <VitalFractionMax index="Life" value="0.05"/>
         <Random value="0"/>
         <AreaArray index="0" removed="1"/>
         <AreaArray index="1" removed="1"/>
@@ -553,7 +559,7 @@
         <Marker>
             <MatchFlags index="Id" value="1"/>
         </Marker>
-        <PeriodCount value="6"/>
+        <PeriodCount value="9"/>
         <PeriodicEffectArray value="AHhbE"/>
         <PeriodicPeriodArray value="0.0625"/>
     </CEffectCreatePersistent>
@@ -584,6 +590,7 @@
     <!--Dreadlord - Vampiric Aura Buff=BUav-->
     <CEffectEnumArea id="AUavSearch">
         <AreaArray index="0" Radius="9" Effect="BUavSet"/>
+        <SearchFilters value="-;neutral,enemies,wall,tree,Missile,debris,item,structure,ward,dead,Hidden"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="AUdcSearch" parent="War3_AbilSearch">
         <SearchFilters value="-;Structure,wall,tree,Missile,debris,item,ward,dead,Hidden,invulnerable,immunity"/>
@@ -942,10 +949,10 @@
         <AreaArray index="0" Radius="12" Effect="Broa"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="ArplSearch">
-        <AreaArray index="0" MaxCount="6" Radius="6" Effect="Brpl"/>
+        <AreaArray index="0" MaxCount="9" Radius="9" Effect="Brpl"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="ArpmSearch">
-        <AreaArray index="0" MaxCount="6" Radius="6" Effect="Brpm"/>
+        <AreaArray index="0" MaxCount="9" Radius="9" Effect="Brpm"/>
     </CEffectEnumArea>
     <!--Taunt-->
     <CEffectEnumArea id="AtauSearch">

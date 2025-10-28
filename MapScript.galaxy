@@ -794,10 +794,11 @@ void gt_AsplRegister_Init () {
 bool gt_InitMap_Func (bool testConds, bool runActions) {
     playergroup auto4750D82E_g;
     int auto4750D82E_p;
-    int autoF6CC160A_ae;
-    int autoF6CC160A_ai;
+    string auto9A9E48C8_val;
     int auto8D94123B_ae;
     int auto8D94123B_ai;
+    int auto82508E67_ae;
+    int auto82508E67_ai;
 
     // Variable Declarations
     int lv_p;
@@ -876,11 +877,24 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     gv_textPhalanx[3] = StringExternal("Param/Value/7A840C97");
     gv_fixedTime = 40.0;
     gv_fixedTimeLastRound = 120.0;
-    if ((gv_gameMode == "0002")) {
+    auto9A9E48C8_val = gv_gameMode;
+    if (auto9A9E48C8_val == "0001") {
         auto8D94123B_ae = 16;
         auto8D94123B_ai = 1;
         lv_r = 1;
         for ( ; ( (auto8D94123B_ai >= 0 && lv_r <= auto8D94123B_ae) || (auto8D94123B_ai <= 0 && lv_r >= auto8D94123B_ae) ) ; lv_r += auto8D94123B_ai ) {
+            gv_intG[lv_r] = 225;
+        }
+        gv_intG[1] = 75;
+        gv_intG[2] = 75;
+        gv_intG[3] = 150;
+        gv_intG[4] = 150;
+    }
+    else if (auto9A9E48C8_val == "0002") {
+        auto82508E67_ae = 16;
+        auto82508E67_ai = 1;
+        lv_r = 1;
+        for ( ; ( (auto82508E67_ai >= 0 && lv_r <= auto82508E67_ae) || (auto82508E67_ai <= 0 && lv_r >= auto82508E67_ae) ) ; lv_r += auto82508E67_ai ) {
             gv_intG[lv_r] = 270;
         }
         gv_intG[1] = 90;
@@ -889,16 +903,6 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         gv_intG[4] = 180;
     }
     else {
-        autoF6CC160A_ae = 16;
-        autoF6CC160A_ai = 1;
-        lv_r = 1;
-        for ( ; ( (autoF6CC160A_ai >= 0 && lv_r <= autoF6CC160A_ae) || (autoF6CC160A_ai <= 0 && lv_r >= autoF6CC160A_ae) ) ; lv_r += autoF6CC160A_ai ) {
-            gv_intG[lv_r] = 225;
-        }
-        gv_intG[1] = 75;
-        gv_intG[2] = 75;
-        gv_intG[3] = 150;
-        gv_intG[4] = 150;
     }
     Wait(2.0, c_timeGame);
     TriggerExecute(gt_InitPlayer, true, false);

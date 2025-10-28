@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CButton id="BloodTransmission" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnengineeringupgrade.dds"/>
+    <CButton id="EtherealArmor" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnadvancedunholyarmor.dds"/>
+    <CButton id="EtherealStrike" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngrimward.dds"/>
+    <CButton id="YoinkUabo" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimprovedunholystrength.dds"/>
     <CButton id="nina">
         <Icon value="Assets\Textures\BTN\Renee_war3_btninfernalcannon.dds"/>
         <AlertIcon value="Assets\Textures\BTN\Renee_war3_btninfernalcannon.dds"/>
@@ -32,10 +36,7 @@
     <CButton id="FreedomAura" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btntransmute.dds"/>
     <CButton id="InfernalArmor" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnundeadtransport.dds">
         <Name value="InfernoArmor/Tip"/>
-        <Tooltip value="InfernoArmor/Ubertip"/>
         <AlertName value="InfernoArmor/Tip"/>
-        <AlertTooltip value="InfernoArmor/Ubertip"/>
-        <Hotkey value="InfernoArmor/Hotkey"/>
     </CButton>
     <CButton id="InfernalCanon" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btninfernalflamecannon.dds">
         <Name value="InfernoCanon/Tip"/>

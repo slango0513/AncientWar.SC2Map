@@ -271,7 +271,7 @@
     <!--Liquid Fire Dur=3 HeroDur=3 Buff=Bliq-->
     <CBehaviorBuff id="Aliq">
         <Requirements value=""/>
-        <DamageResponse TargetFilters="-;player,allies,air,wall,tree,debris,item,ward,dead"/>
+        <DamageResponse TargetFilters="-;Player,Ally,Air,Hover,HarvestableResource,Destructible,Item,Buried,Dead"/>
     </CBehaviorBuff>
     <!--Moon Glaive-->
     <CBehaviorBuff id="Amgl">
@@ -553,12 +553,28 @@
     <CBehaviorBuff id="Brpl">
         <RefreshEffect value="BrplHeal"/>
     </CBehaviorBuff>
+    <!--ReplenishMana-->
+    <CBehaviorBuff id="Brpm">
+        <MaxStackCount value="0"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Modification>
+            <VitalRegenArray index="Energy" value="5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EtherealArmor" parent="War3_Passive">
+        <DamageResponse Chance="1" Minimum="96" ModifyFraction="0.25"/>
+        <DisableValidatorArray value="CasterHasBUau1"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="Bugf" parent="War3_Passive">
         <DisableValidatorArray value="CasterHasBUav1"/>
         <Modification AttackSpeedMultiplier="2">
             <DamageDealtScaled index="Melee" value="30"/>
             <DamageDealtScaled index="Ranged" value="30"/>
         </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BloodTransmission" parent="War3_Passive">
+        <DisableValidatorArray value="CasterHasBUav1"/>
+        <Modification AttackSpeedMultiplier="3"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Buar" parent="War3_Passive">
         <DisableValidatorArray value="CasterHasBUau1"/>
@@ -624,10 +640,13 @@
     <CBehaviorBuff id="InfernalArmor" parent="War3_Passive">
         <Name value="InfernoArmor/Name"/>
         <Requirements value="InfernalArmor"/>
-        <DamageResponse Chance="1" ModifyFraction="0.75">
+        <DamageResponse Chance="1" ModifyFraction="0.5">
             <Kind index="Spell" value="0"/>
             <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
         </DamageResponse>
+        <DisableValidatorArray value="CasterHasBUau1"/>
+        <Modification LifeArmorBonus="15"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MirrorArmour" parent="War3_Passive">
         <Requirements value="MirrorArmour"/>
@@ -637,13 +656,26 @@
             <Kind index="Splash" value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="EtherealStrikeCaster" parent="War3_Passive">
+        <Requirements value="EtherealStrikeCaster"/>
+        <DamageResponse>
+            <Chance value="1"/>
+            <Handled value="EtherealStrikeSet"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally"/>
+            <Kind index="Spell" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+        </DamageResponse>
+        <Duration value="1.5"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="MortalStrikeCaster" parent="War3_Passive">
         <Requirements value="MortalStrikeCaster"/>
         <DamageResponse>
             <Chance value="1"/>
             <Handled value="MortalStrikeSet"/>
             <Location value="Attacker"/>
-            <TargetFilters value="-;player,allies"/>
+            <TargetFilters value="-;Player,Ally"/>
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
@@ -1809,6 +1841,17 @@
             <StateFlags index="Invulnerable" value="1"/>
         </Modification>
         <RemoveValidatorArray value="NoBuilding"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="EtherealStrike" parent="War3_Buff">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngrimward.dds"/>
+        <MaxStackCount value="3"/>
+        <Duration value="30"/>
+        <DurationOverride index="0" Duration="6">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+        <Modification HealTakenMultiplier="0.67"/>
+        <MaxStackCountPerCaster value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MortalStrike" parent="War3_Buff">
         <Alignment value="Negative"/>

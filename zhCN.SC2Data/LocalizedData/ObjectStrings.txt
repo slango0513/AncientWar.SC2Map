@@ -37,6 +37,7 @@ Behavior/EditorSuffix/PillageRaider=狼骑兵
 Behavior/EditorSuffix/UnholyDominanceExtra=Extra
 Behavior/EditorSuffix/hgry12=1
 Behavior/Name/HonorSpearBuffDeathResponse=荣誉之矛增益死亡响应
+BloodTransmission/Name=血液传动
 Buar/Name=邪恶护甲
 Bugf/Name=食尸鬼狂暴
 Building/Name=建筑
@@ -150,6 +151,7 @@ Effect/EditorSuffix/StoneFormExtra=Extra
 Effect/EditorSuffix/StoneFormUnExtra=Extra
 Effect/EditorSuffix/hgry1RectangeSearch2=(PH, Wait for Rectange Search!)
 Effect/EditorSuffix/hgry1RectangeSearch3=(PH, Wait for Rectange Search!)
+EtherealArmor/Name=虚无护甲
 FreedomAura/Name=自由行动光环
 FrostWyrmInvulnerable/Name=冰霜巨龙无敌
 FuryBuff/Name=狂怒增益
@@ -184,6 +186,7 @@ Requirement/EditorSuffix/ItemLevel2=2
 Requirement/EditorSuffix/ItemLevel3=3
 Requirement/Name/Asud=出售单位
 Requirement/Name/Final=决赛
+Requirement/Name/HasBUav1=有吸血光环
 Requirement/Name/HasBuilding=有建筑
 Requirement/Name/HasNoBuilding=没有建筑
 Requirement/Name/ItemLevel=物品等级
@@ -193,6 +196,7 @@ Requirement/Name/Pause=回合结束
 Requirement/Name/SkeletonsLT73=SkeletonsLT73
 RequirementNode/Name/73=73
 RequirementNode/Name/AndCountBehaviorBuildingCompleteOnlyAtUnitCountUpgradePauseCompleteOnly=CountBehavior(Building,CompleteOnlyAtUnit) && CountUpgrade(Pause,CompleteOnly)
+RequirementNode/Name/CountBehaviorBUav1CompleteOnlyAtUnit=CountBehavior(BUav1,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorBuildingCompleteOnlyAtUnit=CountBehavior(Building,CompleteOnlyAtUnit)
 RequirementNode/Name/CountUnitnscaCompleteOnly=CountUnit(nsca,CompleteOnly)
 RequirementNode/Name/CountUpgradeFinalCompleteOnly=CountUpgrade(Final,CompleteOnly)
@@ -205,6 +209,7 @@ RequirementNode/Name/EqCountUpgradeItemLevelCompleteOnly2=CountUpgrade(ItemLevel
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter0=CountUpgrade(ItemLevel,QueuedOrBetter) == 0
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter1=CountUpgrade(ItemLevel,QueuedOrBetter) == 1
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter2=CountUpgrade(ItemLevel,QueuedOrBetter) == 2
+RequirementNode/Name/GTECountBehaviorBUav1CompleteOnlyAtUnit2=CountBehavior(BUav1,CompleteOnlyAtUnit) >= 2
 RequirementNode/Name/LTSumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly73=(CountUnit(uskm,CompleteOnly) + CountUnit(uske,CompleteOnly) + CountUnit(nsca,CompleteOnly)) < 73
 RequirementNode/Name/SumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly=CountUnit(uskm,CompleteOnly) + CountUnit(uske,CompleteOnly) + CountUnit(nsca,CompleteOnly)
 ShieldWallPassive/Name=盾墙被动

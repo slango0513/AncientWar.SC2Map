@@ -988,6 +988,7 @@
             <Cooldown TimeUse="15"/>
         </Cost>
         <TargetSorts RequestCount="1">
+            <SortArray value="TSEnergyLargestFirst"/>
             <SortArray value="TSLifeLargestFirst"/>
         </TargetSorts>
         <Range index="0" value="9"/>
@@ -996,7 +997,7 @@
         <AutoCastFilters value="Visible;Neutral,Enemy,Invulnerable"/>
         <AutoCastValidatorArray value="NoAntiMagicShell"/>
         <AutoCastValidatorArray value="noMarkers"/>
-        <AutoCastValidatorArray value="TargetLifeGT25"/>
+        <AutoCastValidatorArray value="TargetLifeGT1"/>
         <UninterruptibleArray index="Approach" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
@@ -1312,6 +1313,9 @@
         <Cost index="0">
             <Vital index="Energy" value="5"/>
         </Cost>
+        <Range value="9"/>
+        <AutoCastFilters value="Visible;Neutral,Enemy"/>
+        <AutoCastRange value="9"/>
     </CAbilEffectInstant>
     <!--Replenish (Mana) Dur=1 HeroDur=1 Buff=Brpm cast=6-->
     <CAbilEffectInstant id="Arpm">
@@ -1320,7 +1324,9 @@
             <Vital index="Energy" value="0"/>
             <Cooldown Location="Unit" TimeUse="30"/>
         </Cost>
-        <AutoCastValidatorArray index="0" removed="1"/>
+        <Range index="0" value="9"/>
+        <AutoCastFilters value="Visible;Neutral,Enemy"/>
+        <AutoCastRange value="9"/>
         <UninterruptibleArray index="Wait" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
@@ -1716,6 +1722,12 @@
         <InfoArray/>
         <CmdButtonArray index="Take" DefaultButtonFace="Take"/>
     </CAbilInventory>
+    <CAbilAugment id="EtherealStrike" parent="War3_Augment">
+        <AbilCmd value="Aatk,Execute"/>
+        <Effect value="EtherealStrikeCaster"/>
+        <AutoCastFilters value="Visible;Player,Ally,Psionic,Hover,HarvestableResource,Destructible,Item,Buried,Invulnerable,MapBoss"/>
+        <AutoCastValidatorArray value="CasterHasBUav1"/>
+    </CAbilAugment>
     <CAbilAugment id="MortalStrike" parent="War3_Augment">
         <AbilCmd value="Aatk,Execute"/>
         <Effect value="MortalStrikeCaster"/>
@@ -2468,6 +2480,28 @@
     <CAbilPawn id="War3_Pawn">
         <Range value="500"/>
     </CAbilPawn>
+    <CAbilEffectTarget id="YoinkUabo" parent="War3_EffectTarget">
+        <Alignment value="Negative"/>
+        <Effect index="0" value="YoinkStartCreatePlaceholder"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost index="0">
+            <Cooldown Location="Unit" TimeUse="60"/>
+        </Cost>
+        <TargetFilters index="0" value="-;air,wall,tree,Missile,debris,item,structure,ward,dead,invulnerable"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSLife"/>
+            <SortArray value="TSFarthestDistance"/>
+        </TargetSorts>
+        <Range value="21"/>
+        <AutoCastRange value="21"/>
+        <AutoCastValidatorArray value="noMarkers"/>
+        <AutoCastValidatorArray value="TargetLifeGT1"/>
+        <AutoCastValidatorArray value="NonPowerfulUnit"/>
+        <AutoCastValidatorArray value="NoBNso"/>
+        <AutoCastValidatorArray value="NoBNdo"/>
+        <CmdButtonArray index="Execute" Requirements="YoinkUabo"/>
+    </CAbilEffectTarget>
     <CAbilStop id="stop">
         <CmdButtonArray index="Stop" Requirements="HasNoBuilding"/>
     </CAbilStop>

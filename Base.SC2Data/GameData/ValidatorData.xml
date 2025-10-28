@@ -14,6 +14,9 @@
     <CValidatorLocationCompareRange id="AHdrMaxRange">
         <Range value="12"/>
     </CValidatorLocationCompareRange>
+    <CValidatorLocationEnumArea id="DamagedFriendNearBy">
+        <AreaArray index="0" Radius="6" Validator="HealingAutoCastTargetFilter"/>
+    </CValidatorLocationEnumArea>
     <CValidatorUnitCompareBehaviorCount id="HasBspl">
         <Compare value="GT"/>
         <Behavior value="Bspl"/>
@@ -93,6 +96,9 @@
     <CValidatorUnitCompareBehaviorCount id="NoPerparing">
         <Behavior value="Preparing"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorLocationEnumArea id="NotFullManaFriendNearBy">
+        <AreaArray index="0" Radius="6" Validator="ManaRechargeAutoCastTargetFilter"/>
+    </CValidatorLocationEnumArea>
     <CValidatorUnitCompareVital id="TargetLifeLT500">
         <Compare value="LT"/>
         <Value value="500"/>
