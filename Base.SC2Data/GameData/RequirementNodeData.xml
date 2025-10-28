@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CRequirementConst id="37">
+    <CRequirementConst id="73">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <Value value="37"/>
+        <Value value="73"/>
     </CRequirementConst>
     <CRequirementAnd id="AndCountBehaviorBuildingCompleteOnlyAtUnitCountUpgradePauseCompleteOnly">
         <OperandArray value="CountBehaviorBuildingCompleteOnlyAtUnit"/>
@@ -14,7 +14,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountUnit id="CountUnitnscaCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="nsca" State="CompleteOnly"/>
     </CRequirementCountUnit>
     <CRequirementCountUpgrade id="CountUpgradeFinalCompleteOnly">
@@ -57,13 +56,12 @@
         <OperandArray index="0" value="CountUpgradeItemLevelQueuedOrBetter"/>
         <OperandArray index="1" value="2"/>
     </CRequirementEq>
-    <CRequirementLT id="LTSumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly37">
+    <CRequirementLT id="LTSumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly73">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="SumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly"/>
-        <OperandArray index="1" value="37"/>
+        <OperandArray index="1" value="73"/>
     </CRequirementLT>
     <CRequirementSum id="SumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnituskmCompleteOnly"/>
         <OperandArray value="CountUnituskeCompleteOnly"/>
         <OperandArray value="CountUnitnscaCompleteOnly"/>

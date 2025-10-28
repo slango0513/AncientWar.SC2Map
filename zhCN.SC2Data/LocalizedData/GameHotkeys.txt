@@ -1,5 +1,6 @@
 ﻿ANgl/Hotkey=V
 ANlg/Hotkey=B
+Aabs/Hotkey=
 Ablo/Hotkey=
 Absk/Hotkey=
 Asud/Hotkey=B
@@ -80,6 +81,7 @@ otau/Hotkey=W
 otbk/Hotkey=Q
 uabo/Hotkey=E
 uban/Hotkey=C
+ubsp/Hotkey=Q
 ucry/Hotkey=S
 ufro/Hotkey=Q
 ugar/Hotkey=A

@@ -21,6 +21,8 @@ void InitLibs () {
 //--------------------------------------------------------------------------------------------------
 // Constants
 //--------------------------------------------------------------------------------------------------
+const string gv_awarController = "AwarController";
+const int gv_bj_MAX_SKELETONS = 73;
 const fixed gv_asplRadius = 5.0;
 const fixed gv_asplSplitFactor = 0.05;
 const int gv_asplMaxTargets = 4;
@@ -28,6 +30,7 @@ const int gv_asplMaxTargets = 4;
 //--------------------------------------------------------------------------------------------------
 // Global Variables
 //--------------------------------------------------------------------------------------------------
+unitfilter gv_awarFilter;
 unitfilter gv_aOclTargetFilter;
 unitfilter gv_asplTargetFilter;
 text gv_info;
@@ -95,6 +98,7 @@ void InitGlobals () {
     int init_i;
     int init_j;
 
+    gv_awarFilter = UnitFilter(0, 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterAlly) | (1 << c_targetFilterAir) | (1 << c_targetFilterHover) | (1 << c_targetFilterHarvestableResource) | (1 << c_targetFilterDestructible) | (1 << c_targetFilterItem) | (1 << c_targetFilterPreventDefeat), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterInvulnerable - 32)));
     gv_aOclTargetFilter = UnitFilter((1 << c_targetFilterVisible), 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterAlly) | (1 << c_targetFilterGround) | (1 << c_targetFilterMechanical) | (1 << c_targetFilterHover) | (1 << c_targetFilterHarvestableResource) | (1 << c_targetFilterDestructible) | (1 << c_targetFilterItem) | (1 << c_targetFilterPreventDefeat), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterUnstoppable - 32)));
     gv_asplTargetFilter = UnitFilter(0, 0, (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMechanical) | (1 << c_targetFilterHover) | (1 << c_targetFilterHarvestableResource) | (1 << c_targetFilterMissile) | (1 << c_targetFilterDestructible) | (1 << c_targetFilterItem) | (1 << c_targetFilterPreventDefeat), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterUnstoppable - 32)));
     gv_info = StringExternal("Param/Value/6A6122E9");
@@ -135,6 +139,8 @@ void gf_UnitInventoryCreate (unit lp_u, unit lp_item);
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
+trigger gt_AwarTargetCheck;
+trigger gt_AraiSummonCount;
 trigger gt_AOclImpact;
 trigger gt_AsplMarker;
 trigger gt_AsplSplitTemplate;
@@ -296,6 +302,77 @@ void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
     OrderSetTargetItem(lv_dropOrder, lv_newItem);
     UnitIssueOrder(libGAwX_gv_god, OrderTargetingUnit(AbilityCommand("TodGodInventory", 2), lv_newItem), c_orderQueueReplace);
     UnitIssueOrder(libGAwX_gv_god, lv_dropOrder, c_orderQueueAddToEnd);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Awar - Target Check
+//--------------------------------------------------------------------------------------------------
+bool gt_AwarTargetCheck_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_caster;
+    unit lv_target;
+    int lv_player;
+
+    // Variable Initialization
+    lv_caster = EventUnit();
+    lv_target = EventUnitTarget();
+    lv_player = EventPlayer();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((UnitFilterMatch(lv_target, lv_player, gv_awarFilter) == true)) {
+        UnitBehaviorRemove(lv_caster, gv_awarController, c_unitBehaviorCountAll);
+    }
+    else {
+        UnitBehaviorAdd(lv_caster, gv_awarController, lv_caster, 1);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AwarTargetCheck_Init () {
+    gt_AwarTargetCheck = TriggerCreate("gt_AwarTargetCheck_Func");
+    TriggerAddEventUnitStartedAttack2(gt_AwarTargetCheck, null, "otau1");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Arai - Summon Count
+//--------------------------------------------------------------------------------------------------
+bool gt_AraiSummonCount_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_u;
+    int lv_p;
+    int lv_c;
+    int lv_i;
+    unit lv_ukill;
+    unitgroup lv_ug;
+
+    // Variable Initialization
+    lv_u = EventUnitCreatedUnit();
+    lv_p = UnitGetOwner(lv_u);
+    lv_ug = libGAwX_gv_playerSkeletons[lv_p];
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupAdd(lv_ug, lv_u);
+    while ((UnitGroupCount(lv_ug, c_unitCountAlive) > gv_bj_MAX_SKELETONS)) {
+        lv_ukill = UnitGroupUnit(lv_ug, 1);
+        UnitGroupRemove(lv_ug, lv_ukill);
+        UnitKill(lv_ukill);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AraiSummonCount_Init () {
+    gt_AraiSummonCount = TriggerCreate("gt_AraiSummonCount_Func");
+    TriggerAddEventUnitCreated(gt_AraiSummonCount, null, "Arai", null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -570,6 +647,8 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     TriggerEnable(libGAwX_gt_AsplMarker, false);
     TriggerEnable(libGAwX_gt_AsplRegister, false);
     TriggerEnable(libGAwX_gt_AOclImpact, false);
+    TriggerEnable(libGAwX_gt_AraiSummonCount, false);
+    TriggerEnable(libGAwX_gt_AwarTargetCheck, false);
     BankLoad("AncientWar", 1);
     gv_bank[1] = BankLastCreated();
     BankLoad("AncientWar", 2);
@@ -2852,6 +2931,8 @@ void gt_PlayerLeft_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
+    gt_AwarTargetCheck_Init();
+    gt_AraiSummonCount_Init();
     gt_AOclImpact_Init();
     gt_AsplMarker_Init();
     gt_AsplSplitTemplate_Init();

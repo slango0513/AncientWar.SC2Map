@@ -255,6 +255,10 @@
         <Range value="2"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="nba22">
+        <MinScanRange value="1"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
     <!--bandit-->
     <CWeaponLegacy id="nban1">
         <MinScanRange value="0.7812"/>
@@ -501,11 +505,12 @@
     </CWeaponLegacy>
     <!--Skeletal Mage-->
     <CWeaponLegacy id="uskm1" atkType="MAGIC">
-        <MinScanRange value="3"/>
-        <Range value="3"/>
+        <MinScanRange value="2"/>
+        <Range value="2"/>
         <Period value="3"/>
         <Name value="DAMAGE_MAGIC"/>
         <Tip value="DAMAGETIP_MAGIC"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
 </Catalog>

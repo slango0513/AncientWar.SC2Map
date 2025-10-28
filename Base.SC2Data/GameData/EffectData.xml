@@ -16,15 +16,35 @@
     <CEffectEnumArea id="AdisSearch">
         <AreaArray index="0" Radius="2" Effect="DispelAllBuffsAndHurtEnemySummoned200"/>
     </CEffectEnumArea>
+    <!--Devour Magic-->
+    <CEffectSet id="Advm">
+        <EffectArray index="0" value="AdvmSearchB"/>
+        <EffectArray index="1" removed="1"/>
+    </CEffectSet>
+    <CEffectEnumArea id="AdvmSearchA">
+        <AreaArray index="0" Radius="2" Effect="AdvmMissile"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="AdvmSearchB">
+        <AreaArray index="0" Radius="1" Effect="DispelAllBuffsAndHurtEnemySummoned180AndDispelOwl"/>
+    </CEffectEnumArea>
     <CEffectSet id="AraiSummonLv3">
         <EffectArray value="uske"/>
         <EffectArray value="uskm"/>
         <EffectArray value="nsca"/>
     </CEffectSet>
+    <CEffectDamage id="BNdoDPS">
+        <Amount value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="BaplDPS">
+        <Amount value="5"/>
+    </CEffectDamage>
     <CEffectApplyBehavior id="Bclf">
         <ValidatorArray index="0" value="BclfRemove"/>
         <ValidatorArray index="1" removed="1"/>
     </CEffectApplyBehavior>
+    <CEffectDamage id="HurtEnemySummoned180">
+        <Amount value="100"/>
+    </CEffectDamage>
     <CEffectCreatePersistent id="Xclf">
         <PeriodCount value="10"/>
     </CEffectCreatePersistent>
@@ -38,6 +58,10 @@
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
         <Amount value="48"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nba22">
+        <Amount value="192"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectCreateUnit id="nsca" parent="War3_SummonUnit">
@@ -397,8 +421,8 @@
         <SearchFilters value="ground;player,allies,neutral,wall,tree,Missile,debris,item,structure,ward,dead,Hidden"/>
     </CEffectEnumArea>
     <CEffectDamage id="AwarAoEDamage">
-        <AreaArray index="0" Radius="1.5" Bonus="50" Fraction="1"/>
-        <AreaArray index="1" Radius="3" Bonus="25" Fraction="1"/>
+        <AreaArray index="0" Radius="3" Bonus="50" Fraction="1"/>
+        <AreaArray index="1" removed="1"/>
     </CEffectDamage>
     <CEffectDamage id="BEerDPS1">
         <Amount value="50"/>
@@ -418,9 +442,6 @@
         <AttributeFactor index="hero" value="0"/>
         <Amount value="72"/>
     </CEffectDamage>
-    <CEffectDamage id="BaplDPS">
-        <Amount value="10"/>
-    </CEffectDamage>
     <CEffectApplyBehavior id="Bfrz">
         <ValidatorArray value="noMarkers"/>
     </CEffectApplyBehavior>
@@ -429,6 +450,7 @@
     </CEffectDamage>
     <CEffectEnumArea id="BmflSearch">
         <AreaArray index="0" Radius="12" Effect="Bmfa"/>
+        <MaxCount value="1"/>
     </CEffectEnumArea>
     <CEffectCreateHealer id="BrejHealTick">
         <RechargeVitalRate value="75"/>
@@ -738,6 +760,7 @@
         <AttributeFactor index="hero" value="0"/>
         <Amount value="72"/>
         <Random value="0"/>
+        <ArmorReduction value="0"/>
     </CEffectDamage>
     <CEffectDamage id="hhes1">
         <AttributeFactor index="divine" value="0"/>
@@ -774,6 +797,7 @@
         <AttributeFactor index="hero" value="0"/>
         <Amount value="72"/>
         <Random value="0"/>
+        <ArmorReduction value="0"/>
     </CEffectDamage>
     <CEffectDamage id="hrtt1">
         <AttributeFactor index="divine" value="0"/>
@@ -1020,7 +1044,7 @@
     <CEffectDamage id="uban1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="36"/>
+        <Amount value="24"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="ucry1">
@@ -1079,7 +1103,7 @@
     <CEffectDamage id="unec1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="36"/>
+        <Amount value="24"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="uobs1">
@@ -1093,9 +1117,6 @@
         <Amount value="12"/>
         <Random value="0"/>
     </CEffectDamage>
-    <CEffectCreateUnit id="uskm">
-        <WhichLocation Value="CasterUnit"/>
-    </CEffectCreateUnit>
     <CEffectDamage id="uskm1">
         <AttributeFactor index="small" value="0.25"/>
         <AttributeFactor index="unarmored" value="0"/>

@@ -90,6 +90,9 @@
         <Compare value="GE"/>
         <Value value="0"/>
     </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareBehaviorCount id="NoBNdo">
+        <Behavior value="BNdo"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBclf">
         <Behavior value="Bclf"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -226,9 +229,9 @@
         <CombineArray value="NotHallucinationTarget"/>
         <Type value="And"/>
     </CValidatorCombine>
-    <CValidatorPlayerRequirement id="SkeletonsLT37">
+    <CValidatorPlayerRequirement id="SkeletonsLT73">
         <Find value="1"/>
-        <Value value="SkeletonsLT37"/>
+        <Value value="SkeletonsLT73"/>
     </CValidatorPlayerRequirement>
     <CValidatorUnitCompareVital id="TargetMoreThan10Mana">
         <Compare value="GE"/>

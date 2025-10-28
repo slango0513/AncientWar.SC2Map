@@ -207,6 +207,25 @@
             <Vital index="Energy" value="0"/>
         </Cost>
     </CAbilAugment>
+    <!--Pit Lord - Doom Buff=BNdo,BNdi-->
+    <CAbilEffectTarget id="ANdo">
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost index="0">
+            <Vital index="Energy" value="100"/>
+            <Cooldown Location="Unit" TimeUse="60"/>
+        </Cost>
+        <Range index="0" value="27"/>
+        <AutoCastRange value="27"/>
+        <AutoCastValidatorArray value="noMarkers"/>
+        <AutoCastValidatorArray value="NoBNdo"/>
+        <AutoCastValidatorArray value="EnemiesNearby9"/>
+        <AutoCastValidatorArray value="TargetLifeGT1"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSLife"/>
+            <SortArray value="TSFarthestDistance"/>
+        </TargetSorts>
+    </CAbilEffectTarget>
     <!--Dark Ranger - Silence Buff=BNsi-->
     <CAbilEffectTarget id="ANsi">
         <Effect index="1" removed="1"/>
@@ -427,6 +446,9 @@
         <InfoArray index="Build17" Unit="Udea1">
             <Button DefaultButtonFace="Udea" Requirements="Pause"/>
         </InfoArray>
+        <InfoArray index="Build18" Unit="ubsp">
+            <Button DefaultButtonFace="ubsp" Requirements="Pause"/>
+        </InfoArray>
         <Range value="500"/>
     </CAbilBuild>
     <!--Crypt Lord - Carrion Scarabs Buff=BUcb-->
@@ -487,6 +509,31 @@
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="NoSleep"/>
         <AutoCastValidatorArray value="EnemiesNearby6"/>
+        <UninterruptibleArray index="Approach" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+    </CAbilEffectTarget>
+    <!--Orc Abil End-->
+    <!--Undead Abil-->
+    <!--Absorb Mana-->
+    <CAbilEffectTarget id="Aabs">
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost index="0">
+            <Cooldown Location="Unit" TimeUse="15"/>
+        </Cost>
+        <TargetFilters index="0" value="HasEnergy;player,allies,wall,tree,debris,item,ward,dead,immunity"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSEnergyLargestFirst"/>
+        </TargetSorts>
+        <Range index="0" value="15"/>
+        <AutoCastRange value="15"/>
+        <AutoCastValidatorArray value="noMarkers"/>
+        <UninterruptibleArray index="Approach" value="1"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
     </CAbilEffectTarget>
     <!--Anti-magic Shield (Matrix) Dur=90 HeroDur=90 Buff=Bams,Bam2-->
     <CAbilEffectTarget id="Aam2">
@@ -567,11 +614,12 @@
     <CAbilEffectTarget id="Acrs">
         <Cost index="0">
             <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeUse="15"/>
+            <Cooldown Location="Unit" TimeUse="30"/>
         </Cost>
-        <Range index="0" value="9"/>
-        <AutoCastRange value="9"/>
+        <Range index="0" value="12"/>
+        <AutoCastRange value="12"/>
         <AutoCastValidatorArray value="noMarkers"/>
+        <AutoCastValidatorArray value="EnemiesNearby9"/>
         <TargetSorts>
             <SortArray index="0" value="TSLifeLargestFirst"/>
             <SortArray value="TSDistance"/>
@@ -584,7 +632,7 @@
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
-            <Vital index="Energy" value="20"/>
+            <Vital index="Energy" value="25"/>
             <Cooldown Location="Unit" TimeUse="10"/>
         </Cost>
         <Range index="0" value="7.5"/>
@@ -596,6 +644,20 @@
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
+    </CAbilEffectTarget>
+    <!--Devour Magic-->
+    <CAbilEffectTarget id="Advm">
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost index="0">
+            <Vital index="Energy" value="25"/>
+            <Cooldown Location="Unit" TimeUse="5"/>
+        </Cost>
+        <TargetFilters index="0" value="-;wall,tree,Missile,debris,item,structure,ward,dead,invulnerable,immunity"/>
+        <Range index="0" value="9"/>
+        <AutoCastRange value="9"/>
+        <AutoCastValidatorArray value="noMarkers"/>
+        <AutoCastValidatorArray value="SummonedEnemyOrEnemyHasPurgableBuffOrFriendHasPurgableDebuff"/>
     </CAbilEffectTarget>
     <!--Ensnare Dur=12 HeroDur=3 Buff=Bena,Beng-->
     <CAbilEffectTarget id="Aens">
@@ -620,19 +682,18 @@
     </CAbilEffectTarget>
     <CAbilEffectTarget id="Ainf">
         <Cost index="0">
-            <Vital index="Energy" value="10"/>
-            <Cooldown Location="Unit" TimeUse="20"/>
+            <Vital index="Energy" value="0"/>
+            <Cooldown Location="Unit" TimeUse="15"/>
         </Cost>
-        <Range index="0" value="7.5"/>
-        <AutoCastRange value="7.5"/>
+        <Range index="0" value="9"/>
+        <AutoCastRange value="9"/>
         <UninterruptibleArray index="Approach" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
         <CmdButtonArray index="Execute" Requirements=""/>
         <TargetSorts>
-            <SortArray index="0" value="TSEnergy"/>
-            <SortArray value="TSDistance"/>
+            <SortArray index="0" value="TSLifeLargestFirst"/>
         </TargetSorts>
     </CAbilEffectTarget>
     <!--Lightning Shield Dur=20 HeroDur=20 Buff=Blsh,Blsa-->
@@ -716,7 +777,8 @@
         </Cost>
         <Range index="0" value="7.5"/>
         <AutoCastRange value="7.5"/>
-        <AutoCastValidatorArray index="0" value="SkeletonsLT37"/>
+        <AutoCastValidatorArray index="0" value="SkeletonsLT73"/>
+        <AutoCastValidatorArray value="EnemiesNearby9"/>
     </CAbilEffectInstant>
     <!--Rejuvination Dur=12 HeroDur=12 Buff=Brej-->
     <CAbilEffectTarget id="Arej">
@@ -983,16 +1045,13 @@
             <Vital index="Energy" value="0"/>
             <Cooldown Location="Unit" TimeUse="5"/>
         </Cost>
-        <Range index="0" value="9"/>
+        <Range index="0" value="7.5"/>
         <AutoCastFilters value="Visible;Neutral,Enemy"/>
-        <AutoCastRange value="9"/>
+        <AutoCastRange value="7.5"/>
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="NoUnholyFrenzy"/>
         <AutoCastValidatorArray value="TargetIsAttacking"/>
-        <UninterruptibleArray index="Approach" value="1"/>
-        <UninterruptibleArray index="Prep" value="1"/>
-        <UninterruptibleArray index="Cast" value="1"/>
-        <UninterruptibleArray index="Channel" value="1"/>
+        <AutoCastValidatorArray value="EnemiesNearby9"/>
         <CmdButtonArray index="Execute" Requirements=""/>
         <TargetSorts RequestCount="1">
             <SortArray value="TSLifeLargestFirst"/>
@@ -1497,6 +1556,20 @@
     <CAbilMorph id="UpgradeTohgyr" parent="War3_Upgrade" toUnit="hgyr">
         <CmdButtonArray index="Execute" Requirements="Pause"/>
         <InfoArray index="0" Score="1" Unit="hgyr">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeToubsp" parent="War3_Upgrade" toUnit="ubsp">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="ubsp">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>

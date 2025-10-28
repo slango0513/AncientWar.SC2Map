@@ -396,7 +396,7 @@
         <SoundArray index="Highlight" value="Hjai1_Highlight"/>
     </CActorUnit>
     <!--lordgarithos-->
-    <CActorUnit id="Hlgr" unitName="Hlgr1" defType="LARGE">
+    <CActorUnit id="Hlgr" unitName="Hlgr1" defType="MEDIUM">
         <On index="0" Terms="UnitBirth.Hlgr1" Send="Create SoundEmitter Hlgr1_Ambience"/>
         <On index="1" Terms="UnitBirth.Hlgr1"/>
         <On index="2" Terms="UnitRevive.Hlgr1"/>
@@ -415,7 +415,7 @@
         <GroupSoundArray index="Yes" value="Hlgr1_GroupYes"/>
         <GroupSoundArray index="Attack" value="Hlgr1_GroupAttack"/>
         <GroupSoundArray index="Board" value="Hlgr1_GroupBoard"/>
-        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
         <SoundArray index="Birth" value="Hlgr1_Birth"/>
         <SoundArray index="Help" value="Hlgr1_Help"/>
         <SoundArray index="Movement" value="Hlgr1_Movement"/>
@@ -726,6 +726,24 @@
         <On Terms="Behavior.ChargingKnight.Create" Send="Create"/>
         <On Terms="Behavior.ChargingKnight.Destroy" Send="Destroy"/>
     </CActorSound>
+    <CActorUnit id="hkn2" parent="hkni" unitName="hkn2" defType="MEDIUM">
+        <On index="0" Terms="UnitBirth.hkn2" Send="Create SoundEmitter hkn2_Ambience"/>
+        <On index="1" Terms="UnitBirth.hkn2"/>
+        <On index="2" Terms="UnitRevive.hkn2"/>
+        <On index="3" Terms="UnitRevive.hkn2"/>
+        <On index="4" Terms="UnitConstruction.hkn2.Start"/>
+        <On index="5" Terms="UnitConstruction.hkn2.Finish"/>
+        <On index="67" Terms="UnitRevive.hkn2; !ScopeContains hkn2"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom hkn2"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo hkn2"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom hkn2"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo hkn2"/>
+        <On index="79" Send="ModelSwap hkn2"/>
+        <On index="80" Terms="WeaponStart.hkn21.AttackStart"/>
+        <On index="81" Terms="WeaponStart.hkn22.AttackStart"/>
+        <HighlightTooltip value="hkn2/Name"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+    </CActorUnit>
     <!--militia-->
     <CActorUnit id="hmil">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
@@ -757,6 +775,13 @@
     <!--sorceress-->
     <CActorUnit id="hsor">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--waterelemental1-->
+    <CActorUnit id="hwat">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
+    <CActorUnit id="nba2">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
     <!--bandit-->
     <CActorUnit id="nban">
@@ -922,6 +947,11 @@
     <!--banshee-->
     <CActorUnit id="uban">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--obsidiandestroyer-->
+    <CActorUnit id="ubsp" defType="LARGE">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
     </CActorUnit>
     <!--cryptfiend-->
     <CActorUnit id="ucry">

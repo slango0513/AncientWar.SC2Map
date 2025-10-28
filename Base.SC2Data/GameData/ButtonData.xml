@@ -23,6 +23,8 @@
     <!--sylvanuswindrunner-->
     <CButton id="Hvwd"/>
     <CButton id="ImpaleAttack" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimpale.dds"/>
+    <CButton id="SunderArmorhgyr" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimprovedunholyarmor.dds"/>
+    <CButton id="SunderArmorhrif" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimprovedunholyarmor.dds"/>
     <CButton id="Take" parent="War3_Button"/>
     <CButton id="LifePeriod" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstoneform.dds"/>
     <CButton id="MultiShot" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstrengthofthemoon.dds"/>
