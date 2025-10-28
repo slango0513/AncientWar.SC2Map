@@ -71,6 +71,26 @@
         <CastOutroTime index="0" value="15"/>
         <RangeSlop value="9"/>
     </CAbilEffectInstant>
+    <!--Warden - Shadow Strike Buff=BEsh cast=3-->
+    <CAbilEffectTarget id="AEsh">
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost index="0">
+            <Vital index="Energy" value="50"/>
+            <Cooldown Location="Unit" TimeUse="30"/>
+        </Cost>
+        <Cost index="1" removed="1"/>
+        <Cost index="2" removed="1"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSLifeLargestFirst"/>
+        </TargetSorts>
+        <Range index="0" value="6"/>
+        <AutoCastRange value="6"/>
+        <AutoCastValidatorArray value="noMarkers"/>
+        <AutoCastValidatorArray value="NoBEsh"/>
+        <AutoCastValidatorArray value="TargetLifeGT1"/>
+        <AutoCastValidatorArray value="NoDebuffImmunity"/>
+    </CAbilEffectTarget>
     <!--Arch Mage - Brilliance Aura Buff=BHab-->
     <CAbilBehavior id="AHab">
         <BehaviorArray index="1" removed="1"/>
@@ -244,6 +264,7 @@
         <AutoCastRange value="4.5"/>
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="TargetLifeNotFull"/>
+        <AutoCastValidatorArray value="IsNothgry"/>
     </CAbilEffectTarget>
     <!--Mountain King - Thunder Bolt Buff=BPSE-->
     <CAbilEffectTarget id="AHtb">
@@ -270,7 +291,7 @@
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
-            <Vital index="Energy" value="25"/>
+            <Vital index="Energy" value="0"/>
             <Cooldown Location="Unit" TimeUse="30"/>
         </Cost>
         <Cost index="1" removed="1"/>
@@ -731,6 +752,12 @@
         </InfoArray>
         <InfoArray index="Build21" Unit="Nman1">
             <Button DefaultButtonFace="Nman" Requirements="Pause"/>
+        </InfoArray>
+        <InfoArray index="Build22" Unit="nfel">
+            <Button DefaultButtonFace="nfel" Requirements="Pause"/>
+        </InfoArray>
+        <InfoArray index="Build23" Unit="npfl">
+            <Button DefaultButtonFace="npfl" Requirements="Pause"/>
         </InfoArray>
         <Range value="500"/>
     </CAbilBuild>
@@ -1292,9 +1319,6 @@
             <Vital index="Energy" value="0"/>
             <Cooldown Location="Unit" TimeUse="30"/>
         </Cost>
-        <UninterruptibleArray index="Approach" value="1"/>
-        <UninterruptibleArray index="Prep" value="1"/>
-        <UninterruptibleArray index="Cast" value="1"/>
     </CAbilEffectInstant>
     <!--Slow Dur=60 HeroDur=10 Buff=Bslo-->
     <CAbilEffectTarget id="Aslo">
@@ -1849,6 +1873,20 @@
         <Name value="Udea/Tip"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Udea" Requirements="Pause"/>
         <InfoArray index="0" Score="1" Unit="Udea1">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeTonpfl" parent="War3_Upgrade" toUnit="npfl">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="npfl">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>

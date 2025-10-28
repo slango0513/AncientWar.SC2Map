@@ -297,6 +297,7 @@ Variable/Name/B18C47DD=rF
 Variable/Name/B26D14EC=Container
 Variable/Name/B26FBA95=Awar - Filter
 Variable/Name/B2860167=p
+Variable/Name/B2BB5987=GameMode
 Variable/Name/B2D2E9F0=r
 Variable/Name/B3237899=Level
 Variable/Name/B47BE612=AbilCmd

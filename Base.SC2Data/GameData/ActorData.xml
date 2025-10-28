@@ -1321,6 +1321,12 @@
         <WalkAnimMoveSpeed value="1.375"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
     </CActorUnit>
+    <!--felstalker-->
+    <CActorUnit id="nfel" defType="MEDIUM">
+        <Scale value="0.800000"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+    </CActorUnit>
     <!--fleshgolem-->
     <CActorUnit id="nfgl" defType="LARGE">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
@@ -1376,6 +1382,10 @@
     <!--owl-->
     <CActorUnit id="nowl">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
+    </CActorUnit>
+    <!--purplefelstalker-->
+    <CActorUnit id="npfl" defType="MEDIUM">
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
     </CActorUnit>
     <!--deathrevenant-->
     <CActorUnit id="nrvd" defType="MEDIUM">

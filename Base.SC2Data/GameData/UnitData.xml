@@ -2588,6 +2588,53 @@
         <LifeArmorName value="ARMOR_SMALL"/>
         <LifeArmorTip value="ARMORTIP_SMALL"/>
     </CUnit>
+    <!--fel stalker-->
+    <CUnit id="nfel" defType="MEDIUM">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <Race value="Undead"/>
+        <Attributes index="medium" value="1"/>
+        <Attributes index="large" value="0"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <LifeArmor value="0"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <LifeArmorName value="ARMOR_MEDIUM"/>
+        <LifeArmorTip value="ARMORTIP_MEDIUM"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <Food value="0"/>
+        <CostResource index="gold" value="15"/>
+        <CostResource index="lumber" value="0"/>
+        <KillResource index="gold" value="0"/>
+        <KillResource index="Custom" value="5"/>
+        <AbilArray index="4" Link="Inventory2"/>
+        <AbilArray Link="Asud"/>
+        <AbilArray Link="UpgradeTonpfl"/>
+        <!--ReviveDelay value="3"/-->
+        <BehaviorArray index="4" removed="1"/>
+        <WeaponArray index="0" Link="negm1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="npfl" Type="AbilCmd" AbilCmd="UpgradeTonpfl,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <!--AttackTargetPriority value="1"/-->
+        <SubgroupPriority value="0"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <EnergyStart value="0"/>
+        <EnergyMax value="0"/>
+        <EnergyRegenRate value="0"/>
+    </CUnit>
     <!--flesh golem-->
     <CUnit id="nfgl" defType="LARGE">
         <Food value="0"/>
@@ -2775,14 +2822,12 @@
         <Name value="Hamg/Name"/>
         <Description value="Hamg/Ubertip"/>
         <ReviveType value="Hamg1"/>
-        <EnergyStart value="100"/>
-        <EnergyMax value="100"/>
         <CostResource index="gold" value="225"/>
-        <AbilArray index="6" Link="AHwe"/>
+        <AbilArray index="6" Link="AHab"/>
         <AbilArray index="7" removed="1"/>
         <WeaponArray index="0" Link="Hamg1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="AHwe" Type="AbilCmd" AbilCmd="AHwe,Execute" Row="2" Column="1"/>
+            <LayoutButtons index="6" Face="AHab" Type="Passive" AbilCmd="AHwe,Execute" Row="2" Column="1"/>
             <LayoutButtons index="7" Face="Firebolt" Type="Passive" AbilCmd="" Row="2" Column="0"/>
         </CardLayouts>
         <TechTreeProducedUnitArray index="0" value="nhy2"/>
@@ -2810,11 +2855,11 @@
         <EnergyMax value="100"/>
         <CostResource index="gold" value="225"/>
         <AbilArray index="6" Link="ANsi"/>
-        <AbilArray index="7" Link="AHab"/>
+        <AbilArray index="7" Link="AHwe"/>
         <AbilArray Link="AUfu"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="ANsi" Type="AbilCmd" AbilCmd="ANsi,Execute" Row="2" Column="1"/>
-            <LayoutButtons index="7" Face="AHab" Type="Passive" AbilCmd="" Row="2" Column="0"/>
+            <LayoutButtons index="7" Face="AHwe" Type="AbilCmd" AbilCmd="AHwe,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="AUfu" Type="AbilCmd" AbilCmd="AUfu,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="nhym"/>
@@ -2942,7 +2987,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="0"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="820"/>
+        <KillResource index="Custom" value="492"/>
         <AbilArray index="4" removed="1"/>
         <AbilArray index="5" removed="1"/>
         <BehaviorArray index="3" Link="PowerfulUnit"/>
@@ -2965,7 +3010,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="0"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="900"/>
+        <KillResource index="Custom" value="480"/>
         <BehaviorArray index="3" Link="PowerfulUnit"/>
         <BehaviorArray index="4" Link="Fury"/>
         <BehaviorArray index="5" removed="1"/>
@@ -3003,7 +3048,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="0"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="360"/>
+        <KillResource index="Custom" value="216"/>
         <BehaviorArray index="3" Link="PowerfulUnit"/>
         <BehaviorArray index="4" Link="Fury"/>
         <!--ReviveDelay value="2.67"/-->
@@ -3066,6 +3111,57 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <TechTreeProducedUnitArray value="nowl"/>
         <FlagArray index="Invulnerable" value="0"/>
+    </CUnit>
+    <!--Fel Beast-->
+    <CUnit id="npfl" defType="MEDIUM">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <Race value="Undead"/>
+        <Attributes index="medium" value="1"/>
+        <Attributes index="large" value="0"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <LifeArmor value="0"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <LifeArmorName value="ARMOR_MEDIUM"/>
+        <LifeArmorTip value="ARMORTIP_MEDIUM"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <Food value="0"/>
+        <CostResource index="gold" value="45"/>
+        <KillResource index="gold" value="0"/>
+        <KillResource index="Custom" value="5"/>
+        <AbilArray Link="Inventory2"/>
+        <AbilArray Link="Asud"/>
+        <AbilArray Link="AEsh"/>
+        <!--ReviveDelay value="2.67"/-->
+        <BehaviorArray index="4" removed="1"/>
+        <WeaponArray index="0" Link="negm1"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="AEsh" Type="AbilCmd" AbilCmd="AEsh,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <!--AttackTargetPriority value="1"/-->
+        <SubgroupPriority value="0"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="nfel"/>
+        <TechTreeProducedUnitArray value="npfl"/>
+        <EnergyStart value="100"/>
+        <EnergyMax value="100"/>
     </CUnit>
     <!--death revenant-->
     <CUnit id="nrvd" defType="MEDIUM">
@@ -4403,7 +4499,7 @@
             <LayoutButtons index="7" Face="ugho" Type="AbilCmd" AbilCmd="AUbu,Build1" Row="0" Column="0"/>
             <LayoutButtons index="8" Face="uobs" Type="AbilCmd" AbilCmd="AUbu,Build5" Row="2" Column="0"/>
             <LayoutButtons index="9" Face="ndrv" Type="AbilCmd" AbilCmd="AUbu,Build14" Row="0" Column="1"/>
-            <LayoutButtons index="10" removed="1"/>
+            <LayoutButtons index="10" Face="nfel" Type="AbilCmd" AbilCmd="AUbu,Build22" Row="0" Column="3"/>
             <LayoutButtons index="11" removed="1"/>
         </CardLayouts>
         <DeathTime value="15"/>

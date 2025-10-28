@@ -148,6 +148,8 @@
     <CButton id="nchr"/>
     <!--revenantofthedepths-->
     <CButton id="ndrv"/>
+    <!--felstalker-->
+    <CButton id="nfel"/>
     <!--highelvenarcher-->
     <CButton id="nhea"/>
     <!--hydromancer-->

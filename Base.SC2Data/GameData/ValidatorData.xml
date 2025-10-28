@@ -65,6 +65,9 @@
         <Value value="2"/>
         <Behavior value="MortalStrike"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBEsh">
+        <Behavior value="BEsh"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBHbn">
         <Behavior value="BHbn"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -203,11 +206,17 @@
     <CValidatorUnitType id="Isugar">
         <Value value="ugar"/>
     </CValidatorUnitType>
+    <CValidatorUnitType id="IsNothgry">
+        <Value value="hgry"/>
+        <Find value="0"/>
+    </CValidatorUnitType>
     <CValidatorUnitType id="IsNotObla1">
         <Value value="Obla1"/>
+        <Find value="0"/>
     </CValidatorUnitType>
     <CValidatorUnitType id="IsNotNbbc1">
         <Value value="Nbbc1"/>
+        <Find value="0"/>
     </CValidatorUnitType>
     <CValidatorUnitType id="Ishfoo">
         <Value value="hfoo"/>

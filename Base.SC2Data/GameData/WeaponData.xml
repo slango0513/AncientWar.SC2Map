@@ -376,6 +376,7 @@
         <MinScanRange value="5"/>
         <Range value="5"/>
         <Period value="3"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <!--DarkMinion1-->
     <CWeaponLegacy id="ndr11">
@@ -385,6 +386,16 @@
     <!--revenant of the depths-->
     <CWeaponLegacy id="ndrv1">
         <MinScanRange value="0.7812"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--sky fury tower-->
+    <CWeaponLegacy id="negm1" atkType="NORMAL">
+        <Name value="DAMAGE_NORMAL"/>
+        <Tip value="DAMAGETIP_NORMAL"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-NORMAL.tga"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,debris,item,structure,ward,ethereal,dead,invulnerable"/>
+        <MinScanRange value="3"/>
+        <Range value="3"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--poison treant-->
@@ -495,6 +506,7 @@
         <MinScanRange value="5"/>
         <Range value="5"/>
         <Period value="3"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <!--Raider-->
     <CWeaponLegacy id="orai1">

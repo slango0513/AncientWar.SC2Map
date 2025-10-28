@@ -53,6 +53,7 @@ int gv_intCountPhalanx;
 text[17] gv_textPhalanx;
 int gv_behaviorFlagRaiseDead;
 playergroup gv_playergroupDebug;
+string gv_gameMode;
 bool gv_boolTestMode;
 int gv_gameCatalog;
 string gv_stringFieldPath;
@@ -122,6 +123,7 @@ void InitGlobals () {
     gv_tip3 = StringExternal("Param/Value/0C8520BB");
     gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser1;
     gv_playergroupDebug = PlayerGroupEmpty();
+    gv_gameMode = GameAttributeGameValue("2");
     gv_gameCatalog = c_gameCatalogUnit;
     gv_stringFieldPath = "";
     gv_stringValue = "";
@@ -1192,7 +1194,7 @@ bool gt_Set_Func (bool testConds, bool runActions) {
         autoCDB2CDF4_ai = 1;
         lv_phalanx = 1;
         for ( ; ( (autoCDB2CDF4_ai >= 0 && lv_phalanx <= autoCDB2CDF4_ae) || (autoCDB2CDF4_ai <= 0 && lv_phalanx >= autoCDB2CDF4_ae) ) ; lv_phalanx += autoCDB2CDF4_ai ) {
-            gv_intRow[lv_phalanx] = 16;
+            gv_intRow[lv_phalanx] = 12;
         }
     }
     else if (autoCBDAB378_val == "I") {
@@ -1912,6 +1914,16 @@ bool gt_InitWorker_Func (bool testConds, bool runActions) {
         }
 
         CameraLockInput(lv_p, false);
+        if ((gv_gameMode != "0002")) {
+            TechTreeAbilityAllow(gv_intPlayer[lv_p], AbilityCommand("ItemLevel", 0), true);
+            TechTreeAbilityAllow(gv_intPlayer[lv_p], AbilityCommand("ItemLevel", 1), true);
+            TechTreeAbilityAllow(gv_intPlayer[lv_p], AbilityCommand("ItemLevel", 2), true);
+        }
+        else {
+            TechTreeAbilityAllow(gv_intPlayer[lv_p], AbilityCommand("ItemLevel", 0), false);
+            TechTreeAbilityAllow(gv_intPlayer[lv_p], AbilityCommand("ItemLevel", 1), false);
+            TechTreeAbilityAllow(gv_intPlayer[lv_p], AbilityCommand("ItemLevel", 2), false);
+        }
     }
     TriggerExecute(gt_Waiting, true, false);
     return true;
@@ -2021,24 +2033,27 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
         PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropTerrazine, c_playerPropOperAdd, gv_intG[gv_intRound]);
         PlayerModifyPropertyInt(gv_intPlayer[lv_p], c_playerPropCustom, c_playerPropOperAdd, gv_intSL[gv_intPlayer[lv_p]]);
         CameraPan(gv_intPlayer[lv_p], gf_PlayerWorkerLocation(gv_intPlayer[lv_p]), 1.0, -1, 10.0, false);
-        if ((PlayerGroupHasPlayer(gv_playergroupAI, gv_intPlayer[lv_p]) == false)) {
-            lv_b = false;
-            while (true) {
-                if ((lv_b == false)) {
-                    lv_r = RandomInt(1, CatalogFieldValueCount(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray", gv_intPlayer[lv_p]));
-                    if ((CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), "Level", gv_intPlayer[lv_p]) <= (gv_intRound + TechTreeUpgradeCount(gv_intPlayer[lv_p], "ItemLevel", c_techCountCompleteOnly))) && (CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), "Level", gv_intPlayer[lv_p]) > TechTreeUpgradeCount(gv_intPlayer[lv_p], "ItemLevel", c_techCountCompleteOnly))) {
-                        libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), 0, 0, UnitGetPosition(gv_unitWorker[gv_intPlayer[lv_p]]));
-                        libGAwX_gf_UnitInventoryCreate(gv_unitWorker[gv_intPlayer[lv_p]], UnitLastCreated());
-                        lv_b = true;
+        if ((gv_gameMode != "0002")) {
+            if ((PlayerGroupHasPlayer(gv_playergroupAI, gv_intPlayer[lv_p]) == false)) {
+                lv_b = false;
+                while (true) {
+                    if ((lv_b == false)) {
+                        lv_r = RandomInt(1, CatalogFieldValueCount(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray", gv_intPlayer[lv_p]));
+                        if ((CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), "Level", gv_intPlayer[lv_p]) <= (gv_intRound + TechTreeUpgradeCount(gv_intPlayer[lv_p], "ItemLevel", c_techCountCompleteOnly))) && (CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), "Level", gv_intPlayer[lv_p]) > TechTreeUpgradeCount(gv_intPlayer[lv_p], "ItemLevel", c_techCountCompleteOnly))) {
+                            libNtve_gf_CreateUnitsWithDefaultFacing(1, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", gv_intPlayer[lv_p])), 0, 0, UnitGetPosition(gv_unitWorker[gv_intPlayer[lv_p]]));
+                            libGAwX_gf_UnitInventoryCreate(gv_unitWorker[gv_intPlayer[lv_p]], UnitLastCreated());
+                            lv_b = true;
+                        }
+                        else {
+                            lv_b = false;
+                        }
                     }
                     else {
-                        lv_b = false;
+                        break;
                     }
                 }
-                else {
-                    break;
-                }
             }
+
         }
 
     }
@@ -2562,13 +2577,16 @@ bool gt_Position_Func (bool testConds, bool runActions) {
         }
     }
     if ((gv_intRound <= gv_intCountRound)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_campionUnitType[0], c_unitCreateIgnorePlacement, 15, gv_campionPoint[0]);
-        auto4BEA0BF1_ae = gv_campionCount;
-        auto4BEA0BF1_ai = 1;
-        lv_i = 1;
-        for ( ; ( (auto4BEA0BF1_ai >= 0 && lv_i <= auto4BEA0BF1_ae) || (auto4BEA0BF1_ai <= 0 && lv_i >= auto4BEA0BF1_ae) ) ; lv_i += auto4BEA0BF1_ai ) {
-            libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_campionUnitType[lv_i], c_unitCreateIgnorePlacement, 15, gv_campionPoint[lv_i]);
+        if ((gv_gameMode != "0002")) {
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_campionUnitType[0], c_unitCreateIgnorePlacement, 15, gv_campionPoint[0]);
+            auto4BEA0BF1_ae = gv_campionCount;
+            auto4BEA0BF1_ai = 1;
+            lv_i = 1;
+            for ( ; ( (auto4BEA0BF1_ai >= 0 && lv_i <= auto4BEA0BF1_ae) || (auto4BEA0BF1_ai <= 0 && lv_i >= auto4BEA0BF1_ae) ) ; lv_i += auto4BEA0BF1_ai ) {
+                libNtve_gf_CreateUnitsWithDefaultFacing(1, gv_campionUnitType[lv_i], c_unitCreateIgnorePlacement, 15, gv_campionPoint[lv_i]);
+            }
         }
+
     }
 
     SoundPlayForPlayer(SoundLink("HornOfCenariusSound", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);

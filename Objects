@@ -114,14 +114,14 @@
     <ObjectPoint Id="112" Position="218.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker16" Color="0,0,0,0"/>
     <ObjectPoint Id="113" Position="144,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalBattlefield1,1" Color="0,0,0,0"/>
     <ObjectPoint Id="114" Position="112,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalBattlefield2,1" Color="0,0,0,0"/>
-    <ObjectPoint Id="115" Position="164,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalBattlefield1,2" Color="0,0,0,0"/>
-    <ObjectPoint Id="116" Position="92,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalBattlefield2,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="115" Position="157,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalBattlefield1,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="116" Position="99,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalBattlefield2,2" Color="0,0,0,0"/>
     <ObjectPoint Id="117" Position="148,148,0" Rotation="5.4978" Scale="1,1,1" Type="Normal" Name="FinalBattlefield1,3" Color="0,0,0,0"/>
     <ObjectPoint Id="118" Position="108,148,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="FinalBattlefield2,3" Color="0,0,0,0"/>
     <ObjectPoint Id="119" Position="146,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalReserve1,1" Color="0,0,0,0"/>
     <ObjectPoint Id="120" Position="110,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalReserve2,1" Color="0,0,0,0"/>
-    <ObjectPoint Id="121" Position="166,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalReserve1,2" Color="0,0,0,0"/>
-    <ObjectPoint Id="122" Position="90,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalReserve2,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="121" Position="159,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalReserve1,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="122" Position="97,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalReserve2,2" Color="0,0,0,0"/>
     <ObjectPoint Id="123" Position="149,149,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="FinalReserve1,3" Color="0,0,0,0"/>
     <ObjectPoint Id="124" Position="107,149,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="FinalReserve2,3" Color="0,0,0,0"/>
 </PlacedObjects>

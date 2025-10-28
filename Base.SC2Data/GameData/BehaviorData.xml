@@ -337,6 +337,9 @@
         </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="BEshSpeedDecay">
+        <Modification AttackSpeedMultiplier="0.9843"/>
+    </CBehaviorBuff>
     <!--Banish-->
     <CBehaviorBuff id="BHbn">
         <BehaviorCategories index="Permanent" value="1"/>
@@ -359,6 +362,10 @@
         <DurationOverride index="0" Duration="1">
             <ValidatorArray index="0" value="Hero"/>
         </DurationOverride>
+    </CBehaviorBuff>
+    <!--Corruption-->
+    <CBehaviorBuff id="BIcb">
+        <Modification LifeArmorBonus="-10"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="BIpb">
         <Duration value="5"/>
@@ -549,8 +556,8 @@
     <CBehaviorBuff id="Bugf" parent="War3_Passive">
         <DisableValidatorArray value="CasterHasBUav1"/>
         <Modification AttackSpeedMultiplier="2">
-            <DamageDealtScaled index="Melee" value="30"/>
-            <DamageDealtScaled index="Ranged" value="30"/>
+            <DamageDealtScaled index="Melee" value="36"/>
+            <DamageDealtScaled index="Ranged" value="36"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Buar" parent="War3_Passive">
@@ -1588,6 +1595,7 @@
             <BehaviorLinkDisableArray value="Bpsd"/>
             <BehaviorLinkDisableArray value="Bliq"/>
             <BehaviorLinkDisableArray value="Bpoi"/>
+            <BehaviorLinkDisableArray value="BEsh"/>
         </Modification>
         <InfoFlags index="Hidden" value="0"/>
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>
