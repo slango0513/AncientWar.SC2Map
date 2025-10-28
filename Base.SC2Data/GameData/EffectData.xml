@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectApplyBehavior id="AEer1HeroDur">
+        <Duration value="2"/>
+    </CEffectApplyBehavior>
+    <!--Warden - Fan of Knives-->
+    <CEffectEnumArea id="AEfk1Search">
+        <MaxCount value="6"/>
+    </CEffectEnumArea>
+    <!--Demon Hunter - Mana Burn-->
+    <CEffectSet id="AEmb1">
+        <EffectArray index="0" value="AEmb1ManaLoss"/>
+        <EffectArray index="1" removed="1"/>
+    </CEffectSet>
+    <CEffectDamage id="AEmb1Damage">
+        <VitalBonus index="Energy" value="15"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="AEmb1ManaLoss">
+        <VitalArray index="Energy" Change="-100"/>
+    </CEffectModifyUnit>
     <!--Priestess - Starfall Buff=AEsd effect=XEsf-->
     <CEffectCreatePersistent id="AEsf">
         <PeriodCount value="10"/>
@@ -14,6 +32,9 @@
     </CEffectEnumArea>
     <CEffectApplyBehavior id="AHbn1Dur">
         <Duration value="30"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="AHbn1HeroDur">
+        <Duration value="6"/>
     </CEffectApplyBehavior>
     <CEffectRemoveBehavior id="AIlx">
         <ValidatorArray index="0" value="IsNotEnemy"/>
@@ -41,8 +62,24 @@
     <CEffectEnumArea id="ANhtSearch">
         <AreaArray index="0" Radius="27" Effect="ANhtBuffSet"/>
     </CEffectEnumArea>
+    <!--Rokhan - Hex Buff=BOhx-->
+    <CEffectApplyBehavior id="ANhx1HeroDur">
+        <Duration value="3"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ANsi1HeroDur">
+        <Duration value="3"/>
+    </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ANso1Dur">
         <Duration value="0"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ANso1HeroDur">
+        <Duration value="0"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="AOws1Dur">
+        <Duration value="5"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="AOws1HeroDur">
+        <Duration value="1"/>
     </CEffectApplyBehavior>
     <!--Lich - Death and Decay Buff=BUdd effect=XUdd-->
     <CEffectCreatePersistent id="AUdd">
@@ -69,13 +106,21 @@
     <CEffectCreateHealer id="AUdr1">
         <DrainVitalCostFactor value="10"/>
     </CEffectCreateHealer>
+    <CEffectApplyBehavior id="AUfn1HeroDur">
+        <Duration value="3"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="AUfnDamage1">
-        <Amount value="500"/>
+        <Amount value="200"/>
         <AreaArray index="0" Radius="2" Bonus="0" Fraction="1"/>
+        <SearchFilters value="-;player,allies,air,mechanical,wall,tree,debris,item,structure,ward,dead,invulnerable,immunity"/>
     </CEffectDamage>
     <CEffectEnumArea id="AUfnSearch">
         <AreaArray index="0" Radius="2" Effect="AUfnBuffSet"/>
+        <SearchFilters value="-;player,allies,air,mechanical,wall,tree,debris,item,structure,ward,dead,invulnerable,immunity"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="AUim1HeroDur">
+        <Duration value="0.4"/>
+    </CEffectApplyBehavior>
     <!--Dreadlord - Inferno Buff=BNin-->
     <CEffectCreatePersistent id="AUin">
         <ExpireDelay value="0.5"/>
@@ -83,6 +128,9 @@
     <CEffectEnumArea id="AUinSearch">
         <AreaArray index="0" Radius="2" Effect="AUinSearchImpactSet"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="AUsl1HeroDur">
+        <Duration value="3"/>
+    </CEffectApplyBehavior>
     <CEffectEnumArea id="AUslSearch" parent="War3_AbilSearch">
         <ValidatorArray value="NonPowerfulUnit"/>
         <ValidatorArray value="NoSleep"/>
@@ -132,6 +180,9 @@
         <ValidatorArray index="0" value="ANsoLevel0"/>
         <ValidatorArray index="1" removed="1"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="BUdd">
+        <ValidatorArray value="NonHero"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="BUddDamage">
         <VitalFractionMax index="Life" value="0.05"/>
     </CEffectDamage>
@@ -147,6 +198,12 @@
     <CEffectApplyBehavior id="Bcri">
         <ValidatorArray value="NonPowerfulUnit"/>
     </CEffectApplyBehavior>
+    <CEffectDamage id="BliqDPS">
+        <Amount value="15"/>
+    </CEffectDamage>
+    <CEffectDamage id="BpsdDPS">
+        <Amount value="10"/>
+    </CEffectDamage>
     <CEffectApplyBehavior id="DebuffImmunity" parent="War3_AuraBuff">
         <Flags index="UseDuration" value="1"/>
         <Duration value="3"/>
@@ -217,6 +274,9 @@
         <Amount value="48"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="AIvaLeech" parent="War3_ApplyBuff">
+        <WhichUnit Value="Source"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="nba22">
         <Amount value="192"/>
         <Random value="0"/>
@@ -241,7 +301,7 @@
         <Amount value="25"/>
     </CEffectDamage>
     <CEffectEnumArea id="AHhbE" parent="War3_AbilSearch">
-        <SearchFilters value="-;Structure,wall,tree,Missile,debris,item,ward,dead,Hidden,invulnerable,immunity"/>
+        <SearchFilters value="-;Structure,wall,tree,Missile,debris,item,ward,dead,Hidden,invulnerable"/>
         <AreaArray Radius="2" Effect="AHhb"/>
     </CEffectEnumArea>
     <CEffectCreateHealer id="AHhbHeal1">
@@ -415,6 +475,54 @@
         <Amount value="120"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectDamage id="otbr1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="12"/>
+        <Random value="0"/>
+        <AreaArray Radius="1" Bonus="10"/>
+        <SearchFilters value="-;player,allies,air,Missile,item,ward,ethereal,dead,invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="owyv1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="12"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="owyv1CP">
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <PeriodCount value="6"/>
+        <PeriodicEffectArray value="owyv1E"/>
+        <PeriodicPeriodArray value="0.125"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="owyv1E">
+        <SearchFilters value="Visible;player,allies,wall,tree,Missile,item,ethereal,dead,Hidden,invulnerable"/>
+        <AreaArray MaxCount="1" Radius="9" Effect="owyv1LM"/>
+        <ImpactLocation Value="CasterUnit"/>
+        <TargetSorts>
+            <SortArray value="TSMarker"/>
+            <SortArray value="TSLifeLargestFirst"/>
+        </TargetSorts>
+    </CEffectEnumArea>
+    <CEffectCreatePersistent id="otbr1CP">
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <PeriodCount value="3"/>
+        <PeriodicEffectArray value="otbr1E"/>
+        <PeriodicPeriodArray value="0.125"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="otbr1E">
+        <SearchFilters value="Visible;player,allies,wall,tree,Missile,item,ethereal,dead,Hidden,invulnerable"/>
+        <AreaArray MaxCount="1" Radius="9" Effect="otbr1LM"/>
+        <ImpactLocation Value="CasterUnit"/>
+        <TargetSorts>
+            <SortArray value="TSMarker"/>
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
+    </CEffectEnumArea>
     <CEffectDamage id="ubsp1">
         <AttributeFactor index="small" value="1"/>
         <AttributeFactor index="unarmored" value="0.5"/>
@@ -431,6 +539,7 @@
     </CEffectEnumArea>
     <CEffectApplyBehavior id="AEer1Dur">
         <ValidatorArray value="AEer1DurTargetFilters"/>
+        <Duration value="10"/>
     </CEffectApplyBehavior>
     <CEffectDamage id="AEfk1Damage">
         <Amount value="50"/>
@@ -450,7 +559,6 @@
         <ValidatorArray value="NonPowerfulUnit"/>
     </CEffectSet>
     <CEffectApplyBehavior id="ANsi1Dur">
-        <ValidatorArray value="NonPowerfulUnit"/>
         <Duration value="15"/>
     </CEffectApplyBehavior>
     <!--Chieftain - Endurance Aura Buff=BOae-->
@@ -460,9 +568,6 @@
     <CEffectDamage id="AOshDamage1">
         <Amount value="50"/>
     </CEffectDamage>
-    <CEffectApplyBehavior id="AOws1Dur">
-        <Duration value="5"/>
-    </CEffectApplyBehavior>
     <!--Chieftain - War Stomp Buff=BPSE-->
     <CEffectEnumArea id="AOws1Search">
         <AreaArray index="0" Radius="4.5" Effect="AOws1SearchImpact"/>
@@ -567,6 +672,7 @@
     <CEffectSet id="Aps2">
         <ValidatorArray value="NonPowerfulUnit"/>
         <ValidatorArray value="NoDebuffImmunity"/>
+        <ValidatorArray value="NonHero"/>
     </CEffectSet>
     <CEffectSet id="Aps2ControlSet">
         <EffectArray index="1" removed="1"/>
@@ -576,7 +682,7 @@
     </CEffectSet>
     <!--Roar Dur=45 HeroDur=45 Buff=Broa-->
     <CEffectEnumArea id="AroaSearch">
-        <AreaArray index="0" Radius="7.5" Effect="Broa"/>
+        <AreaArray index="0" Radius="12" Effect="Broa"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="ArplSearch">
         <AreaArray index="0" MaxCount="6" Radius="6" Effect="Brpl"/>
@@ -587,6 +693,8 @@
     <!--Taunt-->
     <CEffectEnumArea id="AtauSearch">
         <SearchFilters value="ground;player,allies,neutral,wall,tree,Missile,debris,item,structure,ward,dead,Hidden"/>
+        <AreaArray index="0" Radius="4.5" Effect="AtauOrderAttack"/>
+        <MaxCount value="9"/>
     </CEffectEnumArea>
     <CEffectDamage id="AwarAoEDamage">
         <AreaArray index="0" Radius="2" Bonus="50" Fraction="1"/>
@@ -621,8 +729,8 @@
         <AreaArray index="0" Radius="0.3593" Fraction="1"/>
     </CEffectDamage>
     <CEffectEnumArea id="BmflSearch">
-        <AreaArray index="0" Radius="18" Effect="Bmfa"/>
-        <MaxCount value="2"/>
+        <AreaArray index="0" Radius="21" Effect="Bmfa"/>
+        <MaxCount value="3"/>
     </CEffectEnumArea>
     <CEffectCreateHealer id="BrejHealTick">
         <RechargeVitalRate value="75"/>
@@ -681,7 +789,7 @@
     <CEffectIssueOrder id="ManaFlareIssueOrder">
         <WhichUnit Value="Caster"/>
         <Abil value="Amfl"/>
-        <ValidatorArray value="GroundEnemiesNearby"/>
+        <ValidatorArray value="GroundEnemiesNearby15AndHasEnergy"/>
     </CEffectIssueOrder>
     <CEffectIssueOrder id="DefendStopIssueOrder">
         <WhichUnit Value="Caster"/>
@@ -729,7 +837,7 @@
     </CEffectDamage>
     <CEffectEnumArea id="Emoo1E">
         <ExcludeArray Value="Target" History="Damage"/>
-        <SearchFilters value="Visible;player,allies,air,Missile,dead,Hidden,invulnerable,Passive"/>
+        <SearchFilters value="Visible;player,allies,wall,tree,Missile,item,ethereal,dead,Hidden,invulnerable"/>
         <AreaArray MaxCount="2" Radius="4" Effect="Emoo1LM"/>
         <ImpactLocation Value="CasterUnit"/>
     </CEffectEnumArea>
@@ -788,7 +896,7 @@
     </CEffectDamage>
     <CEffectEnumArea id="edry1E">
         <ExcludeArray Value="Target" History="Damage"/>
-        <SearchFilters value="Visible;player,allies,Missile,dead,Hidden,invulnerable,Passive"/>
+        <SearchFilters value="Visible;player,allies,wall,tree,Missile,item,ethereal,dead,Hidden,invulnerable"/>
         <AreaArray MaxCount="2" Radius="10" Effect="edry1LM"/>
         <ImpactLocation Value="CasterUnit"/>
     </CEffectEnumArea>
@@ -1001,8 +1109,8 @@
         <Random value="96"/>
     </CEffectDamage>
     <CEffectDamage id="nchg1">
-        <Amount value="48"/>
-        <Random value="48"/>
+        <Amount value="36"/>
+        <Random value="36"/>
     </CEffectDamage>
     <CEffectDamage id="nchp1">
         <AttributeFactor index="divine" value="0"/>
@@ -1149,7 +1257,7 @@
     </CEffectDamage>
     <CEffectDamage id="ogru1">
         <AttributeFactor index="divine" value="0"/>
-        <Amount value="48"/>
+        <Amount value="36"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="ohun1">

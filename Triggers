@@ -6767,11 +6767,6 @@
         <Action Type="FunctionCall" Id="99218495"/>
         <Action Type="FunctionCall" Id="589C8D96"/>
         <Action Type="FunctionCall" Id="4750D82E"/>
-        <Action Type="FunctionCall" Id="B34D6166"/>
-        <Action Type="FunctionCall" Id="22D1A770"/>
-        <Action Type="FunctionCall" Id="DEFEB595"/>
-        <Action Type="FunctionCall" Id="663A39BF"/>
-        <Action Type="FunctionCall" Id="DD903000"/>
         <Action Type="FunctionCall" Id="38694316"/>
         <Action Type="FunctionCall" Id="1C665157"/>
         <Action Type="FunctionCall" Id="35E2AFE3"/>
@@ -7634,91 +7629,6 @@
     <Element Type="Param" Id="9C9F5D20">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="6754CCA0"/>
         <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="FunctionCall" Id="B34D6166">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="GAwX" Id="BE281257"/>
-        <Parameter Type="Param" Id="48F48943"/>
-        <Parameter Type="Param" Id="C654DC58"/>
-    </Element>
-    <Element Type="Param" Id="48F48943">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="716300AB"/>
-        <Value>1</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="C654DC58">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="514F410F"/>
-        <Value>Undead</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Race"/>
-    </Element>
-    <Element Type="FunctionCall" Id="22D1A770">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="GAwX" Id="BE281257"/>
-        <Parameter Type="Param" Id="273551E8"/>
-        <Parameter Type="Param" Id="5AA9783A"/>
-    </Element>
-    <Element Type="Param" Id="273551E8">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="716300AB"/>
-        <Value>2</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="5AA9783A">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="514F410F"/>
-        <Value>NightElf</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Race"/>
-    </Element>
-    <Element Type="FunctionCall" Id="DEFEB595">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="GAwX" Id="BE281257"/>
-        <Parameter Type="Param" Id="5A17EE95"/>
-        <Parameter Type="Param" Id="E1D08F2C"/>
-    </Element>
-    <Element Type="Param" Id="5A17EE95">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="716300AB"/>
-        <Value>2</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="E1D08F2C">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="514F410F"/>
-        <Value>Orc</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Race"/>
-    </Element>
-    <Element Type="FunctionCall" Id="663A39BF">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="GAwX" Id="BE281257"/>
-        <Parameter Type="Param" Id="C481004E"/>
-        <Parameter Type="Param" Id="955C8416"/>
-    </Element>
-    <Element Type="Param" Id="C481004E">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="716300AB"/>
-        <Value>3</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="955C8416">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="514F410F"/>
-        <Value>Orc</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Race"/>
-    </Element>
-    <Element Type="FunctionCall" Id="DD903000">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="GAwX" Id="BE281257"/>
-        <Parameter Type="Param" Id="AD785B57"/>
-        <Parameter Type="Param" Id="9045C325"/>
-    </Element>
-    <Element Type="Param" Id="AD785B57">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="716300AB"/>
-        <Value>4</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="9045C325">
-        <ParameterDef Type="ParamDef" Library="GAwX" Id="514F410F"/>
-        <Value>Orc</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Race"/>
     </Element>
     <Element Type="FunctionCall" Id="38694316">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000136"/>

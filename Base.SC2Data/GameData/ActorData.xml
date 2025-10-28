@@ -4,6 +4,36 @@
         <Model value="BNms"/>
         <On Terms="ActorCreation" Send="SetOpacity 0.330000"/>
     </CActorModel>
+    <!--demonhunter-->
+    <CActorUnit id="Edem" unitName="Edem1" defType="SMALL">
+        <On index="0" Terms="UnitBirth.Edem1" Send="Create SoundEmitter Edem1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Edem1"/>
+        <On index="2" Terms="UnitRevive.Edem1"/>
+        <On index="3" Terms="UnitRevive.Edem1"/>
+        <On index="4" Terms="UnitConstruction.Edem1.Start"/>
+        <On index="5" Terms="UnitConstruction.Edem1.Finish"/>
+        <On index="67" Terms="UnitRevive.Edem1; !ScopeContains Edem"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Edem1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Edem1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Edem1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Edem1"/>
+        <On index="85" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Edem1Death" VoiceLink="Edem1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <GroupSoundArray index="What" value="Edem1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Edem1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Edem1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Edem1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
+        <SoundArray index="Birth" value="Edem1_Birth"/>
+        <SoundArray index="Help" value="Edem1_Help"/>
+        <SoundArray index="Movement" value="Edem1_Movement"/>
+        <SoundArray index="Turning" value="Edem1_Turning"/>
+        <SoundArray index="Board" value="Edem1_Board"/>
+        <SoundArray index="Click" value="Edem1_Click"/>
+        <SoundArray index="ClickError" value="Edem1_ClickError"/>
+        <SoundArray index="Highlight" value="Edem1_Highlight"/>
+    </CActorUnit>
     <CActorSimple id="Fortitude" parent="War3_SimpleCastAnim" effectsound="InnerFireCast"/>
     <!--Priestess - Starfall Buff=AEsd effect=XEsf-->
     <CActorSimple id="AEsf">
@@ -1142,6 +1172,14 @@
     </CActorUnit>
     <!--berserker-->
     <CActorUnit id="otbk">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--trollbatrider-->
+    <CActorUnit id="otbr">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--windrider-->
+    <CActorUnit id="owyv">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--abomination-->

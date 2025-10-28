@@ -153,12 +153,18 @@
     <CButton id="okod"/>
     <!--wolfrider-->
     <CButton id="orai"/>
+    <!--spiritwalkermorph-->
+    <CButton id="ospm"/>
     <!--spiritwalker-->
     <CButton id="ospw"/>
     <!--tauren-->
     <CButton id="otau"/>
     <!--berserker-->
     <CButton id="otbk"/>
+    <!--trollbatrider-->
+    <CButton id="otbr"/>
+    <!--windrider-->
+    <CButton id="owyv"/>
     <!--Claws of Attack +3-->
     <CButton id="rat3"/>
     <!--Claws of Attack +6-->

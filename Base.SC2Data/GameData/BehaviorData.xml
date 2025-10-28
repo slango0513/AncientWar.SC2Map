@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CBehaviorBuff id="AIva" parent="War3_Passive">
+        <Requirements value="AIva"/>
+        <DamageResponse Chance="1" Handled="AIvaLeech" Location="Attacker">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+        </DamageResponse>
+        <DisableValidatorArray value="NoBblo"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AIvaLeech" parent="War3_Passive">
+        <Name value="modtLeech/Name"/>
+        <Duration value="0.0625"/>
+        <Modification>
+            <VitalDamageLeechArray index="Life">
+                <KindArray index="Melee" value="1"/>
+            </VitalDamageLeechArray>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="AEev1">
         <DamageResponse Chance="0.33"/>
     </CBehaviorBuff>
@@ -14,30 +32,43 @@
             <DamageDealtUnscaled index="Ranged" value="60"/>
         </Modification>
     </CBehaviorBuff>
+    <!--continuous Defense Bonus,carry End-->
+    <!--ATK Bonus Start-->
+    <!--AttackBonus-->
+    <CBehaviorBuff id="AIat">
+        <Modification>
+            <DamageDealtScaled index="Melee" value="3"/>
+            <DamageDealtScaled index="Ranged" value="3"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
+        </Modification>
+    </CBehaviorBuff>
     <!--Orb of Corruption Dur=5 HeroDur=5 Buff=BIcb-->
     <CBehaviorBuff id="AIcb">
         <Modification>
-            <DamageDealtUnscaled index="Melee" value="12"/>
-            <DamageDealtUnscaled index="Ranged" value="12"/>
+            <DamageDealtScaled index="Melee" value="12"/>
+            <DamageDealtScaled index="Ranged" value="12"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
         </Modification>
     </CBehaviorBuff>
     <!--temporary attack speed increase,carry End-->
     <!--continuous Defense Bonus,carry-->
     <!--DefenseBonus (+1)-->
     <CBehaviorBuff id="AId1">
-        <Modification LifeArmorBonus="3"/>
+        <Modification LifeArmorBonus="5"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+2)-->
     <CBehaviorBuff id="AId2">
-        <Modification LifeArmorBonus="6"/>
+        <Modification LifeArmorBonus="9"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+3)-->
     <CBehaviorBuff id="AId3">
-        <Modification LifeArmorBonus="9"/>
+        <Modification LifeArmorBonus="12"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+4)-->
     <CBehaviorBuff id="AId4">
-        <Modification LifeArmorBonus="12"/>
+        <Modification LifeArmorBonus="14"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+5)-->
     <CBehaviorBuff id="AId5">
@@ -45,17 +76,19 @@
     </CBehaviorBuff>
     <!--DefenseBonus (+7)-->
     <CBehaviorBuff id="AId7">
-        <Modification LifeArmorBonus="18"/>
+        <Modification LifeArmorBonus="16"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+8)-->
     <CBehaviorBuff id="AId8">
-        <Modification LifeArmorBonus="21"/>
+        <Modification LifeArmorBonus="17"/>
     </CBehaviorBuff>
     <!--Orb of Darkness-->
     <CBehaviorBuff id="AIdf">
         <Modification>
-            <DamageDealtUnscaled index="Melee" value="15"/>
-            <DamageDealtUnscaled index="Ranged" value="15"/>
+            <DamageDealtScaled index="Melee" value="15"/>
+            <DamageDealtScaled index="Ranged" value="15"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
         </Modification>
     </CBehaviorBuff>
     <!--Creep Abil End-->
@@ -63,15 +96,17 @@
     <!--Orb of Fire-->
     <CBehaviorBuff id="AIfb">
         <Modification>
-            <DamageDealtUnscaled index="Melee" value="12"/>
-            <DamageDealtUnscaled index="Ranged" value="12"/>
+            <DamageDealtUnscaled index="Melee" value="15"/>
+            <DamageDealtUnscaled index="Ranged" value="15"/>
         </Modification>
     </CBehaviorBuff>
     <!--Orb of Lightning-->
     <CBehaviorBuff id="AIll">
         <Modification>
-            <DamageDealtUnscaled index="Melee" value="12"/>
-            <DamageDealtUnscaled index="Ranged" value="12"/>
+            <DamageDealtScaled index="Melee" value="12"/>
+            <DamageDealtScaled index="Ranged" value="12"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
         </Modification>
     </CBehaviorBuff>
     <!--MoveSpeedBonus-->
@@ -81,8 +116,10 @@
     <!--Orb of Venom-->
     <CBehaviorBuff id="AIpb">
         <Modification>
-            <DamageDealtUnscaled index="Melee" value="12"/>
-            <DamageDealtUnscaled index="Ranged" value="12"/>
+            <DamageDealtScaled index="Melee" value="12"/>
+            <DamageDealtScaled index="Ranged" value="12"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
         </Modification>
     </CBehaviorBuff>
     <!--Attack Speed Increase(greater)-->
@@ -95,15 +132,41 @@
     <CBehaviorBuff id="AIsx">
         <Modification AttackSpeedMultiplier="1.25"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="AIva" parent="War3_Item">
-        <Requirements value="AIva"/>
+    <!--AttackBonus-->
+    <CBehaviorBuff id="AIt6">
         <Modification>
-            <VitalDamageLeechArray index="Life">
-                <KindArray index="Melee" value="1"/>
-            </VitalDamageLeechArray>
+            <DamageDealtScaled index="Melee" value="6"/>
+            <DamageDealtScaled index="Ranged" value="6"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
         </Modification>
-        <MaxStackCount value="1"/>
-        <Tooltip value="AIva/Buffubertip"/>
+    </CBehaviorBuff>
+    <!--AttackBonus-->
+    <CBehaviorBuff id="AIt9">
+        <Modification>
+            <DamageDealtScaled index="Melee" value="9"/>
+            <DamageDealtScaled index="Ranged" value="9"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
+        </Modification>
+    </CBehaviorBuff>
+    <!--AttackBonus-->
+    <CBehaviorBuff id="AItc">
+        <Modification>
+            <DamageDealtScaled index="Melee" value="12"/>
+            <DamageDealtScaled index="Ranged" value="12"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
+        </Modification>
+    </CBehaviorBuff>
+    <!--AttackBonus-->
+    <CBehaviorBuff id="AItf">
+        <Modification>
+            <DamageDealtScaled index="Melee" value="15"/>
+            <DamageDealtScaled index="Ranged" value="15"/>
+            <DamageDealtUnscaled index="Melee" value="0"/>
+            <DamageDealtUnscaled index="Ranged" value="0"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ANba1">
         <Modification>
@@ -188,6 +251,11 @@
     <CBehaviorBuff id="Aimp">
         <Requirements value=""/>
     </CBehaviorBuff>
+    <!--Liquid Fire Dur=3 HeroDur=3 Buff=Bliq-->
+    <CBehaviorBuff id="Aliq">
+        <Requirements value=""/>
+        <DamageResponse TargetFilters="-;Player,Ally,Air,Hover,HarvestableResource,Destructible,Item,Buried,Dead"/>
+    </CBehaviorBuff>
     <!--Moon Glaive-->
     <CBehaviorBuff id="Amgl">
         <Requirements value=""/>
@@ -212,6 +280,10 @@
     <CBehaviorBuff id="Aroc">
         <Requirements value=""/>
     </CBehaviorBuff>
+    <!--Resistant Skin-->
+    <CBehaviorBuff id="Arsk">
+        <Requirements value=""/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="AstaDelay">
         <Duration value="2"/>
     </CBehaviorBuff>
@@ -223,6 +295,10 @@
             <DamageDealtFraction index="Melee" value="0.25"/>
             <DamageDealtFraction index="Ranged" value="0.25"/>
         </Modification>
+    </CBehaviorBuff>
+    <!--Venom Spears Dur=25 HeroDur=1 Buff=Bpoi,Bpsd-->
+    <CBehaviorBuff id="Aven">
+        <Requirements value=""/>
     </CBehaviorBuff>
     <!--Banish-->
     <CBehaviorBuff id="BHbn">
@@ -238,6 +314,9 @@
             <DamageDealtFraction index="Melee" value="-0.25"/>
             <DamageDealtFraction index="Ranged" value="-0.25"/>
         </Modification>
+        <DurationOverride index="0" Duration="3">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
     </CBehaviorBuff>
     <!--SoulBurn-->
     <CBehaviorBuff id="BNso">
@@ -249,6 +328,9 @@
     <!--Stun-->
     <CBehaviorBuff id="BSTN">
         <Duration value="5"/>
+        <DurationOverride index="0" Duration="1">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
     </CBehaviorBuff>
     <!--DeathAndDecayAoe-->
     <CBehaviorBuff id="BUdd">
@@ -269,6 +351,44 @@
     <!--Frost-->
     <CBehaviorBuff id="Bfro">
         <Modification AttackSpeedMultiplier="0.5"/>
+    </CBehaviorBuff>
+    <!--FreezingBreath-->
+    <CBehaviorBuff id="Bfrz">
+        <DurationOverride index="0" Duration="1">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+    </CBehaviorBuff>
+    <!--LiquidFire-->
+    <CBehaviorBuff id="Bliq">
+        <Duration value="10"/>
+        <DurationOverride index="0" Duration="2">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+        <Modification AttackSpeedMultiplier="1"/>
+        <DamageResponse Chance="1" ModifyAmount="15">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <ExcludeEffectArray value="otbr1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <!--PoisonAttack-->
+    <CBehaviorBuff id="Bpoi">
+        <MaxStackCount value="6"/>
+        <Duration value="30"/>
+        <DurationOverride index="0" Duration="6"/>
+        <DamageResponse Chance="1" ModifyAmount="10">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <ExcludeEffectArray value="owyv1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <!--PoisonAttackStackDoT-->
+    <CBehaviorBuff id="Bpsd">
+        <InfoFlags index="Hidden" value="0"/>
+        <MaxStackCountPerCaster value="0"/>
+        <Duration value="30"/>
+        <DurationOverride index="0" Duration="6"/>
+        <MaxStackCount value="12"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Bugf" parent="War3_Passive">
         <DisableValidatorArray value="CasterHasBUav1"/>
@@ -317,14 +437,14 @@
     </CBehaviorBuff>
     <!--Avatar-->
     <CBehaviorBuff id="BHav">
-        <Modification LifeArmorBonus="15">
+        <Modification LifeArmorBonus="30">
             <DamageDealtUnscaled index="Melee" value="120"/>
             <DamageDealtUnscaled index="Ranged" value="120"/>
             <DamageDealtUnscaled index="Splash" value="120"/>
             <VitalMaxArray index="Life" value="2400"/>
         </Modification>
-        <Duration value="30"/>
-        <DurationOverride index="0" Duration="30">
+        <Duration value="45"/>
+        <DurationOverride index="0" Duration="45">
             <ValidatorArray index="0" value="Hero"/>
         </DurationOverride>
     </CBehaviorBuff>
@@ -375,7 +495,7 @@
     </CBehaviorBuff>
     <!--Bloodlust-->
     <CBehaviorBuff id="Bblo">
-        <Modification MoveSpeedMultiplier="1.5" AttackSpeedMultiplier="1.2">
+        <Modification MoveSpeedMultiplier="1.5" AttackSpeedMultiplier="1.25">
             <VitalDamageLeechArray index="Life">
                 <KindArray index="Melee" value="1"/>
             </VitalDamageLeechArray>
@@ -391,7 +511,7 @@
         <DurationOverride index="0" Duration="15">
             <ValidatorArray index="0" value="Hero"/>
         </DurationOverride>
-        <Modification AttackSpeedMultiplier="2"/>
+        <Modification AttackSpeedMultiplier="3"/>
     </CBehaviorBuff>
     <!--Buff-->
     <!--CloudOfFog-->
@@ -403,7 +523,7 @@
     </CBehaviorBuff>
     <!--Cripple-->
     <CBehaviorBuff id="Bcri">
-        <DurationOverride index="0" Duration="60">
+        <DurationOverride index="0" Duration="12">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <Modification MoveSpeedMultiplier="0.5"/>
@@ -414,6 +534,9 @@
         <BehaviorCategories index="Dispelable" value="0"/>
         <TechAliasArray index="0" removed="1"/>
         <TechAliasArray index="1" removed="1"/>
+        <DurationOverride index="0" Duration="12">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
     </CBehaviorBuff>
     <!--EnsnareAir-->
     <CBehaviorBuff id="Bena">
@@ -435,7 +558,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="Bsta">
         <Duration value="15"/>
-        <DurationOverride index="0" Duration="15">
+        <DurationOverride index="0" Duration="3">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
     </CBehaviorBuff>
@@ -443,6 +566,9 @@
     <CBehaviorBuff id="Bstt">
         <Duration value="60"/>
         <ExpireEffect value="TimedLifeFate"/>
+        <DurationOverride index="0" Duration="60">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
     </CBehaviorBuff>
     <CBehaviorBuff id="BsttDetonationDelay">
         <Duration value="2"/>
@@ -486,7 +612,7 @@
     <CBehaviorBuff id="ChargeKnightStun" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnanimalwartraining.dds"/>
         <Duration value="1"/>
-        <DurationOverride index="0" Duration="1">
+        <DurationOverride index="0" Duration="0.2">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <Modification>
@@ -606,7 +732,7 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageRaider" parent="War3_Passive">
-        <DamageResponse Chance="0.67" Location="Attacker">
+        <DamageResponse Chance="1" Location="Attacker">
             <Cost>
                 <Resource index="Custom" value="-5"/>
             </Cost>
@@ -617,7 +743,7 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosRaider" parent="War3_Passive">
-        <DamageResponse Chance="0.67" Location="Attacker">
+        <DamageResponse Chance="1" Location="Attacker">
             <Cost>
                 <Resource index="Custom" value="-10"/>
             </Cost>
@@ -1050,7 +1176,7 @@
     <!--AuraPlague-->
     <CBehaviorBuff id="Bapl">
         <Duration value="60"/>
-        <DurationOverride index="0" Duration="60">
+        <DurationOverride index="0" Duration="12">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
         <MaxStackCount value="6"/>
@@ -1065,7 +1191,7 @@
     <!--FaerieFire-->
     <CBehaviorBuff id="Bfae">
         <Duration value="30"/>
-        <DurationOverride index="0" Duration="10">
+        <DurationOverride index="0" Duration="6">
             <ValidatorArray index="0" value="Hero"/>
         </DurationOverride>
         <Modification LifeArmorBonus="-5"/>
@@ -1083,7 +1209,7 @@
         <DurationOverride index="0" Duration="15">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
-        <Modification LifeArmorBonus="15"/>
+        <Modification LifeArmorBonus="120"/>
     </CBehaviorBuff>
     <!--Possession-->
     <CBehaviorBuff id="Bpoc">
@@ -1093,19 +1219,22 @@
     <CBehaviorBuff id="Brej"/>
     <!--Roar-->
     <CBehaviorBuff id="Broa">
-        <MaxStackCount value="4"/>
+        <MaxStackCount value="6"/>
         <MaxStackCountPerCaster value="1"/>
         <Modification>
+            <DamageDealtScaled index="Melee" value="12"/>
+            <DamageDealtScaled index="Ranged" value="12"/>
             <DamageDealtFraction index="Melee" value="0"/>
             <DamageDealtFraction index="Ranged" value="0"/>
-            <DamageDealtUnscaled index="Melee" value="12"/>
-            <DamageDealtUnscaled index="Ranged" value="12"/>
         </Modification>
     </CBehaviorBuff>
     <!--Slow-->
     <CBehaviorBuff id="Bslo">
         <Modification MoveSpeedMultiplier="0.5" AttackSpeedMultiplier="0.5"/>
         <Duration value="30"/>
+        <DurationOverride index="0" Duration="6">
+            <ValidatorArray index="0" value="Hero"/>
+        </DurationOverride>
     </CBehaviorBuff>
     <!--SlowPoison-->
     <CBehaviorBuff id="Bspo">
@@ -1185,6 +1314,7 @@
             <BehaviorLinkDisableArray value="BNso"/>
             <BehaviorLinkDisableArray value="Bfrz"/>
             <BehaviorLinkDisableArray value="BHbn"/>
+            <BehaviorLinkDisableArray value="Bpsd"/>
         </Modification>
         <InfoFlags index="Hidden" value="0"/>
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>

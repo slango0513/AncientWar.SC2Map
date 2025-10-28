@@ -303,8 +303,8 @@
     </CWeaponLegacy>
     <!--ChaosKodoBeast-->
     <CWeaponLegacy id="nckb1">
-        <MinScanRange value="3"/>
-        <Range value="3"/>
+        <MinScanRange value="5"/>
+        <Range value="5"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--DarkMinion1-->
@@ -410,14 +410,14 @@
     </CWeaponLegacy>
     <!--HeadHunter-->
     <CWeaponLegacy id="ohun1">
-        <MinScanRange value="7"/>
-        <Range value="7"/>
+        <MinScanRange value="6"/>
+        <Range value="6"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--KodoBeast-->
     <CWeaponLegacy id="okod1">
-        <MinScanRange value="3"/>
-        <Range value="3"/>
+        <MinScanRange value="5"/>
+        <Range value="5"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Raider-->
@@ -452,6 +452,20 @@
         <MinScanRange value="7"/>
         <Range value="7"/>
         <Period value="3"/>
+    </CWeaponLegacy>
+    <!--Troll Batrider-->
+    <CWeaponLegacy id="otbr1">
+        <MinScanRange value="8"/>
+        <Range value="8"/>
+        <Period value="6"/>
+        <Effect value="otbr1CP"/>
+    </CWeaponLegacy>
+    <!--Wind Rider-->
+    <CWeaponLegacy id="owyv1">
+        <MinScanRange value="8"/>
+        <Range value="8"/>
+        <Period value="6"/>
+        <Effect value="owyv1CP"/>
     </CWeaponLegacy>
     <!--Abomination-->
     <CWeaponLegacy id="uabo1">
