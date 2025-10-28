@@ -77,6 +77,12 @@
     <CValidatorUnitType id="Isugar">
         <Value value="ugar"/>
     </CValidatorUnitType>
+    <CValidatorUnitType id="Ishfoo">
+        <Value value="hfoo"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="Ishhes">
+        <Value value="hhes"/>
+    </CValidatorUnitType>
     <CValidatorUnitCompareVeterancyLevel id="LevelableHero">
         <Compare value="GE"/>
         <Value value="0"/>
@@ -103,6 +109,9 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoSilence">
         <Behavior value="BNsi"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoSleep">
+        <Behavior value="BUsl"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoStasisTrapWard">
         <Behavior value="Bsta"/>

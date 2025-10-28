@@ -18,7 +18,7 @@
         <RechargeVitalRate value="50"/>
     </CEffectCreateHealer>
     <CEffectDamage id="AHtbDamage1">
-        <Amount value="300"/>
+        <Amount value="500"/>
     </CEffectDamage>
     <CEffectEnumArea id="ANsi1Search">
         <AreaArray index="0" Radius="2" Effect="ANsiBuffSet"/>
@@ -27,16 +27,38 @@
         <AttributeBonus index="Light" value="450"/>
         <Amount value="150"/>
     </CEffectDamage>
+    <!--Death Knight - Unholy Aura Buff=BUau-->
+    <CEffectEnumArea id="AUauSearch">
+        <AreaArray index="0" Radius="9" Effect="BUauSet"/>
+    </CEffectEnumArea>
     <!--Dreadlord - Vampiric Aura Buff=BUav-->
     <CEffectEnumArea id="AUavSearch">
         <AreaArray index="0" Radius="9" Effect="BUavSet"/>
     </CEffectEnumArea>
+    <CEffectEnumArea id="AUdcSearch" parent="War3_AbilSearch">
+        <SearchFilters value="-;Structure,wall,tree,Missile,debris,item,ward,dead,Hidden,invulnerable,immunity"/>
+        <AreaArray Radius="2" Effect="AUdcMissile"/>
+    </CEffectEnumArea>
+    <!--Dreadlord - Sleep Buff=BUsl,BUsp,Bust-->
+    <CEffectSet id="AUsl">
+        <ValidatorArray value="NonPowerfulUnit"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="AUsl1Dur">
+        <Duration value="15"/>
+    </CEffectApplyBehavior>
     <CEffectEnumArea id="AbofFullDamageSearch">
         <SearchFilters value="-;player,allies,air,wall,tree,Missile,debris,item,ward,dead,invulnerable"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="AbofHalfDamageSearch">
         <SearchFilters value="-;player,allies,air,wall,tree,Missile,debris,item,ward,dead,invulnerable"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="BHav">
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <!--Beserk Dur=12 HeroDur=12 Buff=Bbsk-->
+    <CEffectApplyBehavior id="Bbsk">
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
     <CEffectApplyBehavior id="Bsta">
         <ValidatorArray value="NonPowerfulUnit"/>
     </CEffectApplyBehavior>
@@ -135,6 +157,13 @@
         <AreaArray Radius="7.5" Effect="Patchwork"/>
         <MaxCount value="1"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="ShieldWall" parent="War3_ApplyBuff">
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectIssueOrder id="ShieldWallIssueOrder">
+        <WhichUnit Value="Caster"/>
+        <Abil value="ShieldWall"/>
+    </CEffectIssueOrder>
     <CEffectDamage id="ubsp1">
         <AttributeFactor index="small" value="1"/>
         <AttributeFactor index="unarmored" value="0.5"/>
@@ -295,7 +324,7 @@
     </CEffectSet>
     <!--Roar Dur=45 HeroDur=45 Buff=Broa-->
     <CEffectEnumArea id="AroaSearch">
-        <AreaArray index="0" Radius="6" Effect="Broa"/>
+        <AreaArray index="0" Radius="7.5" Effect="Broa"/>
         <LaunchLocation Value="CasterUnit"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="ArplSearch">
@@ -343,7 +372,7 @@
         <AreaArray index="0" Radius="12" Effect="Bmfa"/>
     </CEffectEnumArea>
     <CEffectCreateHealer id="BrejHealTick">
-        <RechargeVitalRate value="50"/>
+        <RechargeVitalRate value="75"/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="BrplHeal">
         <RechargeVitalRate value="25"/>
@@ -380,7 +409,7 @@
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="large" value="1"/>
         <AttributeFactor index="fortified" value="-0.65"/>
-        <Amount value="60"/>
+        <Amount value="72"/>
         <Random value="0"/>
         <AreaArray Radius="0.625" Bonus="24"/>
         <AreaArray Radius="1.25" Bonus="12"/>
@@ -501,7 +530,7 @@
         <SearchFilters value="-;player,allies,air,tree,Missile,item,ward,ethereal,dead,invulnerable"/>
     </CEffectDamage>
     <CEffectDamage id="edcm1">
-        <Amount value="48"/>
+        <Amount value="96"/>
         <AttributeFactor index="divine" value="0"/>
         <Random value="0"/>
     </CEffectDamage>
@@ -687,7 +716,7 @@
     <CEffectDamage id="hrif1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="60"/>
+        <Amount value="72"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="hrtt1">
@@ -766,7 +795,7 @@
     <CEffectDamage id="nhym1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="60"/>
+        <Amount value="72"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectSet id="Hgam1S">
@@ -978,7 +1007,7 @@
     <CEffectDamage id="ugho1">
         <AttributeFactor index="divine" value="0"/>
         <Random value="0"/>
-        <Amount value="24"/>
+        <Amount value="30"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="Ucrl1LM" parent="War3_Missile" weaponid="Ucrl1"/>
     <CEffectDamage id="umtw1">

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorModel id="Broa">
+        <On Terms="Behavior.MoraleBoosting.On" Send="Create"/>
+        <On Terms="Behavior.MoraleBoosting.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorModel id="Bspe">
+        <On Terms="Behavior.ChargingKnight.On" Send="Create"/>
+        <On Terms="Behavior.ChargingKnight.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
     <CActorModel id="PatchworkSize">
         <On Terms="Behavior.PatchworkSize.On" Send="Create"/>
         <On Terms="Behavior.PatchworkSize.Off" Send="AnimBracketStop BSD"/>
@@ -101,8 +109,8 @@
         <On Terms="Behavior.FrostWyrmInvulnerable.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
     <CActorModel id="Bdef">
-        <On Terms="Behavior.MoraleBoosting.On" Send="Create"/>
-        <On Terms="Behavior.MoraleBoosting.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.ShieldWall.On" Send="Create"/>
+        <On Terms="Behavior.ShieldWall.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
     <CActorSound id="ChargeKnightInitial" parent="SoundOneShot">
         <On Terms="Effect.ChargeKnightInitialSet.Start" Send="Create"/>
@@ -141,6 +149,10 @@
     <CActorSound id="MoraleBoostingSearch" parent="SoundOneShot">
         <On Terms="Effect.MoraleBoostingSearch.Start" Send="Create"/>
         <Sound value="BurrowBattleStations"/>
+    </CActorSound>
+    <CActorSound id="ShieldWall" parent="SoundOneShot">
+        <On Terms="Effect.ShieldWall.Start" Send="Create"/>
+        <Sound value="ManaShieldCastSound"/>
     </CActorSound>
     <CActorModel id="Defend" parent="ModelAnimationStyleOneShotUNIT">
         <On Terms="Behavior.Defend.DamageHandled" Send="Create"/>
@@ -564,6 +576,36 @@
         <SoundArray index="ClickError" value="Ucrl1_ClickError"/>
         <SoundArray index="Highlight" value="Ucrl1_Highlight"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--deathknight-->
+    <CActorUnit id="Udea" unitName="Udea1" defType="LARGE">
+        <On index="0" Terms="UnitBirth.Udea1" Send="Create SoundEmitter Udea1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Udea1"/>
+        <On index="2" Terms="UnitRevive.Udea1"/>
+        <On index="3" Terms="UnitRevive.Udea1"/>
+        <On index="4" Terms="UnitConstruction.Udea1.Start"/>
+        <On index="5" Terms="UnitConstruction.Udea1.Finish"/>
+        <On index="67" Terms="UnitRevive.Udea1; !ScopeContains Udea"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Udea1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Udea1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Udea1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Udea1"/>
+        <On index="85" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Udea1Death" VoiceLink="Udea1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <GroupSoundArray index="What" value="Udea1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Udea1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Udea1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Udea1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
+        <SoundArray index="Birth" value="Udea1_Birth"/>
+        <SoundArray index="Help" value="Udea1_Help"/>
+        <SoundArray index="Movement" value="Udea1_Movement"/>
+        <SoundArray index="Turning" value="Udea1_Turning"/>
+        <SoundArray index="Board" value="Udea1_Board"/>
+        <SoundArray index="Click" value="Udea1_Click"/>
+        <SoundArray index="ClickError" value="Udea1_ClickError"/>
+        <SoundArray index="Highlight" value="Udea1_Highlight"/>
     </CActorUnit>
     <!--dreadlord-->
     <CActorUnit id="Udre" unitName="Udre1" defType="LARGE">

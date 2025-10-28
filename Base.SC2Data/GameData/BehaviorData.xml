@@ -109,6 +109,16 @@
         <DamageResponse ModifyAmount="-10" ModifyFraction="1"/>
         <Modification MoveSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="AdefTheCaptain" parent="War3_Passive">
+        <Requirements value=""/>
+        <Modification MoveSpeedMultiplier="0.5"/>
+        <DamageResponse Chance="1" ModifyAmount="-40">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <ExcludeEffectArray value="TriggerRangedDamge"/>
+        </DamageResponse>
+    </CBehaviorBuff>
     <!--Elune's Grace-->
     <CBehaviorBuff id="Aegr">
         <DamageResponse ModifyFraction="0.5"/>
@@ -185,7 +195,7 @@
     </CBehaviorBuff>
     <!--Avatar-->
     <CBehaviorBuff id="BHav">
-        <Modification LifeArmorBonus="60">
+        <Modification LifeArmorBonus="15">
             <DamageDealtUnscaled index="Melee" value="120"/>
             <DamageDealtUnscaled index="Ranged" value="120"/>
             <DamageDealtUnscaled index="Splash" value="120"/>
@@ -204,6 +214,13 @@
         <MaxStackCountPerCaster value="1"/>
         <Modification MoveSpeedMultiplier="1.2" AttackSpeedMultiplier="1.2"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="BUau1">
+        <MaxStackCount value="2"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Modification MoveSpeedMultiplier="1.25">
+            <VitalRegenArray index="Life" value="5"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="BUav1">
         <MaxStackCount value="2"/>
         <MaxStackCountPerCaster value="1"/>
@@ -211,7 +228,7 @@
     <CBehaviorBuff id="BUav1Leech">
         <Modification>
             <VitalDamageLeechArray index="Life">
-                <KindArray index="Melee" value="0.25"/>
+                <KindArray index="Melee" value="0.5"/>
             </VitalDamageLeechArray>
         </Modification>
         <MaxStackCount value="2"/>
@@ -280,11 +297,11 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="ChargingKnight" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnanimalwartraining.dds"/>
-        <Duration value="1.5"/>
-        <DurationOverride index="0" Duration="1.5">
+        <Duration value="2"/>
+        <DurationOverride index="0" Duration="2">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
-        <Modification MoveSpeedMultiplier="2.2"/>
+        <Modification MoveSpeedMultiplier="3" WeaponRange="-0.625"/>
         <Period value="0.0625"/>
         <PeriodicEffect value="ChargeKnightEnumArea"/>
         <DisplayDuration index="Self" value="1"/>
@@ -345,7 +362,7 @@
     <CBehaviorBuff id="Patchwork" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnabomination.dds"/>
         <MaxStackCount value="0"/>
-        <Modification WeaponRange="0.0625">
+        <Modification WeaponRange="0.0625" LifeArmorBonus="2">
             <DamageDealtUnscaled index="Melee" value="36"/>
             <VitalMaxArray index="Life" value="600"/>
         </Modification>
@@ -411,7 +428,7 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageRaider" parent="War3_Passive">
-        <DamageResponse Chance="1" Location="Attacker">
+        <DamageResponse Chance="0.5" Location="Attacker">
             <Cost>
                 <Resource index="Custom" value="-5"/>
             </Cost>
@@ -421,7 +438,7 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosRaider" parent="War3_Passive">
-        <DamageResponse Chance="1" Location="Attacker">
+        <DamageResponse Chance="0.5" Location="Attacker">
             <Cost>
                 <Resource index="Custom" value="-10"/>
             </Cost>
@@ -448,7 +465,7 @@
     </CBehaviorBuff>
     <!--AuraThorns-->
     <CBehaviorBuff id="BEah">
-        <DamageResponse>
+        <DamageResponse Chance="0.75">
             <Kind index="Ranged" value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
@@ -972,6 +989,7 @@
             <BehaviorLinkDisableArray value="BOws"/>
             <BehaviorLinkDisableArray value="BUim"/>
             <BehaviorLinkDisableArray value="Bfrz"/>
+            <BehaviorLinkDisableArray value="BUsl"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Defend" parent="War3_Buff">
@@ -1047,6 +1065,18 @@
             <AbilClassDisableArray index="CAbilWarpTrain" value="1"/>
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShieldWall" parent="War3_Buff">
+        <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnhumanarmoruptwo.dds"/>
+        <Duration value="5"/>
+        <DurationOverride index="0" Duration="5">
+            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
+        </DurationOverride>
+        <DamageResponse Chance="1" ModifyFraction="0.1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShieldWallPassive" parent="War3_Passive">
+        <Requirements value="ShieldWallPassive"/>
+        <DamageResponse Chance="1" Handled="ShieldWallIssueOrder"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShockWave" parent="War3_Buff">
         <InfoFlags index="Hidden" value="1"/>
@@ -1127,7 +1157,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="UnholyDominance" parent="War3_AuraBuff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btngargoyle.dds"/>
-        <Modification WeaponRange="5"/>
+        <Modification WeaponRange="3"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="FrostWyrmInvulnerable" parent="War3_Passive">
         <Requirements value="FrostWyrmInvulnerable"/>

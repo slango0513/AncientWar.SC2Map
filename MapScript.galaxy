@@ -28,6 +28,7 @@ const int gv_asplMaxTargets = 4;
 //--------------------------------------------------------------------------------------------------
 // Global Variables
 //--------------------------------------------------------------------------------------------------
+unitfilter gv_aOclTargetFilter;
 unitfilter gv_asplTargetFilter;
 fixed gv_fixedTime;
 fixed gv_fixedTimeLastRound;
@@ -56,6 +57,7 @@ int[9] gv_intRandomGroup;
 int[17] gv_intRandomRound;
 int[17][17] gv_intScheduleAllPlayAll;
 int[17][17] gv_intPlayerFinal;
+bank[17] gv_bank;
 int gv_board;
 int[17] gv_intRowBoardOfPlayer;
 unit[17] gv_unitWorker;
@@ -91,6 +93,7 @@ void InitGlobals () {
     int init_i;
     int init_j;
 
+    gv_aOclTargetFilter = UnitFilter((1 << c_targetFilterVisible), 0, (1 << c_targetFilterPlayer) | (1 << c_targetFilterAlly) | (1 << c_targetFilterGround) | (1 << c_targetFilterMechanical) | (1 << c_targetFilterHover) | (1 << c_targetFilterHarvestableResource) | (1 << c_targetFilterDestructible) | (1 << c_targetFilterItem) | (1 << c_targetFilterPreventDefeat), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterUnstoppable - 32)));
     gv_asplTargetFilter = UnitFilter(0, 0, (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterMechanical) | (1 << c_targetFilterHover) | (1 << c_targetFilterHarvestableResource) | (1 << c_targetFilterMissile) | (1 << c_targetFilterDestructible) | (1 << c_targetFilterItem) | (1 << c_targetFilterPreventDefeat), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)) | (1 << (c_targetFilterInvulnerable - 32)) | (1 << (c_targetFilterUnstoppable - 32)));
     gv_behaviorFlagRaiseDead = c_unitBehaviorFlagUser1;
     gv_playergroupDebug = PlayerGroupEmpty();
@@ -128,6 +131,7 @@ bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u);
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
+trigger gt_AOclImpact;
 trigger gt_AsplMarker;
 trigger gt_AsplSplitTemplate;
 trigger gt_AsplRegister;
@@ -136,7 +140,7 @@ trigger gt_TestMode;
 trigger gt_GetRadomItem;
 trigger gt_SetOwner;
 trigger gt_Restart;
-trigger gt_SetUnit;
+trigger gt_Set;
 trigger gt_UnitRemove;
 trigger gt_InitPlayer;
 trigger gt_InitRandomGroup;
@@ -262,6 +266,69 @@ bool gf_UnitHasBehaviorFlag (int lp_bf, unit lp_u) {
 
     }
     return lv_b;
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: AOcl - Impact
+//--------------------------------------------------------------------------------------------------
+bool gt_AOclImpact_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_caster;
+    int lv_level;
+    int lv_targetsThisLevel;
+    unit lv_lastTarget;
+    unit lv_nextTarget;
+    unitgroup lv_searchPool;
+    unitgroup lv_marked;
+    fixed lv_damage;
+    int lv_markedTargets;
+    point lv_searchPoint;
+    int lv_casterPlayer;
+
+    // Variable Initialization
+    lv_caster = EventPlayerEffectUsedUnit(c_effectUnitCaster);
+    lv_level = UnitAbilityGetLevel(lv_caster, libGAwX_gv_aOclAbilLink);
+    lv_targetsThisLevel = (libGAwX_gv_aOclTargetsBase + (libGAwX_gv_aOclExtraTargetPerLevel * lv_level));
+    lv_lastTarget = EventPlayerEffectUsedUnit(c_effectUnitTarget);
+    lv_searchPool = UnitGroupEmpty();
+    lv_marked = UnitGroupEmpty();
+    lv_damage = libGAwX_gv_aOclDamageArray[lv_level];
+    lv_markedTargets = 1;
+    lv_casterPlayer = EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while ((lv_markedTargets < lv_targetsThisLevel)) {
+        UnitGroupAdd(lv_marked, lv_lastTarget);
+        lv_markedTargets += 1;
+        lv_searchPoint = EventPlayerEffectUsedPoint(c_effectLocationTargetPoint);
+        lv_damage *= libGAwX_gv_aOclDamageReduce;
+        lv_searchPool = UnitGroupSearch(null, lv_casterPlayer, lv_searchPoint, libGAwX_gv_aOclAoERange, gv_aOclTargetFilter, libGAwX_gv_aOclTargetsMax);
+        UnitGroupRemoveUnitGroup(lv_searchPool, lv_marked);
+        lv_nextTarget = UnitGroupClosestToPoint(lv_searchPool, lv_searchPoint);
+        if ((UnitIsValid(lv_nextTarget) == true) && (UnitIsAlive(lv_nextTarget) == true)) {
+            UnitCreateEffectUnit(lv_lastTarget, "AOclSecondaryLightningDummy", lv_nextTarget);
+            Wait(libGAwX_gv_aOclDamageDelay, c_timeGame);
+            if ((UnitIsValid(lv_nextTarget) == true) && (UnitIsAlive(lv_nextTarget) == true)) {
+                UnitDamage(lv_caster, "AOclSecondaryTriggerDamage", lv_nextTarget, lv_damage);
+            }
+
+            lv_lastTarget = lv_nextTarget;
+        }
+        else {
+            break;
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AOclImpact_Init () {
+    gt_AOclImpact = TriggerCreate("gt_AOclImpact_Func");
+    TriggerAddEventPlayerEffectUsed(gt_AOclImpact, c_playerAny, "AOclMainmIpact");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -472,6 +539,23 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     TriggerEnable(libGAwX_gt_AdefDefendInitRegister, false);
     TriggerEnable(libGAwX_gt_AsplMarker, false);
     TriggerEnable(libGAwX_gt_AsplRegister, false);
+    TriggerEnable(libGAwX_gt_AOclImpact, false);
+    BankLoad("AncientWar", 1);
+    gv_bank[1] = BankLastCreated();
+    BankLoad("AncientWar", 2);
+    gv_bank[2] = BankLastCreated();
+    BankLoad("AncientWar", 3);
+    gv_bank[3] = BankLastCreated();
+    BankLoad("AncientWar", 4);
+    gv_bank[4] = BankLastCreated();
+    BankLoad("AncientWar", 5);
+    gv_bank[5] = BankLastCreated();
+    BankLoad("AncientWar", 6);
+    gv_bank[6] = BankLastCreated();
+    BankLoad("AncientWar", 7);
+    gv_bank[7] = BankLastCreated();
+    BankLoad("AncientWar", 8);
+    gv_bank[8] = BankLastCreated();
     VisEnable(c_visTypeMask, true);
     VisEnable(c_visTypeFog, true);
     libNtve_gf_SetPlayerGroupAlliance(PlayerGroupActive(), libNtve_ge_AllianceSetting_Enemy);
@@ -488,6 +572,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
         PlayerOptionOverride(lv_p, "selectuncontrolable", "1");
         CameraLockInput(lv_p, true);
         CameraPan(lv_p, RegionGetCenter(RegionFromId(1)), 0.0, -1, 10.0, false);
+        BankOptionSet(gv_bank[lv_p], c_bankOptionSignature, true);
     }
     gv_optionCommandable = true;
     gv_playergroupDebug = PlayerGroupEmpty();
@@ -556,7 +641,7 @@ bool gt_TestMode_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_GetRadomItem, true);
     TriggerEnable(gt_SetOwner, true);
     TriggerEnable(gt_Restart, true);
-    TriggerEnable(gt_SetUnit, true);
+    TriggerEnable(gt_Set, true);
     TriggerEnable(gt_UnitRemove, true);
     return true;
 }
@@ -724,9 +809,9 @@ void gt_Restart_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: SetUnit
+// Trigger: Set
 //--------------------------------------------------------------------------------------------------
-bool gt_SetUnit_Func (bool testConds, bool runActions) {
+bool gt_Set_Func (bool testConds, bool runActions) {
     string autoCBDAB378_val;
     int auto22F2A138_ae;
     int auto22F2A138_ai;
@@ -761,7 +846,13 @@ bool gt_SetUnit_Func (bool testConds, bool runActions) {
     gv_stringFieldPath = StringWord(EventChatMessage(false), 2);
     gv_stringValue = StringWord(EventChatMessage(false), 3);
     autoCBDAB378_val = StringWord(EventChatMessage(false), 1);
-    if (autoCBDAB378_val == "Living") {
+    if (autoCBDAB378_val == "Score") {
+        BankValueSetFromInt(gv_bank[EventPlayer()], "Score", StringWord(EventChatMessage(false), 2), StringToInt(StringWord(EventChatMessage(false), 3)));
+    }
+    else if (autoCBDAB378_val == "Save") {
+        BankSave(gv_bank[EventPlayer()]);
+    }
+    else if (autoCBDAB378_val == "Living") {
         auto22F2A138_ae = gv_intCountPlayer;
         auto22F2A138_ai = 1;
         lv_p = 1;
@@ -881,10 +972,10 @@ bool gt_SetUnit_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_SetUnit_Init () {
-    gt_SetUnit = TriggerCreate("gt_SetUnit_Func");
-    TriggerEnable(gt_SetUnit, false);
-    TriggerAddEventChatMessage(gt_SetUnit, c_playerAny, " ", false);
+void gt_Set_Init () {
+    gt_Set = TriggerCreate("gt_Set_Func");
+    TriggerEnable(gt_Set, false);
+    TriggerAddEventChatMessage(gt_Set, c_playerAny, " ", false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1296,6 +1387,8 @@ void gt_InitPlayerFinal_Init () {
 bool gt_InitBoard_Func (bool testConds, bool runActions) {
     int autoEB6298CD_ae;
     int autoEB6298CD_ai;
+    int autoD7E3EB29_ae;
+    int autoD7E3EB29_ai;
 
     // Variable Declarations
     int lv_p;
@@ -1307,7 +1400,7 @@ bool gt_InitBoard_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    BoardCreate(3, gv_intCountPlayer, StringExternal("Param/Value/5AAD0B64"), Color(100.00, 100.00, 100.00));
+    BoardCreate(5, gv_intCountPlayer, StringExternal("Param/Value/5AAD0B64"), Color(100.00, 100.00, 100.00));
     gv_board = BoardLastCreated();
     BoardItemSetText(gv_board, 1, c_boardRowHeader, StringExternal("Param/Value/55F724F7"));
     BoardItemSetFontSize(gv_board, 1, c_boardRowHeader, 20);
@@ -1315,6 +1408,10 @@ bool gt_InitBoard_Func (bool testConds, bool runActions) {
     BoardItemSetFontSize(gv_board, 2, c_boardRowHeader, 20);
     BoardItemSetText(gv_board, 3, c_boardRowHeader, StringExternal("Param/Value/D52897FF"));
     BoardItemSetFontSize(gv_board, 3, c_boardRowHeader, 20);
+    BoardItemSetText(gv_board, 4, c_boardRowHeader, StringExternal("Param/Value/1AAE96FC"));
+    BoardItemSetFontSize(gv_board, 4, c_boardRowHeader, 20);
+    BoardItemSetText(gv_board, 5, c_boardRowHeader, StringExternal("Param/Value/FC2692D1"));
+    BoardItemSetFontSize(gv_board, 5, c_boardRowHeader, 20);
     autoEB6298CD_ae = gv_intCountPlayer;
     autoEB6298CD_ai = 1;
     lv_p = 1;
@@ -1335,9 +1432,28 @@ bool gt_InitBoard_Func (bool testConds, bool runActions) {
         BoardItemSetProgressValue(gv_board, 3, lv_p, 0.0);
         BoardItemSetProgressRange(gv_board, 3, lv_p, 0.0, 0.0);
         BoardItemSetProgressShow(gv_board, 3, lv_p, true);
+        BoardItemSetFontSize(gv_board, 4, lv_p, 16);
+        BoardItemSetFontSize(gv_board, 5, lv_p, 16);
         if ((PlayerType(lv_p) == c_playerTypeUser) && (PlayerType(lv_p) == c_playerTypeComputer)) {
         }
 
+    }
+    autoD7E3EB29_ae = gv_intCountPlayer;
+    autoD7E3EB29_ai = 1;
+    lv_p = 1;
+    for ( ; ( (autoD7E3EB29_ai >= 0 && lv_p <= autoD7E3EB29_ae) || (autoD7E3EB29_ai <= 0 && lv_p >= autoD7E3EB29_ae) ) ; lv_p += autoD7E3EB29_ai ) {
+        if ((BankVerify(gv_bank[gv_intPlayer[lv_p]]) == true)) {
+            if ((BankValueGetAsInt(gv_bank[gv_intPlayer[lv_p]], "Score", "GameCount") > 0)) {
+                BoardItemSetText(gv_board, 4, gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]], IntToText(BankValueGetAsInt(gv_bank[gv_intPlayer[lv_p]], "Score", "GameCount")));
+                BoardItemSetText(gv_board, 5, gv_intRowBoardOfPlayer[gv_intPlayer[lv_p]], FixedToText((IntToFixed(BankValueGetAsInt(gv_bank[gv_intPlayer[lv_p]], "Score", "Win")) / IntToFixed(BankValueGetAsInt(gv_bank[gv_intPlayer[lv_p]], "Score", "GameCount"))), 2));
+            }
+
+        }
+        else {
+            UIDisplayMessage(PlayerGroupSingle(gv_intPlayer[lv_p]), c_messageAreaSubtitle, StringExternal("Param/Value/BB3E842A"));
+            BankSectionRemove(gv_bank[gv_intPlayer[lv_p]], "Score");
+            BankSave(gv_bank[gv_intPlayer[lv_p]]);
+        }
     }
     return true;
 }
@@ -2343,6 +2459,8 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
     int auto1D1DAF8F_ai;
     int autoA5DAEA43_ae;
     int autoA5DAEA43_ai;
+    int autoB7E72304_n;
+    int autoB7E72304_i;
 
     // Variable Declarations
     int lv_p;
@@ -2379,7 +2497,8 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                 gv_boolKilling = true;
                 TriggerEnable(libGAwX_gt_ankhAnkhofReincarnationRemove, false);
                 Wait(2.0, c_timeGame);
-                while (true) {
+                autoB7E72304_n = 50;
+                for (autoB7E72304_i = 1; autoB7E72304_i <= autoB7E72304_n; autoB7E72304_i += 1) {
                     if ((gv_intCountLivingUnitPlayer[lv_pWn] > 0)) {
                         UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
                         for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
@@ -2425,7 +2544,6 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
             }
             if ((lv_pL == 0)) {
                 TriggerEnable(gt_WinLossPeriod, false);
-                TriggerEnable(gt_PlayerLeft, false);
                 gv_boolKilling = true;
                 Wait(2.0, c_timeGame);
                 UnitGroupLoopBegin(UnitGroup(null, 15, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
@@ -2469,6 +2587,19 @@ bool gt_WinLoss_Func (bool testConds, bool runActions) {
                     }
 
                     if ((gv_intFinalRound == gv_intCountFinalRound)) {
+                        TriggerEnable(gt_PlayerLeft, false);
+                        PlayerGroupLoopBegin(PlayerGroupActive());
+                        for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+                            BankValueSetFromInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount", (BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount") + 1));
+                            if ((PlayerGroupLoopCurrent() == lv_pWn)) {
+                                BankValueSetFromInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win", (BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win") + 1));
+                            }
+
+                            BankSave(gv_bank[PlayerGroupLoopCurrent()]);
+                            BoardItemSetText(gv_board, 4, gv_intRowBoardOfPlayer[PlayerGroupLoopCurrent()], IntToText(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount")));
+                            BoardItemSetText(gv_board, 5, gv_intRowBoardOfPlayer[PlayerGroupLoopCurrent()], FixedToText((IntToFixed(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "Win")) / IntToFixed(BankValueGetAsInt(gv_bank[PlayerGroupLoopCurrent()], "Score", "GameCount"))), 2));
+                        }
+                        PlayerGroupLoopEnd();
                         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lv_pWn), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lv_pWn, false))) + StringExternal("Param/Value/6250BEB1")));
                         UIDisplayMessage(PlayerGroupAll(), c_messageAreaDirective, StringExternal("Param/Value/50A1E790"));
                         Wait(15.0, c_timeGame);
@@ -2621,6 +2752,8 @@ bool gt_PlayerLeft_Func (bool testConds, bool runActions) {
     }
 
     PlayerGroupAdd(gv_playergroupAI, EventPlayer());
+    BankValueSetFromInt(gv_bank[EventPlayer()], "Score", "GameCount", (BankValueGetAsInt(gv_bank[EventPlayer()], "Score", "GameCount") + 1));
+    BankSave(gv_bank[EventPlayer()]);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(EventPlayer()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventPlayer(), false))) + StringExternal("Param/Value/A99D8C2B")));
     return true;
 }
@@ -2635,6 +2768,7 @@ void gt_PlayerLeft_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
+    gt_AOclImpact_Init();
     gt_AsplMarker_Init();
     gt_AsplSplitTemplate_Init();
     gt_AsplRegister_Init();
@@ -2643,7 +2777,7 @@ void InitTriggers () {
     gt_GetRadomItem_Init();
     gt_SetOwner_Init();
     gt_Restart_Init();
-    gt_SetUnit_Init();
+    gt_Set_Init();
     gt_UnitRemove_Init();
     gt_InitPlayer_Init();
     gt_InitRandomGroup_Init();

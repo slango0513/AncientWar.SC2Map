@@ -1,5 +1,6 @@
 Attributes
 Attributes.version
+BankList.xml
 Base.SC2Data\GameData\AbilData.xml
 Base.SC2Data\GameData\ActorData.xml
 Base.SC2Data\GameData\BehaviorData.xml

@@ -32,6 +32,7 @@
     <CButton id="PillageChaosGrunt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="PillageRaider" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="PillageChaosRaider" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
+    <CButton id="ShieldWall" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhumanarmoruptwo.dds"/>
     <CButton id="ShockWave" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnshockwave.dds"/>
     <CButton id="ItemLevel" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btn3m1.dds">
         <Name value="UpdateItemLevel1/Tip"/>
