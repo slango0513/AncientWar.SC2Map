@@ -4176,7 +4176,8 @@
         <AbilArray index="3" Link="ANlg"/>
         <AbilArray index="4" Link="ANgl"/>
         <AbilArray index="5" Link="ItemLevel"/>
-        <AbilArray index="6" removed="1"/>
+        <AbilArray index="6" Link="SpecialtyOrc2"/>
+        <AbilArray Link="SpecialtyOrc"/>
         <DeathTime value="15"/>
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
@@ -4201,8 +4202,8 @@
                 <Row value="2"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="6" Face="SpecialtyOrc" Type="Passive" AbilCmd="" Row="2" Column="0"/>
-            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="6" Face="SpecialtyOrc2" Type="AbilCmd" AbilCmd="SpecialtyOrc2,Research1" Row="2" Column="0"/>
+            <LayoutButtons index="7" Face="SpecialtyOrc" Type="AbilCmd" AbilCmd="SpecialtyOrc,Research1" Row="2" Column="1"/>
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
         </CardLayouts>
@@ -4667,11 +4668,11 @@
     </CUnit>
     <!--Pendant of Energy-->
     <CUnit id="penr">
-        <CostResource index="gold" value="40"/>
+        <CostResource index="gold" value="80"/>
     </CUnit>
     <!--Pendant of Mana-->
     <CUnit id="pmna">
-        <CostResource index="gold" value="80"/>
+        <CostResource index="gold" value="120"/>
     </CUnit>
     <!--Periapt of Vitality-->
     <CUnit id="prvt">

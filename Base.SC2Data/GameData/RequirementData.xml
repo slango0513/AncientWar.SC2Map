@@ -29,7 +29,19 @@
     <CRequirement id="Pause">
         <NodeArray index="Use" Link="CountUpgradePauseCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="ShowSpecialityOrc">
+        <NodeArray index="Show" Link="AndEqCountUpgradeSpecialtyOrcQueuedOrBetter0EqCountUpgradeSpecialtyOrc2QueuedOrBetter0"/>
+    </CRequirement>
+    <CRequirement id="ShowSpecialityOrc2">
+        <NodeArray index="Show" Link="AndEqCountUpgradeSpecialtyOrcQueuedOrBetter0EqCountUpgradeSpecialtyOrc2QueuedOrBetter0"/>
+    </CRequirement>
     <CRequirement id="SkeletonsLT73">
         <NodeArray index="Use" Link="LTSumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly73"/>
+    </CRequirement>
+    <CRequirement id="SpecialtyOrc">
+        <NodeArray index="Show" Link="GTCountUpgradeSpecialtyOrcQueuedOrBetter0"/>
+    </CRequirement>
+    <CRequirement id="SpecialtyOrc2">
+        <NodeArray index="Show" Link="GTCountUpgradeSpecialtyOrc2QueuedOrBetter0"/>
     </CRequirement>
 </Catalog>

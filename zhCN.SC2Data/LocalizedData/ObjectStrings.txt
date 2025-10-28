@@ -9,6 +9,8 @@ Abil/EditorSuffix/Inventory3=3
 Abil/EditorSuffix/Inventory4=4
 Abil/EditorSuffix/Inventory5=5
 Abil/EditorSuffix/Inventory6=6
+Abil/EditorSuffix/SpecialtyOrc=兽人
+Abil/EditorSuffix/SpecialtyOrc2=兽人
 Abil/EditorSuffix/UpgradeToedcm=(熊形态)
 Actor/EditorSuffix/ChargeKnight=骑士
 Actor/EditorSuffix/ChargeKnightInitial=骑士
@@ -83,6 +85,9 @@ Button/EditorPrefix/Purchasesor9=物品
 Button/EditorPrefix/Purchasesora=物品
 Button/EditorPrefix/Purchasesrtl=物品
 Button/EditorPrefix/Purchaseward=物品
+Button/EditorPrefix/SpecialtyHuman=种族特长
+Button/EditorPrefix/SpecialtyOrc=种族特长
+Button/EditorPrefix/SpecialtyOrc2=种族特长
 Button/EditorPrefix/ajen=物品
 Button/EditorPrefix/ankh=物品
 Button/EditorPrefix/axas=物品
@@ -140,13 +145,12 @@ Button/EditorSuffix/PillageGrunt=兽人步兵
 Button/EditorSuffix/PillageRaider=狼骑兵
 Button/EditorSuffix/SpecialtyHuman=人类
 Button/EditorSuffix/SpecialtyOrc=兽人
+Button/EditorSuffix/SpecialtyOrc2=兽人
 Button/EditorSuffix/SunderArmorhgyr=飞行机器
 Button/EditorSuffix/SunderArmorhrif=火枪手
 Campion/Name=Campion
 Champion/Name=Champion
 ChargingNightInitia/Name=冲锋移除
-CircleOfHolyLightAura/Name=圣光之环光环
-DebuffImmunityAura/Name=负面效果防护光环
 Defend/Name=防御
 Defending/Name=防御中
 Defense/Name=防御
@@ -163,15 +167,10 @@ Effect/EditorSuffix/StoneFormUnExtra=Extra
 Effect/EditorSuffix/hgry1RectangeSearch2=(PH, Wait for Rectange Search!)
 Effect/EditorSuffix/hgry1RectangeSearch3=(PH, Wait for Rectange Search!)
 EtherealArmor/Name=虚无护甲
-FreedomAura/Name=自由行动光环
 FrostWyrmInvulnerable/Name=冰霜巨龙无敌
 FuryBuff/Name=狂怒增益
-Hex/Name=妖术
-HonorArmour/Name=荣誉之铠
-HonorShield/Name=荣誉之盾
 HonorShield2/Name=荣誉之盾
 HonorShieldBuff/Name=荣誉之盾增益
-HonorSpear/Name=荣誉之矛
 HonorSpearBuffSpellReduction/Name=荣誉之矛
 HonorSpearEffect/Name=荣誉之矛效果
 HonorSpearEffectBuff/Name=荣誉之矛效果
@@ -184,7 +183,6 @@ ManaFlareChannelling/Name=魔力之焰引导中
 MirrorArmour/Name=护心镜
 Model/Name/PyroblastMissile=PyroblastMissile
 MortalStrikeCaster/Name=MortalStrikeCaster
-NocturnalityAura/Name=夜行光环
 PatchworkPassive/Name=拼凑体被动
 PillageBlademaster/Name=掠夺
 PillageChaosBlademaster/Name=掠夺
@@ -205,9 +203,15 @@ Requirement/Name/ItemLevel=物品等级
 Requirement/Name/ItemLevel2=物品等级
 Requirement/Name/ItemLevel3=物品等级
 Requirement/Name/Pause=回合结束
+Requirement/Name/ShowSpecialityOrc=ShowSpecialityOrc
+Requirement/Name/ShowSpecialityOrc2=ShowSpecialityOrc2
 Requirement/Name/SkeletonsLT73=SkeletonsLT73
+Requirement/Name/SpecialtyOrc=装备强化
+Requirement/Name/SpecialtyOrc2=掠夺
 RequirementNode/Name/73=73
+RequirementNode/Name/AllowUpgradeSpecialtyOrc=AllowUpgrade(SpecialtyOrc)
 RequirementNode/Name/AndCountBehaviorBuildingCompleteOnlyAtUnitCountUpgradePauseCompleteOnly=CountBehavior(Building,CompleteOnlyAtUnit) && CountUpgrade(Pause,CompleteOnly)
+RequirementNode/Name/AndEqCountUpgradeSpecialtyOrcQueuedOrBetter0EqCountUpgradeSpecialtyOrc2QueuedOrBetter0=CountUpgrade(SpecialtyOrc,QueuedOrBetter) == 0 && CountUpgrade(SpecialtyOrc2,QueuedOrBetter) == 0
 RequirementNode/Name/CountBehaviorBUav1CompleteOnlyAtUnit=CountBehavior(BUav1,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorBuildingCompleteOnlyAtUnit=CountBehavior(Building,CompleteOnlyAtUnit)
 RequirementNode/Name/CountUnitnscaCompleteOnly=CountUnit(nsca,CompleteOnly)
@@ -215,17 +219,22 @@ RequirementNode/Name/CountUpgradeFinalCompleteOnly=CountUpgrade(Final,CompleteOn
 RequirementNode/Name/CountUpgradeItemLevelCompleteOnly=CountUpgrade(ItemLevel,CompleteOnly)
 RequirementNode/Name/CountUpgradeItemLevelQueuedOrBetter=CountUpgrade(ItemLevel,QueuedOrBetter)
 RequirementNode/Name/CountUpgradePauseCompleteOnly=CountUpgrade(Pause,CompleteOnly)
+RequirementNode/Name/CountUpgradeSpecialtyOrc2QueuedOrBetter=CountUpgrade(SpecialtyOrc2,QueuedOrBetter)
+RequirementNode/Name/CountUpgradeSpecialtyOrcQueuedOrBetter=CountUpgrade(SpecialtyOrc,QueuedOrBetter)
 RequirementNode/Name/EqCountBehaviorBuildingCompleteOnlyAtUnit0=CountBehavior(Building,CompleteOnlyAtUnit) == 0
 RequirementNode/Name/EqCountUpgradeItemLevelCompleteOnly1=CountUpgrade(ItemLevel,CompleteOnly) == 1
 RequirementNode/Name/EqCountUpgradeItemLevelCompleteOnly2=CountUpgrade(ItemLevel,CompleteOnly) == 2
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter0=CountUpgrade(ItemLevel,QueuedOrBetter) == 0
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter1=CountUpgrade(ItemLevel,QueuedOrBetter) == 1
 RequirementNode/Name/EqCountUpgradeItemLevelQueuedOrBetter2=CountUpgrade(ItemLevel,QueuedOrBetter) == 2
+RequirementNode/Name/EqCountUpgradeSpecialtyOrc2QueuedOrBetter0=CountUpgrade(SpecialtyOrc2,QueuedOrBetter) == 0
+RequirementNode/Name/EqCountUpgradeSpecialtyOrcQueuedOrBetter0=CountUpgrade(SpecialtyOrc,QueuedOrBetter) == 0
+RequirementNode/Name/GTCountUpgradeSpecialtyOrc2QueuedOrBetter0=CountUpgrade(SpecialtyOrc2,QueuedOrBetter) > 0
+RequirementNode/Name/GTCountUpgradeSpecialtyOrcQueuedOrBetter0=CountUpgrade(SpecialtyOrc,QueuedOrBetter) > 0
 RequirementNode/Name/GTECountBehaviorBUav1CompleteOnlyAtUnit2=CountBehavior(BUav1,CompleteOnlyAtUnit) >= 2
 RequirementNode/Name/LTSumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly73=(CountUnit(uskm,CompleteOnly) + CountUnit(uske,CompleteOnly) + CountUnit(nsca,CompleteOnly)) < 73
 RequirementNode/Name/SumCountUnituskmCompleteOnlyCountUnituskeCompleteOnlyCountUnitnscaCompleteOnly=CountUnit(uskm,CompleteOnly) + CountUnit(uske,CompleteOnly) + CountUnit(nsca,CompleteOnly)
 ShieldWallPassive/Name=盾墙被动
-ShockWave/Name=震荡波
 Sound/Name/ChargeKnight=ChargeKnight
 Statue/Name=Statue
 StoneForm/Name=石像形态
@@ -453,7 +462,6 @@ Weapon/EditorPrefix/nmgr1=猛犸人劫掠者
 Weapon/EditorPrefix/nmgw1=猛犸人战士
 Weapon/EditorPrefix/nwat1=哨兵
 WindfuryEffect/Name=致死打击
-YserasGift/Name=伊瑟拉之赐
 hgry1/Name=荣誉之盾
 hgry2/Name=荣誉之盾
 hgryd/Name=荣誉之盾

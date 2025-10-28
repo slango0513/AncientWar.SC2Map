@@ -10,6 +10,7 @@
     <CButton id="EtherealArmor" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnadvancedunholyarmor.dds"/>
     <CButton id="EtherealStrike" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngrimward.dds"/>
     <CButton id="Pyroblast" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfireforthecannon.dds"/>
+    <CButton id="SpecialtyOrc2" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="YoinkUabo" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimprovedunholystrength.dds"/>
     <CButton id="YserasGift" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngreendragonroost.dds"/>
     <CButton id="nina">

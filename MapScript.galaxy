@@ -385,6 +385,10 @@ bool gt_GetItem_Func (bool testConds, bool runActions) {
         if (!((AbilityClass(AbilityCommandGetAbility(EventUnitAbility())) == c_classIdCAbilMorph))) {
             return false;
         }
+
+        if (!((TechTreeUpgradeCount(lv_player, "SpecialtyOrc", c_techCountQueuedOrBetter) > 0))) {
+            return false;
+        }
     }
 
     // Actions
@@ -498,7 +502,12 @@ bool gt_PawnWorkarounds_Func (bool testConds, bool runActions) {
         lv_m = 1.0;
     }
     else if (auto9E687DDD_val == "Orc") {
-        lv_m = 0.5;
+        if ((TechTreeUpgradeCount(lv_p, "SpecialtyOrc", c_techCountQueuedOrBetter) > 0)) {
+            lv_m = 0.5;
+        }
+        else {
+            lv_m = 1.0;
+        }
     }
     else if (auto9E687DDD_val == "Undead") {
         lv_m = 1.0;

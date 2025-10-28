@@ -12,4 +12,6 @@
         <AffectedUnitArray value="Item"/>
         <MaxLevel value="3"/>
     </CUpgrade>
+    <CUpgrade id="SpecialtyOrc" parent="War3_Upgrade"/>
+    <CUpgrade id="SpecialtyOrc2" parent="War3_Upgrade"/>
 </Catalog>

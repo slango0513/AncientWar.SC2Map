@@ -1056,6 +1056,7 @@
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
         </DamageResponse>
+        <Requirements value="SpecialtyOrc2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosGrunt" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
@@ -1066,6 +1067,7 @@
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
         </DamageResponse>
+        <Requirements value="SpecialtyOrc2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageRaider" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
@@ -1076,6 +1078,7 @@
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
         </DamageResponse>
+        <Requirements value="SpecialtyOrc2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosRaider" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
@@ -1086,6 +1089,7 @@
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
         </DamageResponse>
+        <Requirements value="SpecialtyOrc2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageBlademaster" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
@@ -1096,6 +1100,7 @@
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
         </DamageResponse>
+        <Requirements value="SpecialtyOrc2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosBlademaster" parent="War3_Passive">
         <DamageResponse Chance="1" Location="Attacker">
@@ -1106,6 +1111,7 @@
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
         </DamageResponse>
+        <Requirements value="SpecialtyOrc2"/>
     </CBehaviorBuff>
     <!--Hardened Skin-->
     <CBehaviorBuff id="Assk">

@@ -170,6 +170,7 @@ Button/Name/AcriPassive=残废术
 Button/Name/ImpaleAttack=穿刺攻击
 Button/Name/MultiShot=多重射击
 Button/Name/SpecialtyHuman=种族特长
+Button/Name/SpecialtyOrc2=掠夺
 Campion1/Name=Campion2
 Campion2/Name=Champion2
 Champion0/Name=兽人<n/>第二届比赛冠军
@@ -191,6 +192,7 @@ CircleOfHolyLight/Buffubertip=该单位拥有圣光之环，其护甲加强了�
 CircleOfHolyLight/Name=圣光之环
 CircleOfHolyLight/Tip=圣光之环
 CircleOfHolyLight/Ubertip=圣光之环能治疗周围所有受伤的友方单位<d ref="Effect,CircleOfHolyLightHeal,RechargeVitalRate"/>点的生命值。<n/>圣光之环不能被使用在狮鹫骑士身上。
+CircleOfHolyLightAura/Name=圣光之环光环
 CircleOfHolyLightAura/Tip=圣光之环光环
 CircleOfHolyLightAura/Ubertip=圣光之环光环。
 CmdBuildFinalHuman/Tip=建造决赛建筑物
@@ -201,6 +203,7 @@ DebuffImmunity/Buffubertip=该单位对负面效果免疫。
 DebuffImmunity/Name=负面效果防护
 DebuffImmunity/Tip=负面效果防护
 DebuffImmunity/Ubertip=让该单位对负面效果免疫。
+DebuffImmunityAura/Name=负面效果防护光环
 DebuffImmunityAura/Tip=负面效果防护光环
 DebuffImmunityAura/Ubertip=让周围友军对负面效果免疫。
 DebuffImmunitynfgl/Tip=负面效果防护
@@ -646,10 +649,11 @@ DocInfo/PatchNote434=加入新单位萨尔。
 DocInfo/PatchNote435=亡灵：
 DocInfo/PatchNote436=拼凑体提供的护甲减少到1。
 DocInfo/PatchNote437=修复装备强化对萨尔无效的漏洞。
-DocInfo/PatchNote438=艾苏恩精华的物品等级提高到8级。
+DocInfo/PatchNote438=调整部分物品的等级。
 DocInfo/PatchNote439=兽人：
-DocInfo/PatchNote440=降低装备强化提供的物品等级（标准模式）和金币（竞技模式）。
-DocInfo/PatchNote441=地震的伤害降低到60。
+DocInfo/PatchNote440=装备强化和掠夺现在是二选一的两个种族特长分支。
+DocInfo/PatchNote441=降低装备强化提供的物品等级（标准模式）和金币（竞技模式）。
+DocInfo/PatchNote442=地震的伤害降低到50。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -777,6 +781,7 @@ Firebolt/Ubertip=每次攻击能对敌人发射一枚火球，能够穿透灵魂
 Fortitude/Name=坚忍
 Fortitude/Tip=坚忍
 Fortitude/Ubertip=让目标友军对负面效果免疫。
+FreedomAura/Name=自由行动光环
 FreedomAura/Tip=自由行动光环
 FreedomAura/Ubertip=使周围的骑士暂时免疫减速、昏迷和睡眠。
 FreedomAuraBuff/Buffubertip=该骑士处于自由行动光环的作用之下，暂时免疫减速、昏迷和睡眠。
@@ -801,6 +806,7 @@ Hblm/Tip=血法师
 Hblm/Ubertip=提供<c val="FFFFFF">5</c>名破法者、<c val="FFFFFF">1</c>位血法师。<n/><n/>防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hblm1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hblm1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hblm1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hblm1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Hblm1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Hblm1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Hblm1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">放逐术</c>、<c val="FFFFFF">生命吸取</c>、<c val="FFFFFF">负面效果防护</c>、<c val="FFFFFF">坚忍</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Hdgo/Tip=兽人杀手达贡
 Hdgo1/Name=兽人杀手达贡
+Hex/Name=妖术
 Hex/Tip=妖术
 Hex/Ubertip=每一次攻击有<d ref="Behavior,Hex,DamageResponse.Chance*100"/>%的几率让目标单位在<d ref="Effect,ANhx1Dur,Duration"/>秒内变成一只随机的小动物。
 Hgam/Name=大法师
@@ -819,12 +825,15 @@ Hmkg/Tip=山丘之王
 Hmkg/Ubertip=提供<c val="FFFFFF">1</c>位山丘之王。<n/><n/>强大的防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hmkg1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hmkg1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hmkg1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hmkg1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Hmkg1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Hmkg1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">天神下凡</c>、<c val="FFFFFF">风暴之锤</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Hmkg1/Name=山丘之王
 HonorArmor/Tip=荣誉之铠
+HonorArmour/Name=荣誉之铠
 HonorArmour/Tip=荣誉之铠
 HonorArmour/Ubertip=使周围甲胄骑兵及其统领的骑士受到来自重甲单位的攻击时伤害减少<d ref="1-Behavior,HonorArmourBuff,DamageResponse.ModifyFraction*100"/>%。
 HonorArmourBuff/Buffubertip=该骑士处于荣誉之铠的作用之下。
 HonorArmourBuff/Name=荣誉之铠
+HonorShield/Name=荣誉之盾
 HonorShield/Tip=荣誉之盾
 HonorShield/Ubertip=每次攻击地面单位或受到攻击将会提升<d ref="Behavior,HonorShieldBuff,Modification.DamageDealtUnscaled[Ranged]"/>点攻击及<d ref="Behavior,HonorShieldBuff,Modification.LifeArmorBonus"/>点护甲。
+HonorSpear/Name=荣誉之矛
 HonorSpear/Tip=荣誉之矛
 HonorSpear/Ubertip=增加周围枪骑兵及其统领的骑士<d ref="Behavior,HonorSpearBuff,Modification.RateMultiplierArray[Cooldown]-1*100"/>%的冷却时间速度。<n/>受荣誉之矛影响的单位通过近战攻击杀死敌人后会提升<d ref="Behavior,HonorSpearEffect,Modification.DamageDealtUnscaled[Melee]"/>点伤害和<d ref="Behavior,HonorSpearEffect,Modification.LifeArmorBonus"/>点护甲。
 HonorSpearBuff/Buffubertip=该骑士处于荣誉之矛的作用之下。
@@ -897,6 +906,7 @@ Nman/Name=玛诺洛斯
 Nman/Tip=玛诺洛斯
 Nman/Ubertip=提供<c val="FFFFFF">2</c>名憎恶、<c val="FFFFFF">1</c>位玛诺洛斯。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Nman1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Nman1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Nman1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Nman1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uabo1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uabo1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">疾病之云</c>、<c val="FFFFFF">分裂攻击</c>、<c val="FFFFFF">灵魂燃烧</c>、<c val="FFFFFF">黑暗仪式</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Nocturnality/Name=夜行性
+NocturnalityAura/Name=夜行光环
 NocturnalityAura/Tip=夜行光环
 NocturnalityAura/Ubertip=夜行光环。
 Obla/Tip=剑圣
@@ -1047,12 +1057,17 @@ ShieldWall/Buffubertip=受到的伤害大幅度减少。
 ShieldWall/Name=盾墙
 ShieldWall/Tip=盾墙
 ShieldWall/Ubertip=减少<d ref="1-Behavior,ShieldWall,DamageResponse.ModifyFraction*100"/>%受到的伤害，持续<d ref="Behavior,ShieldWall,Duration"/>秒。
+ShockWave/Name=震荡波
 ShockWave/Tip=震荡波
 ShockWave/Ubertip=每次攻击有<d ref="Behavior,ShockWave,DamageResponse.Chance*100"/>%几率发出一道向前的能量波，对一条线上的敌方地面单位造成<d ref="Effect,AOshDamage1,Amount"/>点的伤害。
 SpecialtyHuman/Tip=灵活变阵
 SpecialtyHuman/Ubertip=出售单位返还<d ref="-Effect,AsudHuman,SalvageFactor.Resource[Terrazine]*100"/>%的资源，出售物品获得的金币增加20%。
+SpecialtyOrc/Name=装备强化
 SpecialtyOrc/Tip=装备强化
 SpecialtyOrc/Ubertip=升级后的单位有25%的机率获得一件物品，但出售物品获得的金币减少50%。<n/><n/><c val="FFCC00">几率受物品等级影响，每一级提高25%。</c>
+SpecialtyOrc2/Name=掠夺
+SpecialtyOrc2/Tip=掠夺
+SpecialtyOrc2/Ubertip=允许兽人步兵类、狼骑兵类、剑圣类单位在攻击时掠夺木材。
 StarFragment/Tip=星辰碎片
 StarFragment/Ubertip=能在夜间提高<d ref="Behavior,StarFragment,Modification.AttackSpeedMultiplier-1*100"/>%攻击速度。
 SunderArmor/Tip=破甲
@@ -1103,6 +1118,7 @@ Weapon/Name/hrttBarrage=类型：<c val="ffcc00">穿刺</c>
 YoinkUabo/Name=钩肥
 YoinkUabo/Tip=钩肥
 YoinkUabo/Ubertip=将目标单位拉至憎恶所在处。<n/>钩肥不能被使用在强大的单位身上。
+YserasGift/Name=伊瑟拉之赐
 YserasGift/Tip=伊瑟拉之赐
 YserasGift/Ubertip=让周围友方单位加快<d ref="Behavior,YserasGiftBuff,Modification.RateMultiplierArray[Cooldown]-1*100"/>%的冷却时间速度。<n/>最多可叠加<d ref="Behavior,YserasGiftBuff,MaxStackCount"/>层。
 YserasGiftBuff/Buffubertip=该单位处在伊瑟拉之赐的作用之下，因此其冷却时间恢复速度加快了。

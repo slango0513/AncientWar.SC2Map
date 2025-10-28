@@ -3,13 +3,20 @@
     <CRequirementConst id="73">
         <Value value="73"/>
     </CRequirementConst>
+    <CRequirementAllowUpgrade id="AllowUpgradeSpecialtyOrc">
+        <Link value="SpecialtyOrc"/>
+    </CRequirementAllowUpgrade>
     <CRequirementAnd id="AndCountBehaviorBuildingCompleteOnlyAtUnitCountUpgradePauseCompleteOnly">
         <OperandArray value="CountBehaviorBuildingCompleteOnlyAtUnit"/>
         <OperandArray value="CountUpgradePauseCompleteOnly"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndEqCountUpgradeSpecialtyOrcQueuedOrBetter0EqCountUpgradeSpecialtyOrc2QueuedOrBetter0">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="EqCountUpgradeSpecialtyOrcQueuedOrBetter0"/>
+        <OperandArray value="EqCountUpgradeSpecialtyOrc2QueuedOrBetter0"/>
+    </CRequirementAnd>
     <CRequirementCountBehavior id="CountBehaviorBUav1CompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="BUav1" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorBuildingCompleteOnlyAtUnit">
@@ -36,6 +43,16 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Pause" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeSpecialtyOrc2QueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="SpecialtyOrc2" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeSpecialtyOrcQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="SpecialtyOrc" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementEq id="EqCountBehaviorBuildingCompleteOnlyAtUnit0">
         <OperandArray index="0" value="CountBehaviorBuildingCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
@@ -60,8 +77,27 @@
         <OperandArray index="0" value="CountUpgradeItemLevelQueuedOrBetter"/>
         <OperandArray index="1" value="2"/>
     </CRequirementEq>
-    <CRequirementGTE id="GTECountBehaviorBUav1CompleteOnlyAtUnit2">
+    <CRequirementEq id="EqCountUpgradeSpecialtyOrc2QueuedOrBetter0">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeSpecialtyOrc2QueuedOrBetter"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeSpecialtyOrcQueuedOrBetter0">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeSpecialtyOrcQueuedOrBetter"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementGT id="GTCountUpgradeSpecialtyOrc2QueuedOrBetter0">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeSpecialtyOrc2QueuedOrBetter"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountUpgradeSpecialtyOrcQueuedOrBetter0">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeSpecialtyOrcQueuedOrBetter"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGTE id="GTECountBehaviorBUav1CompleteOnlyAtUnit2">
         <OperandArray index="0" value="CountBehaviorBUav1CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>

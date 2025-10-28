@@ -95,12 +95,10 @@
     </CItem>
     <!--Pendant of Energy-->
     <CItem id="penr">
-        <Level value="2"/>
-    </CItem>
-    <!--Pendant of Mana-->
-    <CItem id="pmna">
         <Level value="4"/>
     </CItem>
+    <!--Pendant of Mana-->
+    <CItem id="pmna"/>
     <!--Periapt of Vitality-->
     <CItem id="prvt">
         <Level value="2"/>
