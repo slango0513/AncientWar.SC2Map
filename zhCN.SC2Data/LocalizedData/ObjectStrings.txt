@@ -249,6 +249,7 @@ Validator/Name/MoreThan10ManaEnermyNearBy9=MoreThan10ManaEnermyNearBy9
 Validator/Name/NoAntiMagicShell=没有反魔法护罩
 Validator/Name/NoBuilding=没有建筑
 Validator/Name/NoChargeKnightController=NoChargeKnightController
+Validator/Name/NoDebuffImmunity=没有负面效果防护
 Validator/Name/NoDefending=没有防御中
 Validator/Name/NoEnsnare=没有诱捕
 Validator/Name/NoEntanglingRoots=没有纠缠根须

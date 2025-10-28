@@ -113,6 +113,9 @@
     <CValidatorUnitCompareBehaviorCount id="NoSleep">
         <Behavior value="BUsl"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoDebuffImmunity">
+        <Behavior value="DebuffImmunity"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoStasisTrapWard">
         <Behavior value="Bsta"/>
     </CValidatorUnitCompareBehaviorCount>

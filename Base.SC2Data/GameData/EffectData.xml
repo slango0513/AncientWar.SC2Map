@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectEnumArea id="AdisSearch">
+        <AreaArray index="0" Radius="2" Effect="DispelAllBuffsAndHurtEnemySummoned200"/>
+    </CEffectEnumArea>
+    <CEffectSet id="AraiSummonLv3">
+        <EffectArray value="uske"/>
+        <EffectArray value="uskm"/>
+        <EffectArray value="nsca"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="nsca" parent="War3_SummonUnit">
+        <EditorCategories value="Race:Undead"/>
+        <SpawnEffect value="Brai"/>
+        <WhichLocation Value="CasterUnit"/>
+    </CEffectCreateUnit>
     <!--Priestess - Trueshot Aura Buff=BEar-->
     <CEffectEnumArea id="AEarSearch">
         <AreaArray index="0" Radius="9" Effect="BEarSet"/>
@@ -24,8 +37,8 @@
         <AreaArray index="0" Radius="2" Effect="ANsiBuffSet"/>
     </CEffectEnumArea>
     <CEffectDamage id="AOcl1">
-        <AttributeBonus index="Light" value="450"/>
-        <Amount value="150"/>
+        <AttributeBonus index="Light" value="300"/>
+        <Amount value="100"/>
     </CEffectDamage>
     <!--Death Knight - Unholy Aura Buff=BUau-->
     <CEffectEnumArea id="AUauSearch">
@@ -140,6 +153,7 @@
     <CEffectEnumArea id="MoraleBoostingSearch" parent="War3_AbilSearch">
         <SearchFilters value="-;neutral,enemies,Structure,wall,tree,Missile,debris,item,ward,dead,Hidden"/>
         <AreaArray Radius="500" Effect="MoraleBoosting"/>
+        <ExcludeArray/>
     </CEffectEnumArea>
     <CEffectDamage id="Ofar1">
         <AttributeFactor index="small" value="0.25"/>
@@ -164,6 +178,12 @@
         <WhichUnit Value="Caster"/>
         <Abil value="ShieldWall"/>
     </CEffectIssueOrder>
+    <CEffectDamage id="nsca1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="12"/>
+        <Random value="0"/>
+    </CEffectDamage>
     <CEffectDamage id="ubsp1">
         <AttributeFactor index="small" value="1"/>
         <AttributeFactor index="unarmored" value="0.5"/>
@@ -315,12 +335,13 @@
     <!--Possession (Channeling) Dur=4.5 HeroDur=4.5 Buff=Bpos,Bpoc-->
     <CEffectSet id="Aps2">
         <ValidatorArray value="NonPowerfulUnit"/>
+        <ValidatorArray value="NoDebuffImmunity"/>
     </CEffectSet>
     <CEffectSet id="Aps2ControlSet">
         <EffectArray index="1" removed="1"/>
     </CEffectSet>
     <CEffectSet id="Arai">
-        <EffectArray index="0" value="AraiSummonLv2"/>
+        <EffectArray index="0" value="AraiSummonLv3"/>
     </CEffectSet>
     <!--Roar Dur=45 HeroDur=45 Buff=Broa-->
     <CEffectEnumArea id="AroaSearch">
@@ -385,9 +406,6 @@
         <AreaArray index="0" Radius="6" Effect="Bsta"/>
         <MaxCount value="6"/>
     </CEffectEnumArea>
-    <CEffectDamage id="BuhfDPS">
-        <Amount value="0.5"/>
-    </CEffectDamage>
     <CEffectApplyBehavior id="Defending">
         <WhichUnit Value="Caster"/>
     </CEffectApplyBehavior>
@@ -471,7 +489,7 @@
         <EffectArray value="ManaFlareChannelling"/>
     </CEffectSet>
     <CEffectDamage id="Emoo1">
-        <Amount value="96"/>
+        <Amount value="120"/>
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="fortified" value="0"/>
         <Random value="0"/>
@@ -831,7 +849,7 @@
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="esen1">
-        <Amount value="96"/>
+        <Amount value="120"/>
         <AttributeFactor index="divine" value="0"/>
         <Random value="0"/>
     </CEffectDamage>
@@ -1037,8 +1055,14 @@
         <Amount value="12"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectCreateUnit id="uskm">
+        <WhichLocation Value="CasterUnit"/>
+    </CEffectCreateUnit>
     <CEffectDamage id="uskm1">
+        <AttributeFactor index="small" value="0.25"/>
+        <AttributeFactor index="unarmored" value="0"/>
         <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="large" value="1"/>
         <AttributeFactor index="hero" value="0"/>
         <Amount value="12"/>
         <Random value="0"/>

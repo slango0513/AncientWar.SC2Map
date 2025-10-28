@@ -1145,8 +1145,8 @@
         <DeathRevealRadius value="0"/>
         <Attributes index="small" value="1"/>
         <Attributes index="large" value="0"/>
-        <LifeStart value="2000"/>
-        <LifeMax value="2000"/>
+        <LifeStart value="1600"/>
+        <LifeMax value="1600"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -1202,8 +1202,8 @@
         <ReviveType value="Hlgr1"/>
         <Description value="Hlgr/Ubertip"/>
         <Speed value="2"/>
-        <LifeStart value="2400"/>
-        <LifeMax value="2400"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
     </CUnit>
     <!--Militia-->
     <CUnit id="hmil">
@@ -1698,9 +1698,11 @@
         <KillResource index="Custom" value="15"/>
         <AbilArray Link="Inventory2"/>
         <AbilArray Link="Asud"/>
+        <AbilArray Link="DebuffImmunity"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="PillageChaosGrunt" Type="Passive" Behavior="PillageChaosGrunt" Row="2" Column="0"/>
             <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="1"/>
         </CardLayouts>
         <PlacementFootprint value="4x4SimpleSolid"/>
         <!--AttackTargetPriority value="3"/-->
@@ -1753,8 +1755,8 @@
     <CUnit id="nchr">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="1600"/>
-        <LifeMax value="1600"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -1775,11 +1777,13 @@
         <AbilArray index="4" Link="Inventory3"/>
         <AbilArray Link="Asud"/>
         <AbilArray Link="Aens"/>
+        <AbilArray Link="DebuffImmunity"/>
         <BehaviorArray index="4" Link="PillageChaosRaider"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Aens" Type="AbilCmd" AbilCmd="Aens,Execute" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="PillageChaosRaider" Type="Passive" Behavior="PillageChaosRaider" Row="2" Column="1"/>
             <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="2"/>
         </CardLayouts>
         <LifeArmor value="5"/>
         <TechTreeProducedUnitArray value="orai"/>
@@ -1797,6 +1801,7 @@
         <AbilArray index="4" Link="Inventory2"/>
         <AbilArray index="5" Link="Asud"/>
         <AbilArray Link="AOae"/>
+        <AbilArray Link="DebuffImmunity"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="AOae"/>
@@ -1807,6 +1812,7 @@
                 <Column value="0"/>
             </LayoutButtons>
             <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="1"/>
         </CardLayouts>
         <CardLayouts>
             <LayoutButtons Row="0" Column="0"/>
@@ -2342,6 +2348,33 @@
         <BehaviorArray index="6" removed="1"/>
         <BehaviorArray index="7" removed="1"/>
     </CUnit>
+    <!--skeletal archer(summoned)-->
+    <CUnit id="nsca" defType="MEDIUM">
+        <DeathRevealRadius value="0"/>
+        <Attributes index="medium" value="1"/>
+        <Attributes index="large" value="0"/>
+        <Attributes index="summoned" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <LifeArmorName value="ARMOR_MEDIUM"/>
+        <LifeArmorTip value="ARMORTIP_MEDIUM"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <Food value="0"/>
+        <KillResource index="gold" value="0"/>
+        <Radius value="0.3125"/>
+        <SeparationRadius value="0.3125"/>
+        <InnerRadius value="0.3125"/>
+        <MinimapRadius value="0.3125"/>
+    </CUnit>
     <!--night elf assassin-->
     <CUnit id="nssn">
         <DeathTime value="15"/>
@@ -2489,9 +2522,9 @@
         <SightBonus index="Dusk" value="0"/>
         <Food value="0"/>
         <CostResource index="gold" value="0"/>
-        <CostResource index="lumber" value="4000"/>
+        <CostResource index="lumber" value="3000"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="400"/>
+        <KillResource index="Custom" value="300"/>
         <PlacementFootprint value="4x4SimpleSolid"/>
         <!--AttackTargetPriority value="2"/-->
         <SubgroupPriority value="0"/>
@@ -2764,8 +2797,8 @@
     <CUnit id="orai" defType="SMALL">
         <DeathTime value="15"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="1600"/>
-        <LifeMax value="1600"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
         <LifeArmor value="5"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
@@ -2930,9 +2963,11 @@
         <EnergyStart value="100"/>
         <EnergyMax value="100"/>
         <AbilArray index="6" Link="AOws"/>
+        <AbilArray Link="DebuffImmunity"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
             <LayoutButtons index="7" Face="AOws" Type="AbilCmd" AbilCmd="AOws,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="2"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="otau"/>
         <TechTreeProducedUnitArray value="Otch1"/>
@@ -3669,12 +3704,10 @@
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory2"/>
         <AbilArray index="5" Link="Asud"/>
-        <AbilArray index="6" Link="Arai"/>
-        <AbilArray Link="Auhf"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="Arai" Type="AbilCmd" AbilCmd="Arai,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="6" Face="Auhf" Type="AbilCmd" AbilCmd="Auhf,Execute" Row="2" Column="1"/>
-            <LayoutButtons index="7" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="5" Face="Auhf" Type="AbilCmd" AbilCmd="Auhf,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="unec"/>
         <TechTreeProducedUnitArray value="unec"/>
@@ -3683,8 +3716,8 @@
         <TechTreeProducedUnitArray value="unec"/>
         <TechTreeProducedUnitArray value="uktn"/>
         <WeaponArray index="0" Link="unec1"/>
-        <EnergyStart value="100"/>
-        <EnergyMax value="100"/>
+        <EnergyStart value="0"/>
+        <EnergyMax value="0"/>
         <Attributes index="none" value="1"/>
         <Attributes index="large" value="0"/>
         <LifeArmorName value="ARMOR_NONE"/>
@@ -3833,8 +3866,8 @@
     <CUnit id="uske">
         <LifeArmor value="0"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="150"/>
-        <LifeMax value="150"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -3855,8 +3888,8 @@
     <CUnit id="uskm" defType="NONE">
         <Speed value="2"/>
         <DeathRevealRadius value="0"/>
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>

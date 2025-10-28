@@ -834,6 +834,11 @@
         <Scale value="1.000000"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
     </CActorUnit>
+    <!--skeletalarchersummoned-->
+    <CActorUnit id="nsca" defType="MEDIUM">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+    </CActorUnit>
     <!--nightelfassassin-->
     <CActorUnit id="nssn">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>

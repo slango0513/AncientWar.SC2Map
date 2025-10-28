@@ -295,7 +295,7 @@
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
             <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeUse="5"/>
+            <Cooldown Location="Unit" TimeUse="2"/>
         </Cost>
         <Cost index="1" removed="1"/>
         <Cost index="2" removed="1"/>
@@ -443,7 +443,7 @@
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
             <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeUse="10"/>
+            <Cooldown Location="Unit" TimeUse="15"/>
         </Cost>
         <Cost index="1" removed="1"/>
         <Cost index="2" removed="1"/>
@@ -953,22 +953,22 @@
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
-            <Vital index="Energy" value="5"/>
+            <Vital index="Energy" value="0"/>
+            <Cooldown Location="Unit" TimeUse="5"/>
         </Cost>
-        <Range index="0" value="7.5"/>
+        <Range index="0" value="9"/>
         <AutoCastFilters value="Visible;Neutral,Enemy"/>
-        <AutoCastRange value="7.5"/>
-        <AutoCastValidatorArray value="TargetLifeGE25"/>
+        <AutoCastRange value="9"/>
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="NoUnholyFrenzy"/>
+        <AutoCastValidatorArray value="TargetIsAttacking"/>
         <UninterruptibleArray index="Approach" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
         <CmdButtonArray index="Execute" Requirements=""/>
         <TargetSorts RequestCount="1">
-            <SortArray value="TSLife"/>
-            <SortArray value="TSDistance"/>
+            <SortArray value="TSLifeLargestFirst"/>
         </TargetSorts>
     </CAbilEffectTarget>
     <!--Web Dur=12 HeroDur=7 Buff=Bwea,Bweb-->

@@ -336,6 +336,12 @@
         <MinScanRange value="20"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <!--skeletal archer(summoned)-->
+    <CWeaponLegacy id="nsca1">
+        <MinScanRange value="20"/>
+        <Range value="5"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
     <!--night elf assassin-->
     <CWeaponLegacy id="nssn1">
         <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
@@ -482,9 +488,12 @@
         <Period value="3"/>
     </CWeaponLegacy>
     <!--Skeletal Mage-->
-    <CWeaponLegacy id="uskm1">
+    <CWeaponLegacy id="uskm1" atkType="MAGIC">
         <MinScanRange value="20"/>
-        <Range value="2"/>
+        <Range value="4"/>
         <Period value="3"/>
+        <Name value="DAMAGE_MAGIC"/>
+        <Tip value="DAMAGETIP_MAGIC"/>
+        <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-MAGIC.tga"/>
     </CWeaponLegacy>
 </Catalog>
