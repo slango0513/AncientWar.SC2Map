@@ -3,7 +3,47 @@
     <ModType>
         <Value>Interface</Value>
     </ModType>
+    <Icon>
+        <Value>ui_arcade_iconfootman.tga</Value>
+    </Icon>
     <Dependencies>
         <Value>bnet:War3 Extra (GA)/0.0/60618,file:Mods\WarCraft\WarCraftDataAbil.SC2Mod</Value>
     </Dependencies>
+    <Screenshot>
+        <File>
+            <Value>Screenshot1.jpg</Value>
+            <Value>Screenshot2.jpg</Value>
+        </File>
+        <CaptionId>
+            <Value>1</Value>
+            <Value>2</Value>
+        </CaptionId>
+        <Flags>
+            <Value> </Value>
+            <Value> </Value>
+        </Flags>
+    </Screenshot>
+    <PatchNote>
+        <Version>
+            <Value>0.3</Value>
+            <Value>0.6</Value>
+            <Value>0.8</Value>
+            <Value>0.9</Value>
+            <Value>0.10</Value>
+        </Version>
+        <Date>
+            <Value>7/13/2016</Value>
+            <Value>7/17/2016</Value>
+            <Value>7/18/2016</Value>
+            <Value>7/18/2016</Value>
+            <Value>7/19/2016</Value>
+        </Date>
+        <Notes>
+            <Value>1,2</Value>
+            <Value>5,3</Value>
+            <Value>4,6</Value>
+            <Value>7</Value>
+            <Value>8,9,10,11,12,13,14,15,16,17,18,19,20</Value>
+        </Notes>
+    </PatchNote>
 </DocInfo>

@@ -6,9 +6,36 @@
     <CButton id="ANlg">
         <TooltipFlags index="ShowResources" value="0"/>
     </CButton>
+    <CButton id="Asid" art="Assets\Textures\war3_btnchestofgold.dds">
+        <Icon value="Assets\Textures\war3_btnchestofgold.dds"/>
+        <AlertIcon value="Assets\Textures\war3_btnchestofgold.dds"/>
+    </CButton>
     <!--archmage-->
     <CButton id="Hamg"/>
-    <CButton id="MultiShot" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnflare.dds"/>
+    <CButton id="HonorShield" parent="War3_Button" art="Assets\Textures\war3_btnbarkskin.dds"/>
+    <CButton id="MultiShot" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstrengthofthemoon.dds"/>
+    <CButton id="ShockWave" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnshockwave.dds"/>
+    <CButton id="ItemLevel" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btn3m1.dds">
+        <Name value="UpdateItemLevel1/Tip"/>
+        <Tooltip value="UpdateItemLevel1/Ubertip"/>
+        <AlertName value="UpdateItemLevel1/Tip"/>
+        <AlertTooltip value="UpdateItemLevel1/Ubertip"/>
+        <Hotkey value="UpdateItemLevel1/Hotkey"/>
+    </CButton>
+    <CButton id="ItemLevel2" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btn3m2.dds">
+        <Name value="UpdateItemLevel2/Tip"/>
+        <Tooltip value="UpdateItemLevel2/Ubertip"/>
+        <AlertName value="UpdateItemLevel2/Tip"/>
+        <AlertTooltip value="UpdateItemLevel2/Ubertip"/>
+        <Hotkey value="UpdateItemLevel2/Hotkey"/>
+    </CButton>
+    <CButton id="ItemLevel3" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btn3m3.dds">
+        <Name value="UpdateItemLevel3/Tip"/>
+        <Tooltip value="UpdateItemLevel3/Ubertip"/>
+        <AlertName value="UpdateItemLevel3/Tip"/>
+        <AlertTooltip value="UpdateItemLevel3/Ubertip"/>
+        <Hotkey value="UpdateItemLevel3/Hotkey"/>
+    </CButton>
     <!--archer-->
     <CButton id="earc"/>
     <!--glaivethrower-->
@@ -21,8 +48,16 @@
     <CButton id="edot"/>
     <!--dryad-->
     <CButton id="edry"/>
+    <!--faeriedragon-->
+    <CButton id="efdr"/>
     <!--huntress-->
     <CButton id="esen"/>
+    <!--shandris-->
+    <CButton id="eshd"/>
+    <!--gryphonrider-->
+    <CButton id="hgry"/>
+    <!--flyingmachine-->
+    <CButton id="hgyr"/>
     <!--knight-->
     <CButton id="hkni"/>
     <!--priest-->
@@ -53,4 +88,30 @@
         <Icon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
         <AlertIcon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
     </CButton>
+    <!--Claws of Attack +3-->
+    <CButton id="rat3"/>
+    <!--Claws of Attack +6-->
+    <CButton id="rat6"/>
+    <!--Claws of Attack +9-->
+    <CButton id="rat9"/>
+    <!--Claws of Attack +12-->
+    <CButton id="ratc"/>
+    <!--Claws of Attack +15-->
+    <CButton id="ratf"/>
+    <!--Ring of Protection +1-->
+    <CButton id="rde0"/>
+    <!--Ring of Protection +2-->
+    <CButton id="rde1"/>
+    <!--Ring of Protection +3-->
+    <CButton id="rde2"/>
+    <!--Ring of Protection +4-->
+    <CButton id="rde3"/>
+    <!--Ring of Protection +5-->
+    <CButton id="rde4"/>
+    <!--Shadow Orb +6-->
+    <CButton id="sor6"/>
+    <!--Shadow Orb +9-->
+    <CButton id="sor9"/>
+    <!--Shadow Orb +10-->
+    <CButton id="sora"/>
 </Catalog>

@@ -12,6 +12,17 @@
     <CRequirement id="Final">
         <NodeArray index="Use" Link="CountUpgradeFinalCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="ItemLevel">
+        <NodeArray index="Show" Link="EqCountUpgradeItemLevelQueuedOrBetter0"/>
+    </CRequirement>
+    <CRequirement id="ItemLevel2">
+        <NodeArray index="Use" Link="EqCountUpgradeItemLevelCompleteOnly1"/>
+        <NodeArray index="Show" Link="EqCountUpgradeItemLevelQueuedOrBetter1"/>
+    </CRequirement>
+    <CRequirement id="ItemLevel3">
+        <NodeArray index="Use" Link="EqCountUpgradeItemLevelCompleteOnly2"/>
+        <NodeArray index="Show" Link="EqCountUpgradeItemLevelQueuedOrBetter2"/>
+    </CRequirement>
     <CRequirement id="Pause">
         <NodeArray index="Use" Link="CountUpgradePauseCompleteOnly"/>
     </CRequirement>

@@ -6,11 +6,16 @@
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
             <Vital index="Energy" value="0"/>
+            <Cooldown Location="Unit" TimeUse="10"/>
         </Cost>
         <Cost index="1" removed="1"/>
         <Cost index="2" removed="1"/>
-        <Range index="0" value="7.5"/>
-        <AutoCastRange value="7.5"/>
+        <Range index="0" value="10.5"/>
+        <AutoCastRange value="10.5"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSLifeLargestFirst"/>
+            <SortArray value="TSRandom"/>
+        </TargetSorts>
     </CAbilEffectTarget>
     <CAbilBuild id="AHbu">
         <InfoArray index="Build1" Unit="hmil" Time="0">
@@ -32,7 +37,7 @@
             <Button DefaultButtonFace="hspt" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build7" Unit="hrtt" Time="0">
-            <Button DefaultButtonFace="hrtt" Requirements="Pause"/>
+            <Button DefaultButtonFace="hrtt" Requirements="Final"/>
         </InfoArray>
         <InfoArray index="Build8" Unit="hmtm" Time="0">
             <Button DefaultButtonFace="hmtm" Requirements="Pause"/>
@@ -61,6 +66,15 @@
         <InfoArray index="Build16" Unit="Hamg1">
             <Button DefaultButtonFace="Hamg" Requirements="Pause"/>
         </InfoArray>
+        <InfoArray index="Build17" Unit="hgry">
+            <Button DefaultButtonFace="hgry" Requirements="Final"/>
+        </InfoArray>
+        <InfoArray index="Build18" Unit="Hjai1">
+            <Button DefaultButtonFace="Hjai" Requirements="Pause"/>
+        </InfoArray>
+        <InfoArray index="Build19" Unit="hgyr">
+            <Button DefaultButtonFace="hgyr" Requirements="Pause"/>
+        </InfoArray>
         <Range value="500"/>
     </CAbilBuild>
     <!--Arch Mage - Water Elemental Buff=BHwe-->
@@ -68,14 +82,24 @@
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
-            <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeStart="5" TimeUse="40"/>
+            <Vital index="Energy" value="25"/>
+            <Cooldown Location="Unit" TimeUse="30"/>
         </Cost>
         <Cost index="1" removed="1"/>
         <Cost index="2" removed="1"/>
-        <AutoCastRange value="6"/>
+        <AutoCastRange value="7.5"/>
         <CmdButtonArray index="Execute" Requirements=""/>
+        <Effect index="1" removed="1"/>
+        <Effect index="2" removed="1"/>
+        <AutoCastValidatorArray value="GroundEnemiesNearby"/>
     </CAbilEffectInstant>
+    <CAbilAugment id="ANbaAugment">
+        <CmdButtonArray index="Execute" Requirements=""/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="0"/>
+        </Cost>
+    </CAbilAugment>
     <CAbilAttack id="Aatk">
         <CmdButtonArray index="Execute" Requirements="HasNoBuilding"/>
         <CmdButtonArray index="Towards" Requirements="HasNoBuilding"/>
@@ -90,26 +114,28 @@
         <CmdButtonArray index="On" Requirements=""/>
     </CAbilBehavior>
     <CAbilEffectTarget id="Ahea">
-        <Cost index="0">
-            <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeStart="5" TimeUse="1"/>
-        </Cost>
         <Range index="0" value="4.5"/>
         <AutoCastRange value="6"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="Ainf">
         <Cost index="0">
-            <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeStart="5" TimeUse="20"/>
+            <Vital index="Energy" value="10"/>
+            <Cooldown Location="Unit" TimeUse="20"/>
         </Cost>
-        <Range index="0" value="6.5"/>
-        <AutoCastRange value="8"/>
+        <Range index="0" value="7.5"/>
+        <AutoCastRange value="7.5"/>
         <UninterruptibleArray index="Approach" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectTarget>
+    <!--Mana Flare Dur=30 HeroDur=30 Buff=Bmfl,Bmfa-->
+    <CAbilBehavior id="Amfl">
+        <Cost index="0">
+            <Vital index="Energy" value="100"/>
+        </Cost>
+    </CAbilBehavior>
     <CAbilMove id="Amov">
         <CmdButtonArray index="Move" Requirements="HasNoBuilding"/>
         <CmdButtonArray index="Patrol" Requirements="HasNoBuilding"/>
@@ -123,15 +149,22 @@
             <Vital index="Energy" value="0"/>
         </Cost>
     </CAbilEffectTarget>
+    <!--Phase Shift Dur=1.5 HeroDur=1.5 Buff=Bpsh-->
+    <CAbilEffectInstant id="Apsh">
+        <Cost index="0">
+            <Vital index="Energy" value="0"/>
+            <Cooldown Location="Unit" TimeUse="3"/>
+        </Cost>
+    </CAbilEffectInstant>
     <!--Rejuvination Dur=12 HeroDur=12 Buff=Brej-->
     <CAbilEffectTarget id="Arej">
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
         <AutoCastFilters value="Visible;Ally,Neutral,Enemy,Mechanical"/>
-        <AutoCastRange value="5.125"/>
+        <AutoCastRange value="7.5"/>
         <Cost index="0">
-            <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeUse="9"/>
+            <Vital index="Energy" value="25"/>
+            <Cooldown Location="Unit" TimeUse="10"/>
         </Cost>
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="RejuvenationAutoCastTargetFilter"/>
@@ -144,16 +177,30 @@
             <MismatchFlags index="CasterUnit" value="1"/>
         </Marker>
         <UseMarkerArray index="Approach" value="0"/>
-        <Range index="0" value="5.125"/>
+        <Range index="0" value="7.5"/>
+    </CAbilEffectTarget>
+    <!--Slow Dur=60 HeroDur=10 Buff=Bslo-->
+    <CAbilEffectTarget id="Aslo">
+        <Cost index="0">
+            <Vital index="Energy" value="0"/>
+            <Cooldown Location="Unit" TimeUse="10"/>
+        </Cost>
+        <TargetSorts>
+            <SortArray index="0" value="TSLifeLargestFirst"/>
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
+        <Range index="0" value="7.5"/>
+        <AutoCastRange value="7.5"/>
     </CAbilEffectTarget>
     <!--Spell Steal-->
     <CAbilEffectTarget id="Asps">
         <Cost index="0">
-            <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeUse="5"/>
+            <Vital index="Energy" value="10"/>
+            <Cooldown Location="Unit" TimeUse="1"/>
         </Cost>
         <Range index="0" value="6.5"/>
         <AutoCastRange value="6.5"/>
+        <AutoCastValidatorArray value="noMarkers"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="Asud">
         <CmdButtonArray index="Execute" DefaultButtonFace="Asud" Requirements="Asud"/>
@@ -175,18 +222,18 @@
             <Button DefaultButtonFace="edoc" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build6" Unit="emtg" Time="0">
-            <Button DefaultButtonFace="emtg" Requirements="Pause"/>
+            <Button DefaultButtonFace="emtg" Requirements="Final"/>
         </InfoArray>
         <InfoArray index="Build7" Unit="edot" Time="0">
             <Button DefaultButtonFace="edot" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build8" Unit="Nbrn1">
+        <InfoArray index="Build8" Unit="Nbrn1" Time="0">
             <Button DefaultButtonFace="Nbrn" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build9" Unit="eshd">
+        <InfoArray index="Build9" Unit="eshd" Time="0">
             <Button DefaultButtonFace="eshd" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build10" Unit="Emoo1">
+        <InfoArray index="Build10" Unit="Emoo1" Time="0">
             <Button DefaultButtonFace="Emoo" Requirements="Pause"/>
         </InfoArray>
         <InfoArray index="Build11" Unit="nhea">
@@ -207,6 +254,9 @@
         <InfoArray index="Build16" Unit="Ewar1">
             <Button DefaultButtonFace="Ewar" Requirements="Pause"/>
         </InfoArray>
+        <InfoArray index="Build17" Unit="efdr">
+            <Button DefaultButtonFace="efdr" Requirements="Pause"/>
+        </InfoArray>
         <Range value="500"/>
     </CAbilBuild>
     <!--Warden - Fan of Knives-->
@@ -220,22 +270,16 @@
         <Cost index="1" removed="1"/>
         <Cost index="2" removed="1"/>
         <AutoCastRange value="3"/>
-        <AutoCastValidatorArray value="EnemiesNearby2"/>
+        <AutoCastValidatorArray value="GroundEnemiesNearby15"/>
         <Effect index="1" removed="1"/>
         <Effect index="2" removed="1"/>
+        <AutoCastFilters value="Visible;Player,Ally,Hover,HarvestableResource,Missile,Destructible,Item,PreventDefeat,Buried,Dead,Invulnerable,Unstoppable"/>
     </CAbilEffectInstant>
     <CAbilAugment id="AHfaAugment">
         <CmdButtonArray index="Execute" Requirements=""/>
         <Flags index="AutoCastOn" value="1"/>
         <Cost>
-            <Vital index="Energy" value="0"/>
-        </Cost>
-    </CAbilAugment>
-    <CAbilAugment id="ANbaAugment">
-        <CmdButtonArray index="Execute" Requirements=""/>
-        <Flags index="AutoCastOn" value="1"/>
-        <Cost>
-            <Vital index="Energy" value="0"/>
+            <Vital index="Energy" value="10"/>
         </Cost>
     </CAbilAugment>
     <!--NE Abil-->
@@ -253,22 +297,27 @@
     <CAbilEffectTarget id="Afae">
         <Cost index="0">
             <Vital index="Energy" value="0"/>
-            <Cooldown Location="Unit" TimeUse="5"/>
+            <Cooldown Location="Unit" TimeUse="10"/>
         </Cost>
         <Range index="0" value="7.5"/>
         <AutoCastRange value="7.5"/>
         <AutoCastValidatorArray value="TargetLifeGE200"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSLifeLargestFirst"/>
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
     </CAbilEffectTarget>
     <!--Roar Dur=45 HeroDur=45 Buff=Broa-->
     <CAbilEffectInstant id="Ara2">
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
         <Cost index="0">
-            <Vital index="Energy" value="0"/>
-            <Cooldown TimeStart="5" TimeUse="30"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
         </Cost>
-        <AutoCastRange value="1"/>
+        <AutoCastRange value="7.5"/>
         <CmdButtonArray index="Execute" Requirements=""/>
+        <AutoCastValidatorArray value="EnemiesNearby6"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="ANlg">
         <Cost>
@@ -292,9 +341,76 @@
     <CAbilEffectInstant id="Atau">
         <Flags index="AutoCast" value="1"/>
         <Flags index="AutoCastOn" value="1"/>
-        <AutoCastRange value="2"/>
-        <AutoCastValidatorArray value="EnemiesNearby2"/>
+        <AutoCastRange value="3"/>
+        <AutoCastValidatorArray value="GroundEnemiesNearby15"/>
+        <AutoCastFilters value="Ground,Visible;Player,Ally"/>
     </CAbilEffectInstant>
+    <CAbilBehavior id="HonorShield" parent="War3_Passive">
+        <CmdButtonArray index="On" Requirements="HonorShield"/>
+        <BehaviorArray value="HonorShield"/>
+    </CAbilBehavior>
+    <CAbilInventory id="Inventory2" parent="War3_Inventory">
+        <Range value="500"/>
+        <MaxDropRange value="500"/>
+        <InfoArray/>
+        <InfoArray/>
+    </CAbilInventory>
+    <CAbilInventory id="Inventory3" parent="War3_Inventory">
+        <Range value="500"/>
+        <MaxDropRange value="500"/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+    </CAbilInventory>
+    <CAbilInventory id="Inventory4" parent="War3_Inventory">
+        <Range value="500"/>
+        <MaxDropRange value="500"/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+    </CAbilInventory>
+    <CAbilInventory id="Inventory5" parent="War3_Inventory">
+        <Range value="500"/>
+        <MaxDropRange value="500"/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+    </CAbilInventory>
+    <CAbilInventory id="Inventory6" parent="War3_Inventory">
+        <Range value="500"/>
+        <MaxDropRange value="500"/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+        <InfoArray/>
+    </CAbilInventory>
+    <CAbilBehavior id="ShockWave" parent="War3_Passive">
+        <CmdButtonArray index="On" Requirements="ShockWave"/>
+        <BehaviorArray value="ShockWave"/>
+    </CAbilBehavior>
+    <CAbilResearch id="ItemLevel" parent="War3_Research">
+        <Name value="UpdateItemLevel/Tip"/>
+        <InfoArray index="Research1" Time="0">
+            <Resource index="Terrazine" value="10"/>
+            <Resource index="Custom" value="0"/>
+            <Button Requirements="ItemLevel"/>
+        </InfoArray>
+        <InfoArray index="Research2" Time="0">
+            <Resource index="Terrazine" value="20"/>
+            <Resource index="Custom" value="0"/>
+            <Button Requirements="ItemLevel2"/>
+        </InfoArray>
+        <InfoArray index="Research3" Time="0">
+            <Resource index="Terrazine" value="30"/>
+            <Resource index="Custom" value="0"/>
+            <Button Requirements="ItemLevel3"/>
+        </InfoArray>
+    </CAbilResearch>
     <CAbilMorph id="UpgradeToEkee" parent="War3_Upgrade" toUnit="Ekee1">
         <Name value="Ekee/Tip"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Ekee" Requirements="Pause"/>
@@ -370,6 +486,36 @@
         </InfoArray>
         <Name value="Hamg/Tip"/>
     </CAbilMorph>
+    <CAbilMorph id="UpgradeToHjai" parent="War3_Upgrade" toUnit="Hjai1">
+        <CmdButtonArray index="Execute" DefaultButtonFace="Hjai" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Hjai1">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+        <Name value="Hjai/Tip"/>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeToEkgg" parent="War3_Upgrade" toUnit="Ekgg1">
+        <CmdButtonArray index="Execute" DefaultButtonFace="Ekgg" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="Ekgg1">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+        <Name value="Ekgg/Tip"/>
+    </CAbilMorph>
     <CAbilMorph id="UpgradeToedcm" parent="War3_Upgrade" toUnit="edcm">
         <InfoArray index="0" Score="1" Unit="edcm">
             <SectionArray index="Abils">
@@ -382,6 +528,7 @@
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
         </InfoArray>
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
     </CAbilMorph>
     <CAbilMorph id="UpgradeToeshd" parent="War3_Upgrade" toUnit="eshd">
         <CmdButtonArray index="Execute" Requirements="Pause"/>
@@ -414,6 +561,21 @@
     </CAbilMorph>
     <CAbilMorph id="UpgradeTohfoo" parent="War3_Upgrade" toUnit="hfoo">
         <InfoArray index="0" Score="1" Unit="hfoo">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+    </CAbilMorph>
+    <CAbilMorph id="UpgradeTohgyr" parent="War3_Upgrade" toUnit="hgyr">
+        <CmdButtonArray index="Execute" Requirements="Pause"/>
+        <InfoArray index="0" Score="1" Unit="hgyr">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
@@ -482,6 +644,10 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
+    <!--Workaround!-->
+    <CAbilPawn id="War3_Pawn">
+        <Range value="500"/>
+    </CAbilPawn>
     <CAbilStop id="stop">
         <CmdButtonArray index="Stop" Requirements="HasNoBuilding"/>
     </CAbilStop>

@@ -19,6 +19,7 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Efur1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Efur1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Efur1"/>
+        <On index="85" removed="1"/>
         <DeathArray index="Normal" SoundLink="Efur1Death" VoiceLink="Efur1DeathVoice"/>
         <GroupSoundArray index="What" value="Efur1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Efur1_GroupYes"/>
@@ -33,7 +34,7 @@
         <SoundArray index="Click" value="Efur1_Click"/>
         <SoundArray index="ClickError" value="Efur1_ClickError"/>
         <SoundArray index="Highlight" value="Efur1_Highlight"/>
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--keeperofthegrove-->
     <CActorUnit id="Ekee" unitName="Ekee1" defType="NONE">
@@ -48,6 +49,7 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Ekee1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ekee1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ekee1"/>
+        <On index="85" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ekee1Death" VoiceLink="Ekee1DeathVoice"/>
         <GroupSoundArray index="What" value="Ekee1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Ekee1_GroupYes"/>
@@ -62,7 +64,24 @@
         <SoundArray index="Click" value="Ekee1_Click"/>
         <SoundArray index="ClickError" value="Ekee1_ClickError"/>
         <SoundArray index="Highlight" value="Ekee1_Highlight"/>
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--keeperofthegroveghost-->
+    <CActorUnit id="Ekgg" unitName="Ekgg1" defType="NONE">
+        <On index="0" Terms="UnitBirth.Ekgg1" Send="Create SoundEmitter Ekgg1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Ekgg1"/>
+        <On index="2" Terms="UnitRevive.Ekgg1"/>
+        <On index="3" Terms="UnitRevive.Ekgg1"/>
+        <On index="4" Terms="UnitConstruction.Ekgg1.Start"/>
+        <On index="5" Terms="UnitConstruction.Ekgg1.Finish"/>
+        <On index="67" Terms="UnitRevive.Ekgg1; !ScopeContains Ekgg"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Ekgg1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Ekgg1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ekgg1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ekgg1"/>
+        <On index="85" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
     </CActorUnit>
     <!--priestessofthemoon-->
     <CActorUnit id="Emoo" unitName="Emoo1" defType="NONE">
@@ -77,6 +96,7 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Emoo1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Emoo1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Emoo1"/>
+        <On index="85" removed="1"/>
         <DeathArray index="Normal" SoundLink="Emoo1Death" VoiceLink="Emoo1DeathVoice"/>
         <GroupSoundArray index="What" value="Emoo1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Emoo1_GroupYes"/>
@@ -94,7 +114,7 @@
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
     <!--warden-->
-    <CActorUnit id="Ewar" unitName="Ewar1" defType="SMALL">
+    <CActorUnit id="Ewar" unitName="Ewar1" defType="LARGE">
         <On index="0" Terms="UnitBirth.Ewar1" Send="Create SoundEmitter Ewar1_Ambience"/>
         <On index="1" Terms="UnitBirth.Ewar1"/>
         <On index="2" Terms="UnitRevive.Ewar1"/>
@@ -106,12 +126,13 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Ewar1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ewar1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ewar1"/>
+        <On index="85" removed="1"/>
         <DeathArray index="Normal" SoundLink="Ewar1Death" VoiceLink="Ewar1DeathVoice"/>
         <GroupSoundArray index="What" value="Ewar1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Ewar1_GroupYes"/>
         <GroupSoundArray index="Attack" value="Ewar1_GroupAttack"/>
         <GroupSoundArray index="Board" value="Ewar1_GroupBoard"/>
-        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-LARGE.tga"/>
         <SoundArray index="Birth" value="Ewar1_Birth"/>
         <SoundArray index="Help" value="Ewar1_Help"/>
         <SoundArray index="Movement" value="Ewar1_Movement"/>
@@ -135,8 +156,9 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hamg1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hamg1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hamg1"/>
+        <On index="85" removed="1"/>
         <DeathArray index="Normal" SoundLink="Hamg1Death" VoiceLink="Hamg1DeathVoice"/>
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <GroupSoundArray index="What" value="Hamg1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Hamg1_GroupYes"/>
         <GroupSoundArray index="Attack" value="Hamg1_GroupAttack"/>
@@ -149,6 +171,36 @@
         <SoundArray index="Click" value="Hamg1_Click"/>
         <SoundArray index="ClickError" value="Hamg1_ClickError"/>
         <SoundArray index="Highlight" value="Hamg1_Highlight"/>
+    </CActorUnit>
+    <!--jaina-->
+    <CActorUnit id="Hjai" unitName="Hjai1" defType="NONE">
+        <On index="0" Terms="UnitBirth.Hjai1" Send="Create SoundEmitter Hjai1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Hjai1"/>
+        <On index="2" Terms="UnitRevive.Hjai1"/>
+        <On index="3" Terms="UnitRevive.Hjai1"/>
+        <On index="4" Terms="UnitConstruction.Hjai1.Start"/>
+        <On index="5" Terms="UnitConstruction.Hjai1.Finish"/>
+        <On index="67" Terms="UnitRevive.Hjai1; !ScopeContains Hjai"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Hjai1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hjai1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hjai1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hjai1"/>
+        <On index="85" removed="1"/>
+        <DeathArray index="Normal" SoundLink="Hjai1Death" VoiceLink="Hjai1DeathVoice"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <GroupSoundArray index="What" value="Hjai1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Hjai1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Hjai1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Hjai1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+        <SoundArray index="Birth" value="Hjai1_Birth"/>
+        <SoundArray index="Help" value="Hjai1_Help"/>
+        <SoundArray index="Movement" value="Hjai1_Movement"/>
+        <SoundArray index="Turning" value="Hjai1_Turning"/>
+        <SoundArray index="Board" value="Hjai1_Board"/>
+        <SoundArray index="Click" value="Hjai1_Click"/>
+        <SoundArray index="ClickError" value="Hjai1_ClickError"/>
+        <SoundArray index="Highlight" value="Hjai1_Highlight"/>
     </CActorUnit>
     <!--lordgarithos-->
     <CActorUnit id="Hlgr" unitName="Hlgr1" defType="LARGE">
@@ -163,6 +215,7 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Hlgr1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Hlgr1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Hlgr1"/>
+        <On index="85" removed="1"/>
         <Scale value="1.000000"/>
         <DeathArray index="Normal" SoundLink="Hlgr1Death" VoiceLink="Hlgr1DeathVoice"/>
         <GroupSoundArray index="What" value="Hlgr1_GroupWhat"/>
@@ -192,6 +245,7 @@
         <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Nbrn1"/>
         <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Nbrn1"/>
         <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Nbrn1"/>
+        <On index="85" removed="1"/>
         <DeathArray index="Normal" SoundLink="Nbrn1Death" VoiceLink="Nbrn1DeathVoice"/>
         <GroupSoundArray index="What" value="Nbrn1_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Nbrn1_GroupYes"/>
@@ -206,15 +260,15 @@
         <SoundArray index="Click" value="Nbrn1_Click"/>
         <SoundArray index="ClickError" value="Nbrn1_ClickError"/>
         <SoundArray index="Highlight" value="Nbrn1_Highlight"/>
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--archer-->
     <CActorUnit id="earc">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--glaivethrower-->
     <CActorUnit id="ebal">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--druidoftheclawmorphed-->
     <CActorUnit id="edcm">
@@ -226,11 +280,20 @@
     </CActorUnit>
     <!--druidofthetalon-->
     <CActorUnit id="edot">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--dryad-->
     <CActorUnit id="edry">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--faeriedragon-->
+    <CActorUnit id="efdr" defType="NONE">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-NONE.tga"/>
+    </CActorUnit>
+    <!--mountaingiant-->
+    <CActorUnit id="emtg">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
     <!--huntress-->
     <CActorUnit id="esen">
@@ -238,20 +301,70 @@
     </CActorUnit>
     <!--shandris-->
     <CActorUnit id="eshd">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--wisp-->
+    <CActorUnit id="ewsp">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--footman-->
+    <CActorUnit id="hfoo">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
+    <CActorAction id="hgry1">
+        <On Terms="Effect.hgry1LM2.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.hgry1LM3.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.hgry1LM4.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.hgry1LM5.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.hgry1LM6.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.hgry1LM7.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.hgry1LM8.Start; At Caster" Send="Create"/>
+    </CActorAction>
+    <!--flyingmachine-->
+    <CActorUnit id="hgyr" defType="MEDIUM">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
     </CActorUnit>
     <!--knight-->
     <CActorUnit id="hkni" defType="SMALL">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
     </CActorUnit>
+    <!--militia-->
+    <CActorUnit id="hmil">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
     <!--priest-->
     <CActorUnit id="hmpr">
-        <Scale value="1.125000"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
     <!--mortarteam-->
     <CActorUnit id="hmtm">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--peasant-->
+    <CActorUnit id="hpea">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--packhorse-->
+    <CActorUnit id="hrdh">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--rifleman-->
+    <CActorUnit id="hrif">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--rocketengine-->
+    <CActorUnit id="hrtt">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
+    <!--sorceress-->
+    <CActorUnit id="hsor">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--spellbreaker-->
+    <CActorUnit id="hspt">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
     <!--bandit-->
     <CActorUnit id="nban">
@@ -287,13 +400,22 @@
         <SoundArray index="ClickError" value="nbld1_ClickError"/>
         <SoundArray index="Highlight" value="nbld1_Highlight"/>
     </CActorUnit>
+    <!--chaplain-->
+    <CActorUnit id="nchp">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
     <!--darkminion1-->
     <CActorUnit id="ndr1">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar75"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
     </CActorUnit>
     <!--highelvenarcher-->
     <CActorUnit id="nhea">
-        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar40"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--hydromancer-->
+    <CActorUnit id="nhym">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+        <On index="89" removed="1"/>
     </CActorUnit>
     <!--magnataurdestroyer-->
     <CActorUnit id="nmgd">
@@ -311,5 +433,13 @@
     <CActorUnit id="nwat" defType="SMALL">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
+    </CActorUnit>
+    <!--peon-->
+    <CActorUnit id="opeo">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
+    </CActorUnit>
+    <!--acolyte-->
+    <CActorUnit id="uaco">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
 </Catalog>

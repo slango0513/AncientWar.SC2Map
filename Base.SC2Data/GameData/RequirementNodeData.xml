@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
     <CRequirementAnd id="AndCountBehaviorBuildingCompleteOnlyAtUnitCountUpgradePauseCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountBehaviorBuildingCompleteOnlyAtUnit"/>
         <OperandArray value="CountUpgradePauseCompleteOnly"/>
     </CRequirementAnd>
@@ -13,6 +12,16 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Final" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeItemLevelCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ItemLevel" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeItemLevelQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ItemLevel" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradePauseCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Pause" State="CompleteOnly"/>
@@ -20,5 +29,30 @@
     <CRequirementEq id="EqCountBehaviorBuildingCompleteOnlyAtUnit0">
         <OperandArray index="0" value="CountBehaviorBuildingCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeItemLevelCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeItemLevelCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeItemLevelCompleteOnly2">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeItemLevelCompleteOnly"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeItemLevelQueuedOrBetter0">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeItemLevelQueuedOrBetter"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeItemLevelQueuedOrBetter1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeItemLevelQueuedOrBetter"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountUpgradeItemLevelQueuedOrBetter2">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeItemLevelQueuedOrBetter"/>
+        <OperandArray index="1" value="2"/>
     </CRequirementEq>
 </Catalog>

@@ -6,4 +6,10 @@
     <CUpgrade id="Pause" parent="War3_Upgrade">
         <Name value="Upgrade/Name/Pause"/>
     </CUpgrade>
+    <CUpgrade id="ItemLevel" parent="War3_Upgrade">
+        <Name value="UpdateItemLevel/Name"/>
+        <EffectArray Reference="Unit,Item,LifeStart" Value="1"/>
+        <AffectedUnitArray value="Item"/>
+        <MaxLevel value="3"/>
+    </CUpgrade>
 </Catalog>

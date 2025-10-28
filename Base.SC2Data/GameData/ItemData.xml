@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <!--Ankh of Reincarnation-->
+    <CItem id="ankh"/>
+    <!--Bladebane Armor-->
+    <CItem id="blba">
+        <Level value="9"/>
+        <EquipBehaviorArray index="0" value="AId5"/>
+    </CItem>
+    <!--Boots of Speed-->
+    <CItem id="bspd">
+        <Level value="1"/>
+    </CItem>
+    <!--Level 100+ Items: Avoid from random Drop-->
+    <!--Cloak of Flames-->
+    <CItem id="clfm">
+        <Level value="2"/>
+    </CItem>
+    <!--Horn of Cenarius-->
+    <CItem id="cnhn">
+        <Level value="4"/>
+    </CItem>
+    <!--Crown of the Deathlord-->
+    <CItemAbil id="crdt">
+        <Level value="8"/>
+        <EquipBehaviorArray index="0" value="AIl2"/>
+        <EquipBehaviorArray index="1" value="AIbm"/>
+    </CItemAbil>
+    <!--Drek'thar's Spellbook-->
+    <CItemAbil id="dtsb">
+        <Level value="8"/>
+        <EquipBehaviorArray index="0" value="AIbm"/>
+        <Abil value=""/>
+    </CItemAbil>
+    <!--Firehand Gauntlets-->
+    <CItem id="frhg">
+        <Level value="9"/>
+    </CItem>
+    <!--Gloves of Haste-->
+    <CItem id="gcel"/>
+    <!--Lion Horn of Stormwind-->
+    <CItem id="lhst"/>
+    <!--Orb of Corruption-->
+    <CItem id="ocor">
+        <Level value="5"/>
+    </CItem>
+    <!--Orb of Darkness-->
+    <CItem id="odef"/>
+    <!--Orb of Fire-->
+    <CItem id="ofir">
+        <Level value="5"/>
+    </CItem>
+    <!--Orb of Lightning-->
+    <CItem id="oli2">
+        <Level value="5"/>
+    </CItem>
+    <!--Orb of Venom-->
+    <CItem id="oven">
+        <Level value="5"/>
+    </CItem>
+    <!--Pendant of Energy-->
+    <CItem id="penr">
+        <Level value="2"/>
+    </CItem>
+    <!--Pendant of Mana-->
+    <CItem id="pmna">
+        <Level value="4"/>
+    </CItem>
+    <!--Periapt of Vitality-->
+    <CItem id="prvt">
+        <Level value="2"/>
+    </CItem>
+    <!--Claws of Attack +3-->
+    <CItem id="rat3">
+        <Level value="1"/>
+    </CItem>
+    <!--Claws of Attack +12-->
+    <CItem id="ratc">
+        <Level value="4"/>
+    </CItem>
+    <!--Claws of Attack +15-->
+    <CItem id="ratf">
+        <Level value="5"/>
+    </CItem>
+    <!--Ring of Protection +1-->
+    <CItem id="rde0">
+        <Level value="1"/>
+    </CItem>
+    <!--Ring of Protection +2-->
+    <CItem id="rde1"/>
+    <!--Ring of Protection +3-->
+    <CItem id="rde2"/>
+    <!--Ring of Protection +4-->
+    <CItem id="rde3">
+        <Level value="4"/>
+    </CItem>
+    <!--Ring of Protection +5-->
+    <CItem id="rde4">
+        <Level value="5"/>
+    </CItem>
+    <!--Khadgar's Gem of Health-->
+    <CItem id="rhth">
+        <Level value="4"/>
+    </CItem>
+    <!--Shield of the Deathlord-->
+    <CItem id="shdt">
+        <Level value="10"/>
+        <EquipBehaviorArray index="2" value="AId5"/>
+    </CItem>
+    <!--Enchanted Shield-->
+    <CItem id="shen">
+        <Level value="3"/>
+    </CItem>
+    <!--Shield of Honor-->
+    <CItem id="shhn">
+        <Level value="9"/>
+        <EquipBehaviorArray index="0" value="AId5"/>
+    </CItem>
+    <!--Shadow Orb +6-->
+    <CItem id="sor6">
+        <Level value="3"/>
+    </CItem>
+    <!--Shadow Orb +9-->
+    <CItem id="sor9">
+        <Level value="6"/>
+    </CItem>
+    <!--Shadow Orb +10-->
+    <CItem id="sora">
+        <Level value="8"/>
+        <EquipBehaviorArray index="0" value="AItc"/>
+    </CItem>
+    <!--Serathil-->
+    <CItem id="srtl">
+        <Level value="9"/>
+        <EquipBehaviorArray index="0" value="AIs2"/>
+    </CItem>
+    <!--Tome of Sacrifices-->
+    <CItemAbil id="tmsc">
+        <Level value="6"/>
+    </CItemAbil>
+    <!--Warsong Battle Drums-->
+    <CItem id="ward">
+        <Level value="4"/>
+    </CItem>
+</Catalog>

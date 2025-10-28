@@ -4,16 +4,42 @@
         <Type value="And"/>
         <CombineArray value="NoRejuvenation"/>
     </CValidatorCombine>
-    <CValidatorLocationEnumArea id="EnemiesNearby2" parent="EnemiesNearby">
-        <AreaArray index="0" Compare="GE" Count="1" Radius="2"/>
+    <CValidatorCombine id="AEer1DurTargetFilters">
+        <Type value="And"/>
+        <CombineArray value="NoEntanglingRoots"/>
+    </CValidatorCombine>
+    <CValidatorLocationEnumArea id="GroundEnemiesNearby">
+        <WhichLocation Value="CasterUnit"/>
+        <AreaArray Compare="GE" Count="1" Radius="6"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"/>
     </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="EnemiesNearby6">
+        <WhichLocation Value="CasterUnit"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="GroundEnemiesNearby15" parent="GroundEnemiesNearby">
+        <AreaArray index="0" Compare="GE" Count="1" Radius="1.5"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="GroundEnemiesNearby9" parent="GroundEnemiesNearby">
+        <AreaArray index="0" Compare="GE" Count="1" Radius="9"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorUnitCompareVeterancyLevel id="LevelableHero">
+        <Compare value="GE"/>
+        <Value value="0"/>
+    </CValidatorUnitCompareVeterancyLevel>
     <CValidatorUnitCompareBehaviorCount id="NoDefending">
         <WhichUnit Value="Caster"/>
         <Behavior value="Defending"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoManaFlareChannelling">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ManaFlareChannelling"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoRejuvenation">
         <ResultFailed value="Error,Errors/Alreadybeinghealed"/>
         <Behavior value="Brej"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoEntanglingRoots">
+        <Behavior value="BEer"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="RejuvenationAutoCastTargetFilter">
         <CombineArray value="NotFullLife"/>
@@ -22,4 +48,14 @@
         <CombineArray value="NotHallucinationTarget"/>
         <Type value="And"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareVital id="TargetMoreThan10Mana">
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorLocationEnumArea id="MoreThan10ManaEnermyNearBy9">
+        <WhichLocation Value="CasterUnit"/>
+        <AreaArray Radius="9" Validator="TargetMoreThan10Mana"/>
+        <SearchFilters value="-;Player,Ally,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"/>
+    </CValidatorLocationEnumArea>
 </Catalog>

@@ -1,53 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PlacedObjects Version="27">
-    <ObjectPoint Id="1" Position="124.5,71.5,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation3" Color="0,0,0,0"/>
-    <ObjectPoint Id="2" Position="131.5,64.5,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation4" Color="0,0,0,0"/>
-    <ObjectPoint Id="3" Position="131.5,184.5,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation7" Color="0,0,0,0"/>
-    <ObjectPoint Id="4" Position="124.5,191.5,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation8" Color="0,0,0,0"/>
-    <ObjectPoint Id="5" Position="69.5,131.5,0" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation1" Color="0,0,0,0"/>
-    <ObjectPoint Id="6" Position="64.5,124.5,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation2" Color="0,0,0,0"/>
-    <ObjectPoint Id="7" Position="184.5,124.5,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation5" Color="0,0,0,0"/>
-    <ObjectPoint Id="8" Position="191.5,131.5,0" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation6" Color="0,0,0,0"/>
-    <ObjectPoint Id="9" Position="66.5,28.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation1" Color="0,0,0,0"/>
-    <ObjectPoint Id="10" Position="82.5,28.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation2" Color="0,0,0,0"/>
-    <ObjectPoint Id="11" Position="98.5,28.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation3" Color="0,0,0,0"/>
-    <ObjectPoint Id="12" Position="114.5,28.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation4" Color="0,0,0,0"/>
-    <ObjectPoint Id="13" Position="130.5,28.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation5" Color="0,0,0,0"/>
-    <ObjectPoint Id="14" Position="146.5,28.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation6" Color="0,0,0,0"/>
-    <ObjectPoint Id="15" Position="162.5,28.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation7" Color="0,0,0,0"/>
-    <ObjectPoint Id="16" Position="178.5,28.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation8" Color="0,0,0,0"/>
-    <ObjectPoint Id="17" Position="91,170,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation9" Color="0,0,0,0"/>
-    <ObjectPoint Id="18" Position="81,170,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation10" Color="0,0,0,0"/>
-    <ObjectPoint Id="19" Position="86,91,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation11" Color="0,0,0,0"/>
-    <ObjectPoint Id="20" Position="86,81,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation12" Color="0,0,0,0"/>
-    <ObjectPoint Id="21" Position="165,86,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation13" Color="0,0,0,0"/>
-    <ObjectPoint Id="22" Position="175,86,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation14" Color="0,0,0,0"/>
-    <ObjectPoint Id="23" Position="66.5,204.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation9" Color="0,0,0,0"/>
-    <ObjectPoint Id="24" Position="82.5,204.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation10" Color="0,0,0,0"/>
-    <ObjectPoint Id="25" Position="98.5,204.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation11" Color="0,0,0,0"/>
-    <ObjectPoint Id="26" Position="114.5,204.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation12" Color="0,0,0,0"/>
-    <ObjectPoint Id="27" Position="130.5,204.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation13" Color="0,0,0,0"/>
-    <ObjectPoint Id="28" Position="146.5,204.5,0" Scale="1,1,1" Type="Normal" Name="BuildingLocation14" Color="0,0,0,0"/>
-    <ObjectPoint Id="29" Position="68,140.5,0" Scale="1,1,1" Type="Normal" Name="ReserveLocation1" Color="0,0,0,0"/>
-    <ObjectPoint Id="30" Position="68,115.5,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="ReserveLocation2" Color="0,0,0,0"/>
-    <ObjectPoint Id="31" Position="115.5,68,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="ReserveLocation3" Color="0,0,0,0"/>
-    <ObjectPoint Id="32" Position="140.5,68,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="ReserveLocation4" Color="0,0,0,0"/>
-    <ObjectPoint Id="33" Position="188,115.5,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="ReserveLocation5" Color="0,0,0,0"/>
-    <ObjectPoint Id="34" Position="188,140.5,0" Scale="1,1,1" Type="Normal" Name="ReserveLocation6" Color="0,0,0,0"/>
-    <ObjectPoint Id="35" Position="140.5,188,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="ReserveLocation7" Color="0,0,0,0"/>
-    <ObjectPoint Id="36" Position="115.5,188,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="ReserveLocation8" Color="0,0,0,0"/>
-    <ObjectPoint Id="37" Position="94,178,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="ReserveLocation9" Color="0,0,0,0"/>
-    <ObjectPoint Id="38" Position="78,162,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="ReserveLocation10" Color="0,0,0,0"/>
-    <ObjectPoint Id="39" Position="78,94,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="ReserveLocation11" Color="0,0,0,0"/>
-    <ObjectPoint Id="40" Position="94,78,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="ReserveLocation12" Color="0,0,0,0"/>
-    <ObjectPoint Id="41" Position="162,78,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="ReserveLocation13" Color="0,0,0,0"/>
-    <ObjectPoint Id="42" Position="178,94,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="ReserveLocation14" Color="0,0,0,0"/>
-    <ObjectPoint Id="45" Position="170,175,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation16" Color="0,0,0,0"/>
-    <ObjectPoint Id="48" Position="170,165,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="BattlefieldLocation15" Color="0,0,0,0"/>
-    <ObjectPoint Id="51" Position="178,162,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="ReserveLocation15" Color="0,0,0,0"/>
-    <ObjectPoint Id="52" Position="162,178,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="ReserveLocation16" Color="0,0,0,0"/>
-    <ObjectPoint Id="53" Position="131,123,0" Rotation="4.2324" Scale="1,1,1" Type="Normal" Name="FinalLocation1" Color="0,0,0,0"/>
-    <ObjectPoint Id="55" Position="125,133,0" Rotation="1.0908" Scale="1,1,1" Type="Normal" Name="FinalLocation2" Color="0,0,0,0"/>
-    <ObjectPoint Id="56" Position="149,117,0" Rotation="4.2321" Scale="1,1,1" Type="Normal" Name="FinalReserveLocation1" Color="0,0,0,0"/>
-    <ObjectPoint Id="57" Position="107,139,0" Rotation="1.0905" Scale="1,1,1" Type="Normal" Name="FinalReserveLocation2" Color="0,0,0,0"/>
+    <ObjectPoint Id="1" Position="46,125,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Battlefield1,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="2" Position="125,46,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Battlefield8,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="3" Position="131,210,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Battlefield6,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="4" Position="210,131,0" Rotation="6.283" Scale="1,1,1" Type="Normal" Name="Battlefield3,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="5" Position="210,125,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Battlefield4,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="6" Position="131,46,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Battlefield7,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="7" Position="125,210,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Battlefield5,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="8" Position="46,131,0" Scale="1,1,1" Type="Normal" Name="Battlefield2,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="9" Position="68.5,183.5,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Battlefield9,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="10" Position="183.5,68.5,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Battlefield12,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="11" Position="72.5,187.5,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Battlefield10,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="12" Position="187.5,72.5,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Battlefield11,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="13" Position="187.5,183.5,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Battlefield14,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="14" Position="72.5,68.5,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Battlefield15,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="15" Position="183.5,187.5,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Battlefield13,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="16" Position="68.5,72.5,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Battlefield16,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="17" Position="46,123,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Reserve1,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="18" Position="123,46,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Reserve8,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="19" Position="133,210,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Reserve6,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="20" Position="210,133,0" Rotation="6.283" Scale="1,1,1" Type="Normal" Name="Reserve3,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="21" Position="210,123,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Reserve4,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="22" Position="133,46,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Reserve7,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="23" Position="123,210,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Reserve5,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="24" Position="46,133,0" Scale="1,1,1" Type="Normal" Name="Reserve2,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="25" Position="67,182,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Reserve9,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="26" Position="182,67,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Reserve12,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="27" Position="74,189,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Reserve10,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="28" Position="189,74,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Reserve11,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="29" Position="189,182,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Reserve14,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="30" Position="74,67,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Reserve15,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="31" Position="182,189,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Reserve13,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="32" Position="67,74,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Reserve16,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="33" Position="46,118,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Battlefield1,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="34" Position="118,46,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Battlefield8,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="35" Position="138,210,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Battlefield6,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="36" Position="210,138,0" Rotation="6.283" Scale="1,1,1" Type="Normal" Name="Battlefield3,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="37" Position="210,118,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Battlefield4,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="38" Position="138,46,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Battlefield7,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="39" Position="118,210,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Battlefield5,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="40" Position="46,138,0" Scale="1,1,1" Type="Normal" Name="Battlefield2,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="41" Position="63.5,178.5,0" Rotation="2.3562" Scale="1,1,1" Type="Normal" Name="Battlefield9,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="42" Position="178.5,63.5,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Battlefield12,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="43" Position="77.5,192.5,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Battlefield10,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="44" Position="192.5,77.5,0" Rotation="5.4978" Scale="1,1,1" Type="Normal" Name="Battlefield11,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="45" Position="192.5,178.5,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Battlefield14,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="46" Position="77.5,63.5,0" Rotation="3.927" Scale="1,1,1" Type="Normal" Name="Battlefield15,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="47" Position="178.5,192.5,0" Rotation="0.7854" Scale="1,1,1" Type="Normal" Name="Battlefield13,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="48" Position="63.5,77.5,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Battlefield16,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="49" Position="46,116,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Reserve1,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="50" Position="116,46,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Reserve8,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="51" Position="140,210,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Reserve6,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="52" Position="210,140,0" Rotation="6.283" Scale="1,1,1" Type="Normal" Name="Reserve3,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="53" Position="210,116,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Reserve4,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="54" Position="140,46,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Reserve7,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="55" Position="116,210,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Reserve5,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="56" Position="46,140,0" Scale="1,1,1" Type="Normal" Name="Reserve2,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="57" Position="62,177,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Reserve9,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="58" Position="177,62,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Reserve12,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="59" Position="79,194,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Reserve10,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="60" Position="194,79,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Reserve11,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="61" Position="194,177,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Reserve14,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="62" Position="79,62,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Reserve15,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="63" Position="177,194,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Reserve13,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="64" Position="62,79,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Reserve16,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="65" Position="62,125,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Battlefield1,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="66" Position="125,62,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Battlefield8,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="67" Position="131,194,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Battlefield6,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="68" Position="194,131,0" Rotation="6.283" Scale="1,1,1" Type="Normal" Name="Battlefield3,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="69" Position="194,125,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Battlefield4,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="70" Position="131,62,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Battlefield7,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="71" Position="125,194,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Battlefield5,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="72" Position="62,131,0" Scale="1,1,1" Type="Normal" Name="Battlefield2,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="73" Position="79.5,172.5,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Battlefield9,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="74" Position="172.5,79.5,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Battlefield12,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="75" Position="83.5,176.5,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Battlefield10,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="76" Position="176.5,83.5,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Battlefield11,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="77" Position="176.5,172.5,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Battlefield14,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="78" Position="83.5,79.5,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Battlefield15,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="79" Position="172.5,176.5,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Battlefield13,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="80" Position="79.5,83.5,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Battlefield16,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="81" Position="62,123,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Reserve1,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="82" Position="123,62,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Reserve8,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="83" Position="133,194,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Reserve6,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="84" Position="194,133,0" Rotation="6.283" Scale="1,1,1" Type="Normal" Name="Reserve3,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="85" Position="194,123,0" Rotation="3.1413" Scale="1,1,1" Type="Normal" Name="Reserve4,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="86" Position="133,62,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="Reserve7,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="87" Position="123,194,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="Reserve5,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="88" Position="62,133,0" Scale="1,1,1" Type="Normal" Name="Reserve2,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="89" Position="78,171,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Reserve9,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="90" Position="171,78,0" Rotation="2.356" Scale="1,1,1" Type="Normal" Name="Reserve12,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="91" Position="85,178,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Reserve10,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="92" Position="178,85,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="Reserve11,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="93" Position="178,171,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Reserve14,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="94" Position="85,78,0" Rotation="3.9267" Scale="1,1,1" Type="Normal" Name="Reserve15,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="95" Position="171,178,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Reserve13,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="96" Position="78,85,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="Reserve16,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="97" Position="26.5,46.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker1" Color="0,0,0,0"/>
+    <ObjectPoint Id="98" Position="42.5,46.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker2" Color="0,0,0,0"/>
+    <ObjectPoint Id="99" Position="58.5,46.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker3" Color="0,0,0,0"/>
+    <ObjectPoint Id="100" Position="74.5,46.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker4" Color="0,0,0,0"/>
+    <ObjectPoint Id="101" Position="170.5,46.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker5" Color="0,0,0,0"/>
+    <ObjectPoint Id="102" Position="186.5,46.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker6" Color="0,0,0,0"/>
+    <ObjectPoint Id="103" Position="202.5,46.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker7" Color="0,0,0,0"/>
+    <ObjectPoint Id="104" Position="218.5,46.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker8" Color="0,0,0,0"/>
+    <ObjectPoint Id="105" Position="26.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker9" Color="0,0,0,0"/>
+    <ObjectPoint Id="106" Position="42.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker10" Color="0,0,0,0"/>
+    <ObjectPoint Id="107" Position="58.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker11" Color="0,0,0,0"/>
+    <ObjectPoint Id="108" Position="74.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker12" Color="0,0,0,0"/>
+    <ObjectPoint Id="109" Position="170.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker13" Color="0,0,0,0"/>
+    <ObjectPoint Id="110" Position="186.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker14" Color="0,0,0,0"/>
+    <ObjectPoint Id="111" Position="202.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker15" Color="0,0,0,0"/>
+    <ObjectPoint Id="112" Position="218.5,246.5,0" Scale="1,1,1" Type="StartLoc" Name="Worker16" Color="0,0,0,0"/>
+    <ObjectPoint Id="113" Position="144,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalBattlefield1,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="114" Position="112,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalBattlefield2,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="115" Position="164,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalBattlefield1,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="116" Position="92,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalBattlefield2,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="117" Position="144,144,0" Rotation="5.4978" Scale="1,1,1" Type="Normal" Name="FinalBattlefield1,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="118" Position="112,144,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="FinalBattlefield2,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="119" Position="146,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalReserve1,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="120" Position="110,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalReserve2,1" Color="0,0,0,0"/>
+    <ObjectPoint Id="121" Position="166,128,0" Rotation="4.7121" Scale="1,1,1" Type="Normal" Name="FinalReserve1,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="122" Position="90,128,0" Rotation="1.5705" Scale="1,1,1" Type="Normal" Name="FinalReserve2,2" Color="0,0,0,0"/>
+    <ObjectPoint Id="123" Position="145,145,0" Rotation="5.4975" Scale="1,1,1" Type="Normal" Name="FinalReserve1,3" Color="0,0,0,0"/>
+    <ObjectPoint Id="124" Position="111,145,0" Rotation="0.7851" Scale="1,1,1" Type="Normal" Name="FinalReserve2,3" Color="0,0,0,0"/>
 </PlacedObjects>

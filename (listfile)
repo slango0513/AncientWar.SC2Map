@@ -5,9 +5,12 @@ Base.SC2Data\GameData\ActorData.xml
 Base.SC2Data\GameData\BehaviorData.xml
 Base.SC2Data\GameData\ButtonData.xml
 Base.SC2Data\GameData\EffectData.xml
+Base.SC2Data\GameData\ItemData.xml
+Base.SC2Data\GameData\MoverData.xml
 Base.SC2Data\GameData\RaceData.xml
 Base.SC2Data\GameData\RequirementData.xml
 Base.SC2Data\GameData\RequirementNodeData.xml
+Base.SC2Data\GameData\TargetSortData.xml
 Base.SC2Data\GameData\UnitData.xml
 Base.SC2Data\GameData\UpgradeData.xml
 Base.SC2Data\GameData\ValidatorData.xml
@@ -28,6 +31,8 @@ Preload.xml
 PreloadAssetDB.txt
 Regions
 Regions.version
+Screenshot1.jpg
+Screenshot2.jpg
 t3CellFlags
 t3FluffDoodad
 t3HardTile
@@ -42,6 +47,7 @@ t3VertCol
 t3Water
 Triggers
 Triggers.version
+ui_arcade_iconfootman.tga
 zhCN.SC2Data\LocalizedData\GameHotkeys.txt
 zhCN.SC2Data\LocalizedData\GameStrings.txt
 zhCN.SC2Data\LocalizedData\ObjectStrings.txt
