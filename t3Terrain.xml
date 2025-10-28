@@ -4,7 +4,7 @@
         <cliffSetList num="1">
             <cliffSet i="0" name="BelShirEx1Cliff0"/>
         </cliffSetList>
-        <vertData quantizeBias="1.001241e+000" quantizeScale="1.525900e-004" standardHeight="8.000000e+000" name="t3HeightMap"/>
+        <vertData quantizeBias="1.001319e+000" quantizeScale="1.525900e-004" standardHeight="8.000000e+000" name="t3HeightMap"/>
         <masks name="t3TextureMasks"/>
         <textureSetList num="8">
             <textureSet i="0" name="BelShirEx2"/>

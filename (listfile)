@@ -6,6 +6,7 @@ Base.SC2Data\GameData\BehaviorData.xml
 Base.SC2Data\GameData\ButtonData.xml
 Base.SC2Data\GameData\EffectData.xml
 Base.SC2Data\GameData\ItemData.xml
+Base.SC2Data\GameData\ModelData.xml
 Base.SC2Data\GameData\MoverData.xml
 Base.SC2Data\GameData\RaceData.xml
 Base.SC2Data\GameData\RequirementData.xml

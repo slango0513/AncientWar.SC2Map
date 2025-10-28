@@ -262,6 +262,34 @@
         <SoundArray index="Highlight" value="Nbrn1_Highlight"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
+    <!--cryptlord-->
+    <CActorUnit id="Ucrl" unitName="Ucrl1" defType="MEDIUM">
+        <On index="0" Terms="UnitBirth.Ucrl1" Send="Create SoundEmitter Ucrl1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Ucrl1"/>
+        <On index="2" Terms="UnitRevive.Ucrl1"/>
+        <On index="3" Terms="UnitRevive.Ucrl1"/>
+        <On index="4" Terms="UnitConstruction.Ucrl1.Start"/>
+        <On index="5" Terms="UnitConstruction.Ucrl1.Finish"/>
+        <On index="67" Terms="UnitRevive.Ucrl1; !ScopeContains Ucrl"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Ucrl1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Ucrl1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Ucrl1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Ucrl1"/>
+        <DeathArray index="Normal" SoundLink="Ucrl1Death" VoiceLink="Ucrl1DeathVoice"/>
+        <GroupSoundArray index="What" value="Ucrl1_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Ucrl1_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Ucrl1_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Ucrl1_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+        <SoundArray index="Birth" value="Ucrl1_Birth"/>
+        <SoundArray index="Help" value="Ucrl1_Help"/>
+        <SoundArray index="Movement" value="Ucrl1_Movement"/>
+        <SoundArray index="Turning" value="Ucrl1_Turning"/>
+        <SoundArray index="Board" value="Ucrl1_Board"/>
+        <SoundArray index="Click" value="Ucrl1_Click"/>
+        <SoundArray index="ClickError" value="Ucrl1_ClickError"/>
+        <SoundArray index="Highlight" value="Ucrl1_Highlight"/>
+    </CActorUnit>
     <!--archer-->
     <CActorUnit id="earc">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
@@ -429,6 +457,10 @@
     <CActorUnit id="nmgw">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
     </CActorUnit>
+    <!--nightelfassassin-->
+    <CActorUnit id="nssn">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
     <!--watcher-->
     <CActorUnit id="nwat" defType="SMALL">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
@@ -442,4 +474,5 @@
     <CActorUnit id="uaco">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
+    <CActorMissile id="Ucrl1LM" parent="War3_MissileSwapable" unitName="Ucrl1LM"/>
 </Catalog>

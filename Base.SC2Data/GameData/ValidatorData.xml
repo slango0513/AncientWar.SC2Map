@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CValidatorLocationEnumArea id="AnimateDeadAutoCastValidator">
+        <WhichLocation Value="CasterUnit"/>
+        <AreaArray Radius="9" Validator="RaiseDeadValidatorDead"/>
+        <Compare value="GE"/>
+        <Count value="6"/>
+    </CValidatorLocationEnumArea>
     <CValidatorCombine id="BrejTargetFilters">
         <Type value="And"/>
         <CombineArray value="NoRejuvenation"/>
-    </CValidatorCombine>
-    <CValidatorCombine id="AEer1DurTargetFilters">
-        <Type value="And"/>
-        <CombineArray value="NoEntanglingRoots"/>
     </CValidatorCombine>
     <CValidatorLocationEnumArea id="GroundEnemiesNearby">
         <WhichLocation Value="CasterUnit"/>
@@ -15,6 +17,10 @@
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="EnemiesNearby6">
         <WhichLocation Value="CasterUnit"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorLocationEnumArea id="EnemiesNearby9" parent="EnemiesNearby6">
+        <AreaArray index="0" Compare="GE" Count="1" Radius="9"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="GroundEnemiesNearby15" parent="GroundEnemiesNearby">
         <AreaArray index="0" Compare="GE" Count="1" Radius="1.5"/>
@@ -30,9 +36,15 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="Defending"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoAntiMagicShell">
+        <Behavior value="Bam2"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoManaFlareChannelling">
         <WhichUnit Value="Caster"/>
         <Behavior value="ManaFlareChannelling"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoUnholyFrenzy">
+        <Behavior value="Buhf"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoRejuvenation">
         <ResultFailed value="Error,Errors/Alreadybeinghealed"/>
@@ -58,4 +70,7 @@
         <AreaArray Radius="9" Validator="TargetMoreThan10Mana"/>
         <SearchFilters value="-;Player,Ally,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"/>
     </CValidatorLocationEnumArea>
+    <CValidatorUnitCompareVital id="TargetLifeE25">
+        <Value value="25"/>
+    </CValidatorUnitCompareVital>
 </Catalog>

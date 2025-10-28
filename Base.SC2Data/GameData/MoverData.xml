@@ -50,4 +50,5 @@
             <YawPitchRoll value="MAX"/>
         </MotionPhases>
     </CMoverMissile>
+    <CMoverMissile id="Ucrl1LM" parent="missile"/>
 </Catalog>

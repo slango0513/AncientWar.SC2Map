@@ -10,6 +10,7 @@
         <Icon value="Assets\Textures\war3_btnchestofgold.dds"/>
         <AlertIcon value="Assets\Textures\war3_btnchestofgold.dds"/>
     </CButton>
+    <CButton id="DebuffImmunity" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>
     <!--archmage-->
     <CButton id="Hamg"/>
     <CButton id="HonorShield" parent="War3_Button" art="Assets\Textures\war3_btnbarkskin.dds"/>
@@ -83,6 +84,8 @@
     <CButton id="nhea"/>
     <!--hydromancer-->
     <CButton id="nhym"/>
+    <!--nightelfassassin-->
+    <CButton id="nssn"/>
     <!--watcher-->
     <CButton id="nwat" art="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds">
         <Icon value="Assets\Textures\BTN\Renee_war3_btnavengingwatcher.dds"/>
@@ -114,4 +117,6 @@
     <CButton id="sor9"/>
     <!--Shadow Orb +10-->
     <CButton id="sora"/>
+    <!--sylvanusbanshee-->
+    <CButton id="uswb"/>
 </Catalog>

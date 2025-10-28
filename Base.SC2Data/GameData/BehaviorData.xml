@@ -17,31 +17,31 @@
     <!--continuous Defense Bonus,carry-->
     <!--DefenseBonus (+1)-->
     <CBehaviorBuff id="AId1">
-        <Modification LifeArmorBonus="2"/>
+        <Modification LifeArmorBonus="3"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+2)-->
     <CBehaviorBuff id="AId2">
-        <Modification LifeArmorBonus="4"/>
+        <Modification LifeArmorBonus="6"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+3)-->
     <CBehaviorBuff id="AId3">
-        <Modification LifeArmorBonus="6"/>
+        <Modification LifeArmorBonus="9"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+4)-->
     <CBehaviorBuff id="AId4">
-        <Modification LifeArmorBonus="8"/>
+        <Modification LifeArmorBonus="12"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+5)-->
     <CBehaviorBuff id="AId5">
-        <Modification LifeArmorBonus="10"/>
+        <Modification LifeArmorBonus="15"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+7)-->
     <CBehaviorBuff id="AId7">
-        <Modification LifeArmorBonus="14"/>
+        <Modification LifeArmorBonus="18"/>
     </CBehaviorBuff>
     <!--DefenseBonus (+8)-->
     <CBehaviorBuff id="AId8">
-        <Modification LifeArmorBonus="16"/>
+        <Modification LifeArmorBonus="21"/>
     </CBehaviorBuff>
     <!--Orb of Darkness-->
     <CBehaviorBuff id="AIdf">
@@ -93,6 +93,10 @@
             <DamageDealtUnscaled index="Ranged" value="48"/>
         </Modification>
     </CBehaviorBuff>
+    <!--Aura - Plague (Abomination) Buff=Bapl-->
+    <CBehaviorBuff id="Aap1">
+        <Requirements value=""/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="Adef">
         <Requirements value=""/>
         <DamageResponse ModifyAmount="-10" ModifyFraction="1"/>
@@ -143,7 +147,7 @@
     </CBehaviorBuff>
     <!--AuraThorns-->
     <CBehaviorBuff id="BEah">
-        <DamageResponse Chance="0.3">
+        <DamageResponse Chance="0.5">
             <Kind index="Ranged" value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
@@ -173,6 +177,10 @@
         <DurationOverride index="0" Duration="15">
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
+    </CBehaviorBuff>
+    <!--Possession-->
+    <CBehaviorBuff id="Bpoc">
+        <DamageResponse ModifyFraction="2"/>
     </CBehaviorBuff>
     <!--Rejuvination-->
     <CBehaviorBuff id="Brej"/>
@@ -237,6 +245,19 @@
             <AbilLinkEnableArray value="Asud"/>
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="DebuffImmunity" parent="War3_Passive">
+        <Modification>
+            <BehaviorLinkDisableArray value="Bslo"/>
+            <BehaviorLinkDisableArray value="BNba"/>
+            <BehaviorLinkDisableArray value="BIcb"/>
+            <BehaviorLinkDisableArray value="Bprg"/>
+            <BehaviorLinkDisableArray value="BprgPause"/>
+            <BehaviorLinkDisableArray value="Bspo"/>
+            <BehaviorLinkDisableArray value="Bssd"/>
+            <BehaviorLinkDisableArray value="BIpb"/>
+            <BehaviorLinkDisableArray value="BIpd"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Defend" parent="War3_Buff">
         <InfoFlags index="Hidden" value="1"/>
@@ -317,7 +338,10 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="HonorShield" parent="War3_Passive">
-        <DamageResponse Chance="1" Handled="HonorShieldBuff"/>
+        <DamageResponse Chance="1" Handled="HonorShieldBuff">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Splash" value="0"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="HonorShieldBuff" parent="War3_Passive">
         <Requirements value="HonorShieldBuff"/>
