@@ -486,6 +486,13 @@ DocInfo/PatchNote314=盾墙现在不再减少来自技能的伤害，并且不�
 DocInfo/PatchNote315=暗夜精灵：
 DocInfo/PatchNote316=丛林守护者(幽灵)现在会在脱离战斗后恢复法力值。
 DocInfo/PatchNote317=精灵之火减少的护甲提高到10点。
+DocInfo/PatchNote318=修复冲锋能对永恒之树施放的漏洞。
+DocInfo/PatchNote319=降低决赛兵种价值，使面板统计更具参考性。
+DocInfo/PatchNote320=兽人：
+DocInfo/PatchNote321=牛头人酋长不再拥有技能负面效果防护。
+DocInfo/PatchNote322=浸毒长矛的最大叠加数量增加到9层(每个施法者最多6层)。
+DocInfo/PatchNote323=燃烧之油的伤害提高到75点(微弱火焰50点)。
+DocInfo/PatchNote324=火油的持续时间增加到15秒。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -618,7 +625,7 @@ Hmkg/Ubertip=提供<c val="FFFFFF">1</c>位山丘之王。<n/><n/>强大的防�
 Hmkg1/Name=山丘之王
 HonorArmor/Tip=荣誉之铠
 HonorArmour/Tip=荣誉之铠
-HonorArmour/Ubertip=使周围甲胄骑兵及其统领的骑士受到来自重甲单位的近战攻击时伤害减少<d ref="1-Behavior,HonorArmourBuff,DamageResponse.ModifyFraction*100"/>%。
+HonorArmour/Ubertip=使周围甲胄骑兵及其统领的骑士受到来自重甲单位的攻击时伤害减少<d ref="1-Behavior,HonorArmourBuff,DamageResponse.ModifyFraction*100"/>%。
 HonorArmourBuff/Buffubertip=该骑士处于荣誉之铠的作用之下。
 HonorArmourBuff/Name=荣誉之铠
 HonorShield/Tip=荣誉之盾
@@ -684,7 +691,7 @@ Ofar1/Name=先知
 Oshd/Tip=暗影猎手
 Oshd/Ubertip=提供<c val="FFFFFF">5</c>名巨魔牧师、<c val="FFFFFF">1</c>位暗影猎手。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Oshd1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Oshd1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Oshd1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Oshd1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Oshd1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Oshd1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Oshd1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">治疗波</c>、<c val="FFFFFF">妖术</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 Otch/Tip=牛头人酋长
-Otch/Ubertip=提供<c val="FFFFFF">2</c>名牛头人、<c val="FFFFFF">1</c>位牛头酋长。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Otch1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Otch1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Otch1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Otch1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,otau1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,otau1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">粉碎</c>、<c val="FFFFFF">抗性皮肤</c>、<c val="FFFFFF">负面效果防护</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+Otch/Ubertip=提供<c val="FFFFFF">2</c>名牛头人、<c val="FFFFFF">1</c>位牛头酋长。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Otch1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Otch1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Otch1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Otch1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,otau1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,otau1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">粉碎</c>、<c val="FFFFFF">抗性皮肤</c>、<c val="FFFFFF">战争践踏</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Param/Expression/0DADB9CB=U=~A~, TU=~E~, I=~B~ (~F~), Cnt=~C~, Slt=~D~
 Param/Expression/BCF8CEA7=U=~A~, TU=~E~, I=~B~ (~F~), Cnt=~C~, Slt=~D~
 Param/Value/04BEE6F3=死亡等待
@@ -819,6 +826,7 @@ Udea/Ubertip=提供<c val="FFFFFF">2</c>名憎恶、<c val="FFFFFF">1</c>位死�
 Udre/Tip=恐惧魔王
 Udre/Ubertip=提供<c val="FFFFFF">2</c>名憎恶、<c val="FFFFFF">1</c>位恐惧魔王。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Udre1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Udre1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Udre1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Udre1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uabo1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uabo1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">疾病之云</c>、<c val="FFFFFF">吸血光环</c>、<c val="FFFFFF">睡眠</c>、<c val="FFFFFF">邪恶狂暴</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Ulic/Tip=巫妖
+Ulic/Ubertip=提供<c val="FFFFFF">2</c>名女妖、<c val="FFFFFF">1</c>位巫妖。<n/><n/>强大的法术型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Ulic1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Ulic1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Ulic1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Ulic1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,uban1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uban1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uban1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">冰霜新星</c>、<c val="FFFFFF">死亡凋零</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 UnholyDominance/Buffubertip=石像鬼受到附近冰霜巨龙邪恶统御影响，不再变回石像形态，射程也有所提高。
 UnholyDominance/Name=邪恶统御
 UnholyDominance/Tip=邪恶统御
@@ -871,7 +879,7 @@ edry/Ubertip=提供<c val="FFFFFF">2</c>名树妖。<n/><n/>远程攻击单位�
 efdr/Tip=精灵龙
 efdr/Ubertip=提供<c val="FFFFFF">2</c>只精灵龙。<n/><n/>魔法攻击单位，擅长伤害敌人的魔法单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,efdr,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,efdr,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,efdr,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,efdr,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,efdr1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,efdr1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,efdr1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">相位变化</c>、<c val="FFFFFF">魔力之焰</c>、<c val="FFFFFF">星辰碎片</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 emtg/Tip=山岭巨人
-emtg/Ubertip=提供<c val="FFFFFF">1</c>名山岭巨人。<n/><n/>强大的防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,hhes,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,emtg,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,emtg,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,emtg,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,emtg1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,emtg1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">嘲讽</c>、<c val="FFFFFF">硬化皮肤</c>、<c val="FFFFFF">抗性皮肤</c>、<c val="FFFFFF">永恒之树的赐福</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+emtg/Ubertip=提供<c val="FFFFFF">1</c>名山岭巨人。<n/><n/>强大的防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,emtg,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,emtg,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,emtg,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,emtg,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,emtg1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,emtg1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">嘲讽</c>、<c val="FFFFFF">硬化皮肤</c>、<c val="FFFFFF">抗性皮肤</c>、<c val="FFFFFF">永恒之树的赐福</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 esaz/Ubertip=等级：<d ref="Item,esaz2,Level"/><n/>传说有一个睿智的兽人发现了神奇的艾苏恩之心。现在这个就是艾苏恩之心的精华。作为暗夜精灵的珍宝，它能减少来自所有类型的远程攻击的伤害到原来的<d ref="Behavior,Aegr,DamageResponse.ModifyFraction*100"/>%，并减少来自技能的伤害到原来的<d ref="Behavior,AegrSpellReduction,DamageResponse.ModifyFraction*100"/>%。<n/>不能和硬化皮肤同时使用。
 esen/Name=女猎手
 esen/Tip=女猎手

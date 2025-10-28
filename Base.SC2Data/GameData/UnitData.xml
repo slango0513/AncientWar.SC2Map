@@ -7,6 +7,7 @@
         <FlagArray index="Unselectable" value="1"/>
         <FlagArray index="Untargetable" value="1"/>
         <FlagArray index="Invulnerable" value="1"/>
+        <Attributes index="ancient" value="1"/>
     </CUnit>
     <CUnit id="Champion1" parent="Champion">
         <Height value="2"/>
@@ -40,7 +41,7 @@
         <RepairTime value="55"/>
         <AIOverideTargetPriority value="1"/>
         <KillXP value="115"/>
-        <KillResource index="Custom" value="400"/>
+        <KillResource index="Custom" value="200"/>
         <AbilArray Link="Inventory2"/>
         <AbilArray Link="AsudHuman"/>
         <AbilArray Link="AHhb"/>
@@ -107,7 +108,7 @@
         <RepairTime value="55"/>
         <AIOverideTargetPriority value="1"/>
         <KillXP value="115"/>
-        <KillResource index="Custom" value="300"/>
+        <KillResource index="Custom" value="150"/>
         <AbilArray Link="Inventory2"/>
         <AbilArray Link="AsudHuman"/>
         <AbilArray Link="AHtb"/>
@@ -238,7 +239,7 @@
         <CostResource index="lumber" value="3000"/>
         <RepairTime value="55"/>
         <KillXP value="115"/>
-        <KillResource index="Custom" value="300"/>
+        <KillResource index="Custom" value="150"/>
         <AbilArray Link="Inventory2"/>
         <AbilArray Link="Asud"/>
         <AbilArray Link="AOsf"/>
@@ -496,7 +497,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="4000"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="400"/>
+        <KillResource index="Custom" value="200"/>
         <AbilArray index="4" Link="Inventory2"/>
         <AbilArray Link="Asud"/>
         <AbilArray Link="DebuffImmunity"/>
@@ -836,7 +837,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="3000"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="300"/>
+        <KillResource index="Custom" value="150"/>
         <Radius value="0.5"/>
         <SeparationRadius value="0.5"/>
         <LifeArmor value="10"/>
@@ -1263,7 +1264,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="3000"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="300"/>
+        <KillResource index="Custom" value="150"/>
         <AbilArray Link="AsudHuman"/>
         <AbilArray Link="DebuffImmunity"/>
         <AbilArray Link="HonorShield"/>
@@ -1763,7 +1764,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="3000"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="300"/>
+        <KillResource index="Custom" value="150"/>
         <Radius value="0.5"/>
         <SeparationRadius value="0.5"/>
         <InnerRadius value="0.5"/>
@@ -2333,7 +2334,7 @@
         <CostResource index="gold" value="60"/>
         <CostResource index="lumber" value="4000"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="400"/>
+        <KillResource index="Custom" value="200"/>
         <AbilArray index="4" Link="Inventory2"/>
         <AbilArray index="5" Link="Asud"/>
         <AbilArray Link="DebuffImmunity"/>
@@ -3055,7 +3056,7 @@
         <CostResource index="gold" value="0"/>
         <CostResource index="lumber" value="3000"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="300"/>
+        <KillResource index="Custom" value="150"/>
         <PlacementFootprint value="4x4SimpleSolid"/>
         <!--AttackTargetPriority value="2"/-->
         <SubgroupPriority value="0"/>
@@ -3521,12 +3522,9 @@
         <EnergyStart value="100"/>
         <EnergyMax value="100"/>
         <AbilArray index="6" Link="AOws"/>
-        <AbilArray Link="DebuffImmunity"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="7" Face="AOws" Type="AbilCmd" AbilCmd="AOws,Execute" Row="2" Column="3"/>
-            <LayoutButtons index="8" Face="DebuffImmunity" Type="Passive" Behavior="" Row="2" Column="2"/>
-            <LayoutButtons Face="Arsk" Type="Passive" Behavior="Arsk" Row="2" Column="1"/>
+            <LayoutButtons index="7" Face="AOws" Type="AbilCmd" AbilCmd="AOws,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="otau"/>
         <TechTreeProducedUnitArray value="Otch1"/>
@@ -4135,7 +4133,7 @@
         </CardLayouts>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
-        <KillResource index="Custom" value="300"/>
+        <KillResource index="Custom" value="150"/>
     </CUnit>
     <!--destroyer-->
     <CUnit id="ubsp" defType="LARGE">
@@ -4290,7 +4288,7 @@
         <CostResource index="gold" value="30"/>
         <CostResource index="lumber" value="4000"/>
         <KillResource index="gold" value="0"/>
-        <KillResource index="Custom" value="400"/>
+        <KillResource index="Custom" value="200"/>
         <AbilArray Link="Inventory2"/>
         <AbilArray Link="Asud"/>
         <AbilArray Link="DebuffImmunity"/>

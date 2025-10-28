@@ -449,7 +449,7 @@
         <Behavior value="ChargingKnight"/>
     </CEffectApplyBehavior>
     <CEffectEnumArea id="ChargeKnightEnumArea">
-        <SearchFilters value="-;player,allies,neutral,air,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable"/>
+        <SearchFilters value="-;player,allies,neutral,air,ancient,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable"/>
         <AreaArray Radius="0.375" Effect="ChargeKnightInitialSet"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
@@ -692,10 +692,10 @@
         <AreaArray index="0" Radius="9" Effect="Bakb"/>
     </CEffectEnumArea>
     <CEffectDamage id="AbofFullDamage">
-        <Amount value="50"/>
+        <Amount value="75"/>
     </CEffectDamage>
     <CEffectDamage id="AbofHalfDamage">
-        <Amount value="25"/>
+        <Amount value="50"/>
     </CEffectDamage>
     <CEffectDamage id="AflkSphereEffect">
         <AreaArray index="0" Radius="3" Bonus="96" Fraction="1"/>

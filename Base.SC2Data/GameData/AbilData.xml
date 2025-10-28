@@ -1437,7 +1437,7 @@
             <Charge CountMax="3" CountStart="3" CountUse="1"/>
             <Cooldown TimeUse="60"/>
         </Cost>
-        <AutoCastFilters value="Visible;Player,Ally,Hover,HarvestableResource,Destructible,Item,Buried,Invulnerable,MapBoss"/>
+        <AutoCastFilters value="Visible;Player,Ally,Psionic,Hover,HarvestableResource,Destructible,Item,Buried,Invulnerable,MapBoss"/>
     </CAbilAugment>
     <CAbilBehavior id="DebuffImmunity" parent="War3_Passive">
         <CmdButtonArray index="On" Requirements="DebuffImmunity"/>

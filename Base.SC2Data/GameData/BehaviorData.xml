@@ -450,10 +450,7 @@
     </CBehaviorBuff>
     <!--LiquidFire-->
     <CBehaviorBuff id="Bliq">
-        <Duration value="10"/>
-        <DurationOverride index="0" Duration="2">
-            <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
-        </DurationOverride>
+        <Duration value="15"/>
         <Modification AttackSpeedMultiplier="1"/>
         <DamageResponse Chance="1" ModifyAmount="15">
             <Kind index="Spell" value="0"/>
@@ -463,7 +460,7 @@
     </CBehaviorBuff>
     <!--PoisonAttack-->
     <CBehaviorBuff id="Bpoi">
-        <MaxStackCount value="6"/>
+        <MaxStackCount value="9"/>
         <Duration value="30"/>
         <DurationOverride index="0" Duration="6"/>
         <DamageResponse Chance="1" ModifyAmount="10">
@@ -471,6 +468,7 @@
             <Kind index="Splash" value="0"/>
             <ExcludeEffectArray value="owyv1"/>
         </DamageResponse>
+        <MaxStackCountPerCaster value="6"/>
     </CBehaviorBuff>
     <!--Purge-->
     <CBehaviorBuff id="Bprg">
@@ -489,10 +487,10 @@
     <!--PoisonAttackStackDoT-->
     <CBehaviorBuff id="Bpsd">
         <InfoFlags index="Hidden" value="0"/>
-        <MaxStackCountPerCaster value="0"/>
+        <MaxStackCountPerCaster value="6"/>
         <Duration value="30"/>
         <DurationOverride index="0" Duration="6"/>
-        <MaxStackCount value="12"/>
+        <MaxStackCount value="9"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Bugf" parent="War3_Passive">
         <DisableValidatorArray value="CasterHasBUav1"/>
@@ -527,8 +525,6 @@
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnhumanarmorupthree.dds"/>
         <DamageResponse Chance="1" ModifyFraction="0.25" TargetFilters="Massive;-">
             <Kind index="Spell" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="HonorSpear" parent="War3_AuraCaster">
