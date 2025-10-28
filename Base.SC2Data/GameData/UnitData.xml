@@ -1706,8 +1706,8 @@
     <!--WaterElemental-->
     <CUnit id="hwat">
         <DeathRevealRadius value="0"/>
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -1721,7 +1721,6 @@
         <KillResource index="gold" value="0"/>
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
-        <LifeArmor value="5"/>
     </CUnit>
     <!--Keg of Ale-->
     <CUnit id="kgal">
@@ -3443,8 +3442,8 @@
         <Name value="Udre/Name"/>
         <Description value="Udre/Ubertip"/>
         <ReviveType value="Udre1"/>
-        <LifeStart value="2000"/>
-        <LifeMax value="2000"/>
+        <LifeStart value="2200"/>
+        <LifeMax value="2200"/>
         <CostResource index="gold" value="210"/>
         <KillResource index="Custom" value="90"/>
         <AbilArray index="6" Link="AUav"/>
@@ -3465,8 +3464,8 @@
         <Name value="Udea/Name"/>
         <Description value="Udea/Ubertip"/>
         <ReviveType value="Udea1"/>
-        <LifeStart value="2000"/>
-        <LifeMax value="2000"/>
+        <LifeStart value="2200"/>
+        <LifeMax value="2200"/>
         <CostResource index="gold" value="210"/>
         <KillResource index="Custom" value="90"/>
         <AbilArray index="6" Link="AUau"/>

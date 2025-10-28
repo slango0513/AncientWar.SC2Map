@@ -11,7 +11,7 @@
     </CEffectRemoveBehavior>
     <CEffectEnumArea id="AclfSearch">
         <SearchFilters value="-;air,wall,tree,Missile,debris,item,ward,dead,Hidden,immunity"/>
-        <AreaArray index="0" Radius="1.5" Effect="Bclf"/>
+        <AreaArray index="0" Radius="1.25" Effect="Bclf"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="AdisSearch">
         <AreaArray index="0" Radius="2" Effect="DispelAllBuffsAndHurtEnemySummoned200"/>
@@ -37,7 +37,7 @@
     <CEffectDamage id="hdhw1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="54"/>
+        <Amount value="48"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectCreateUnit id="nsca" parent="War3_SummonUnit">
@@ -200,7 +200,7 @@
     <CEffectEnumArea id="PatchworkSearch" parent="War3_AbilSearch">
         <ImpactLocation Value="CasterUnit"/>
         <SearchFilters value="-;neutral,enemies,air,Structure,wall,tree,Missile,debris,item,ward,dead,Hidden,invulnerable"/>
-        <AreaArray Radius="7.5" Effect="Patchwork"/>
+        <AreaArray Radius="18" Effect="Patchwork"/>
         <MaxCount value="1"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="ShieldWall" parent="War3_ApplyBuff">
@@ -219,7 +219,7 @@
     <CEffectDamage id="nws11">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="54"/>
+        <Amount value="48"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="ubsp1">
@@ -265,7 +265,7 @@
         <AreaArray index="0" Radius="9" Effect="BOaeSet"/>
     </CEffectEnumArea>
     <CEffectDamage id="AOshDamage1">
-        <Amount value="20"/>
+        <Amount value="50"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="AOws1Dur">
         <Duration value="5"/>
@@ -1020,7 +1020,7 @@
     <CEffectDamage id="uban1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="24"/>
+        <Amount value="36"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="ucry1">
@@ -1079,7 +1079,7 @@
     <CEffectDamage id="unec1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="24"/>
+        <Amount value="36"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="uobs1">

@@ -170,7 +170,7 @@
     <!--Regen Life-->
     <CBehaviorBuff id="Arel">
         <Modification>
-            <VitalRegenArray index="Life" value="10"/>
+            <VitalRegenArray index="Life" value="5"/>
         </Modification>
     </CBehaviorBuff>
     <!--Regen Life-->

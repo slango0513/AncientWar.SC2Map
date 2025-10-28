@@ -647,7 +647,7 @@
     </CActorUnit>
     <!--Mushrooms-->
     <CActorModel id="Xclf">
-        <Scale value="1.280000"/>
+        <Scale value="1.200000"/>
     </CActorModel>
     <!--archer-->
     <CActorUnit id="earc">

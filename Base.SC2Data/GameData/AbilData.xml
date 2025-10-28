@@ -480,12 +480,13 @@
         <TargetSorts RequestCount="1">
             <SortArray value="TSLifeLargestFirst"/>
         </TargetSorts>
-        <Range index="0" value="7.5"/>
+        <Range index="0" value="12"/>
         <Range index="1" removed="1"/>
         <Range index="2" removed="1"/>
-        <AutoCastRange value="9"/>
+        <AutoCastRange value="12"/>
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="NoSleep"/>
+        <AutoCastValidatorArray value="EnemiesNearby6"/>
     </CAbilEffectTarget>
     <!--Anti-magic Shield (Matrix) Dur=90 HeroDur=90 Buff=Bams,Bam2-->
     <CAbilEffectTarget id="Aam2">
@@ -554,8 +555,8 @@
         <TargetSorts RequestCount="1">
             <SortArray value="TSRandom"/>
         </TargetSorts>
-        <Range index="0" value="21"/>
-        <AutoCastRange value="21"/>
+        <Range index="0" value="12"/>
+        <AutoCastRange value="12"/>
         <AutoCastValidatorArray value="noMarkers"/>
         <AutoCastValidatorArray value="NoBclf"/>
         <AutoCastValidatorArray value="GroundEnemiesNearby9"/>

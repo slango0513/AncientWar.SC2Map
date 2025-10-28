@@ -187,8 +187,8 @@
     <!--Flying Machine-->
     <CWeaponLegacy id="hgyr1">
         <TargetFilters value="Visible;wall,tree,Missile,debris,item,structure,ward,ethereal,dead,invulnerable"/>
-        <MinScanRange value="8"/>
-        <Range value="8"/>
+        <MinScanRange value="9"/>
+        <Range value="9"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--high elven swordsman-->
@@ -501,8 +501,8 @@
     </CWeaponLegacy>
     <!--Skeletal Mage-->
     <CWeaponLegacy id="uskm1" atkType="MAGIC">
-        <MinScanRange value="4"/>
-        <Range value="4"/>
+        <MinScanRange value="3"/>
+        <Range value="3"/>
         <Period value="3"/>
         <Name value="DAMAGE_MAGIC"/>
         <Tip value="DAMAGETIP_MAGIC"/>
