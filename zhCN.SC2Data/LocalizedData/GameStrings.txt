@@ -370,7 +370,7 @@ MapInfo/Player05/Name=玩家5
 MapInfo/Player06/Name=玩家6
 MapInfo/Player07/Name=玩家7
 MapInfo/Player08/Name=玩家8
-MapInfo/Player09/Name=玩家9
+MapInfo/Player09/Name=敌对
 MapInfo/Player10/Name=敌对
 MapInfo/Player11/Name=玩家11
 MapInfo/Player12/Name=玩家12
@@ -537,8 +537,6 @@ Upgrade/Name/Final=决赛
 Upgrade/Name/Pause=回合结束
 Variant001/ModeDesc=决赛前为单循环赛，决赛采用单败淘汰制。
 Variant001/ModeName=锦标赛
-Variant002/ModeDesc=决赛前为单循环赛，决赛采用单败淘汰制（比赛专用）。
-Variant002/ModeName=锦标赛（观察者）
 Weapon/Name/Emoo1=类型：<c val="ffcc00">英雄</c>
 Weapon/Name/hrttBarrage=类型：<c val="ffcc00">穿刺</c>
 ajen/Ubertip=等级：<d ref="Item,ajen,Level"/><n/>增加英雄和附近单位<d ref="Behavior,BOae,Modification.MoveSpeedMultiplier-1*100"/>%的攻击速度和<d ref="Behavior,BOae,Modification.AttackSpeedMultiplier-1*100"/>%的移动速度。<n/>不能和耐久光环同时使用。

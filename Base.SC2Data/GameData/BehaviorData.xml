@@ -1040,6 +1040,7 @@
             <BehaviorLinkDisableArray value="BUim"/>
             <BehaviorLinkDisableArray value="Bfrz"/>
             <BehaviorLinkDisableArray value="BUsl"/>
+            <BehaviorLinkDisableArray value="Bclf"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Defend" parent="War3_Buff">
