@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CUser id="AbilityDataHealingWave">
-        <Instances Id="[Override]AOhw">
-            <Fixed Fixed="100">
-                <Field Id="Healing Array"/>
-            </Fixed>
-        </Instances>
-    </CUser>
+    <CUser id="AbilityDataHealingWave"/>
     <CUser id="AbilityDataThornsAuraThornyShield">
         <Instances Id="[Override]AEah">
             <Fixed Fixed="1">

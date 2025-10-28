@@ -2,7 +2,6 @@
 <Catalog>
     <!--Keeper - Thorns Aura Buff=BEah-->
     <CBehaviorBuff id="AEah">
-        <DisableValidatorArray value="CasterEnergyGE5"/>
         <Modification>
             <VitalRegenArray index="Energy" value="5"/>
         </Modification>
@@ -320,16 +319,21 @@
     </CBehaviorBuff>
     <!--AuraThorns-->
     <CBehaviorBuff id="BEah">
-        <DisableValidatorArray value="CasterEnergyGE5"/>
+        <DisableValidatorArray value="CasterEnergyGE3"/>
         <DisableValidatorArray value="CasterNotDead"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="BEahDamageAbsorption">
-        <DisableValidatorArray value="CasterEnergyGE5"/>
+    <CBehaviorBuff id="BEahDamageAbsorption" parent="War3_AuraBuff">
+        <DisableValidatorArray value="CasterEnergyGE3"/>
         <DisableValidatorArray value="CasterNotDead"/>
         <MaxStackCount value="0"/>
         <MaxStackCountPerCaster value="1"/>
         <DamageResponse Chance="1" Handled="BEahManaSet" ModifyFraction="0">
             <ExcludeEffectArray value="BaplDPS"/>
+            <ExcludeEffectArray value="BssdDPS"/>
+            <ExcludeEffectArray value="BpsdDPS"/>
+            <ExcludeEffectArray value="BIpdDPS"/>
+            <ExcludeEffectArray value="BNdoDPS"/>
+            <ExcludeEffectArray value="BNsoDPS1"/>
         </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
@@ -380,6 +384,11 @@
             <ValidatorArray index="0" value="HeroOrPowerfulMob"/>
         </DurationOverride>
     </CBehaviorBuff>
+    <!--Silence-->
+    <CBehaviorBuff id="BNsi">
+        <BehaviorCategories index="Dispelable" value="1"/>
+        <TechAliasArray value="_PurgableDebuff"/>
+    </CBehaviorBuff>
     <!--SoulBurn-->
     <CBehaviorBuff id="BNso">
         <Modification>
@@ -387,6 +396,11 @@
         </Modification>
         <TechAliasArray index="1" removed="1"/>
         <BehaviorCategories index="Dispelable" value="0"/>
+    </CBehaviorBuff>
+    <!--Hex-->
+    <CBehaviorBuff id="BOhx">
+        <BehaviorCategories index="Dispelable" value="0"/>
+        <TechAliasArray index="2" removed="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="BOws">
         <BehaviorCategories index="Stun" value="1"/>
@@ -810,7 +824,7 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="Hex" parent="War3_Passive">
-        <DamageResponse Chance="0.25" Handled="ANhx1" Location="Attacker"/>
+        <DamageResponse Chance="1" Handled="ANhx1" Location="Attacker"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MoraleBoosting" parent="War3_Buff">
         <InfoIcon value="Assets\Textures\BTN\Renee_war3_btnanimalwartraining.dds"/>
@@ -1355,6 +1369,8 @@
             <Kind index="Splash" value="0"/>
             <ValidatorArray value="IsNotUndead"/>
         </DamageResponse>
+        <DisableValidatorArray value="IsNotUndead"/>
+        <RemoveValidatorArray value="IsNotUndead"/>
     </CBehaviorBuff>
     <!--FaerieFire-->
     <CBehaviorBuff id="Bfae">
@@ -1472,7 +1488,6 @@
             <BehaviorLinkDisableArray value="Bfae"/>
             <BehaviorLinkDisableArray value="Bfro"/>
             <BehaviorLinkDisableArray value="BNsi"/>
-            <BehaviorLinkDisableArray value="BOhx"/>
             <BehaviorLinkDisableArray value="Bsta"/>
             <BehaviorLinkDisableArray value="BOws"/>
             <BehaviorLinkDisableArray value="BUim"/>

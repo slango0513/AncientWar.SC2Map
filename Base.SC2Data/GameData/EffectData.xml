@@ -7,6 +7,9 @@
         <EffectArray value="AEahSearch"/>
         <EffectArray value="AEahManaRegenSuppress"/>
     </CEffectSet>
+    <CEffectApplyBehavior id="ANhx1Dur">
+        <Duration value="30"/>
+    </CEffectApplyBehavior>
     <CEffectApplyBehavior id="BEahDamageAbsorption" parent="War3_AuraBuff"/>
     <CEffectApplyBehavior id="AEer1HeroDur">
         <Duration value="2"/>
@@ -72,10 +75,10 @@
     </CEffectEnumArea>
     <!--Rokhan - Hex Buff=BOhx-->
     <CEffectApplyBehavior id="ANhx1HeroDur">
-        <Duration value="3"/>
+        <Duration value="6"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ANsi1HeroDur">
-        <Duration value="2.4"/>
+        <Duration value="3"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ANso1Dur">
         <Duration value="0"/>
@@ -647,7 +650,7 @@
         <ValidatorArray value="NonPowerfulUnit"/>
     </CEffectSet>
     <CEffectApplyBehavior id="ANsi1Dur">
-        <Duration value="12"/>
+        <Duration value="15"/>
     </CEffectApplyBehavior>
     <!--Chieftain - Endurance Aura Buff=BOae-->
     <CEffectEnumArea id="AOaeSearch">
@@ -752,7 +755,7 @@
         <RechargeVitalRate value="75"/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="Anh1Heal">
-        <RechargeVitalRate value="50"/>
+        <RechargeVitalRate value="75"/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="Anh2Heal">
         <RechargeVitalRate value="15"/>
@@ -1241,7 +1244,7 @@
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="large" value="1"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="24"/>
+        <Amount value="12"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="nmgd1">
@@ -1317,10 +1320,10 @@
     <CEffectModifyUnit id="Asud">
         <ModifyFlags index="Salvage" value="1"/>
         <SalvageFactor>
-            <Resource index="Minerals" value="-0.75"/>
-            <Resource index="Vespene" value="-0.75"/>
-            <Resource index="Terrazine" value="-0.75"/>
-            <Resource index="Custom" value="-0.75"/>
+            <Resource index="Minerals" value="-0.8"/>
+            <Resource index="Vespene" value="-0.8"/>
+            <Resource index="Terrazine" value="-0.8"/>
+            <Resource index="Custom" value="-0.8"/>
         </SalvageFactor>
     </CEffectModifyUnit>
     <CEffectModifyUnit id="AsudHuman">

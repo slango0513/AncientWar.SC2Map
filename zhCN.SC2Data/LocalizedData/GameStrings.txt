@@ -32,6 +32,7 @@ ANso/Ubertip=让一个单位处于烈焰的包围之中，让其不能施放魔�
 AOae/Ubertip=增加周围单位<d ref="Behavior,BOae1,Modification.MoveSpeedMultiplier-1*100"/>%的移动速度和<d ref="Behavior,BOae1,Modification.AttackSpeedMultiplier-1*100"/>%的攻击速度。<n/>最多可叠加<d ref="Behavior,BOae1,MaxStackCount"/>层。
 AOcl/Ubertip=向空中单位投掷出一道具有攻击力的闪电，第一个单位造成<d ref="Effect,AOcl1,Amount"/>点的伤害，然后闪电跳跃向周围8个敌方的其他单位。每次跳跃都会减小闪电的攻击力。
 AOhw/Ubertip=召唤出一道能跳跃3次的治疗能量波，对首个目标能恢复<d ref="User,AbilityDataHealingWave,Instances[1].Fixed[0].Fixed"/>点的生命值。每次跳跃都会削弱治疗波的治疗能力。
+AOhx/Ubertip=让一个拥有法力值的单位在<d ref="Effect,ANhx1Dur,Duration"/>秒内变成一只随机的小动物。<n/>妖术不能被使用在强大的单位身上。
 AOws/Ubertip=重击地面，对周围的地面单位造成<d ref="Effect,AOwsDamage1,Amount"/>点的伤害并在<d ref="Effect,AOws1Dur,Duration"/>秒内使其处于昏晕状态。
 AUan/Ubertip=复活<d ref="Effect,AUanSearch,MaxCount"/>个阵亡单位，持续时间为<d ref="Behavior,BUan,Duration"/>秒。
 AUau/Ubertip=增加周围友方单位<d ref="Behavior,BUau1,Modification.MoveSpeedMultiplier-1*100"/>%的移动速度和每秒<d ref="Behavior,BUau1,Modification.VitalRegenArray[Life]"/>点的生命恢复速度。<n/>最多可叠加<d ref="Behavior,BUau1,MaxStackCount"/>层。
@@ -83,7 +84,7 @@ Aliq/Ubertip=对目标投掷出火油从而对其造成每秒<d ref="Effect,Bliq
 Amfl/Ubertip=在周围敌方单位施放魔法的时候，让精灵龙对其造成伤害。同时增加精灵龙<d ref="Behavior,Bmfl,Modification.LifeArmorBonus"/>点护甲值。<n/>持续<d ref="Behavior,Bmfl,Duration"/>秒。
 Anh1/Ubertip=治疗一个友方的非机械受伤单位，恢复其<d ref="Effect,Anh1Heal,RechargeVitalRate"/>的生命值。
 Anh2/Ubertip=治疗一个友方的非机械受伤单位，恢复其<d ref="Effect,Anh2Heal,RechargeVitalRate"/>的生命值。
-Aps2/Ubertip=将目标单位和女妖震晕<d ref="Behavior,Bpos,Duration" precision="1"/>秒，在这个期间，女妖将受到额外的伤害。女妖会将永久地控制目标单位。<n/>占据魔法不能被使用在鼓舞士气中的、强大的和具有法术抗性的单位身上。
+Aps2/Ubertip=将目标单位和女妖震晕<d ref="Behavior,Bpos,Duration" precision="1"/>秒，在这个期间，女妖将受到额外的伤害。女妖会将永久地控制目标单位。<n/>占据魔法不能被使用在强大的和具有法术抗性的单位身上。
 Apts/Ubertip=在每次攻击的时候都能释放出疾病之云。疾病之云每秒能对敌人造成<d ref="Effect,BaplDPS,Amount"/>点的伤害。<n/>持续<d ref="Behavior,Bapl,Duration"/>秒。<n/>亡灵以外的种族对被感染的单位进行攻击时，有<d ref="Behavior,Bapl,DamageResponse.Chance*100"/>%的几率受到传染。<n/>最多可叠加<d ref="Behavior,Bapl,MaxStackCount"/>层。
 Ara2/Ubertip=增加周围友方单位<d ref="Behavior,Broa,Modification.DamageDealtUnscaled[Melee]"/>点攻击力。<n/>持续<d ref="Behavior,Broa,Duration"/>秒。<n/>最多可叠加<d ref="Behavior,Broa,MaxStackCount"/>层。
 Arai/Ubertip=从一具尸体中召唤出3个骷髅爪牙。
@@ -450,7 +451,8 @@ DocInfo/PatchNote278=火油与浸毒长矛现在对拥有负面效果防护的�
 DocInfo/PatchNote279=调整比赛积分规则：
 DocInfo/PatchNote280=第4回合前每赢得一回合获得0.2分，从第4回合开始，每赢得一回合获得0.3分。
 DocInfo/PatchNote281=赢得四分之一决赛或半决赛获得1分，赢得总决赛获得3分。
-DocInfo/PatchNote282=冰霜巨龙现在会狂怒。
+DocInfo/PatchNote282=治疗术(巨魔牧师)的治疗量提高到75。
+DocInfo/PatchNote283=掠夺(狼骑兵)的掠夺量降低到4，掠夺(混乱兽人狼骑兵)的掠夺量降低到8。
 DocInfo/PatchNote284=调整部分物品。
 DocInfo/PatchNote285=修复战争践踏，冲锋和圣盾术对强盗施放的漏洞。
 DocInfo/PatchNote286=修复高射炮火受护甲影响的漏洞。
@@ -495,16 +497,20 @@ DocInfo/PatchNote324=火油的持续时间增加到15秒。
 DocInfo/PatchNote325=加入提示。
 DocInfo/PatchNote326=修复冠军雕像能被作为技能目标的漏洞。
 DocInfo/PatchNote327=修复血法师互相施放生命吸取导致游戏不能继续的漏洞。
-DocInfo/PatchNote328=人类：
-DocInfo/PatchNote329=沉默的持续时间降低到12秒。
-DocInfo/PatchNote330=暗夜精灵：
-DocInfo/PatchNote331=奇美拉现在会狂怒。
-DocInfo/PatchNote332=提高女猎手类单位的射程。
-DocInfo/PatchNote333=荆棘光环的范围缩小，魔法消耗减少到3，并且不再对疾病有效。
-DocInfo/PatchNote334=兽人：
-DocInfo/PatchNote335=牛头人酋长现在是强大的单位。
-DocInfo/PatchNote336=掠夺(狼骑兵)的掠夺量降低到4，掠夺(混乱兽人狼骑兵)的掠夺量降低到8。
-DocInfo/PatchNote337=亡灵：
+DocInfo/PatchNote328=出售单位(暗夜精灵、兽人和亡灵)的资源返还率提高到80%。
+DocInfo/PatchNote329=人类：
+DocInfo/PatchNote330=沉默现在能够被驱散。
+DocInfo/PatchNote331=暗夜精灵：
+DocInfo/PatchNote332=奇美拉现在会狂怒。
+DocInfo/PatchNote333=提高女猎手类单位的射程。
+DocInfo/PatchNote334=荆棘光环的范围缩小，魔法消耗减少到3，并且不再对疾病有效。
+DocInfo/PatchNote335=兽人：
+DocInfo/PatchNote336=牛头人酋长现在是强大的单位。
+DocInfo/PatchNote337=妖术经过重新设计。
+DocInfo/PatchNote338=亡灵：
+DocInfo/PatchNote339=冰霜巨龙现在会狂怒。
+DocInfo/PatchNote340=疾病不再对亡灵有效。
+DocInfo/PatchNote341=破坏者获得技能负面效果防护。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -1066,7 +1072,7 @@ uabo/Ubertip=提供<c val="FFFFFF">1</c>名憎恶。<n/><n/>强大的近战单�
 uban/Tip=女妖
 uban/Ubertip=提供<c val="FFFFFF">2</c>名女妖。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,uban,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,uban,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,uban,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,uban,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,uban1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uban1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uban1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">诅咒</c>、<c val="FFFFFF">反魔法护罩</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 ubsp/Tip=破坏者
-ubsp/Ubertip=提供<c val="FFFFFF">4</c>座黑曜石雕像、<c val="FFFFFF">2</c>只破坏者。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,ubsp,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,ubsp,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,ubsp,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,ubsp,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,uobs1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uobs1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uobs1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">吞噬魔法</c>、<c val="FFFFFF">吸收魔法</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
+ubsp/Ubertip=提供<c val="FFFFFF">4</c>座黑曜石雕像、<c val="FFFFFF">2</c>只破坏者。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,ubsp,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,ubsp,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,ubsp,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,ubsp,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,uobs1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uobs1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uobs1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">吞噬魔法</c>、<c val="FFFFFF">吸收魔法</c>、<c val="FFFFFF">负面效果防护</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 ucry/Name=地穴恶魔
 ucry/Tip=地穴恶魔
 ucry/Ubertip=提供<c val="FFFFFF">2</c>只地穴恶魔。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,ucry,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,ucry,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,ucry,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,ucry,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,ucry1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,ucry1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,ucry1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">网</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>

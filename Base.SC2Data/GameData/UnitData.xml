@@ -1979,9 +1979,11 @@
     <!--doom guard (summoned)-->
     <CUnit id="nba2">
         <DeathRevealRadius value="0"/>
+        <Race value="Undead"/>
         <Attributes index="summoned" value="1"/>
         <LifeStart value="2400"/>
         <LifeMax value="2400"/>
+        <LifeArmor value="10"/>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="-1"/>
             <NegativeDamageBase value="1"/>
@@ -1989,6 +1991,9 @@
             <PositiveDamageRatio value="0"/>
         </LifeArmorFormula>
         <LifeRegenRate value="0.125"/>
+        <EnergyStart value="100"/>
+        <EnergyMax value="100"/>
+        <EnergyRegenRate value="0"/>
         <Speed value="2"/>
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
@@ -1998,8 +2003,10 @@
         <AbilArray index="5" removed="1"/>
         <AbilArray index="6" removed="1"/>
         <AbilArray index="7" removed="1"/>
-        <BehaviorArray index="4" removed="1"/>
+        <BehaviorArray index="4" Link="undead"/>
         <BehaviorArray index="5" removed="1"/>
+        <WeaponArray index="0" Link="nba22"/>
+        <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="AOws" Type="AbilCmd" AbilCmd="AOws,Execute" Row="2" Column="0"/>
             <LayoutButtons index="6" removed="1"/>
@@ -2010,14 +2017,8 @@
         <Radius value="0.5"/>
         <SeparationRadius value="0.5"/>
         <InnerRadius value="0.5"/>
-        <MinimapRadius value="0.5"/>
-        <LifeArmor value="10"/>
-        <EnergyStart value="100"/>
-        <EnergyMax value="100"/>
-        <EnergyRegenRate value="0"/>
-        <WeaponArray index="0" Link="nba22"/>
-        <WeaponArray index="1" removed="1"/>
         <SubgroupPriority value="0"/>
+        <MinimapRadius value="0.5"/>
     </CUnit>
     <!--bandit-->
     <CUnit id="nban">
@@ -2581,6 +2582,7 @@
         <!--AttackTargetPriority value="1"/-->
         <SubgroupPriority value="0"/>
         <MinimapRadius value="0.5"/>
+        <Race value="Undead"/>
     </CUnit>
     <!--ice troll priest-->
     <CUnit id="nitp" defType="NONE">
@@ -2633,12 +2635,12 @@
         <ReviveType value="Oshd1"/>
         <CostResource index="gold" value="90"/>
         <AbilArray index="6" Link="AOhw"/>
-        <AbilArray index="7" Link="Hex"/>
+        <AbilArray index="7" Link="AOhx"/>
         <WeaponArray index="0" Link="Oshd1"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="AOhw" Type="AbilCmd" AbilCmd="AOhw,Execute" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="7" Face="Hex" Type="Passive" AbilCmd="" Row="2" Column="1"/>
+            <LayoutButtons index="7" Face="AOhx" Type="AbilCmd" AbilCmd="AOhx,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="nitp"/>
         <TechTreeProducedUnitArray value="nitp"/>
@@ -2809,6 +2811,7 @@
     <!--skeletal archer(summoned)-->
     <CUnit id="nsca" defType="MEDIUM">
         <DeathRevealRadius value="0"/>
+        <Race value="Undead"/>
         <Attributes index="medium" value="1"/>
         <Attributes index="large" value="0"/>
         <Attributes index="summoned" value="1"/>
@@ -4170,11 +4173,12 @@
         <AbilArray index="5" Link="Asud"/>
         <AbilArray index="6" Link="Advm"/>
         <AbilArray Link="Aabs"/>
+        <AbilArray Link="DebuffImmunity"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Advm" Type="AbilCmd" AbilCmd="Advm,Execute" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="Aabs" Type="AbilCmd" AbilCmd="Aabs,Execute" Row="2" Column="1"/>
             <LayoutButtons index="7" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="8" removed="1"/>
+            <LayoutButtons index="8" Face="DebuffImmunity" Type="Undefined" Behavior="" Row="2" Column="2"/>
         </CardLayouts>
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
@@ -4454,6 +4458,7 @@
         <AbilArray index="2" Link="AstnUn"/>
         <AbilArray index="3" Link="DebuffImmunity"/>
         <BehaviorArray index="3" Link="StoneForm"/>
+        <BehaviorArray Link="undead"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="DebuffImmunity" Type="Passive" AbilCmd="" Row="2" Column="1"/>
             <LayoutButtons index="1" Face="LifePeriod" Type="Passive" Behavior="" Row="2" Column="0"/>
@@ -4599,6 +4604,7 @@
         <SeparationRadius value="0.5"/>
         <InnerRadius value="0.5"/>
         <BehaviorArray index="5" Link="Agyd"/>
+        <BehaviorArray Link="undead"/>
         <LifeArmor value="0"/>
     </CUnit>
     <!--Necromancer-->
@@ -4681,6 +4687,7 @@
         <EnergyMax value="100"/>
         <EnergyRegenRate value="0"/>
         <LifeArmor value="0"/>
+        <BehaviorArray Link="undead"/>
     </CUnit>
     <!--Plague$ward-->
     <CUnit id="uplg">

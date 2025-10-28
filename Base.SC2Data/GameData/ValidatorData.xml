@@ -5,10 +5,10 @@
         <Compare value="LT"/>
         <Value value="5"/>
     </CValidatorUnitCompareDamageDealtTime>
-    <CValidatorUnitCompareVital id="CasterEnergyGE5">
+    <CValidatorUnitCompareVital id="CasterEnergyGE3">
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
-        <Value value="5"/>
+        <Value value="3"/>
         <Vital value="Energy"/>
     </CValidatorUnitCompareVital>
     <CValidatorLocationCompareRange id="AHdrMaxRange">
@@ -252,6 +252,9 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoUnholyDominance">
         <Behavior value="UnholyDominance"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBOhx">
+        <Behavior value="BOhx"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoWeb">
         <WhichUnit Value="Caster"/>
