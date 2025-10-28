@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CButton id="AOwwNbbc1" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnWhirlwind.dds"/>
     <CButton id="CmdBuildFinalHuman" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnHumanBuild.dds"/>
     <CButton id="AsudHuman" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnHumanCaptureFlag.dds"/>
     <CButton id="AIct"/>
@@ -25,6 +26,8 @@
     <CButton id="Firebolt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfirebolt.dds"/>
     <CButton id="Fortitude" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btngenericspellimmunity.dds"/>
     <CButton id="FreedomAura" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btntransmute.dds"/>
+    <CButton id="MortalStrike" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnarcanitemelee.dds"/>
+    <CButton id="NocturnalityAura" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnscout.dds"/>
     <CButton id="Frostbolt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnfrostbolt.dds"/>
     <!--archmage-->
     <CButton id="Hamg"/>
@@ -51,6 +54,9 @@
     <CButton id="Nmag"/>
     <!--mannoroth-->
     <CButton id="Nman"/>
+    <!--blademaster-->
+    <CButton id="Obla"/>
+    <CButton id="Push" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnnaturetouchgrow.dds"/>
     <CButton id="SpecialtyHuman" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhumancaptureflag.dds"/>
     <CButton id="StarFragment" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnstarfall.dds"/>
     <CButton id="SunderArmorhgyr" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnimprovedunholyarmor.dds"/>
@@ -65,6 +71,8 @@
     <CButton id="PillageChaosGrunt" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="PillageRaider" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="PillageChaosRaider" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
+    <CButton id="PillageBlademaster" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
+    <CButton id="PillageChaosBlademaster" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnpillage.dds"/>
     <CButton id="ShieldWall" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnhumanarmoruptwo.dds"/>
     <CButton id="ShockWave" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btnshockwave.dds"/>
     <CButton id="ItemLevel" parent="War3_Button" art="Assets\Textures\BTN\Renee_war3_btn3m1.dds">

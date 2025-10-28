@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CUser default="1" id="AW_User"/>
     <CUser id="AbilityDataHealingWave"/>
     <CUser id="AbilityDataThornsAuraThornyShield">
         <Instances Id="[Override]AEah">
@@ -11,4 +12,6 @@
             </Fixed>
         </Instances>
     </CUser>
+    <CUser id="PortraitSkinSetWar3HD" parent="AW_User"/>
+    <CUser id="SkinSetWar3HD" parent="AW_User"/>
 </Catalog>

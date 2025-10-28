@@ -6,4 +6,22 @@
         <AssetArray File="Assets\Sounds\Protoss\Zealot\Zealot_Charge0.wav"/>
         <SustainFade index="1" Time="300"/>
     </CSound>
+    <CSound id="Human_Music_V1">
+        <AssetArray File="Assets\Sounds\Music\ArthasTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\Comradeship.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\PursuitTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\SadMystery.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="NightElf_Music_V1">
+        <AssetArray File="Assets\Sounds\Music\BloodElfTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\IllidansTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\NagaTheme.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="Orc_Music_V1">
+        <AssetArray File="Assets\Sounds\Music\Doom.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="Undead_Music_V1">
+        <AssetArray File="Assets\Sounds\Music\LichKingTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\War3XMainScreen.ogg" FacialGroup=""/>
+    </CSound>
 </Catalog>

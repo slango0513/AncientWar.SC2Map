@@ -7,4 +7,9 @@
     <CTargetSortVitalFraction id="TSLifeFractionLargestFirst" parent="TSLifeFraction">
         <Descending value="1"/>
     </CTargetSortVitalFraction>
+    <CTargetSortField id="ArmorTypeMedium">
+        <Descending value="1"/>
+        <Field value="Attributes[Armored]"/>
+        <Value value="0"/>
+    </CTargetSortField>
 </Catalog>

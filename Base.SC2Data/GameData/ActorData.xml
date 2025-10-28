@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <!--Blade Master - Bladestorm Buff=BOww-->
+    <!--CActorSimple id="BOww">-->
+    <!--        <On Terms="Behavior.BOww.On" Send="Create"/>-->
+    <!--        <On Terms="Behavior.BOww.Off" Target="_Selectable" Send="AnimGroupRemove Spin"/>-->
+    <!--        <On Terms="Behavior.BOww.On" Target="_Selectable" Send="AnimGroupApply Spin"/>-->
+    <!--        <On Terms="Behavior.BOww.Off" Send="Destroy"/>-->
+    <!--    </CActorSimple-->
+    <CActorModel id="BOww">
+        <On Terms="Behavior.BOwwNbbc1.On" Send="Create"/>
+        <On Terms="Behavior.BOwwNbbc1.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.BOwwNbbc1.On" Send="Create"/>
+        <On Terms="Behavior.BOwwNbbc1.Off" Target="_Selectable" Send="AnimGroupRemove Spin"/>
+        <On Terms="Behavior.BOwwNbbc1.On" Target="_Selectable" Send="AnimGroupApply Spin"/>
+        <On Terms="Behavior.BOwwNbbc1.Off" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="MortalStrike" parent="War3_Buff">
+        <HostSiteOps Ops="$overhead"/>
+    </CActorModel>
+    <CActorModel id="MortalStrikeTarget" parent="TargetArtX">
+        <On Terms="Effect.MortalStrikeSet.Start; At Target" Send="Create"/>
+    </CActorModel>
+    <!--Cleaving Attack (Creep)-->
+    <CActorSimple id="ANca">
+        <On Terms="Behavior.MortalStrikeCaster.On" Send="Create"/>
+        <On Terms="Behavior.MortalStrikeCaster.Off" Send="Destroy"/>
+    </CActorSimple>
+    <!--blackrockblademaster-->
+    <CActorUnit id="Nbbc" unitName="Nbbc1" defType="MEDIUM">
+        <On index="0" Terms="UnitBirth.Nbbc1" Send="Create SoundEmitter Nbbc1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Nbbc1"/>
+        <On index="2" Terms="UnitRevive.Nbbc1"/>
+        <On index="3" Terms="UnitRevive.Nbbc1"/>
+        <On index="4" Terms="UnitConstruction.Nbbc1.Start"/>
+        <On index="5" Terms="UnitConstruction.Nbbc1.Finish"/>
+        <On index="67" Terms="UnitRevive.Nbbc1; !ScopeContains Nbbc"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Nbbc1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Nbbc1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Nbbc1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Nbbc1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
+    <!--blademaster-->
+    <CActorUnit id="Obla" defType="MEDIUM">
+        <On index="0" Terms="UnitBirth.Obla1" Send="Create SoundEmitter Obla1_Ambience"/>
+        <On index="1" Terms="UnitBirth.Obla1"/>
+        <On index="2" Terms="UnitRevive.Obla1"/>
+        <On index="3" Terms="UnitRevive.Obla1"/>
+        <On index="4" Terms="UnitConstruction.Obla1.Start"/>
+        <On index="5" Terms="UnitConstruction.Obla1.Finish"/>
+        <On index="67" Terms="UnitRevive.Obla1; !ScopeContains Obla"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphFrom Obla1"/>
+        <On index="69" Terms="AbilMorph.*.Start; AbilKey Upgrade; MorphTo Obla1"/>
+        <On index="71" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphFrom Obla1"/>
+        <On index="72" Terms="AbilMorph.*.Finish; AbilKey Morph; MorphTo Obla1"/>
+        <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
+        <On index="90" removed="1"/>
+        <On index="91" removed="1"/>
+        <On index="92" removed="1"/>
+        <On index="93" removed="1"/>
+        <On index="94" removed="1"/>
+        <On index="95" removed="1"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
+    <!--forceofnature-->
+    <CActorUnit id="efon" defType="SMALL">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
+    </CActorUnit>
     <!--treeofeternity-->
     <CActorUnit id="etoe">
         <Scale value="1.000000"/>
@@ -1081,6 +1158,11 @@
     <CActorUnit id="eshd">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
     </CActorUnit>
+    <!--vengeance-->
+    <CActorUnit id="even" defType="SMALL">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
+    </CActorUnit>
     <!--wisp-->
     <CActorUnit id="ewsp">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar37"/>
@@ -1231,6 +1313,14 @@
         <Scale value="1.000000"/>
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
     </CActorUnit>
+    <!--poisonent-->
+    <CActorUnit id="nenp" defType="SMALL">
+        <On index="89" removed="1"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+        <Scale value="1.000000"/>
+        <WalkAnimMoveSpeed value="1.375"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
+    </CActorUnit>
     <!--fleshgolem-->
     <CActorUnit id="nfgl" defType="LARGE">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
@@ -1282,6 +1372,10 @@
     <!--magnataurwarrior-->
     <CActorUnit id="nmgw">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
+    <!--owl-->
+    <CActorUnit id="nowl">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
     </CActorUnit>
     <!--deathrevenant-->
     <CActorUnit id="nrvd" defType="MEDIUM">

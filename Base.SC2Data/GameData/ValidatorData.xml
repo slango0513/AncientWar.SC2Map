@@ -5,15 +5,19 @@
         <Compare value="LT"/>
         <Value value="5"/>
     </CValidatorUnitCompareDamageDealtTime>
-    <CValidatorUnitCompareVital id="CasterEnergyGE3">
+    <CValidatorUnitCompareVital id="CasterEnergyGE5">
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
-        <Value value="3"/>
+        <Value value="5"/>
         <Vital value="Energy"/>
     </CValidatorUnitCompareVital>
     <CValidatorLocationCompareRange id="AHdrMaxRange">
         <Range value="12"/>
     </CValidatorLocationCompareRange>
+    <CValidatorUnitCompareBehaviorCount id="HasBspl">
+        <Compare value="GT"/>
+        <Behavior value="Bspl"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareField id="IsBlight">
         <Field value="TechAliasArray"/>
         <Value value="Blight"/>
@@ -56,8 +60,16 @@
     <CValidatorUnitType id="IsHlgr1">
         <Value value="Hlgr1"/>
     </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="MortalStrikeLT2">
+        <Compare value="LT"/>
+        <Value value="2"/>
+        <Behavior value="MortalStrike"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBHbn">
         <Behavior value="BHbn"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="NoBNab1">
+        <Behavior value="BNab1"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBNba">
         <Behavior value="BNba"/>
@@ -125,16 +137,15 @@
     <CValidatorLocationEnumArea id="GroundEnemiesNearby">
         <WhichLocation Value="CasterUnit"/>
         <AreaArray Compare="GE" Count="1" Radius="6"/>
-        <SearchFilters value="-;Player,Ally,Neutral,Air,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden,MapBoss"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="NoGroundEnemiesNearby9" parent="GroundEnemiesNearby">
         <AreaArray index="0" Compare="Eq" Count="0" Radius="9"/>
         <Compare value="Eq"/>
-        <SearchFilters value="-;Player,Ally,Neutral,Air,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden,MapBoss"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="EnemiesNearby6">
         <WhichLocation Value="CasterUnit"/>
-        <SearchFilters value="-;Player,Ally,Neutral,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden,MapBoss"/>
     </CValidatorLocationEnumArea>
     <CValidatorLocationEnumArea id="EnemiesNearby9" parent="EnemiesNearby6">
         <AreaArray index="0" Compare="GE" Count="1" Radius="9"/>
@@ -255,6 +266,11 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoBOhx">
         <Behavior value="BOhx"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="MortalStrikeLT3">
+        <Behavior value="MortalStrike"/>
+        <Compare value="LT"/>
+        <Value value="3"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="NoWeb">
         <WhichUnit Value="Caster"/>
@@ -385,5 +401,8 @@
     </CValidatorCombine>
     <CValidatorUnitCompareVital id="TargetLifeGE800" parent="TargetLifeGE200">
         <Value value="800"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="TargetLifeGE300" parent="TargetLifeGE200">
+        <Value value="300"/>
     </CValidatorUnitCompareVital>
 </Catalog>

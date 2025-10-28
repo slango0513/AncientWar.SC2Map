@@ -218,6 +218,86 @@
         <TechTreeProducedUnitArray value="klmm"/>
         <TechTreeProducedUnitArray value="rlif"/>
     </CUnit>
+    <CUnit id="Nbbc1" parent="War3_Army" defType="MEDIUM">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <Attributes index="medium" value="1"/>
+        <LifeStart value="1600"/>
+        <LifeMax value="1600"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <EnergyMax value="100"/>
+        <Speed value="2"/>
+        <TurningRate value="599.9414"/>
+        <CostResource index="gold" value="225"/>
+        <KillResource index="Custom" value="75"/>
+        <AbilArray Link="Inventory3"/>
+        <AbilArray Link="Asud"/>
+        <AbilArray Link="MortalStrike"/>
+        <AbilArray Link="DebuffImmunity"/>
+        <AbilArray Link="AOwwNbbc1"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="MortalStrike" Type="Passive" Row="2" Column="0"/>
+            <LayoutButtons Face="AOwwNbbc1" Type="AbilCmd" AbilCmd="AOwwNbbc1,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="PillageChaosBlademaster" Type="Passive" Row="2" Column="2"/>
+            <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="3"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <TechTreeProducedUnitArray value="Obla1"/>
+        <TechTreeProducedUnitArray value="Obla1"/>
+        <TechTreeProducedUnitArray value="Nbbc1"/>
+        <WeaponArray index="0" Link="Nbbc1"/>
+        <Description value="Nbbc/Ubertip"/>
+        <BehaviorArray Link="PillageChaosBlademaster"/>
+        <Race value="Orc"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Mover value="foot"/>
+    </CUnit>
+    <CUnit id="Obla1" parent="War3_Army" defType="MEDIUM">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <LifeStart value="1600"/>
+        <LifeMax value="1600"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <EnergyMax value="100"/>
+        <Speed value="2"/>
+        <TurningRate value="599.9414"/>
+        <CostResource index="gold" value="75"/>
+        <KillResource index="Custom" value="75"/>
+        <AbilArray Link="Inventory3"/>
+        <AbilArray Link="Asud"/>
+        <AbilArray Link="UpgradeToNbbc"/>
+        <AbilArray Link="MortalStrike"/>
+        <AbilArray Link="AOww"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Nbbc" Type="AbilCmd" AbilCmd="UpgradeToNbbc,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="MortalStrike" Type="Passive" Row="2" Column="0"/>
+            <LayoutButtons Face="AOww" Type="AbilCmd" AbilCmd="AOww,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="PillageBlademaster" Type="Passive" Row="2" Column="2"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <TechTreeProducedUnitArray value="Obla1"/>
+        <Attributes index="medium" value="1"/>
+        <WeaponArray index="0" Link="Obla1"/>
+        <Description value="Obla/Ubertip"/>
+        <BehaviorArray Link="PillageBlademaster"/>
+        <Race value="Orc"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Mover value="foot"/>
+    </CUnit>
     <CUnit id="Ofar1" parent="War3_Army" defType="NONE">
         <Description value="Ofar/Ubertip"/>
         <DeathTime value="15"/>
@@ -505,6 +585,7 @@
         <AbilArray Link="AEsf"/>
         <BehaviorArray index="4" Link="PowerfulUnit"/>
         <BehaviorArray index="5" Link="Fury"/>
+        <BehaviorArray Link="TreeOfEternitysGrace"/>
         <WeaponArray index="0" Link="echm2"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
@@ -518,6 +599,7 @@
             </LayoutButtons>
             <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="1"/>
             <LayoutButtons Face="AEsf" Type="AbilCmd" AbilCmd="AEsf,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="TreeOfEternitysGrace" Type="Passive" Row="2" Column="2"/>
         </CardLayouts>
         <PlacementFootprint value="4x4SimpleSolid"/>
         <SubgroupPriority value="0"/>
@@ -833,6 +915,48 @@
         </CardLayouts>
         <LifeRegenRate value="0.125"/>
     </CUnit>
+    <!--Treant-->
+    <CUnit id="efon" defType="SMALL">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <Attributes index="small" value="1"/>
+        <Attributes index="large" value="0"/>
+        <Attributes index="summoned" value="0"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <CostResource index="gold" value="30"/>
+        <KillResource index="gold" value="0"/>
+        <KillResource index="Custom" value="15"/>
+        <AbilArray Link="Inventory2"/>
+        <AbilArray Link="Asud"/>
+        <AbilArray Link="UpgradeTonenp"/>
+        <BehaviorArray index="4" Link="TreeOfEternitysGrace"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="nenp" Type="AbilCmd" AbilCmd="UpgradeTonenp,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="Push" Type="Passive" Row="2" Column="0"/>
+            <LayoutButtons Face="TreeOfEternitysGrace" Type="Passive" Row="2" Column="1"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <!--AttackTargetPriority value="1"/-->
+        <SubgroupPriority value="0"/>
+        <TechTreeProducedUnitArray value="efon"/>
+        <TechTreeProducedUnitArray value="efon"/>
+        <WeaponArray index="0" Link="etrp2"/>
+        <AlliedPushPriority value="1"/>
+        <LifeArmorName value="ARMOR_SMALL"/>
+        <LifeArmorTip value="ARMORTIP_SMALL"/>
+    </CUnit>
     <!--Mountain Giant-->
     <CUnit id="emtg">
         <CostResource index="gold" value="0"/>
@@ -1030,6 +1154,60 @@
         <TechTreeProducedUnitArray value="eshd"/>
         <TechTreeProducedUnitArray value="Hvwd1"/>
     </CUnit>
+    <!--spirit of vengeance-->
+    <CUnit id="espv">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <Attributes index="summoned" value="0"/>
+        <LifeStart value="1600"/>
+        <LifeMax value="1600"/>
+        <LifeArmor value="10"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <EnergyStart value="0"/>
+        <EnergyMax value="0"/>
+        <EnergyRegenRate value="0"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <CostResource index="lumber" value="4000"/>
+        <KillResource index="gold" value="0"/>
+        <KillResource index="Custom" value="200"/>
+        <AbilArray Link="Inventory2"/>
+        <AbilArray Link="Asud"/>
+        <BehaviorArray index="4" Link="PowerfulUnit"/>
+        <BehaviorArray index="5" Link="TreeOfEternitysGrace"/>
+        <BehaviorArray index="6" Link="Arsk"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="Avng"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="Avng,Execute"/>
+                <Behavior value=""/>
+                <Row value="2"/>
+                <Column value="0"/>
+            </LayoutButtons>
+            <LayoutButtons index="6">
+                <Face value="Asud"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="Asud,Execute"/>
+                <Behavior value=""/>
+                <Row value="2"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons index="7" Face="TreeOfEternitysGrace" Type="Passive" AbilCmd="" Row="2" Column="2"/>
+            <LayoutButtons Face="Arsk" Type="Passive" Row="2" Column="1"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <!--AttackTargetPriority value="1"/-->
+        <SubgroupPriority value="0"/>
+        <TechTreeProducedUnitArray value="espv"/>
+    </CUnit>
     <!--TreeofEternity-->
     <CUnit id="etoe">
         <Footprint value=""/>
@@ -1067,6 +1245,36 @@
         <AbilArray index="13" removed="1"/>
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
+    </CUnit>
+    <!--vengeance-->
+    <CUnit id="even" defType="SMALL">
+        <DeathRevealRadius value="0"/>
+        <FlagArray index="Invulnerable" value="0"/>
+        <Attributes index="small" value="1"/>
+        <Attributes index="large" value="0"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LifeArmor value="0"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <LifeArmorName value="ARMOR_SMALL"/>
+        <LifeArmorTip value="ARMORTIP_SMALL"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <KillResource index="gold" value="0"/>
+        <BehaviorArray index="4" removed="1"/>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <!--AttackTargetPriority value="1"/-->
+        <SubgroupPriority value="0"/>
+        <MinimapRadius value="0.375"/>
     </CUnit>
     <!--Talisman of Evasion-->
     <CUnit id="evtl">
@@ -1128,12 +1336,14 @@
             <LayoutButtons index="4" Face="ebal" Type="AbilCmd" AbilCmd="AEbu,Build3" Row="1" Column="4"/>
             <LayoutButtons index="5" Face="edry" Type="AbilCmd" AbilCmd="AEbu,Build4" Row="1" Column="3"/>
             <LayoutButtons index="6" Face="edoc" Type="AbilCmd" AbilCmd="AEbu,Build5" Row="0" Column="1"/>
-            <LayoutButtons index="7" Face="emtg" Type="AbilCmd" AbilCmd="AEbu,Build6" Row="0" Column="3"/>
+            <LayoutButtons index="7" Face="emtg" Type="AbilCmd" AbilCmd="AEbu,Build6" Row="0" Column="4"/>
             <LayoutButtons index="8" Face="edot" Type="AbilCmd" AbilCmd="AEbu,Build7" Row="2" Column="0"/>
             <LayoutButtons index="9" Face="nwat" Type="AbilCmd" AbilCmd="AEbu,Build18" Row="0" Column="0"/>
             <LayoutButtons index="10" Face="eshd" Type="AbilCmd" AbilCmd="AEbu,Build9" Row="1" Column="2"/>
+            <LayoutButtons Face="efon" Type="AbilCmd" AbilCmd="AEbu,Build22" Row="0" Column="3"/>
             <LayoutButtons Face="efdr" Type="AbilCmd" AbilCmd="AEbu,Build17" Row="2" Column="1"/>
-            <LayoutButtons Face="echm" Type="AbilCmd" AbilCmd="AEbu,Build20" Row="2" Column="2"/>
+            <LayoutButtons Face="espv" Type="AbilCmd" AbilCmd="AEbu,Build24" Row="2" Column="2"/>
+            <LayoutButtons Face="echm" Type="AbilCmd" AbilCmd="AEbu,Build20" Row="2" Column="3"/>
         </CardLayouts>
         <Speed value="2"/>
         <DeathTime value="15"/>
@@ -1207,6 +1417,7 @@
         <Radius value="0.375"/>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.375"/>
+        <MinimapRadius value="0.375"/>
     </CUnit>
     <!--Footman-->
     <CUnit id="hfoo">
@@ -1280,6 +1491,7 @@
         <TechTreeProducedUnitArray value="hgry"/>
         <LifeArmor value="10"/>
         <BehaviorArray Link="PowerfulUnit"/>
+        <BehaviorArray Link="Fury"/>
         <AttackTargetPriority value="21"/>
     </CUnit>
     <!--Flying Machine-->
@@ -2317,6 +2529,65 @@
         <BehaviorArray index="6" removed="1"/>
         <BehaviorArray index="7" removed="1"/>
     </CUnit>
+    <!--poison treant-->
+    <CUnit id="nenp" defType="SMALL">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <EnergyStart value="0"/>
+        <EnergyMax value="0"/>
+        <EnergyRegenRate value="0"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <Food value="0"/>
+        <CostResource index="gold" value="90"/>
+        <CostResource index="lumber" value="0"/>
+        <KillResource index="gold" value="0"/>
+        <KillResource index="Custom" value="15"/>
+        <AbilArray index="4" Link="Inventory2"/>
+        <AbilArray Link="Asud"/>
+        <AbilArray Link="ANab"/>
+        <AbilArray Link="DebuffImmunity"/>
+        <BehaviorArray index="4" Link="TreeOfEternitysGrace"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="ANab" Type="AbilCmd" AbilCmd="ANab,Execute" Row="2" Column="1"/>
+            <LayoutButtons index="6">
+                <Face value="Asud"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="Asud,Execute"/>
+                <Behavior value=""/>
+                <Row value="2"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="Push" Type="Passive" Row="2" Column="0"/>
+            <LayoutButtons Face="DebuffImmunity" Type="Passive" Row="2" Column="2"/>
+            <LayoutButtons Face="TreeOfEternitysGrace" Type="Passive" Row="2" Column="3"/>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <!--AttackTargetPriority value="1"/-->
+        <SubgroupPriority value="0"/>
+        <TechTreeProducedUnitArray value="efon"/>
+        <TechTreeProducedUnitArray value="efon"/>
+        <TechTreeProducedUnitArray value="efon"/>
+        <TechTreeProducedUnitArray value="efon"/>
+        <TechTreeProducedUnitArray value="nenp"/>
+        <TechTreeProducedUnitArray value="nenp"/>
+        <WeaponArray index="0" Link="etrp2"/>
+        <AlliedPushPriority value="1"/>
+        <Attributes index="small" value="1"/>
+        <Attributes index="large" value="0"/>
+        <LifeArmorName value="ARMOR_SMALL"/>
+        <LifeArmorTip value="ARMORTIP_SMALL"/>
+    </CUnit>
     <!--flesh golem-->
     <CUnit id="nfgl" defType="LARGE">
         <Food value="0"/>
@@ -2757,6 +3028,45 @@
         <DeathTime value="0"/>
         <SubgroupPriority value="0"/>
     </CUnit>
+    <!--owl-->
+    <CUnit id="nowl">
+        <DeathTime value="15"/>
+        <DeathRevealRadius value="0"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <LifeRegenRate value="0.125"/>
+        <Speed value="2"/>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <CostResource index="lumber" value="4000"/>
+        <KillResource index="Custom" value="200"/>
+        <AbilArray Link="Inventory2"/>
+        <AbilArray Link="Asud"/>
+        <AbilArray Link="NocturnalityAura"/>
+        <BehaviorArray index="4" Link="PowerfulUnit"/>
+        <BehaviorArray index="5" removed="1"/>
+        <BehaviorArray index="6" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="NocturnalityAura" Type="Passive" Behavior="" Row="2" Column="0"/>
+            <LayoutButtons index="6">
+                <Face value="Asud"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="Asud,Execute"/>
+                <Behavior value=""/>
+                <Row value="2"/>
+                <Column value="4"/>
+            </LayoutButtons>
+        </CardLayouts>
+        <PlacementFootprint value="4x4SimpleSolid"/>
+        <TechTreeProducedUnitArray value="nowl"/>
+        <FlagArray index="Invulnerable" value="0"/>
+    </CUnit>
     <!--death revenant-->
     <CUnit id="nrvd" defType="MEDIUM">
         <Food value="0"/>
@@ -3034,7 +3344,7 @@
         <PlacementFootprint value="4x4SimpleSolid"/>
         <!--AttackTargetPriority value="3"/-->
         <SubgroupPriority value="0"/>
-        <MinimapRadius value="0.5"/>
+        <MinimapRadius value="0.375"/>
         <TechTreeProducedUnitArray value="nws1"/>
         <TechTreeProducedUnitArray value="nws1"/>
         <LifeArmor value="0"/>
@@ -3127,8 +3437,8 @@
             <PositiveDamageRatio value="0"/>
         </LifeArmorFormula>
         <LifeRegenRate value="0.125"/>
-        <EnergyStart value="0"/>
-        <EnergyMax value="0"/>
+        <EnergyStart value="100"/>
+        <EnergyMax value="100"/>
         <EnergyRegenRate value="0"/>
         <Speed value="2"/>
         <SightBonus index="Dawn" value="0"/>
@@ -3143,11 +3453,11 @@
         <SubgroupPriority value="0"/>
         <AbilArray index="4" Link="Inventory2"/>
         <AbilArray index="5" Link="Asud"/>
-        <AbilArray index="7" removed="1"/>
+        <AbilArray index="7" Link="Ahwd"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Asta" Type="AbilCmd" AbilCmd="Asta,Execute" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="7" Face="Ahwd" Type="AbilCmd" AbilCmd="Ahwd,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="odoc"/>
         <TechTreeProducedUnitArray value="odoc"/>
@@ -3228,6 +3538,25 @@
         <Radius value="0.375"/>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.375"/>
+    </CUnit>
+    <!--Healing $ward-->
+    <CUnit id="ohwd">
+        <Attributes index="summoned" value="1"/>
+        <DeathRevealRadius value="0"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="-1"/>
+            <NegativeDamageBase value="1"/>
+            <PositiveArmorMultiplier value="1"/>
+            <PositiveDamageRatio value="0"/>
+        </LifeArmorFormula>
+        <SightBonus index="Dawn" value="0"/>
+        <SightBonus index="Dusk" value="0"/>
+        <SubgroupPriority value="0"/>
+        <Collide index="Ground" value="0"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Burrow6" value="1"/>
     </CUnit>
     <!--KodoBeast-->
     <CUnit id="okod">
@@ -3322,13 +3651,14 @@
             <LayoutButtons index="1" Face="orai" Type="AbilCmd" AbilCmd="AObu,Build4" Row="0" Column="2"/>
             <LayoutButtons index="2" Face="ohun" Type="AbilCmd" AbilCmd="AObu,Build2" Row="1" Column="0"/>
             <LayoutButtons index="3" Face="nitp" Type="AbilCmd" AbilCmd="AObu,Build12" Row="2" Column="0"/>
-            <LayoutButtons index="4" Face="okod" Type="AbilCmd" AbilCmd="AObu,Build6" Row="0" Column="3"/>
+            <LayoutButtons index="4" Face="okod" Type="AbilCmd" AbilCmd="AObu,Build6" Row="1" Column="2"/>
             <LayoutButtons index="5" Face="CmdCancel" Type="CancelSubmenu" AbilCmd="" Row="2" Column="4"/>
             <LayoutButtons index="6" Face="otau" Type="AbilCmd" AbilCmd="AObu,Build11" Row="0" Column="1"/>
-            <LayoutButtons index="7" Face="ocat" Type="AbilCmd" AbilCmd="AObu,Build3" Row="1" Column="2"/>
+            <LayoutButtons index="7" Face="ocat" Type="AbilCmd" AbilCmd="AObu,Build3" Row="1" Column="3"/>
             <LayoutButtons index="8" Face="odoc" Type="AbilCmd" AbilCmd="AObu,Build9" Row="2" Column="2"/>
             <LayoutButtons index="9" Face="ospw" Type="AbilCmd" AbilCmd="AObu,Build10" Row="0" Column="4"/>
             <LayoutButtons index="10" Face="oshm" Type="AbilCmd" AbilCmd="AObu,Build8" Row="2" Column="1"/>
+            <LayoutButtons Face="Obla" Type="AbilCmd" AbilCmd="AObu,Build22" Row="0" Column="3"/>
             <LayoutButtons Face="otbr" Type="AbilCmd" AbilCmd="AObu,Build21" Row="1" Column="1"/>
             <LayoutButtons Face="Ofar" Type="AbilCmd" AbilCmd="AObu,Build19" Row="2" Column="3"/>
         </CardLayouts>
@@ -3405,11 +3735,11 @@
         <AbilArray index="4" Link="Inventory2"/>
         <AbilArray index="5" Link="Asud"/>
         <AbilArray index="6" Link="Ablo"/>
-        <AbilArray index="7" removed="1"/>
+        <AbilArray index="7" Link="Apg2"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Ablo" Type="AbilCmd" AbilCmd="Ablo,Execute" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="Asud" Type="AbilCmd" AbilCmd="Asud,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="7" Face="Apg2" Type="AbilCmd" AbilCmd="Apg2,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <TechTreeProducedUnitArray value="oshm"/>
         <TechTreeProducedUnitArray value="oshm"/>
@@ -3626,8 +3956,6 @@
     <CUnit id="otot">
         <Attributes index="summoned" value="1"/>
         <DeathRevealRadius value="0"/>
-        <Collide index="Ground" value="0"/>
-        <Collide index="ForceField" value="0"/>
         <SightBonus index="Dawn" value="0"/>
         <SightBonus index="Dusk" value="0"/>
         <SubgroupPriority value="0"/>
@@ -3637,6 +3965,9 @@
             <PositiveArmorMultiplier value="1"/>
             <PositiveDamageRatio value="0"/>
         </LifeArmorFormula>
+        <Collide index="Ground" value="0"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Burrow6" value="1"/>
     </CUnit>
     <!--Orb of Venom-->
     <CUnit id="oven">

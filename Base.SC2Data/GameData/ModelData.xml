@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="MortalStrike" parent="War3_shadowstrike">
+        <Events index="0" Anim="Birth" Type="Sound" Payload="SND_ANFI"/>
+    </CModel>
+    <CModel id="MortalStrikeTarget" parent="War3_BarkSkinTarget">
+        <Events index="0" Anim="Birth" Type="Sound" Payload="SND_ANFI"/>
+    </CModel>
     <CModel id="BEahSpecial">
         <ScaleMax value="3.125000,3.125000,3.125000"/>
         <ScaleMin value="3.125000,3.125000,3.125000"/>
     </CModel>
     <CModel id="Ucrl1LM">
         <Model value="Assets\abilities\weapons\War3_DemolisherMissile\War3_DemolisherMissile.m3"/>
+    </CModel>
+    <CModel id="nenp">
+        <ScaleMax value="0.900000,0.900000,0.900000"/>
+        <ScaleMin value="0.900000,0.900000,0.900000"/>
     </CModel>
 </Catalog>

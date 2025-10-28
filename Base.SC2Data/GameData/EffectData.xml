@@ -7,9 +7,28 @@
         <EffectArray value="AEahSearch"/>
         <EffectArray value="AEahManaRegenSuppress"/>
     </CEffectSet>
+    <!--Alchemist - Acid Bomb Buff=BNab-->
+    <CEffectSet id="ANabMissileImpactSet">
+        <EffectArray index="3" removed="1"/>
+    </CEffectSet>
+    <CEffectEnumArea id="ANabSearch">
+        <AreaArray index="0" Radius="3" Effect="BNabAreaSet"/>
+    </CEffectEnumArea>
     <CEffectApplyBehavior id="ANhx1Dur">
-        <Duration value="30"/>
+        <Duration value="20"/>
     </CEffectApplyBehavior>
+    <CEffectModifyUnit id="AoarHealTick">
+        <VitalArray index="Life" Change="35" ChangeFraction="0"/>
+    </CEffectModifyUnit>
+    <!--Aura - Regeneration (Ward) Buff=Boar-->
+    <CEffectEnumArea id="AoarSearch">
+        <AreaArray index="0" Radius="3" Effect="Boar"/>
+    </CEffectEnumArea>
+    <!--Vengeance Dur=50 HeroDur=50 Buff=Bvng-->
+    <CEffectEnumArea id="Avng">
+        <AreaArray index="0" Radius="9" Effect="AvngSummonSet"/>
+        <MaxCount value="3"/>
+    </CEffectEnumArea>
     <CEffectApplyBehavior id="BEahDamageAbsorption" parent="War3_AuraBuff"/>
     <CEffectApplyBehavior id="AEer1HeroDur">
         <Duration value="2"/>
@@ -73,10 +92,6 @@
     <CEffectEnumArea id="ANhtSearch">
         <AreaArray index="0" Radius="27" Effect="ANhtBuffSet"/>
     </CEffectEnumArea>
-    <!--Rokhan - Hex Buff=BOhx-->
-    <CEffectApplyBehavior id="ANhx1HeroDur">
-        <Duration value="6"/>
-    </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ANsi1HeroDur">
         <Duration value="3"/>
     </CEffectApplyBehavior>
@@ -184,7 +199,7 @@
         <EffectArray value="nsca"/>
     </CEffectSet>
     <CEffectModifyUnit id="BEahMana">
-        <VitalArray index="Energy" Change="-3"/>
+        <VitalArray index="Energy" Change="-5"/>
         <LaunchUnit Value="Target"/>
         <ImpactUnit Value="Caster"/>
     </CEffectModifyUnit>
@@ -198,6 +213,12 @@
     <CEffectSet id="BEahSpecial">
         <EffectArray value="BEahMana"/>
     </CEffectSet>
+    <CEffectDamage id="BNab1DPS">
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectDamage id="BNabS1DPS">
+        <Amount value="5"/>
+    </CEffectDamage>
     <CEffectDamage id="BNdoDPS">
         <Amount value="0.0625"/>
     </CEffectDamage>
@@ -205,6 +226,35 @@
         <Amount value="0.0625"/>
         <ValidatorArray index="0" value="ANsoLevel0"/>
         <ValidatorArray index="1" removed="1"/>
+    </CEffectDamage>
+    <!--Blade Master - Bladestorm Buff=BOww-->
+    <CEffectApplyBehavior id="BOww"/>
+    <CEffectApplyBehavior id="BOwwNbbc1" parent="BOww">
+        <Name value="Effect/Name/BOwwNbbc1"/>
+        <Behavior value="BOwwNbbc1"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="BOwwDPS">
+        <ArmorReduction value="1"/>
+        <Kind value="Melee"/>
+        <KindSplash value="Splash"/>
+    </CEffectDamage>
+    <CEffectDamage id="BOwwDPSObla1" parent="BOwwDPS">
+        <Name value="Effect/Name/BOwwDPSObla1"/>
+        <AttributeFactor index="medium" value="-0.5"/>
+        <AttributeFactor index="unarmored" value="0.5"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="fortified" value="0.5"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="192"/>
+        <Alert value="DAMAGE_SIEGE"/>
+    </CEffectDamage>
+    <CEffectDamage id="BOwwDPSNbbc1" parent="BOwwDPS">
+        <Name value="Effect/Name/BOwwDPSNbbc1"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="192"/>
+        <Random value="192"/>
+        <Alert value="DAMAGE_CHAOS"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="BUdd">
         <ValidatorArray value="NonHero"/>
@@ -325,6 +375,32 @@
     <CEffectDamage id="HurtEnemySummoned200">
         <Amount value="100"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="MortalStrikeCaster" parent="War3_AugmentApply"/>
+    <CEffectCreateHealer id="MortalStrikeMana" parent="War3_InstantHeal">
+        <ImpactUnit Value="Caster"/>
+        <RechargeVitalRate value="10"/>
+        <RechargeVital value="Energy"/>
+    </CEffectCreateHealer>
+    <CEffectSet id="MortalStrikeSet">
+        <EffectArray value="MortalStrike"/>
+        <EffectArray value="MortalStrikeMana"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="MortalStrike" parent="War3_ApplyBuff"/>
+    <CEffectDamage id="Nbbc1" parent="War3_ChaosDamage">
+        <Kind value="Melee"/>
+        <Amount value="192"/>
+        <Random value="192"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Nocturnality" parent="War3_AuraBuff"/>
+    <CEffectEnumArea id="NocturnalityAuraSearch" parent="War3_AuraSearch" aura="Nocturnality">
+        <AreaArray index="0" Radius="9" Effect="Nocturnality"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="Obla1" parent="War3_SiegeDamage">
+        <Kind value="Melee"/>
+        <Amount value="192"/>
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+    </CEffectDamage>
     <CEffectCreatePersistent id="Xclf">
         <PeriodCount value="15"/>
     </CEffectCreatePersistent>
@@ -354,6 +430,30 @@
     <CEffectEnumArea id="esen1E2">
         <SearchFilters value="Visible;player,allies,neutral,air,Missile,dead,Hidden,invulnerable,Passive"/>
     </CEffectEnumArea>
+    <CEffectDamage id="espv1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="96"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="etrp2CP">
+        <PeriodCount value="2"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodicEffectArray value="etrp2LM"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.25"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="etrp2" parent="War3_NormalDamage">
+        <Amount value="24"/>
+        <SearchFilters value="-;air,tree,Missile,item,ward,ethereal,dead,invulnerable"/>
+        <AttributeFactor index="divine" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="even1">
+        <AttributeFactor index="divine" value="0"/>
+        <AttributeFactor index="hero" value="0"/>
+        <Amount value="24"/>
+        <Random value="0"/>
+    </CEffectDamage>
     <CEffectDamage id="hdhw1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
@@ -365,6 +465,11 @@
     </CEffectApplyBehavior>
     <CEffectDamage id="nba22">
         <Amount value="192"/>
+        <Random value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="nenp1">
+        <AttributeFactor index="divine" value="0"/>
+        <Amount value="24"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="ninf1">
@@ -447,7 +552,6 @@
     <CEffectApplyBehavior id="Bsta">
         <ValidatorArray value="NonPowerfulUnit"/>
         <ValidatorArray value="NoStasisTrapWard"/>
-        <ValidatorArray value="NoDebuffImmunity"/>
         <ValidatorArray value="NonPowerfulUnit"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ChargeKnight" parent="War3_ApplyBuff">
@@ -752,10 +856,10 @@
         <AreaArray index="0" Radius="0.375" Effect="Bfrz"/>
     </CEffectEnumArea>
     <CEffectCreateHealer id="AheaHeal">
-        <RechargeVitalRate value="75"/>
+        <RechargeVitalRate value="100"/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="Anh1Heal">
-        <RechargeVitalRate value="75"/>
+        <RechargeVitalRate value="100"/>
     </CEffectCreateHealer>
     <CEffectCreateHealer id="Anh2Heal">
         <RechargeVitalRate value="15"/>
@@ -826,12 +930,17 @@
     <CEffectCreateHealer id="BrplHeal">
         <RechargeVitalRate value="25"/>
     </CEffectCreateHealer>
+    <CEffectCreateHealer id="BrpmHeal" parent="War3_InstantHeal">
+        <EditorCategories value="Race:Undead"/>
+        <RechargeVitalRate value="5"/>
+        <RechargeVital value="Energy"/>
+    </CEffectCreateHealer>
     <CEffectDamage id="BssdDPS">
         <Amount value="10"/>
     </CEffectDamage>
     <CEffectEnumArea id="BsttSearch">
         <SearchFilters value="-;player,allies,air,wall,tree,debris,item,structure,ward,dead,Hidden,invulnerable,Stunned,immunity"/>
-        <AreaArray index="0" Radius="7.5" Effect="Bsta"/>
+        <AreaArray index="0" Radius="9" Effect="Bsta"/>
         <MaxCount value="3"/>
         <TargetSorts>
             <SortArray value="TSLifeLargestFirst"/>
@@ -948,9 +1057,6 @@
         <AttributeFactor index="fortified" value="0"/>
         <Random value="0"/>
     </CEffectDamage>
-    <CEffectModifyUnit id="ReplenishRefund">
-        <VitalArray index="Energy" Change="10"/>
-    </CEffectModifyUnit>
     <CEffectEnumArea id="UnholyDominanceAuraSearch" parent="War3_AuraSearch">
         <AreaArray index="0" Radius="9" Effect="UnholyDominance"/>
     </CEffectEnumArea>

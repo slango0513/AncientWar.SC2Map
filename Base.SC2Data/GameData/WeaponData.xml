@@ -91,6 +91,16 @@
         <MinScanRange value="0.7812"/>
         <Period value="3"/>
     </CWeaponLegacy>
+    <!--blackrock blademaster-->
+    <CWeaponLegacy id="Nbbc1" parent="normal" atkType="CHAOS">
+        <MinScanRange value="0.7812"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+        <Range value="0.7812"/>
+        <RangeSlop value="1.9531"/>
+        <Period value="3"/>
+        <DamagePoint value="0.33"/>
+        <Backswing value="0.84"/>
+    </CWeaponLegacy>
     <!--Hero Banshee Ranger-->
     <CWeaponLegacy id="Nbrn1" atkType="CHAOS">
         <MinScanRange value="11"/>
@@ -99,6 +109,17 @@
         <Name value="DAMAGE_CHAOS"/>
         <Tip value="DAMAGETIP_CHAOS"/>
         <Icon value="Assets\Textures\UI\Widgets\Console\Human\infocard-attack-CHAOS.tga"/>
+    </CWeaponLegacy>
+    <!--HeroBladeMaster-->
+    <CWeaponLegacy id="Obla1" parent="normal" atkType="SIEGE">
+        <EditorCategories value="Race:Orc"/>
+        <MinScanRange value="0.7812"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+        <Range value="0.7812"/>
+        <RangeSlop value="1.9531"/>
+        <Period value="3"/>
+        <DamagePoint value="0.33"/>
+        <Backswing value="0.84"/>
     </CWeaponLegacy>
     <!--HeroFarSeer-->
     <CWeaponLegacy id="Ofar1" atkType="MAGIC">
@@ -195,9 +216,35 @@
     </CWeaponLegacy>
     <!--Shandris-->
     <CWeaponLegacy id="eshd1">
-        <MinScanRange value="16"/>
-        <Range value="16"/>
+        <MinScanRange value="12"/>
+        <Range value="12"/>
         <Period value="3"/>
+    </CWeaponLegacy>
+    <!--spirit of vengeance-->
+    <CWeaponLegacy id="espv1">
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+        <MinScanRange value="5"/>
+        <Range value="5"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="etrp2" parent="msplash" atkType="NORMAL">
+        <EditorCategories value="Race:NightElf"/>
+        <MinScanRange value="3"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
+        <Range value="3"/>
+        <RangeSlop value="1.9531"/>
+        <Period value="3"/>
+        <DamagePoint value="0.3"/>
+        <Backswing value="0.4"/>
+        <Effect value="etrp2CP"/>
+        <DisplayAttackCount value="2"/>
+    </CWeaponLegacy>
+    <!--vengeance-->
+    <CWeaponLegacy id="even1">
+        <MinScanRange value="3"/>
+        <Range value="3"/>
+        <Period value="3"/>
+        <TargetFilters value="Visible;air,wall,tree,Missile,ethereal,dead,invulnerable"/>
     </CWeaponLegacy>
     <!--blood elf dragon hawk-->
     <CWeaponLegacy id="hdhw1">
@@ -338,6 +385,12 @@
     <!--revenant of the depths-->
     <CWeaponLegacy id="ndrv1">
         <MinScanRange value="0.7812"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <!--poison treant-->
+    <CWeaponLegacy id="nenp1">
+        <MinScanRange value="1"/>
+        <Range value="1"/>
         <Period value="3"/>
     </CWeaponLegacy>
     <!--flesh golem-->

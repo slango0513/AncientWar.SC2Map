@@ -81,6 +81,7 @@ Trigger/Name/20EA0014=ReviveItem
 Trigger/Name/20EDFD47=PlayerLeft
 Trigger/Name/239D6BCE=Aspl - Marker
 Trigger/Name/2526FF21=SetOwner
+Trigger/Name/280A7E66=UnitDiedSummoned
 Trigger/Name/29407826=moon - Moonstone - Change TOD
 Trigger/Name/317EF985=AOhw - Impact
 Trigger/Name/3941E08C=AI

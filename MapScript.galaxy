@@ -188,6 +188,7 @@ trigger gt_AI;
 trigger gt_InitUnit;
 trigger gt_Position;
 trigger gt_UnitDied;
+trigger gt_UnitDiedSummoned;
 trigger gt_UnitOwnerChanged;
 trigger gt_Reserve;
 trigger gt_WinLossPeriod;
@@ -819,6 +820,7 @@ bool gt_InitMap_Func (bool testConds, bool runActions) {
     TriggerEnable(libGAwX_gt_AwarTargetCheck, false);
     TriggerEnable(libGAwX_gt_moonMoonstoneChangeTOD, false);
     TriggerEnable(libGAwX_gt_AOhwImpact, false);
+    TriggerEnable(libGAwX_gt_AvngUniqueSummonBuff, false);
     BankLoad("AncientWar", 1);
     gv_bank[1] = BankLastCreated();
     BankLoad("AncientWar", 2);
@@ -1966,6 +1968,7 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
 
     TriggerEnable(gt_Revive, false);
     TriggerEnable(gt_UnitDied, false);
+    TriggerEnable(gt_UnitDiedSummoned, false);
     TriggerEnable(gt_UnitOwnerChanged, false);
     TriggerEnable(gt_Attack, false);
     TriggerEnable(gt_WinLossPeriod, false);
@@ -2589,6 +2592,7 @@ bool gt_Position_Func (bool testConds, bool runActions) {
     TriggerEnable(libGAwX_gt_NonHeroItemDeathDrop, false);
     TriggerEnable(gt_Attack, true);
     TriggerEnable(gt_UnitDied, true);
+    TriggerEnable(gt_UnitDiedSummoned, true);
     TriggerEnable(gt_UnitOwnerChanged, true);
     TriggerEnable(gt_Revive, true);
     libGAwX_gv_moonTODCritSection = 0;
@@ -2640,6 +2644,55 @@ void gt_UnitDied_Init () {
     gt_UnitDied = TriggerCreate("gt_UnitDied_Func");
     TriggerEnable(gt_UnitDied, false);
     TriggerAddEventUnitDied(gt_UnitDied, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: UnitDiedSummoned
+//--------------------------------------------------------------------------------------------------
+bool gt_UnitDiedSummoned_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetCustomValue(EventUnit(), 1) == 0.0))) {
+            return false;
+        }
+
+        if (!((UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeSummoned) == false))) {
+            return false;
+        }
+
+        if (!(((UnitTypeTestAttribute(UnitGetType(libNtve_gf_KillingUnit()), c_unitAttributeSummoned) == true) || (gf_UnitHasBehaviorFlag(gv_behaviorFlagRaiseDead, libNtve_gf_KillingUnit()) == true)))) {
+            return false;
+        }
+
+        if (!((gv_boolKilling == false))) {
+            return false;
+        }
+
+        if (!((libNtve_gf_KillingPlayer() != 15))) {
+            return false;
+        }
+
+        if (!((UnitGetOwner(EventUnit()) != 15))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_intS[libNtve_gf_KillingPlayer()] += CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "KillResource[" + IntToString(3) + "]", libNtve_gf_KillingPlayer());
+    BoardItemSetText(gv_board, 3, gv_intRowBoardOfPlayer[libNtve_gf_KillingPlayer()], IntToText(gv_intS[libNtve_gf_KillingPlayer()]));
+    BoardItemSetProgressValue(gv_board, 3, gv_intRowBoardOfPlayer[libNtve_gf_KillingPlayer()], gv_intS[libNtve_gf_KillingPlayer()]);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_UnitDiedSummoned_Init () {
+    gt_UnitDiedSummoned = TriggerCreate("gt_UnitDiedSummoned_Func");
+    TriggerEnable(gt_UnitDiedSummoned, false);
+    TriggerAddEventUnitDied(gt_UnitDiedSummoned, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -3195,6 +3248,7 @@ void InitTriggers () {
     gt_InitUnit_Init();
     gt_Position_Init();
     gt_UnitDied_Init();
+    gt_UnitDiedSummoned_Init();
     gt_UnitOwnerChanged_Init();
     gt_Reserve_Init();
     gt_WinLossPeriod_Init();
