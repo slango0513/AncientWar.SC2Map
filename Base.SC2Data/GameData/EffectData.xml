@@ -503,7 +503,7 @@
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="fortified" value="-0.3"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="24"/>
+        <Amount value="18"/>
         <Random value="0"/>
     </CEffectDamage>
     <CEffectDamage id="nenp1">
@@ -1597,7 +1597,7 @@
     <CEffectDamage id="ugho1">
         <AttributeFactor index="divine" value="0"/>
         <Random value="0"/>
-        <Amount value="36"/>
+        <Amount value="30"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="Ucrl1LM" parent="War3_Missile" weaponid="Ucrl1"/>
     <CEffectDamage id="umtw1">

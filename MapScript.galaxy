@@ -1194,7 +1194,7 @@ bool gt_Set_Func (bool testConds, bool runActions) {
         autoCDB2CDF4_ai = 1;
         lv_phalanx = 1;
         for ( ; ( (autoCDB2CDF4_ai >= 0 && lv_phalanx <= autoCDB2CDF4_ae) || (autoCDB2CDF4_ai <= 0 && lv_phalanx >= autoCDB2CDF4_ae) ) ; lv_phalanx += autoCDB2CDF4_ai ) {
-            gv_intRow[lv_phalanx] = 12;
+            gv_intRow[lv_phalanx] = 15;
         }
     }
     else if (autoCBDAB378_val == "I") {
@@ -2009,7 +2009,7 @@ bool gt_Waiting_Func (bool testConds, bool runActions) {
                 auto0B911D06_ai = 1;
                 lv_phalanx = 1;
                 for ( ; ( (auto0B911D06_ai >= 0 && lv_phalanx <= auto0B911D06_ae) || (auto0B911D06_ai <= 0 && lv_phalanx >= auto0B911D06_ae) ) ; lv_phalanx += auto0B911D06_ai ) {
-                    gv_intRow[lv_phalanx] = 16;
+                    gv_intRow[lv_phalanx] = 15;
                 }
             }
 

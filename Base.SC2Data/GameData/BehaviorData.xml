@@ -556,8 +556,8 @@
     <CBehaviorBuff id="Bugf" parent="War3_Passive">
         <DisableValidatorArray value="CasterHasBUav1"/>
         <Modification AttackSpeedMultiplier="2">
-            <DamageDealtScaled index="Melee" value="36"/>
-            <DamageDealtScaled index="Ranged" value="36"/>
+            <DamageDealtScaled index="Melee" value="30"/>
+            <DamageDealtScaled index="Ranged" value="30"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Buar" parent="War3_Passive">

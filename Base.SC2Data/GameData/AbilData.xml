@@ -753,12 +753,6 @@
         <InfoArray index="Build21" Unit="Nman1">
             <Button DefaultButtonFace="Nman" Requirements="Pause"/>
         </InfoArray>
-        <InfoArray index="Build22" Unit="nfel">
-            <Button DefaultButtonFace="nfel" Requirements="Pause"/>
-        </InfoArray>
-        <InfoArray index="Build23" Unit="npfl">
-            <Button DefaultButtonFace="npfl" Requirements="Pause"/>
-        </InfoArray>
         <Range value="500"/>
     </CAbilBuild>
     <!--Crypt Lord - Carrion Scarabs Buff=BUcb-->

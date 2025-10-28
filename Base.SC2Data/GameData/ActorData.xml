@@ -1322,10 +1322,10 @@
         <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
     </CActorUnit>
     <!--felstalker-->
-    <CActorUnit id="nfel" defType="MEDIUM">
+    <CActorUnit id="nfel" defType="SMALL">
         <Scale value="0.800000"/>
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
-        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
     </CActorUnit>
     <!--fleshgolem-->
     <CActorUnit id="nfgl" defType="LARGE">
@@ -1358,9 +1358,18 @@
         <On index="80" Terms="WeaponStart.nhy21.AttackStart"/>
         <On index="81" Terms="WeaponStart.nhy22.AttackStart"/>
     </CActorUnit>
+    <!--infernaljuggernaut-->
+    <CActorUnit id="nina">
+        <Scale value="1.000000"/>
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
+    </CActorUnit>
     <!--infernal-->
     <CActorUnit id="ninf">
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar80"/>
+    </CActorUnit>
+    <!--infernalmachine-->
+    <CActorUnit id="ninm">
+        <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar60"/>
     </CActorUnit>
     <!--icetrollshadowpriest-->
     <CActorUnit id="nitp" defType="NONE">
@@ -1384,8 +1393,8 @@
         <CustomUnitStatusFrame value="War3_UnitStatus/UnitBar100"/>
     </CActorUnit>
     <!--purplefelstalker-->
-    <CActorUnit id="npfl" defType="MEDIUM">
-        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-MEDIUM.tga"/>
+    <CActorUnit id="npfl" defType="SMALL">
+        <LifeArmorIcon value="Assets\Textures\UI\Widgets\Console\Human\infocard-armor-SMALL.tga"/>
     </CActorUnit>
     <!--deathrevenant-->
     <CActorUnit id="nrvd" defType="MEDIUM">

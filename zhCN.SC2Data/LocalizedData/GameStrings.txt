@@ -176,6 +176,7 @@ DebuffImmunity/Buffubertip=该单位对负面效果免疫。
 DebuffImmunity/Name=负面效果防护
 DebuffImmunity/Tip=负面效果防护
 DebuffImmunity/Ubertip=让该单位对负面效果免疫。
+DebuffImmunityAura/Name=负面效果防护光环
 DebuffImmunityAura/Tip=负面效果防护光环
 DebuffImmunityAura/Ubertip=让周围友军对负面效果免疫。
 DebuffImmunitynfgl/Tip=负面效果防护
@@ -547,8 +548,8 @@ DocInfo/PatchNote360=狮鹫骑士现在会狂怒。
 DocInfo/PatchNote361=兽人：
 DocInfo/PatchNote362=妖术的持续时间降低到15秒。
 DocInfo/PatchNote363=加入竞技模式。
-DocInfo/PatchNote364=决赛时每个方阵的行数减少到12，前阵与后阵的间距大幅度缩小。
-DocInfo/PatchNote365=奖励回合获得的木材减少到原来的60%。
+DocInfo/PatchNote364=决赛时每个方阵的行数减少到15，前阵与后阵的间距缩小。
+DocInfo/PatchNote365=奖励回合获得的木材减少到原来的80%。
 DocInfo/PatchNote366=修复物品能给到场地上己方单位身上的漏洞。
 DocInfo/PatchNote367=修复巫妖能被占据的漏洞。
 DocInfo/PatchNote368=人类：
@@ -561,10 +562,6 @@ DocInfo/PatchNote374=兽人：
 DocInfo/PatchNote375=剑圣类单位不再受到法力燃烧和吸收法力的影响。
 DocInfo/PatchNote376=致死打击获得的怒气值提高到12.5点。
 DocInfo/PatchNote377=科多兽类单位不再能够攻击空中单位。
-DocInfo/PatchNote378=亡灵：
-DocInfo/PatchNote379=加入新单位地狱犬。
-DocInfo/PatchNote380=提高食尸鬼的伤害。
-DocInfo/PatchNote381=食尸鬼狂暴的伤害增益提高到36点。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -671,6 +668,7 @@ Firebolt/Ubertip=每次攻击能对敌人发射一枚火球，能够穿透灵魂
 Fortitude/Name=坚忍
 Fortitude/Tip=坚忍
 Fortitude/Ubertip=让目标友军对负面效果免疫。
+FreedomAura/Name=自由行动光环
 FreedomAura/Tip=自由行动光环
 FreedomAura/Ubertip=使周围的骑士暂时免疫减速、昏迷和睡眠。
 FreedomAuraBuff/Buffubertip=该骑士处于自由行动光环的作用之下，暂时免疫减速、昏迷和睡眠。
@@ -693,6 +691,7 @@ Hart/Tip=阿尔萨斯
 Hart/Ubertip=提供<c val="FFFFFF">1</c>位阿尔萨斯。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hart1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hart1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hart1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hart1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Hart1,Amount"/></c></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Hart1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">圣光术</c>、<c val="FFFFFF">圣盾术</c>、<c val="FFFFFF">荣誉之铠</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Hblm/Tip=血法师
 Hblm/Ubertip=提供<c val="FFFFFF">5</c>名破法者、<c val="FFFFFF">1</c>位血法师。<n/><n/>防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hblm1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hblm1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hblm1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hblm1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,Hblm1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Hblm1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Hblm1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">放逐术</c>、<c val="FFFFFF">生命吸取</c>、<c val="FFFFFF">负面效果防护</c>、<c val="FFFFFF">坚忍</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+Hex/Name=妖术
 Hex/Tip=妖术
 Hex/Ubertip=每一次攻击有<d ref="Behavior,Hex,DamageResponse.Chance*100"/>%的几率让目标单位在<d ref="Effect,ANhx1Dur,Duration"/>秒内变成一只随机的小动物。
 Hgam/Name=大法师
@@ -708,12 +707,15 @@ Hmkg/Tip=山丘之王
 Hmkg/Ubertip=提供<c val="FFFFFF">1</c>位山丘之王。<n/><n/>强大的防御型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Hmkg1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Hmkg1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Hmkg1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Hmkg1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,Hmkg1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,Hmkg1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">天神下凡</c>、<c val="FFFFFF">风暴之锤</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Hmkg1/Name=山丘之王
 HonorArmor/Tip=荣誉之铠
+HonorArmour/Name=荣誉之铠
 HonorArmour/Tip=荣誉之铠
 HonorArmour/Ubertip=使周围甲胄骑兵及其统领的骑士受到来自重甲单位的攻击时伤害减少<d ref="1-Behavior,HonorArmourBuff,DamageResponse.ModifyFraction*100"/>%。
 HonorArmourBuff/Buffubertip=该骑士处于荣誉之铠的作用之下。
 HonorArmourBuff/Name=荣誉之铠
+HonorShield/Name=荣誉之盾
 HonorShield/Tip=荣誉之盾
 HonorShield/Ubertip=每次攻击地面单位或受到攻击将会提升<d ref="Behavior,HonorShieldBuff,Modification.DamageDealtUnscaled[Ranged]"/>点攻击及<d ref="Behavior,HonorShieldBuff,Modification.LifeArmorBonus"/>点护甲。
+HonorSpear/Name=荣誉之矛
 HonorSpear/Tip=荣誉之矛
 HonorSpear/Ubertip=增加周围枪骑兵及其统领的骑士<d ref="Behavior,HonorSpearBuff,Modification.RateMultiplierArray[Cooldown]-1*100"/>%的冷却时间速度。<n/>受荣誉之矛影响的单位通过近战攻击杀死敌人后会提升<d ref="Behavior,HonorSpearEffect,Modification.DamageDealtUnscaled[Melee]"/>点伤害和<d ref="Behavior,HonorSpearEffect,Modification.LifeArmorBonus"/>点护甲。
 HonorSpearBuff/Buffubertip=该骑士处于荣誉之矛的作用之下。
@@ -777,6 +779,7 @@ Nman/Name=玛诺洛斯
 Nman/Tip=玛诺洛斯
 Nman/Ubertip=提供<c val="FFFFFF">2</c>名憎恶、<c val="FFFFFF">1</c>位玛诺洛斯。<n/><n/>强大的近战单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Nman1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Nman1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Nman1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Nman1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,uabo1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,uabo1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">疾病之云</c>、<c val="FFFFFF">分裂攻击</c>、<c val="FFFFFF">灵魂燃烧</c>、<c val="FFFFFF">黑暗仪式</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Nocturnality/Name=夜行性
+NocturnalityAura/Name=夜行光环
 NocturnalityAura/Tip=夜行光环
 NocturnalityAura/Ubertip=夜行光环。
 Obla/Tip=剑圣
@@ -915,6 +918,7 @@ ShieldWall/Buffubertip=受到的伤害大幅度减少。
 ShieldWall/Name=盾墙
 ShieldWall/Tip=盾墙
 ShieldWall/Ubertip=减少<d ref="1-Behavior,ShieldWall,DamageResponse.ModifyFraction*100"/>%受到的伤害，持续<d ref="Behavior,ShieldWall,Duration"/>秒。
+ShockWave/Name=震荡波
 ShockWave/Tip=震荡波
 ShockWave/Ubertip=每次攻击有<d ref="Behavior,ShockWave,DamageResponse.Chance*100"/>%几率发出一道向前的能量波，对一条线上的敌方地面单位造成<d ref="Effect,AOshDamage1,Amount"/>点的伤害。
 SpecialtyHuman/Tip=种族特长
