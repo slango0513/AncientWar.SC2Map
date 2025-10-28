@@ -105,7 +105,7 @@ Arpl/Ubertip=恢复附近友方<d ref="Effect,BrplHeal,RechargeVitalRate"/>点�
 Arpm/Ubertip=恢复附近友方<d ref="Behavior,Brpm,Modification.VitalRegenArray[Energy]"/>点法力值。
 Arsk/Ubertip=降低负性魔法的持续时间，并让对某些特定魔法免疫。
 Aslo/Ubertip=减慢目标单位<d ref="1-Behavior,Bslo,Modification.AttackSpeedMultiplier*100"/>%的攻击速度和<d ref="1-Behavior,Bslo,Modification.MoveSpeedMultiplier*100"/>%的移动速度。<n/>持续<d ref="Behavior,Bslo,Duration"/>秒。
-Aspl/Ubertip=链接4个单位在一起。所有被灵魂连接作用的单位都可以将其50%受到的伤害转移到其他单位身上。<n/>持续<d ref="Behavior,Bspl,Duration"/>秒。
+Aspl/Ubertip=链接4个单位在一起。所有被灵魂连接作用的单位都可以将其90%受到的伤害转移到其他单位身上。<n/>持续<d ref="Behavior,Bspl,Duration"/>秒。
 Aspo/Ubertip=迟缓毒药攻击能造成每秒<d ref="Effect,BssdDPS,Amount"/>点的伤害，并在<d ref="Behavior,Bspo,Duration"/>秒内减慢敌人<d ref="1-Behavior,Bspo,Modification.MoveSpeedMultiplier*100"/>%的移动速度和<d ref="1-Behavior,Bspo,Modification.AttackSpeedMultiplier*100"/>%的攻击速度。
 Assk/Ubertip=降低所有施加在山岭巨人身上的伤害<d ref="1-Behavior,Assk,DamageResponse.ModifyFraction*100"/>%。
 Asta/Ubertip=召唤出一个固定隐形的陷阱来击晕靠近的敌方地面单位。当有敌方的地点单位靠近陷阱的时候会自动激活守卫。<n/>持续<d ref="Behavior,Bstt,Duration"/>秒。<n/>眩晕效果持续<d ref="Behavior,Bsta,Duration"/>秒。<n/>每个静止陷阱最多击晕个<d ref="Effect,BsttSearch,MaxCount"/>单位。
@@ -591,7 +591,7 @@ DocInfo/PatchNote388=提高深渊亡魂类单位的生命值。
 DocInfo/PatchNote389=憎恶获得新技能钩肥。
 DocInfo/PatchNote390=邪恶狂暴现在不会使目标受到额外伤害。
 DocInfo/PatchNote391=荒芜精华的影响范围增加。
-DocInfo/PatchNote392=灵魂之触的法力回复量降低到5点，影响范围增加。
+DocInfo/PatchNote392=灵魂之触的法力回复量降低到3点，影响范围增加。
 DocInfo/PatchNote393=亡灵：
 DocInfo/PatchNote394=魔力之焰不再消耗法力值，冷却时间增加到60秒，并且造成单体伤害。
 DocInfo/PatchNote395=兽人：
@@ -614,6 +614,11 @@ DocInfo/PatchNote411=地狱装甲现在会减少远程伤害，并且不再提�
 DocInfo/PatchNote412=虚无打击现在会使目标受到的法术伤害提高。
 DocInfo/PatchNote413=邪恶护甲、食尸鬼狂暴在夜间也能被激活。
 DocInfo/PatchNote414=亡灵种族与灵魂行者重新上线。
+DocInfo/PatchNote415=修复灵魂连接会连接远程单位的漏洞。
+DocInfo/PatchNote416=修复粉碎在特定情况下无效的漏洞。
+DocInfo/PatchNote417=为所有种族添加新的背景音乐。
+DocInfo/PatchNote418=人类：
+DocInfo/PatchNote419=迫击炮小队的伤害降低，并且获得新技能碎片攻击。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress
@@ -1122,7 +1127,7 @@ hmil/Ubertip=提供<c val="FFFFFF">12</c>名民兵。<n/><n/>基本的防御型�
 hmpr/Tip=牧师
 hmpr/Ubertip=提供<c val="FFFFFF">4</c>名教会牧师、<c val="FFFFFF">2</c>名牧师。<n/><n/>支援型单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,hmpr,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">无甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,hmpr,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,hmpr,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,hmpr,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">魔法</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,hmpr1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,hmpr1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,hmpr1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">治疗术</c>、<c val="FFFFFF">心灵之火</c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 hmtm/Tip=迫击炮小队
-hmtm/Ubertip=提供<c val="FFFFFF">2</c>只迫击炮小队。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,hmtm,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,hmtm,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,hmtm,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,hmtm,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">攻城</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,hmtm1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,hmtm1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,hmtm1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
+hmtm/Ubertip=提供<c val="FFFFFF">2</c>只迫击炮小队。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,hmtm,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">重甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,hmtm,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,hmtm,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,hmtm,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">攻城</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,hmtm1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,hmtm1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,hmtm1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">碎片攻击</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 hrif/Tip=火枪手
 hrif/Ubertip=提供<c val="FFFFFF">2</c>名火枪手。<n/><n/>远程攻击单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,hrif,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">中甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,hrif,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,hrif,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,hrif,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">穿刺</c><n/>攻击范围：<c val="FFFFFF"><d ref="Weapon,hrif1,Range"/></c><n/>伤害：<c val="FFFFFF"><d ref="Effect,hrif1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,hrif1,Period" precision="1"/></c><n/><n/><c val="FFCC00">能攻击地面和空中单位。</c>
 hrtt/Tip=攻城机车

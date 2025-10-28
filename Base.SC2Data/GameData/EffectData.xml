@@ -35,6 +35,11 @@
     <CEffectSet id="AHhb">
         <ValidatorArray value="IsNothgry"/>
     </CEffectSet>
+    <CEffectDamage id="AfshSphereEffect">
+        <AreaArray index="0" Radius="2" Bonus="24" Fraction="1"/>
+        <AreaArray index="1" Radius="2.5" Bonus="18" Fraction="1"/>
+        <AreaArray index="2" Radius="3" Bonus="12" Fraction="1"/>
+    </CEffectDamage>
     <CEffectLaunchMissile id="BIrgMissile" parent="War3_Missile">
         <ImpactEffect value="BIrg"/>
         <AmmoUnit value="Hgam1LM"/>
@@ -843,6 +848,10 @@
         <Amount value="120"/>
         <Random value="0"/>
     </CEffectDamage>
+    <CEffectSet id="otau1Crit">
+        <EffectArray index="0" value="AwarAoEDamage"/>
+        <EffectArray index="1" value="otau1"/>
+    </CEffectSet>
     <CEffectDamage id="otbr1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
@@ -1066,7 +1075,7 @@
         <MaxCount value="9"/>
     </CEffectEnumArea>
     <CEffectDamage id="AwarAoEDamage">
-        <AreaArray index="0" Radius="2" Bonus="50" Fraction="1"/>
+        <AreaArray index="0" Radius="1.75" Bonus="50" Fraction="1"/>
         <AreaArray index="1" removed="1"/>
     </CEffectDamage>
     <CEffectDamage id="BEerDPS1">
@@ -1423,7 +1432,7 @@
     <CEffectDamage id="hmtm1">
         <AttributeFactor index="divine" value="0"/>
         <AttributeFactor index="hero" value="0"/>
-        <Amount value="30"/>
+        <Amount value="24"/>
         <Random value="0"/>
         <AreaArray index="0" Radius="1.5" Fraction="1"/>
         <AreaArray index="1" Radius="2" Fraction="0.6667"/>

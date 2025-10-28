@@ -7,21 +7,40 @@
         <SustainFade index="1" Time="300"/>
     </CSound>
     <CSound id="Human_Music_V1">
+        <AssetArray File="Assets\Sounds\Music\BloodElfTheme.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\ArthasTheme.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\Comradeship.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\PursuitTheme.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\SadMystery.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\LamentOfTheHighborne.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\SindoreiTheme1.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\SindoreiTheme2.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\StormwindTheme.ogg" FacialGroup=""/>
+        <Volume value="3.000000,3.000000"/>
     </CSound>
     <CSound id="NightElf_Music_V1">
-        <AssetArray File="Assets\Sounds\Music\BloodElfTheme.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\IllidansTheme.ogg" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Music\NagaTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\DarnassusTheme1.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\DarnassusTheme3.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\GuardiansOfNordrassil.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\MoonfallTheme.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\SongOfElune.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\TempleTheme.ogg" FacialGroup=""/>
+        <Volume value="3.000000,3.000000"/>
     </CSound>
     <CSound id="Orc_Music_V1">
         <AssetArray File="Assets\Sounds\Music\Doom.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\Reforged1.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\Reforged2.ogg" FacialGroup=""/>
+        <Volume value="3.000000,3.000000"/>
     </CSound>
     <CSound id="Undead_Music_V1">
         <AssetArray File="Assets\Sounds\Music\LichKingTheme.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Music\War3XMainScreen.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\BurningSteppes.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\FelwoodThema.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\SeasonsOfWar.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Music\ShadowOfTheNecropolis.ogg" FacialGroup=""/>
+        <Volume value="3.000000,3.000000"/>
     </CSound>
 </Catalog>

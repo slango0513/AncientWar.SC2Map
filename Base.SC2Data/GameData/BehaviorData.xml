@@ -198,6 +198,9 @@
     <CBehaviorBuff id="Aabr" parent="War3_AuraCaster">
         <Requirements value="Aabr"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="Afsh">
+        <Requirements value=""/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="YserasGift" parent="War3_AuraCaster">
         <Requirements value="YserasGift"/>
     </CBehaviorBuff>
@@ -262,15 +265,7 @@
         <DamageResponse Handled="AfrzC"/>
     </CBehaviorBuff>
     <!--Graveyard-->
-    <CBehaviorSpawn id="Agyd">
-        <InfoArray index="0">
-            <Unit value="ughoCorpseGravy"/>
-            <MaxCount value="5"/>
-            <StartCount value="0"/>
-            <Requirements value="AgydMarker"/>
-            <Delay value="10"/>
-        </InfoArray>
-    </CBehaviorSpawn>
+    <CBehaviorSpawn id="Agyd"/>
     <!--Impaling Bolt-->
     <CBehaviorBuff id="Aimp">
         <Requirements value=""/>
@@ -1056,7 +1051,6 @@
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
-            <ValidatorArray value="NotSummonedUnit"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosGrunt" parent="War3_Passive">
@@ -1067,7 +1061,6 @@
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
-            <ValidatorArray value="NotSummonedUnit"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageRaider" parent="War3_Passive">
@@ -1078,7 +1071,6 @@
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
-            <ValidatorArray value="NotSummonedUnit"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosRaider" parent="War3_Passive">
@@ -1089,7 +1081,6 @@
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
-            <ValidatorArray value="NotSummonedUnit"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageBlademaster" parent="War3_Passive">
@@ -1100,7 +1091,6 @@
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
-            <ValidatorArray value="NotSummonedUnit"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="PillageChaosBlademaster" parent="War3_Passive">
@@ -1111,7 +1101,6 @@
             <Kind index="Spell" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
-            <ValidatorArray value="NotSummonedUnit"/>
         </DamageResponse>
     </CBehaviorBuff>
     <!--Hardened Skin-->

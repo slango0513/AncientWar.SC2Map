@@ -2052,7 +2052,6 @@
         <WeaponArray index="1" removed="1"/>
         <AbilArray index="4" Link="Inventory2"/>
         <AbilArray Link="AsudHuman"/>
-        <BehaviorArray index="4" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="CmdAttackGround" Type="AbilCmd" AbilCmd="AatkTree,Barrage" Row="1" Column="4"/>
             <LayoutButtons index="6">
@@ -2063,7 +2062,14 @@
                 <Row value="2"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="7">
+                <Face value="Afsh"/>
+                <Type value="Passive"/>
+                <AbilCmd value=""/>
+                <Behavior value="Afsh"/>
+                <Row value="2"/>
+                <Column value="0"/>
+            </LayoutButtons>
         </CardLayouts>
         <SubgroupPriority value="0"/>
         <DeathTime value="15"/>
