@@ -315,29 +315,17 @@ void gf_GetBonusItem (int lp_p, string lp_itemType) {
     lv_costGold = CatalogFieldValueGetAsInt(c_gameCatalogUnit, lp_itemType, "CostResource[" + IntToString(2) + "]", lp_p);
 
     // Implementation
-    if ((lv_costGold >= 200)) {
-        SoundPlayForPlayer(SoundLink("ItemReward", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
-        TextExpressionSetToken("Param/Expression/1A43DB62", "A", UnitTypeGetName(lp_itemType));
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lp_p), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lp_p, false))) + TextExpressionAssemble("Param/Expression/1A43DB62")));
-    }
-    else {
-        TextExpressionSetToken("Param/Expression/F7F40A3F", "A", UnitTypeGetName(lp_itemType));
-        UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/F7F40A3F"));
-    }
+    SoundPlayForPlayer(SoundLink("ItemReward", 0), c_maxPlayers, PlayerGroupSingle(lp_p), 100.0, 0.0);
+    TextExpressionSetToken("Param/Expression/F7F40A3F", "A", UnitTypeGetName(lp_itemType));
+    UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/F7F40A3F"));
 }
 
 void gf_GetBonusGold (int lp_p, int lp_gold) {
     // Implementation
-    if ((lp_gold >= 100)) {
-        SoundPlayForPlayer(SoundLink("ItemReward", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
-        SoundPlayForPlayer(SoundLink("ReceiveGold", -1), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
-        TextExpressionSetToken("Param/Expression/1881E837", "A", IntToText(lp_gold));
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(lp_p), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(lp_p, false))) + TextExpressionAssemble("Param/Expression/1881E837")));
-    }
-    else {
-        TextExpressionSetToken("Param/Expression/76408ADB", "A", IntToText(lp_gold));
-        UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/76408ADB"));
-    }
+    SoundPlayForPlayer(SoundLink("ReceiveGold", -1), c_maxPlayers, PlayerGroupSingle(lp_p), 100.0, 0.0);
+    SoundPlayForPlayer(SoundLink("ItemReward", 0), c_maxPlayers, PlayerGroupSingle(lp_p), 100.0, 0.0);
+    TextExpressionSetToken("Param/Expression/76408ADB", "A", IntToText(lp_gold));
+    UIDisplayMessage(PlayerGroupSingle(lp_p), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/76408ADB"));
 }
 
 void gf_UnitInventoryCreate (unit lp_u, unit lp_item) {
@@ -377,14 +365,20 @@ bool gt_GetItem_Func (bool testConds, bool runActions) {
     bool lv_b;
     int lv_bonusGold;
     string lv_bonusItem;
+    int lv_costGoldPerItemLevel;
+    int lv_costLumberPerItemLevel;
+    int lv_minLevel;
+    int lv_maxLevel;
 
     // Variable Initialization
     lv_player = UnitGetOwner(EventUnit());
     lv_rate = RandomInt(1, 100);
+    lv_costGoldPerItemLevel = 30;
+    lv_costLumberPerItemLevel = 1000;
 
     // Conditions
     if (testConds) {
-        if (!((PlayerRace(lv_player) == "Orc"))) {
+        if (!(((gv_boolTestMode == true) || (PlayerRace(lv_player) == "Orc")))) {
             return false;
         }
 
@@ -399,12 +393,27 @@ bool gt_GetItem_Func (bool testConds, bool runActions) {
     }
 
     if ((lv_rate <= (25 + (25 * TechTreeUpgradeCount(lv_player, "ItemLevel", c_techCountCompleteOnly))))) {
-        lv_itemLevel = TruncI((CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "CostResource[" + IntToString(2) + "]", lv_player)/25.0));
+        if ((CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "CostResource[" + IntToString(2) + "]", lv_player) > 0) && (CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "CostResource[" + IntToString(3) + "]", lv_player) == 0)) {
+            lv_itemLevel = TruncI((CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "CostResource[" + IntToString(2) + "]", lv_player)/lv_costGoldPerItemLevel));
+            if ((lv_itemLevel <= 6)) {
+                lv_minLevel = -1;
+                lv_maxLevel = 1;
+            }
+            else {
+                lv_minLevel = -2;
+                lv_maxLevel = 2;
+            }
+        }
+        else {
+            lv_itemLevel = TruncI((CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "CostResource[" + IntToString(3) + "]", lv_player)/lv_costLumberPerItemLevel));
+            lv_minLevel = 0;
+            lv_maxLevel = 1;
+        }
         if ((gv_gameMode != "0002")) {
             while (true) {
                 if ((lv_b == false)) {
                     lv_r = RandomInt(1, CatalogFieldValueCount(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray", lv_player));
-                    if (((CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", lv_player)), "Level", lv_player) >= (lv_itemLevel + -1)) && (CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", lv_player)), "Level", lv_player) <= (lv_itemLevel + 1)))) {
+                    if (((CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", lv_player)), "Level", lv_player) >= (lv_itemLevel + lv_minLevel)) && (CatalogFieldValueGetAsInt(c_gameCatalogItem, UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", lv_player)), "Level", lv_player) <= (lv_itemLevel + lv_maxLevel)))) {
                         lv_bonusItem = UnitTypeFromString(CatalogFieldValueGet(c_gameCatalogUnit, "Item", "TechTreeProducedUnitArray[" + IntToString((lv_r + -1)) + "]", lv_player));
                         UnitInventoryCreate(EventUnit(), lv_bonusItem);
                         gf_GetBonusItem(lv_player, lv_bonusItem);
@@ -420,7 +429,7 @@ bool gt_GetItem_Func (bool testConds, bool runActions) {
             }
         }
         else {
-            lv_bonusGold = ((lv_itemLevel+RandomInt(0, 1))*10);
+            lv_bonusGold = ((lv_itemLevel+RandomInt(0, 1))*5);
             PlayerModifyPropertyInt(lv_player, c_playerPropTerrazine, c_playerPropOperAdd, lv_bonusGold);
             gf_GetBonusGold(lv_player, lv_bonusGold);
         }

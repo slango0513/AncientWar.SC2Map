@@ -645,6 +645,11 @@ DocInfo/PatchNote433=加入新单位混乱兽人萨满。
 DocInfo/PatchNote434=加入新单位萨尔。
 DocInfo/PatchNote435=亡灵：
 DocInfo/PatchNote436=拼凑体提供的护甲减少到1。
+DocInfo/PatchNote437=修复装备强化对萨尔无效的漏洞。
+DocInfo/PatchNote438=艾苏恩精华的物品等级提高到8级。
+DocInfo/PatchNote439=兽人：
+DocInfo/PatchNote440=降低装备强化提供的物品等级（标准模式）和金币（竞技模式）。
+DocInfo/PatchNote441=地震的伤害降低到60。
 Edem/Tip=恶魔猎手
 Edem/Ubertip=提供<c val="FFFFFF">6</c>名哨兵、<c val="FFFFFF">1</c>名恶魔猎手。<n/><n/>防御系单位。<n/><n/>价值：<c val="FFFFFF"><d ref="Unit,Edem1,KillResource[Custom]"/></c><n/><n/>护甲类型：<c val="FFCC00">轻甲</c><n/>生命：<c val="FFFFFF"><d ref="Unit,Edem1,LifeStart"/></c><n/>护甲：<c val="FFFFFF"><d ref="Unit,Edem1,LifeArmor"/></c><n/><n/>移动速度：<c val="FFFFFF"><d ref="Unit,Edem1,Speed"/></c><n/><n/>攻击类型：<c val="FFCC00">普通</c><n/>攻击范围：<c val="FFFFFF">近战</c><n/>伤害：<c val="FFFFFF"><d ref="Effect,nwat1,Amount"/></c><n/>攻击间歇：<c val="FFFFFF"><d ref="Weapon,nwat1,Period" precision="1"/></c><n/><n/>技能：<c val="FFFFFF">永恒之树的赐福</c>、<c val="FFFFFF">法力燃烧</c><n/><n/><c val="FFCC00">能攻击地面单位。</c>
 Effect/Name/AEahManaRegenSuppress=AEahManaRegenSuppress

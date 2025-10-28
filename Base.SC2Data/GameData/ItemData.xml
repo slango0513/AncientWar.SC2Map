@@ -54,7 +54,7 @@
     <CItem id="esaz2" parent="War3_Item">
         <Face value="esaz"/>
         <Class value="MISCELLANEOUS"/>
-        <Level value="6"/>
+        <Level value="8"/>
         <EquipBehaviorArray value="Aegr"/>
         <EquipBehaviorArray value="AegrSpellReduction"/>
     </CItem>

@@ -1291,7 +1291,7 @@
     </CUnit>
     <!--Essence of Aszune-->
     <CUnit id="esaz">
-        <CostResource index="gold" value="120"/>
+        <CostResource index="gold" value="160"/>
         <Item value="esaz2"/>
     </CUnit>
     <!--Huntress-->

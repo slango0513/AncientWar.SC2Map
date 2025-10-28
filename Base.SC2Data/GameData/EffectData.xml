@@ -37,7 +37,7 @@
     </CEffectSet>
     <CEffectDamage id="AOeqDamage">
         <ValidatorArray index="0" removed="1"/>
-        <Amount value="75"/>
+        <Amount value="60"/>
     </CEffectDamage>
     <CEffectEnumArea id="AOeqSearch">
         <SearchFilters value="-;player,allies,air,wall,RawResource,tree,Missile,item,ward,dead,Hidden,invulnerable"/>

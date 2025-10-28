@@ -64,6 +64,7 @@
             <Value>1.38</Value>
             <Value>1.39</Value>
             <Value>1.40</Value>
+            <Value>1.43</Value>
         </Version>
         <Date>
             <Value>7/13/2016</Value>
@@ -104,6 +105,7 @@
             <Value>5/13/2017</Value>
             <Value>6/26/2017</Value>
             <Value>8/7/2017</Value>
+            <Value>8/14/2017</Value>
         </Date>
         <Notes>
             <Value>1,2</Value>
@@ -144,6 +146,7 @@
             <Value>414,415,416,417,418,421</Value>
             <Value>419,420,422,423,424,425</Value>
             <Value>426,427,428,429,430,431,432,433,434,435,436</Value>
+            <Value>437,438,439,440,441</Value>
         </Notes>
     </PatchNote>
 </DocInfo>
