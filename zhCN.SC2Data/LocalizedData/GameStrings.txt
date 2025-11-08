@@ -208,10 +208,10 @@ DebuffImmunityAura/Tip=负面效果防护光环
 DebuffImmunityAura/Ubertip=让周围友军对负面效果免疫。
 DebuffImmunitynfgl/Tip=负面效果防护
 DebuffImmunitynfgl/Ubertip=获得16个憎恶的尸体后，血肉傀儡对负面效果免疫。
-DocInfo/DescLong=亡灵种族与灵魂行者重新上线。<n/>该版本使用麦德三世的魔兽争霸III Mod。<n/>排兵布阵，建造场地的兵将会按书写顺序出现在战场里。<n/>与每个玩家都打过一次后——即单循环赛制，将进行单败淘汰赛。<n/>玩家交流QQ群：417769011。
+DocInfo/DescLong=亡灵种族与灵魂行者重新上线。<n/>该版本使用麦德三世的魔兽争霸III Mod。<n/>排兵布阵，建造场地的兵将会按书写顺序出现在战场里。<n/>与每个玩家都打过一次后——即单循环赛制，将进行单败淘汰赛。<n/>玩家交流Q群：417769011。
 DocInfo/DescShort=任意
 DocInfo/HowToPlayBasic00=使用步兵方阵稳扎稳打，还是利用骑兵冲锋敌人侧翼？
-DocInfo/Name=古代战争 - 魔兽争霸III Mod (GA)
+DocInfo/Name=古代战争 - 魔兽争霸III Mod
 DocInfo/PatchNote001=完成暗夜精灵种族。
 DocInfo/PatchNote002=完成人类种族。
 DocInfo/PatchNote003=调整平衡性。
@@ -454,7 +454,7 @@ DocInfo/PatchNote239=血肉傀儡的价格提高，获得技能负面效果防�
 DocInfo/PatchNote240=死亡骑士获得新技能死亡契约。
 DocInfo/PatchNote241=降低憎恶类单位和绞肉车的伤害。
 DocInfo/PatchNote242=疾病之云造成的疾病现在会传染。
-DocInfo/PatchNote243=操纵死尸的冷却时间减少到30秒。
+DocInfo/PatchNote243=Animate 死尸的冷却时间减少到30秒。
 DocInfo/PatchNote244=吸收法力的冷却时间减少到12秒。
 DocInfo/PatchNote245=修复蝠骑士攻击受到火油效果影响的单位时依然享受攻击加成的漏洞。
 DocInfo/PatchNote246=深渊亡魂类单位的生命值提高，护甲降低，并且不再拥有技能闪避。
@@ -502,7 +502,7 @@ DocInfo/PatchNote287=修复召唤水元素遇到空中单位时不施放的漏�
 DocInfo/PatchNote288=修复灵魂燃烧能被驱散的漏洞。
 DocInfo/PatchNote289=人类：
 DocInfo/PatchNote290=加入新单位阿尔萨斯(剑)。
-DocInfo/PatchNote291=大法师(幽灵)获得新技能霜甲术。
+DocInfo/PatchNote291=Archmage (幽灵)获得新技能霜甲术。
 DocInfo/PatchNote292=提高圣骑士的价格，生命值和伤害。
 DocInfo/PatchNote293=提高龙鹰类单位的伤害。
 DocInfo/PatchNote294=圣光术经过重新设计。
@@ -556,7 +556,7 @@ DocInfo/PatchNote341=亡灵：
 DocInfo/PatchNote342=冰霜巨龙现在会狂怒。
 DocInfo/PatchNote343=疾病不再对亡灵有效。
 DocInfo/PatchNote344=破坏者获得技能负面效果防护。
-DocInfo/PatchNote345=由于星际争霸II的更新造成问题，亡灵种族暂时关闭，在问题解决后会重新开放。
+DocInfo/PatchNote345=由于星际争霸II的更新造成问题，亡灵种族暂时关闭，在问题解决后会重新上线。
 DocInfo/PatchNote346=人类：
 DocInfo/PatchNote347=兽人：
 DocInfo/PatchNote348=加入新单位剑圣。
@@ -580,8 +580,8 @@ DocInfo/PatchNote365=奖励回合获得的木材量减少到原来的80%。
 DocInfo/PatchNote366=修复物品能给到场地上己方单位身上的漏洞。
 DocInfo/PatchNote367=修复巫妖能被占据的漏洞。
 DocInfo/PatchNote368=人类：
-DocInfo/PatchNote369=大法师获得技能辉煌光环，并且不再拥有技能召唤水元素。
-DocInfo/PatchNote370=大法师(幽灵)获得技能召唤水元素，并且不再拥有技能辉煌光环。
+DocInfo/PatchNote369=Archmage 获得技能辉煌光环，并且不再拥有技能召唤水元素。
+DocInfo/PatchNote370=Archmage (幽灵)获得技能召唤水元素，并且不再拥有技能辉煌光环。
 DocInfo/PatchNote371=圣光术不再能够治疗狮鹫骑士。
 DocInfo/PatchNote372=暗夜精灵：
 DocInfo/PatchNote373=回春术的周期治疗效果提高到100。
@@ -643,7 +643,7 @@ DocInfo/PatchNote428=暗夜精灵：
 DocInfo/PatchNote429=复仇之魂的施法范围缩小。
 DocInfo/PatchNote430=兽人：
 DocInfo/PatchNote431=获得新种族特长装备强化。
-DocInfo/PatchNote432=加入新单位兽人大酋长。
+DocInfo/PatchNote432=加入新单位 Orc 大酋长。
 DocInfo/PatchNote433=加入新单位混乱兽人萨满。
 DocInfo/PatchNote434=加入新单位萨尔。
 DocInfo/PatchNote435=亡灵：
@@ -653,7 +653,7 @@ DocInfo/PatchNote438=调整部分物品的等级。
 DocInfo/PatchNote439=兽人：
 DocInfo/PatchNote440=装备强化和掠夺现在是二选一的两个种族特长分支。
 DocInfo/PatchNote441=降低装备强化提供的物品等级（标准模式）和金币（竞技模式）。
-DocInfo/PatchNote442=地震的伤害降低到50。
+DocInfo/PatchNote442=Earthquake 的伤害降低到50。
 DocInfo/PatchNote443=修复单位升级后不可见的漏洞。
 DocInfo/PatchNote444=艾露恩的赐福和艾苏恩精华降低的远程伤害减少到25%。
 Edem/Tip=恶魔猎手
@@ -941,7 +941,7 @@ Param/Value/04BEE6F3=死亡等待
 Param/Value/05267893=
 Param/Value/08D0231A=死亡
 Param/Value/0C743DF6=)+(
-Param/Value/0C8520BB=<c val="FFFF00">玩家交流QQ群：</c>417769011<n/><c val="FFFF00">第三方视频教程：</c>搜索“小杰比艾斯 古代战争”(优酷)
+Param/Value/0C8520BB=<c val="FFFF00">玩家交流Q群：</c>417769011<n/><c val="FFFF00">第三方教程：</c>搜索“小杰比艾斯 古代战争”(优酷)
 Param/Value/0EDF9767=被复活，自定义值[1]=1
 Param/Value/171BD6C0=在本场比赛获得胜利。
 Param/Value/1AAE96FC=场次
@@ -972,10 +972,10 @@ Param/Value/62D1EB4C=
 Param/Value/631C0CCD=控制
 Param/Value/689C4447=剩余
 Param/Value/68AE5752= unitLvP=
-Param/Value/6A6122E9=亡灵种族与灵魂行者重新上线。<n/>古代战争II上线，新种族，新模式！<n/>加入玩家交流QQ群：<c val="FF00FF">417769011</c>，<n/>获得最新信息。
+Param/Value/6A6122E9=亡灵种族与灵魂行者重新上线。<n/>古代战争II上线，新种族，新模式！<n/>加入玩家交流Q群：<c val="FF00FF">417769011</c>，<n/>获得最新信息。
 Param/Value/6A831C96= 
 Param/Value/6E435D9E= 
-Param/Value/793C0C9F=<c val="FFFF00">方阵：</c>你有3个方阵，每个方阵的位置与功能都不同，并且最多容纳6x6=36个单位。超出的单位将成为后备军支援前线。<n/><c val="FFFF00">物品：</c>每个回合开始时会获得一个随机物品，你可以通过鼠标右键拖拽的方式将工人身上的物品放到部队身上，这样部队将会享受物品带来的各种加成。将物品拖拽到货运马能卖掉这个物品。<n/><c val="FFFF00">物品等级：</c>每个物品都有自己的等级。等级越高，售价越贵，一般而言对部队的加成也越强。工人可以提升每个回合获得物品的等级，由于获得物品的数量有限，越早升级物品等级收益越大。<n/><c val="FFFF00">回合战略：</c>1到7回合你将随机遇上某个玩家，不会重复。观察还未与之战斗过的玩家，提前做好相应对策，对获胜有很大帮助。<n/><c val="FFFF00">奖励回合战略：</c>奖励回合是决赛前非常重要的一个环节，获得木材量将直接影响比赛结果。观察他人阵型，通过保存录像实践，有助于设计有效而稳定的布阵。<n/><c val="FFFF00">决赛战略：</c>决赛有很大随机性与变数，但也有规律可循。例如，有经验的玩家会针对在奖励回合获得最多木材的玩家出兵，经济最好的玩家将面临被剩下7人针对的危险。<n/><c val="FFFF00">奇袭(大招)：</c>如果你经济非常落后，可以考虑在决赛前夕采用非常规战术，例如，将所有部队卖掉后只出空军。这类战术带有“要是运气好说不定能赢”的赌博特性和“反正赢不了我也不让你赢”的恶作剧特性，作者是非常推荐的。
+Param/Value/793C0C9F=<c val="FFFF00">方阵：</c>你有3个方阵，每个方阵的位置与功能都不同，并且最多容纳6x6=36个单位。超出的单位将成为后备军支援前线。<n/><c val="FFFF00">物品：</c>每个回合开始时会获得一个随机物品，你可以通过鼠标右键拖拽的方式将工人身上的物品放到部队身上，这样部队将会享受物品带来的各种加成。将物品拖拽到货运马能卖掉这个物品。<n/><c val="FFFF00">物品等级：</c>每个物品都有自己的等级。等级越高，售价越贵，一般而言对部队的加成也越强。工人可以提升每个回合获得物品的等级，由于获得物品的数量有限，越早升级物品等级收益越大。<n/><c val="FFFF00">回合战略：</c>1到7回合你将随机遇上某个玩家，不会重复。观察还未与之战斗过的玩家，提前做好相应对策，对获胜有很大帮助。<n/><c val="FFFF00">奖励回合战略：</c>奖励回合是决赛前非常重要的一个环节，获得木材量将直接影响比赛结果。观察他人阵型，通过保存录像实践，有助于设计有效而稳定的布阵。<n/><c val="FFFF00">决赛战略：</c>决赛有很大随机性与变数，但也有规律可循。例如，有经验的玩家会针对在奖励回合获得最多木材的玩家出兵，经济最好的玩家将面临被剩下7人针对的危险。<n/><c val="FFFF00">奇袭(大招)：</c>如果你经济非常落后，可以考虑在决赛前夕采用非常规战术，例如，将所有部队卖掉后只出空军。这类战术带有“要是运气好说不定能赢”的赌徒特性和“反正赢不了我也不让你赢”的恶作剧特性，作者是非常推荐的。
 Param/Value/7A74AE4A=的
 Param/Value/7A840C97=<c val="FF0000">侧翼</c>
 Param/Value/7C99279E=/
@@ -1007,7 +1007,7 @@ Param/Value/BCD3B42D=奖励 (<c val="00FF00">奖励回合</c>)
 Param/Value/BE944676=为
 Param/Value/BF4879B9=被复活，自定义值[1]=0
 Param/Value/C7AB0A54= PIBattle=
-Param/Value/C8A54DA0=玩家交流QQ群：<c val="FF00FF">417769011</c>，<n/>和其他人一同讨论兵法战略！
+Param/Value/C8A54DA0=玩家交流Q群：<c val="FF00FF">417769011</c>，<n/>和其他人一同讨论兵法战略！
 Param/Value/CAA741DC=击杀
 Param/Value/CB0633EF=掉落
 Param/Value/D0A6DD6E=)<n/>i=
